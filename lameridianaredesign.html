@@ -1,0 +1,1584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Meridiana — Cucina Italiana, East Horsley</title>
+
+<!-- ============================================================
+  LA MERIDIANA — Website redesign
+  Design: FunnelMcQueen
+
+  HANDOFF NOTES (for Claude Code build):
+  1. BRAND COLORS — every color lives in :root below.
+     Eyedrop the exact hexes from the client's logo files and
+     swap them there. Nothing else needs touching.
+  2. FONTS — swap the two font variables in :root if the client
+     insists on the current site fonts.
+  3. MENU / WINE / DOLCI / PIZZE — all dishes below are PLACEHOLDER
+     content shaped like the real thing (dish names taken from
+     the client's own photography; pizzas confirmed via their
+     About page: "our famous pizzas"). Replace with the uploaded
+     menu, wine list and dessert files. Structure is ready:
+     .dish rows, .course blocks, .wine rows with two price cols.
+  4. BOOKING — every element marked data-booking="connect"
+     is a dead button by design. Wire to Dojo/Quandoo/etc.
+     after client approves the design.
+  5. IMAGES — hotlinked from the client's existing Squarespace
+     CDN so the mock shows their real rooms, terrace and food.
+     Full harvested inventory in photo-inventory.md.
+     Re-export and self-host for production.
+  6. HOURS CONFLICT — the client's current site shows THREE
+     different opening-hours versions (homepage vs contact vs
+     about). The card below uses the majority version. Confirm
+     with the client before launch.
+  7. LA STAGIONE — terrace / Sicilian brunch / private hire
+     cards use real offers from their What's On page. Dates and
+     details are placeholders to confirm.
+============================================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Archivo:wght@400;500;600&family=Italianno&display=swap" rel="stylesheet">
+
+<style>
+/* ============ 1. BRAND TOKENS — SWAP HEXES HERE ============ */
+:root{
+  --green:      #16382B;   /* primary brand green (deep bottle) */
+  --green-deep: #0F2A20;   /* darker room shade */
+  --green-soft: #1E4636;   /* raised panels on green */
+  --cream:      #F5EFE2;   /* menu-card stock */
+  --cream-deep: #EBE1CC;   /* aged tint blocks */
+  --brass:      #A98B4F;   /* brass rules & plaques */
+  --brass-hi:   #C9A96A;   /* brass on dark */
+  --tomato:     #BE3B26;   /* punctuation only — the sun-dot */
+  --ink:        #201F19;   /* warm near-black text */
+  --ink-soft:   #5C594D;   /* secondary text on cream */
+  --paper-line: rgba(32,31,25,.16);
+
+  --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --sans:  "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --hand:  "Italianno", "Snell Roundhand", cursive;
+
+  --ease: cubic-bezier(.22,.61,.2,1);
+  --wrap: 1180px;
+}
+
+/* ============ 2. BASE ============ */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--serif);
+  color:var(--ink);
+  background:var(--cream);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+button{font-family:inherit;cursor:pointer;background:none;border:none;color:inherit}
+::selection{background:var(--brass);color:var(--cream)}
+
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 6vw}
+@media(min-width:1300px){.wrap{padding:0 40px}}
+
+/* faint paper grain on cream surfaces — material, not decoration */
+.grain{position:relative}
+.grain::before{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+}
+
+/* ============ 3. TYPE UTILITIES ============ */
+.eyebrow{
+  font-family:var(--sans);
+  font-size:11px;font-weight:600;
+  letter-spacing:.32em;text-transform:uppercase;
+  color:var(--brass);
+  display:flex;align-items:center;gap:14px;
+}
+.eyebrow::before{content:"";width:34px;height:1px;background:var(--brass)}
+.eyebrow.center{justify-content:center}
+.eyebrow.center::after{content:"";width:34px;height:1px;background:var(--brass)}
+
+.display{
+  font-family:var(--serif);
+  font-weight:500;
+  line-height:1.02;
+  letter-spacing:-.01em;
+}
+.hand{font-family:var(--hand);font-weight:400;line-height:1}
+
+/* ============ 4. BUTTON SYSTEM ============ */
+/* Primary — solid, sweep fill on hover */
+.btn{
+  position:relative;display:inline-flex;align-items:center;gap:12px;
+  font-family:var(--sans);font-size:12px;font-weight:600;
+  letter-spacing:.24em;text-transform:uppercase;
+  padding:17px 34px;
+  overflow:hidden;
+  transition:color .45s var(--ease);
+  isolation:isolate;
+}
+.btn .dot{width:5px;height:5px;border-radius:50%;background:currentColor;transition:transform .45s var(--ease)}
+.btn:hover .dot{transform:scale(1.6)}
+.btn::after{ /* sweep */
+  content:"";position:absolute;inset:0;z-index:-1;
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .5s var(--ease);
+}
+.btn:hover::after{transform:scaleX(1)}
+.btn:focus-visible{outline:2px solid var(--tomato);outline-offset:3px}
+
+.btn--brass{background:var(--brass);color:var(--cream)}
+.btn--brass::after{background:var(--tomato)}
+.btn--outline-cream{border:1px solid rgba(245,239,226,.5);color:var(--cream)}
+.btn--outline-cream::after{background:var(--cream)}
+.btn--outline-cream:hover{color:var(--green)}
+.btn--outline-ink{border:1px solid var(--ink);color:var(--ink)}
+.btn--outline-ink::after{background:var(--ink)}
+.btn--outline-ink:hover{color:var(--cream)}
+
+/* Text link — underline draws, sun-dot slides in */
+.tlink{
+  position:relative;display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--sans);font-size:12px;font-weight:600;
+  letter-spacing:.22em;text-transform:uppercase;
+  padding-bottom:6px;color:inherit;
+}
+.tlink::after{
+  content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;
+  background:currentColor;transform:scaleX(.35);transform-origin:left;
+  transition:transform .45s var(--ease);
+}
+.tlink:hover::after{transform:scaleX(1)}
+.tlink .sun{width:6px;height:6px;border-radius:50%;background:var(--tomato);transition:transform .45s var(--ease)}
+.tlink:hover .sun{transform:translateX(4px)}
+
+/* ============ 5. MERIDIAN INSTRUMENT (signature) ============ */
+/* Fixed brass rail on the left; the red sun travels with scroll,
+   like the shadow line of a sundial crossing the day. */
+.meridian{
+  position:fixed;left:34px;top:0;bottom:0;width:1px;
+  background:linear-gradient(to bottom, transparent 0, rgba(169,139,79,.55) 8%, rgba(169,139,79,.55) 92%, transparent 100%);
+  z-index:60;pointer-events:none;
+}
+.meridian .tick{position:absolute;left:-4px;width:9px;height:1px;background:rgba(169,139,79,.55)}
+.meridian .sun{
+  position:absolute;left:50%;top:0;
+  width:9px;height:9px;border-radius:50%;
+  background:var(--tomato);
+  transform:translate(-50%,-50%);
+  box-shadow:0 0 0 4px rgba(190,59,38,.14);
+}
+.meridian .label{
+  position:absolute;left:14px;
+  font-family:var(--sans);font-size:9px;font-weight:600;
+  letter-spacing:.3em;color:var(--brass);
+  transform-origin:left top;transform:rotate(90deg);
+  white-space:nowrap;
+}
+@media(max-width:900px){.meridian{display:none}}
+
+/* ============ 6. NAV ============ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:var(--green);
+  transition:background .4s var(--ease), box-shadow .4s var(--ease);
+}
+.nav.scrolled{background:rgba(245,239,226,.96);box-shadow:0 1px 0 var(--paper-line)}
+.nav__in{
+  max-width:var(--wrap);margin:0 auto;padding:0 6vw;
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+  height:84px;
+  transition:height .4s var(--ease);
+}
+.nav.scrolled .nav__in{height:66px}
+.nav__brand{display:flex;flex-direction:column;line-height:1;flex:none}
+.nav__brand .word{
+  font-family:var(--serif);font-weight:600;font-size:21px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--cream);white-space:nowrap;
+  transition:color .4s var(--ease);
+  position:relative;
+}
+.nav__brand .word i{font-style:normal;position:relative}
+.nav__brand .word i::after{ /* the sun over the final A */
+  content:"";position:absolute;top:-6px;left:50%;transform:translateX(-50%);
+  width:5px;height:5px;border-radius:50%;background:var(--tomato);
+}
+.nav__brand .sub{
+  font-family:var(--sans);font-size:8.5px;font-weight:600;letter-spacing:.3em;
+  text-transform:uppercase;color:var(--brass-hi);margin-top:6px;white-space:nowrap;
+  transition:color .4s var(--ease);
+}
+.nav.scrolled .nav__brand .word{color:var(--ink)}
+.nav.scrolled .nav__brand .sub{color:var(--brass)}
+.nav__right{display:flex;align-items:center;gap:18px;flex:none}
+@media(max-width:1280px){.nav__brand .sub{display:none}}
+.nav__links{display:flex;gap:clamp(16px,2.4vw,36px);align-items:center;flex:none}
+.nav__links a{
+  font-family:var(--sans);font-size:11.5px;font-weight:500;
+  letter-spacing:.18em;text-transform:uppercase;white-space:nowrap;
+  color:var(--cream);position:relative;padding:6px 0;
+  transition:color .4s var(--ease);
+}
+.nav.scrolled .nav__links a{color:var(--ink)}
+.nav__links a::after{
+  content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;
+  background:var(--tomato);transform:scaleX(0);transform-origin:left;
+  transition:transform .35s var(--ease);
+}
+.nav__links a:hover::after,.nav__links a.active::after{transform:scaleX(1)}
+.nav__book{
+  font-family:var(--sans);font-size:11px;font-weight:600;
+  letter-spacing:.2em;text-transform:uppercase;white-space:nowrap;
+  border:1px solid var(--brass-hi);color:var(--cream);
+  padding:12px 22px;position:relative;overflow:hidden;isolation:isolate;
+  transition:color .4s var(--ease), border-color .4s var(--ease);
+}
+.nav__book::after{
+  content:"";position:absolute;inset:0;z-index:-1;background:var(--brass);
+  transform:scaleX(0);transform-origin:left;transition:transform .45s var(--ease);
+}
+.nav__book:hover::after{transform:scaleX(1)}
+.nav__book:hover{color:var(--cream)}
+.nav.scrolled .nav__book{border-color:var(--brass);color:var(--ink)}
+.nav.scrolled .nav__book:hover{color:var(--cream)}
+.nav__burger{display:none}
+
+@media(max-width:1200px){
+  .nav__links{display:none}
+  .nav__burger{
+    display:flex;flex-direction:column;gap:5px;padding:8px;
+  }
+  .nav__burger span{width:24px;height:1.5px;background:var(--cream);transition:.35s var(--ease)}
+  .nav.scrolled .nav__burger span{background:var(--ink)}
+  .nav.open .nav__burger span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+  .nav.open .nav__burger span:nth-child(2){opacity:0}
+  .nav.open .nav__burger span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+  .nav.open .nav__burger span{background:var(--cream)}
+}
+.mobilemenu{
+  position:fixed;inset:0;z-index:90;background:var(--green-deep);
+  display:flex;flex-direction:column;justify-content:center;align-items:center;gap:8px;
+  opacity:0;pointer-events:none;transition:opacity .4s var(--ease);
+}
+.nav.open ~ .mobilemenu{opacity:1;pointer-events:auto}
+.mobilemenu a{
+  font-family:var(--serif);font-size:34px;font-weight:500;color:var(--cream);
+  padding:10px;transform:translateY(14px);opacity:0;
+  transition:transform .5s var(--ease), opacity .5s var(--ease);
+}
+.nav.open ~ .mobilemenu a{transform:none;opacity:1}
+.nav.open ~ .mobilemenu a:nth-child(2){transition-delay:.05s}
+.nav.open ~ .mobilemenu a:nth-child(3){transition-delay:.1s}
+.nav.open ~ .mobilemenu a:nth-child(4){transition-delay:.15s}
+.nav.open ~ .mobilemenu a:nth-child(5){transition-delay:.2s}
+.mobilemenu .hand{color:var(--brass-hi);font-size:44px;margin-bottom:10px}
+.nav.open .nav__brand .word{color:var(--cream)}
+.nav.open .nav__brand .sub{color:var(--brass-hi)}
+.nav.open .nav__book{border-color:var(--brass-hi);color:var(--cream)}
+
+/* ============ 7. HERO ============ */
+.hero{
+  position:relative;min-height:100vh;
+  background:var(--green);color:var(--cream);
+  display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
+  overflow:hidden;
+}
+.hero__text{
+  display:flex;flex-direction:column;justify-content:center;
+  padding:140px 5vw 90px 9vw;
+  position:relative;z-index:2;
+}
+.hero__eyebrow{color:var(--brass-hi);margin-bottom:34px}
+.hero__eyebrow::before{background:var(--brass-hi)}
+.hero h1{
+  font-size:clamp(52px, 6.4vw, 104px);
+  font-weight:500;line-height:.98;letter-spacing:-.015em;
+}
+.hero h1 .line{display:block;overflow:hidden}
+.hero h1 .line > span{display:inline-block;transform:translateY(110%);animation:rise 1s var(--ease) forwards}
+.hero h1 .line:nth-child(2) > span{animation-delay:.12s}
+.hero h1 .line:nth-child(3) > span{animation-delay:.24s}
+.hero h1 em{font-style:italic;font-weight:500;color:var(--brass-hi)}
+@keyframes rise{to{transform:none}}
+
+.hero__rule{ /* the meridian draws itself under the headline */
+  width:0;height:1px;background:var(--brass-hi);
+  margin:40px 0 30px;position:relative;
+  animation:draw 1.1s var(--ease) .55s forwards;
+}
+.hero__rule::after{
+  content:"";position:absolute;right:-4px;top:50%;transform:translate(0,-50%);
+  width:8px;height:8px;border-radius:50%;background:var(--tomato);
+  opacity:0;animation:appear .4s var(--ease) 1.5s forwards;
+}
+@keyframes draw{to{width:min(340px,60%)}}
+@keyframes appear{to{opacity:1}}
+
+.hero__sub{
+  max-width:46ch;font-size:19px;line-height:1.65;color:rgba(245,239,226,.82);
+  opacity:0;transform:translateY(14px);
+  animation:fadeup .8s var(--ease) .8s forwards;
+}
+@keyframes fadeup{to{opacity:1;transform:none}}
+.hero__cta{
+  display:flex;gap:18px;flex-wrap:wrap;margin-top:44px;
+  opacity:0;transform:translateY(14px);
+  animation:fadeup .8s var(--ease) 1s forwards;
+}
+.hero__foot{
+  position:absolute;bottom:34px;left:9vw;right:5vw;
+  display:flex;justify-content:space-between;align-items:center;
+  font-family:var(--sans);font-size:10px;font-weight:600;
+  letter-spacing:.3em;text-transform:uppercase;color:rgba(245,239,226,.55);
+  opacity:0;animation:fadeup .8s var(--ease) 1.3s forwards;
+}
+.hero__foot .scrollcue{display:flex;align-items:center;gap:10px}
+.hero__foot .scrollcue::after{
+  content:"";width:1px;height:34px;background:var(--brass-hi);
+  animation:cue 1.8s var(--ease) infinite;
+  transform-origin:top;
+}
+@keyframes cue{0%{transform:scaleY(0)}45%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
+
+.hero__media{display:flex;align-items:stretch;padding:118px 5vw 88px 0}
+.hero__media-in{
+  position:relative;overflow:hidden;flex:1;min-height:460px;
+  border:1px solid rgba(201,169,106,.35);
+}
+.hero__media .veil{ /* green veil wipes away to reveal the photo */
+  position:absolute;inset:0;background:var(--green);z-index:3;
+  transform-origin:top;animation:unveil 1.2s var(--ease) .35s forwards;
+}
+@keyframes unveil{to{transform:scaleY(0)}}
+.hero__media img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  transform:scale(1.12);
+  animation:settle 2.4s var(--ease) .35s forwards;
+  will-change:transform;
+}
+@keyframes settle{to{transform:scale(1.02)}}
+.hero__media .plate{ /* caption plate, like a brass name plate */
+  position:absolute;left:0;bottom:44px;z-index:4;
+  background:var(--cream);color:var(--ink);
+  font-family:var(--sans);font-size:10px;font-weight:600;
+  letter-spacing:.26em;text-transform:uppercase;
+  padding:13px 22px;
+  border-left:3px solid var(--tomato);
+  opacity:0;transform:translateX(-16px);
+  animation:fadeleft .7s var(--ease) 1.5s forwards;
+}
+@keyframes fadeleft{to{opacity:1;transform:none}}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero__text{padding:150px 8vw 70px}
+  .hero__media{padding:0 8vw 70px}
+  .hero__media-in{min-height:48vh}
+  .hero__foot{position:static;margin-top:60px;padding:0}
+}
+
+/* ============ 8. MARQUEE ============ */
+.marquee{
+  background:var(--cream);
+  border-top:1px solid var(--paper-line);
+  border-bottom:1px solid var(--paper-line);
+  overflow:hidden;padding:20px 0;
+}
+.marquee__track{display:flex;width:max-content;animation:slide 36s linear infinite}
+.marquee:hover .marquee__track{animation-play-state:paused}
+.marquee__track span{
+  font-family:var(--serif);font-style:italic;font-weight:500;
+  font-size:20px;letter-spacing:.06em;color:var(--ink);
+  padding:0 26px;display:flex;align-items:center;gap:52px;white-space:nowrap;
+}
+.marquee__track span::after{
+  content:"";width:6px;height:6px;border-radius:50%;background:var(--tomato);flex:none;
+}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* ============ 9. SECTIONS SHARED ============ */
+.section{padding:130px 0}
+.section--green{background:var(--green);color:var(--cream)}
+.section--deep{background:var(--green-deep);color:var(--cream)}
+.section--tint{background:var(--cream-deep)}
+@media(max-width:900px){.section{padding:90px 0}}
+
+/* reveal on scroll */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv-d1{transition-delay:.08s}.rv-d2{transition-delay:.16s}.rv-d3{transition-delay:.24s}.rv-d4{transition-delay:.32s}
+
+/* sundial tick divider */
+.ticks{display:flex;align-items:center;justify-content:center;gap:9px;margin:26px 0}
+.ticks i{display:block;width:1px;height:10px;background:var(--brass)}
+.ticks i:nth-child(3){height:16px}
+.ticks i:nth-child(3)::after{content:""}
+.ticks .sun{width:6px;height:6px;border-radius:50%;background:var(--tomato)}
+
+/* ============ 10. LA STORIA ============ */
+.storia{display:grid;grid-template-columns:1.05fr .95fr;gap:90px;align-items:center}
+.storia__text h2{font-size:clamp(38px,4vw,58px);font-weight:500;line-height:1.06;margin:26px 0 30px}
+.storia__text h2 em{font-style:italic;color:var(--brass)}
+.storia__text p{font-size:19px;line-height:1.72;color:var(--ink-soft);max-width:54ch;margin-bottom:20px}
+.storia__text p:first-of-type::first-letter{
+  font-size:64px;font-weight:600;float:left;
+  line-height:.8;padding:8px 12px 0 0;color:var(--green);
+}
+.storia__sign{margin-top:36px;display:flex;align-items:baseline;gap:16px}
+.storia__sign .hand{font-size:46px;color:var(--green)}
+.storia__sign .who{
+  font-family:var(--sans);font-size:10px;font-weight:600;
+  letter-spacing:.28em;text-transform:uppercase;color:var(--ink-soft);
+}
+.storia__media{position:relative}
+.storia__media .frame{
+  position:relative;z-index:2;
+  border:1px solid var(--brass);
+  padding:14px;background:var(--cream);
+  transform:rotate(.6deg);
+  transition:transform .6s var(--ease);
+}
+.storia__media .frame:hover{transform:rotate(0deg)}
+.storia__media .frame img{width:100%;height:520px;object-fit:cover}
+.storia__media::after{ /* offset brass shadow-frame */
+  content:"";position:absolute;inset:26px -26px -26px 26px;
+  border:1px solid var(--brass);z-index:1;
+}
+.storia__media .tape{
+  position:absolute;z-index:3;top:-14px;left:50%;transform:translateX(-50%) rotate(-2deg);
+  background:var(--cream-deep);border:1px solid var(--paper-line);
+  font-family:var(--sans);font-size:9.5px;font-weight:600;
+  letter-spacing:.3em;text-transform:uppercase;color:var(--ink-soft);
+  padding:8px 18px;
+}
+@media(max-width:900px){
+  .storia{grid-template-columns:1fr;gap:70px}
+  .storia__media .frame img{height:380px}
+  .storia__media::after{inset:18px -14px -14px 18px}
+}
+
+/* awards plaques */
+.plaques{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:110px}
+.plaque{
+  border:1px solid var(--brass);
+  padding:34px 36px;position:relative;background:var(--cream);
+  display:flex;flex-direction:column;gap:12px;
+  transition:transform .5s var(--ease), box-shadow .5s var(--ease);
+}
+.plaque:hover{transform:translateY(-5px);box-shadow:0 18px 40px -22px rgba(32,31,25,.35)}
+.plaque::before{
+  content:"";position:absolute;top:8px;left:8px;right:8px;bottom:8px;
+  border:1px solid rgba(169,139,79,.4);pointer-events:none;
+}
+.plaque .yr{
+  font-family:var(--sans);font-size:10px;font-weight:600;
+  letter-spacing:.3em;color:var(--tomato);
+}
+.plaque h3{font-size:26px;font-weight:600;line-height:1.2}
+.plaque p{font-family:var(--sans);font-size:12px;letter-spacing:.06em;color:var(--ink-soft)}
+@media(max-width:960px){.plaques{grid-template-columns:1fr}}
+
+/* ============ 11. IL MENU — THE CARD ============ */
+.menuhead{text-align:center;max-width:640px;margin:0 auto 70px}
+.menuhead h2{font-size:clamp(40px,4.6vw,64px);font-weight:500;margin-top:24px}
+.menuhead h2 em{font-style:italic;color:var(--brass-hi)}
+.menuhead p{color:rgba(245,239,226,.72);font-size:18px;margin-top:18px}
+
+.tabs{display:flex;justify-content:center;gap:0;margin-bottom:60px;position:relative;flex-wrap:wrap}
+.tab{
+  font-family:var(--sans);font-size:12px;font-weight:600;
+  letter-spacing:.26em;text-transform:uppercase;
+  color:rgba(245,239,226,.6);
+  padding:15px 34px;position:relative;
+  transition:color .4s var(--ease);
+}
+.tab:hover{color:var(--cream)}
+.tab.active{color:var(--brass-hi)}
+.tab::after{
+  content:"";position:absolute;left:34px;right:34px;bottom:6px;height:1px;
+  background:var(--brass-hi);transform:scaleX(0);transition:transform .45s var(--ease);
+}
+.tab.active::after{transform:scaleX(1)}
+.tab .sun{
+  position:absolute;top:6px;left:50%;transform:translateX(-50%) scale(0);
+  width:5px;height:5px;border-radius:50%;background:var(--tomato);
+  transition:transform .45s var(--ease);
+}
+.tab.active .sun{transform:translateX(-50%) scale(1)}
+
+.card{
+  background:var(--cream);color:var(--ink);
+  max-width:880px;margin:0 auto;
+  padding:clamp(44px,6vw,84px) clamp(26px,6vw,90px);
+  position:relative;
+  box-shadow:0 40px 90px -40px rgba(0,0,0,.5);
+}
+.card::before{ /* inner keyline like printed card stock */
+  content:"";position:absolute;inset:14px;border:1px solid rgba(169,139,79,.45);pointer-events:none;
+}
+.card__brand{text-align:center;margin-bottom:14px}
+.card__brand .word{
+  font-family:var(--serif);font-weight:600;letter-spacing:.2em;
+  text-transform:uppercase;font-size:15px;
+}
+.card__brand .sub{
+  font-family:var(--sans);font-size:8.5px;font-weight:600;
+  letter-spacing:.44em;text-transform:uppercase;color:var(--brass);margin-top:6px;
+}
+
+.pane{display:none}
+.pane.active{display:block;animation:paneIn .6s var(--ease)}
+@keyframes paneIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+.course{margin-top:52px}
+.course:first-of-type{margin-top:36px}
+.course__title{
+  text-align:center;font-size:30px;font-weight:600;letter-spacing:.02em;
+}
+.course__note{
+  text-align:center;font-style:italic;font-size:15px;color:var(--ink-soft);margin-top:4px;
+}
+.dish{
+  display:flex;align-items:baseline;gap:14px;
+  padding:17px 0;
+}
+.dish + .dish{border-top:1px dashed rgba(32,31,25,.12)}
+.dish__name{font-size:21px;font-weight:600;white-space:nowrap}
+.dish__name .v{ /* vegetarian mark */
+  font-family:var(--sans);font-size:9px;font-weight:600;color:var(--brass);
+  vertical-align:super;letter-spacing:.1em;margin-left:4px;
+}
+.dish__lead{flex:1;border-bottom:1px dotted rgba(32,31,25,.4);transform:translateY(-5px);transition:border-color .35s var(--ease)}
+.dish:hover .dish__lead{border-color:var(--tomato)}
+.dish__price{
+  font-family:var(--sans);font-size:14px;font-weight:600;letter-spacing:.04em;
+  transition:transform .35s var(--ease);
+}
+.dish:hover .dish__price{transform:translateX(-3px);color:var(--tomato)}
+.dish__wrapline{width:100%}
+.dish__desc{
+  font-style:italic;font-size:15.5px;color:var(--ink-soft);
+  margin-top:5px;max-width:56ch;
+}
+@media(max-width:640px){
+  .dish{flex-wrap:wrap;gap:8px}
+  .dish__name{white-space:normal;font-size:19px}
+}
+
+/* wine rows — two price columns */
+.winehead{
+  display:grid;grid-template-columns:1fr auto auto;gap:0 34px;
+  font-family:var(--sans);font-size:9.5px;font-weight:600;
+  letter-spacing:.28em;text-transform:uppercase;color:var(--ink-soft);
+  padding:10px 0 2px;
+}
+.winehead span{min-width:46px;text-align:right}
+.winehead span:first-child{grid-column:2}
+.wine{
+  display:grid;grid-template-columns:1fr auto auto;gap:10px 34px;align-items:baseline;
+  padding:15px 0;
+}
+.wine + .wine{border-top:1px dashed rgba(32,31,25,.12)}
+.wine__name{font-size:20px;font-weight:600}
+.wine__from{font-style:italic;font-size:14.5px;color:var(--ink-soft);grid-column:1;margin-top:2px}
+.wine__p{
+  font-family:var(--sans);font-size:14px;font-weight:600;min-width:46px;text-align:right;
+}
+.wine:hover .wine__p{color:var(--tomato)}
+@media(max-width:640px){
+  .winehead{gap:0 22px}
+  .wine{grid-template-columns:1fr auto auto;gap:6px 22px}
+}
+
+.card__foot{
+  margin-top:60px;text-align:center;
+  font-style:italic;font-size:15px;color:var(--ink-soft);
+}
+.card__foot .hand{font-size:40px;color:var(--green);display:block;margin-bottom:6px}
+
+.menu__cta{text-align:center;margin-top:64px}
+
+/* ============ 12. GALLERY — DALLA CUCINA ============ */
+.gal{display:grid;grid-template-columns:repeat(12,1fr);gap:22px;margin-top:70px}
+.gal__item{position:relative;overflow:hidden;background:var(--cream-deep)}
+.gal__item img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform 1.1s var(--ease);
+}
+.gal__item:hover img{transform:scale(1.05)}
+.gal__item .cap{
+  position:absolute;left:0;bottom:0;
+  background:var(--cream);color:var(--ink);
+  font-family:var(--sans);font-size:9.5px;font-weight:600;
+  letter-spacing:.26em;text-transform:uppercase;
+  padding:11px 18px;border-left:3px solid var(--tomato);
+  transform:translateY(100%);transition:transform .5s var(--ease);
+}
+.gal__item:hover .cap{transform:none}
+.gal__item.a{grid-column:span 5;height:420px}
+.gal__item.b{grid-column:span 4;height:420px}
+.gal__item.c{grid-column:span 3;height:420px}
+.gal__item.d{grid-column:span 3;height:340px}
+.gal__item.e{grid-column:span 5;height:340px}
+.gal__item.f{grid-column:span 4;height:340px}
+@media(max-width:900px){
+  .gal{grid-template-columns:1fr 1fr;gap:14px}
+  .gal__item{grid-column:span 1 !important;height:240px !important}
+  .gal__item .cap{transform:none}
+}
+
+/* ============ 13. VISIT / HOURS ============ */
+.visit{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:start}
+.visit h2{font-size:clamp(38px,4vw,58px);font-weight:500;margin:26px 0 20px}
+.visit h2 em{font-style:italic;color:var(--brass)}
+.visit__addr{font-size:19px;line-height:1.7;color:var(--ink-soft);max-width:40ch}
+.visit__contacts{margin-top:34px;display:flex;flex-direction:column;gap:14px}
+.visit__contacts a{
+  font-family:var(--sans);font-size:14px;letter-spacing:.06em;color:var(--ink);
+  display:flex;align-items:center;gap:12px;width:max-content;
+  border-bottom:1px solid transparent;transition:border-color .3s var(--ease);
+}
+.visit__contacts a:hover{border-color:var(--tomato)}
+.visit__contacts .k{
+  font-size:9.5px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--brass);
+  min-width:74px;
+}
+.visit__map{margin-top:40px}
+
+.hours{
+  border:1px solid var(--brass);background:var(--cream);
+  padding:46px 48px;position:relative;
+}
+.hours::before{content:"";position:absolute;inset:9px;border:1px solid rgba(169,139,79,.4);pointer-events:none}
+.hours h3{
+  text-align:center;font-size:24px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+}
+.hours .row{
+  display:flex;justify-content:space-between;align-items:baseline;gap:20px;
+  padding:15px 0;
+}
+.hours .row + .row{border-top:1px dashed rgba(32,31,25,.14)}
+.hours .day{font-size:19px;font-weight:600}
+.hours .time{
+  font-family:var(--sans);font-size:13px;letter-spacing:.05em;color:var(--ink-soft);text-align:right;
+}
+.hours .note{
+  margin-top:26px;text-align:center;font-style:italic;font-size:14.5px;color:var(--ink-soft);
+}
+@media(max-width:900px){
+  .visit{grid-template-columns:1fr;gap:60px}
+  .hours{padding:36px 26px}
+}
+
+/* ============ 14. RESERVATION CTA ============ */
+.cta{text-align:center;position:relative;overflow:hidden}
+.cta .hand{font-size:clamp(54px,7vw,92px);color:var(--brass-hi)}
+.cta h2{
+  font-size:clamp(42px,5.6vw,80px);font-weight:500;line-height:1.02;
+  margin:6px 0 26px;color:var(--cream);
+}
+.cta p{color:rgba(245,239,226,.72);font-size:18px;max-width:52ch;margin:0 auto 44px}
+.cta__btns{display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
+.cta__meridian{ /* horizontal meridian with travelling suns */
+  margin:80px auto 0;max-width:520px;height:1px;background:rgba(169,139,79,.5);
+  position:relative;
+}
+.cta__meridian i{position:absolute;top:-5px;width:1px;height:11px;background:rgba(169,139,79,.5)}
+.cta__meridian .sun{
+  position:absolute;top:-4px;left:0;width:9px;height:9px;border-radius:50%;background:var(--tomato);
+  animation:travel 7s var(--ease) infinite;
+}
+@keyframes travel{
+  0%{left:0}48%{left:calc(100% - 9px)}52%{left:calc(100% - 9px)}100%{left:0}
+}
+
+/* ============ 15. FOOTER ============ */
+.footer{background:var(--cream);border-top:1px solid var(--paper-line);padding:80px 0 40px}
+.footer__grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:50px}
+.footer .word{
+  font-family:var(--serif);font-weight:600;font-size:22px;letter-spacing:.14em;text-transform:uppercase;
+}
+.footer .word i{font-style:normal;position:relative}
+.footer .word i::after{
+  content:"";position:absolute;top:-6px;left:50%;transform:translateX(-50%);
+  width:5px;height:5px;border-radius:50%;background:var(--tomato);
+}
+.footer .tag{font-style:italic;color:var(--ink-soft);margin-top:12px;font-size:16px}
+.footer h4{
+  font-family:var(--sans);font-size:10px;font-weight:600;
+  letter-spacing:.3em;text-transform:uppercase;color:var(--brass);margin-bottom:20px;
+}
+.footer ul{display:flex;flex-direction:column;gap:12px}
+.footer ul a{
+  font-family:var(--sans);font-size:13px;letter-spacing:.04em;color:var(--ink-soft);
+  transition:color .3s var(--ease);
+}
+.footer ul a:hover{color:var(--tomato)}
+.footer__base{
+  margin-top:70px;padding-top:26px;border-top:1px solid var(--paper-line);
+  display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
+  font-family:var(--sans);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);
+}
+@media(max-width:900px){.footer__grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.footer__grid{grid-template-columns:1fr}}
+
+/* ============ 17. PRELOADER CURTAIN ============ */
+.loader{
+  position:fixed;inset:0;z-index:200;background:var(--green-deep);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;
+  transition:transform .7s var(--ease) .1s, visibility 0s .9s;
+}
+.loader .word{
+  font-family:var(--serif);font-weight:600;font-size:clamp(22px,3vw,30px);
+  letter-spacing:.24em;text-transform:uppercase;color:var(--cream);
+  opacity:0;animation:fadeup .6s var(--ease) .1s forwards;
+}
+.loader .sub{
+  font-family:var(--sans);font-size:9px;font-weight:600;letter-spacing:.44em;
+  text-transform:uppercase;color:var(--brass-hi);
+  opacity:0;animation:fadeup .6s var(--ease) .3s forwards;
+}
+.loader .rule{
+  width:0;height:1px;background:var(--brass-hi);position:relative;
+  animation:loaddraw .8s var(--ease) .25s forwards;
+}
+.loader .rule::after{
+  content:"";position:absolute;right:-4px;top:50%;transform:translate(0,-50%);
+  width:7px;height:7px;border-radius:50%;background:var(--tomato);
+}
+@keyframes loaddraw{to{width:180px}}
+body.loaded .loader{transform:translateY(-100%);visibility:hidden}
+
+/* ============ 18. ATMOSPHERE BAND ============ */
+.band{position:relative;height:68vh;min-height:420px;overflow:hidden;background:var(--green-deep)}
+.band img{
+  position:absolute;left:0;top:-15%;width:100%;height:130%;
+  object-fit:cover;will-change:transform;
+}
+.band .shade{position:absolute;inset:0;background:rgba(15,42,32,.5)}
+.band__quote{
+  position:absolute;inset:0;z-index:2;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;color:var(--cream);padding:0 8vw;gap:10px;
+}
+.band__quote .hand{font-size:clamp(42px,5vw,66px);color:var(--brass-hi)}
+.band__quote p{
+  font-size:clamp(30px,4.2vw,54px);font-weight:500;font-style:italic;
+  line-height:1.12;max-width:22ch;
+}
+
+/* ============ 19. LA STAGIONE ============ */
+.stag{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:70px}
+.stagcard{
+  background:var(--cream);border:1px solid var(--paper-line);
+  display:flex;flex-direction:column;
+  transition:transform .5s var(--ease), box-shadow .5s var(--ease);
+}
+.stagcard:hover{transform:translateY(-6px);box-shadow:0 24px 50px -28px rgba(32,31,25,.4)}
+.stagcard__media{height:230px;overflow:hidden;position:relative}
+.stagcard__media img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
+.stagcard:hover .stagcard__media img{transform:scale(1.06)}
+.stagcard__when{
+  position:absolute;top:14px;left:14px;z-index:2;
+  background:var(--cream);color:var(--ink);
+  font-family:var(--sans);font-size:9px;font-weight:600;
+  letter-spacing:.26em;text-transform:uppercase;
+  padding:9px 14px;border-left:3px solid var(--tomato);
+}
+.stagcard__body{padding:30px 28px 34px;display:flex;flex-direction:column;gap:12px;flex:1}
+.stagcard__body h3{font-size:27px;font-weight:600;line-height:1.1}
+.stagcard__body p{font-size:15.5px;font-style:italic;color:var(--ink-soft);line-height:1.6;flex:1}
+.stagcard__body .tlink{color:var(--ink);width:max-content}
+@media(max-width:900px){.stag{grid-template-columns:1fr}}
+
+/* ============ 20. LIGHTBOX ============ */
+.lb{
+  position:fixed;inset:0;z-index:300;background:rgba(15,42,32,.95);
+  display:flex;align-items:center;justify-content:center;padding:5vw;
+  opacity:0;pointer-events:none;transition:opacity .4s var(--ease);
+}
+.lb.open{opacity:1;pointer-events:auto}
+.lb img{max-width:min(1000px,90vw);max-height:78vh;object-fit:contain;border:1px solid var(--brass)}
+.lb .cap{
+  position:absolute;bottom:6vh;left:50%;transform:translateX(-50%);
+  font-family:var(--sans);font-size:10px;font-weight:600;
+  letter-spacing:.3em;text-transform:uppercase;color:var(--cream);white-space:nowrap;
+}
+.lb .x{
+  position:absolute;top:26px;right:30px;
+  font-family:var(--sans);font-size:11px;font-weight:600;
+  letter-spacing:.3em;text-transform:uppercase;color:var(--cream);padding:10px;
+}
+.gal__item{cursor:pointer}
+.nav.open ~ .mobilemenu a:nth-child(6){transition-delay:.25s}
+
+/* image fallback if CDN blocked in preview */
+.imgph{
+  display:flex;align-items:center;justify-content:center;
+  background:var(--cream-deep);color:var(--ink-soft);
+  font-family:var(--sans);font-size:10px;font-weight:600;
+  letter-spacing:.3em;text-transform:uppercase;text-align:center;padding:20px;
+  width:100%;height:100%;
+}
+
+/* keyboard focus, everywhere */
+a:focus-visible,button:focus-visible{outline:2px solid var(--tomato);outline-offset:3px}
+
+/* ============ 16. MOTION SAFETY ============ */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none !important;transition:none !important}
+  .rv{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+  .hero h1 .line > span{transform:none}
+  .hero__rule{width:min(340px,60%)}
+  .hero__rule::after,.hero__sub,.hero__cta,.hero__foot,.hero__media .plate{opacity:1;transform:none}
+  .hero__media .veil{display:none}
+  .hero__media img{transform:scale(1.02)}
+  .loader{display:none}
+  .band img{top:0;height:100%;transform:none !important}
+}
+</style>
+</head>
+<body>
+
+<!-- preloader curtain — lifts once the page is ready -->
+<div class="loader" aria-hidden="true">
+  <span class="word">La Meridiana</span>
+  <span class="rule"></span>
+  <span class="sub">Cucina Italiana · Est. East Horsley</span>
+</div>
+
+<!-- meridian instrument (desktop) -->
+<div class="meridian" aria-hidden="true">
+  <span class="label" style="top:120px">MERIDIANA · 51.278° N</span>
+  <i class="tick" style="top:20%"></i>
+  <i class="tick" style="top:40%"></i>
+  <i class="tick" style="top:60%"></i>
+  <i class="tick" style="top:80%"></i>
+  <span class="sun" id="meridianSun"></span>
+</div>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="nav__in">
+    <a href="#top" class="nav__brand" aria-label="La Meridiana — home">
+      <!-- Replace with client logo SVG if preferred; typographic mark keeps it crisp -->
+      <span class="word">La Meridian<i>a</i></span>
+      <span class="sub">Cucina Italiana · Est. East Horsley</span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#storia">La Storia</a>
+      <a href="#menu">Il Menu</a>
+      <a href="#stagione">Eventi</a>
+      <a href="#cucina">La Cucina</a>
+      <a href="#visita">Visit</a>
+    </nav>
+    <div class="nav__right">
+      <!-- CONNECT: booking engine after client approval -->
+      <button class="nav__book" data-booking="connect">Book a table</button>
+      <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+<div class="mobilemenu" id="mobilemenu">
+  <span class="hand">benvenuti</span>
+  <a href="#storia">La Storia</a>
+  <a href="#menu">Il Menu</a>
+  <a href="#stagione">Eventi</a>
+  <a href="#cucina">La Cucina</a>
+  <a href="#visita">Visit</a>
+</div>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero__text">
+    <p class="eyebrow hero__eyebrow">Ristorante Italiano · Trent'anni in Surrey</p>
+    <h1>
+      <span class="line"><span>A little</span></span>
+      <span class="line"><span><em>slice of Italy,</em></span></span>
+      <span class="line"><span>thirty years strong.</span></span>
+    </h1>
+    <div class="hero__rule" aria-hidden="true"></div>
+    <p class="hero__sub">Hand-rolled pasta, our famous pizzas and a cellar of honest Italian wine — served by one family in the Surrey countryside for over thirty years.</p>
+    <div class="hero__cta">
+      <!-- CONNECT: booking engine after client approval -->
+      <button class="btn btn--brass" data-booking="connect"><span class="dot"></span>Reserve a table</button>
+      <a href="#menu" class="btn btn--outline-cream"><span class="dot"></span>See the menu</a>
+    </div>
+    <div class="hero__foot">
+      <span>Family-run · East Horsley, Surrey</span>
+      <span class="scrollcue">Scroll</span>
+    </div>
+  </div>
+  <div class="hero__media">
+    <div class="hero__media-in">
+      <div class="veil" aria-hidden="true"></div>
+      <!-- Client's existing hero photography, hotlinked for the mock -->
+      <img id="heroImg" src="https://images.squarespace-cdn.com/content/v1/62a8a8e34ccd012c860f9ec2/715a92ba-5636-46d2-9c4b-e715adee3e45/112726_LaMeridiana_Hero.jpg" alt="Inside La Meridiana restaurant">
+      <span class="plate">La sala · East Horsley</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track" id="marqueeTrack">
+    <span>Pasta fresca ogni giorno</span>
+    <span>La terrazza è aperta</span>
+    <span>Restaurant of the Year — South East</span>
+    <span>Sicilian brunch, dal martedì</span>
+    <span>Vini d'Italia</span>
+    <span>Le nostre pizze famose</span>
+  </div>
+</div>
+
+<!-- ============ LA STORIA ============ -->
+<section class="section grain" id="storia">
+  <div class="wrap">
+    <div class="storia">
+      <div class="storia__text">
+        <p class="eyebrow rv">La Storia</p>
+        <h2 class="rv rv-d1">Thirty years, <em>one family</em></h2>
+        <p class="rv rv-d2">For over three decades, one family has kept La Meridiana exactly what it should be: a village trattoria with Surrey manners. The recipes come from home — sauces that simmer all morning, dough rolled by hand, pizzas people drive across the county for — and the welcome comes from here: warm, unhurried, and on first-name terms by your second visit.</p>
+        <p class="rv rv-d3">We named the place after the meridian — the line the sun crosses at midday, when every proper Italian table is already set. Lunch is sacred here. So is dinner. So, frankly, is the bit in between with a glass of something red.</p>
+        <div class="storia__sign rv rv-d4">
+          <span class="hand">la famiglia</span>
+          <span class="who">— La Meridiana, East Horsley</span>
+        </div>
+      </div>
+      <div class="storia__media rv rv-d2">
+        <span class="tape">La sala · Ready for the occasion</span>
+        <div class="frame">
+          <img src="https://images.squarespace-cdn.com/content/v1/62a8a8e34ccd012c860f9ec2/8fac8893-890c-4ab8-9806-fb664ed228c0/PHOTO-2025-02-26-15-25-07.jpg" alt="The dining room dressed for a special occasion">
+        </div>
+      </div>
+    </div>
+
+    <!-- Awards & trust — all real, from the client -->
+    <div class="plaques">
+      <article class="plaque rv">
+        <span class="yr">2022</span>
+        <h3>Restaurant of the Year — South East</h3>
+        <p>The Food Awards England</p>
+      </article>
+      <article class="plaque rv rv-d1">
+        <span class="yr">2025</span>
+        <h3>Best Casual Restaurant in Surrey</h3>
+        <p>Muddy Stilettos Awards</p>
+      </article>
+      <article class="plaque rv rv-d2">
+        <span class="yr">5 / 5</span>
+        <h3>Food Hygiene — Very Good</h3>
+        <p>Food Standards Agency, inspected 2024</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ATMOSPHERE BAND ============ -->
+<section class="band" aria-label="Inside the restaurant">
+  <img data-parallax src="https://images.squarespace-cdn.com/content/v1/62a8a8e34ccd012c860f9ec2/f3670b46-9674-4e85-9872-ed0d0d40ea22/IMG_4545.jpg" alt="Inside La Meridiana">
+  <div class="shade" aria-hidden="true"></div>
+  <div class="band__quote">
+    <span class="hand rv">a mezzogiorno</span>
+    <p class="rv rv-d1">When the sun crosses the meridian, the table is already set.</p>
+  </div>
+</section>
+
+<!-- ============ IL MENU ============ -->
+<section class="section section--green" id="menu">
+  <div class="wrap">
+    <div class="menuhead">
+      <p class="eyebrow center rv" style="color:var(--brass-hi)">Il Menu</p>
+      <h2 class="rv rv-d1">Written daily, <em>cooked slowly</em></h2>
+      <p class="rv rv-d2">One card, three chapters — the kitchen, the cellar, and the sweet ending.</p>
+    </div>
+
+    <div class="tabs rv" role="tablist" aria-label="Menu sections">
+      <button class="tab active" role="tab" aria-selected="true" data-pane="alacarte"><span class="sun"></span>À la carte</button>
+      <button class="tab" role="tab" aria-selected="false" data-pane="vini"><span class="sun"></span>La Cantina</button>
+      <button class="tab" role="tab" aria-selected="false" data-pane="dolci"><span class="sun"></span>I Dolci</button>
+    </div>
+
+    <!-- ============================================================
+      PLACEHOLDER MENU CONTENT
+      Dish names below are pulled from the client's own photography
+      so the mock reads true. Replace with the real menu files
+      in Claude Code. Keep the structure: .course > .dish rows.
+    ============================================================ -->
+    <div class="card grain rv rv-d1">
+      <div class="card__brand">
+        <div class="word">La Meridiana</div>
+        <div class="sub">East Horsley · Surrey</div>
+      </div>
+      <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
+
+      <!-- PANE: À LA CARTE -->
+      <div class="pane active" id="pane-alacarte" role="tabpanel">
+        <div class="course">
+          <h3 class="course__title">Antipasti</h3>
+          <p class="course__note">to begin, as it should be</p>
+          <div style="margin-top:18px">
+            <div class="dish">
+              <div class="dish__wrapline">
+                <div style="display:flex;align-items:baseline;gap:14px">
+                  <span class="dish__name">Arancini di casa</span>
+                  <span class="dish__lead"></span>
+                  <span class="dish__price">9.50</span>
+                </div>
+                <p class="dish__desc">Crisp saffron rice, mozzarella heart, slow tomato sugo</p>
+              </div>
+            </div>
+            <div class="dish">
+              <div class="dish__wrapline">
+                <div style="display:flex;align-items:baseline;gap:14px">
+                  <span class="dish__name">Bruschetta classica <span class="v">V</span></span>
+                  <span class="dish__lead"></span>
+                  <span class="dish__price">8.00</span>
+                </div>
+                <p class="dish__desc">Charred bread, datterini tomatoes, basil, new oil</p>
+              </div>
+            </div>
+            <div class="dish">
+              <div class="dish__wrapline">
+                <div style="display:flex;align-items:baseline;gap:14px">
+                  <span class="dish__name">Cozze alla provinciale</span>
+                  <span class="dish__lead"></span>
+                  <span class="dish__price">11.50</span>
+                </div>
+                <p class="dish__desc">Mussels, white wine, garlic, a little chilli, good bread</p>
+              </div>
+            </div>
+            <div class="dish">
+              <div class="dish__wrapline">
+                <div style="display:flex;align-items:baseline;gap:14px">
+                  <span class="dish__name">Prosciutto e melone</span>
+                  <span class="dish__lead"></span>
+                  <span class="dish__price">10.50</span>
+                </div>
+                <p class="dish__desc">Aged Parma ham, ripe cantaloupe, cracked pepper</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
+
+        <div class="course">
+          <h3 class="course__title">Primi &amp; Secondi</h3>
+          <p class="course__note">pasta rolled this morning, fish bought whole</p>
+          <div style="margin-top:18px">
+            <div class="dish">
+              <div class="dish__wrapline">
+                <div style="display:flex;align-items:baseline;gap:14px">
+                  <span class="dish__name">Risotto ai gamberoni</span>
+                  <span class="dish__lead"></span>
+                  <span class="dish__price">19.50</span>
+                </div>
+                <p class="dish__desc">Carnaroli rice, langoustine, king prawns, cherry tomato</p>
+              </div>
+            </div>
+            <div class="dish">
+              <div class="dish__wrapline">
+                <div style="display:flex;align-items:baseline;gap:14px">
+                  <span class="dish__name">Gamberoni alla griglia</span>
+                  <span class="dish__lead"></span>
+                  <span class="dish__price">23.00</span>
+                </div>
+                <p class="dish__desc">Grilled king prawns, lemon, garlic butter, parsley</p>
+              </div>
+            </div>
+            <div class="dish">
+              <div class="dish__wrapline">
+                <div style="display:flex;align-items:baseline;gap:14px">
+                  <span class="dish__name">Salmone al forno</span>
+                  <span class="dish__lead"></span>
+                  <span class="dish__price">21.00</span>
+                </div>
+                <p class="dish__desc">Oven-roasted salmon, asparagi alla parmigiana, salsa verde</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
+
+        <div class="course">
+          <h3 class="course__title">Le Pizze</h3>
+          <p class="course__note">the ones people drive across the county for</p>
+          <div style="margin-top:18px">
+            <div class="dish">
+              <div class="dish__wrapline">
+                <div style="display:flex;align-items:baseline;gap:14px">
+                  <span class="dish__name">Margherita <span class="v">V</span></span>
+                  <span class="dish__lead"></span>
+                  <span class="dish__price">12.00</span>
+                </div>
+                <p class="dish__desc">San Marzano tomato, fior di latte, basil, olio nuovo</p>
+              </div>
+            </div>
+            <div class="dish">
+              <div class="dish__wrapline">
+                <div style="display:flex;align-items:baseline;gap:14px">
+                  <span class="dish__name">Diavola</span>
+                  <span class="dish__lead"></span>
+                  <span class="dish__price">14.50</span>
+                </div>
+                <p class="dish__desc">Spicy salame, chilli honey, mozzarella, tomato</p>
+              </div>
+            </div>
+            <div class="dish">
+              <div class="dish__wrapline">
+                <div style="display:flex;align-items:baseline;gap:14px">
+                  <span class="dish__name">Quattro Formaggi <span class="v">V</span></span>
+                  <span class="dish__lead"></span>
+                  <span class="dish__price">14.00</span>
+                </div>
+                <p class="dish__desc">Gorgonzola, taleggio, parmigiano, fior di latte</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANE: LA CANTINA (wine list template) -->
+      <div class="pane" id="pane-vini" role="tabpanel">
+        <div class="course">
+          <h3 class="course__title">Bianchi</h3>
+          <p class="course__note">from the cooler slopes</p>
+          <div class="winehead"><span>Glass</span><span>Bottle</span></div>
+          <div>
+            <div class="wine">
+              <span class="wine__name">Gavi di Gavi</span>
+              <span class="wine__p">8.5</span><span class="wine__p">34</span>
+              <span class="wine__from">Cortese · Piemonte</span>
+            </div>
+            <div class="wine">
+              <span class="wine__name">Pinot Grigio</span>
+              <span class="wine__p">7</span><span class="wine__p">28</span>
+              <span class="wine__from">Delle Venezie</span>
+            </div>
+            <div class="wine">
+              <span class="wine__name">Falanghina</span>
+              <span class="wine__p">7.5</span><span class="wine__p">30</span>
+              <span class="wine__from">Campania</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
+
+        <div class="course">
+          <h3 class="course__title">Rossi</h3>
+          <p class="course__note">for the table, for the evening</p>
+          <div class="winehead"><span>Glass</span><span>Bottle</span></div>
+          <div>
+            <div class="wine">
+              <span class="wine__name">Chianti Classico</span>
+              <span class="wine__p">9</span><span class="wine__p">36</span>
+              <span class="wine__from">Sangiovese · Toscana</span>
+            </div>
+            <div class="wine">
+              <span class="wine__name">Primitivo di Manduria</span>
+              <span class="wine__p">8.5</span><span class="wine__p">33</span>
+              <span class="wine__from">Puglia</span>
+            </div>
+            <div class="wine">
+              <span class="wine__name">Barolo</span>
+              <span class="wine__p">—</span><span class="wine__p">62</span>
+              <span class="wine__from">Nebbiolo · Piemonte</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANE: I DOLCI (dessert template) -->
+      <div class="pane" id="pane-dolci" role="tabpanel">
+        <div class="course">
+          <h3 class="course__title">I Dolci</h3>
+          <p class="course__note">made here, finished at the table</p>
+          <div style="margin-top:18px">
+            <div class="dish">
+              <div class="dish__wrapline">
+                <div style="display:flex;align-items:baseline;gap:14px">
+                  <span class="dish__name">Tiramisù della casa</span>
+                  <span class="dish__lead"></span>
+                  <span class="dish__price">8.00</span>
+                </div>
+                <p class="dish__desc">Savoiardi, espresso, mascarpone, bitter cocoa</p>
+              </div>
+            </div>
+            <div class="dish">
+              <div class="dish__wrapline">
+                <div style="display:flex;align-items:baseline;gap:14px">
+                  <span class="dish__name">Panna cotta</span>
+                  <span class="dish__lead"></span>
+                  <span class="dish__price">7.50</span>
+                </div>
+                <p class="dish__desc">Vanilla cream, seasonal fruit from the market</p>
+              </div>
+            </div>
+            <div class="dish">
+              <div class="dish__wrapline">
+                <div style="display:flex;align-items:baseline;gap:14px">
+                  <span class="dish__name">Affogato al caffè</span>
+                  <span class="dish__lead"></span>
+                  <span class="dish__price">6.50</span>
+                </div>
+                <p class="dish__desc">Fior di latte gelato, drowned in hot espresso</p>
+              </div>
+            </div>
+            <div class="dish">
+              <div class="dish__wrapline">
+                <div style="display:flex;align-items:baseline;gap:14px">
+                  <span class="dish__name">Formaggi italiani</span>
+                  <span class="dish__lead"></span>
+                  <span class="dish__price">11.00</span>
+                </div>
+                <p class="dish__desc">Three Italian cheeses, honey, walnuts, carta di musica</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card__foot">
+        <span class="hand">buon appetito</span>
+        Please tell us about allergies — the kitchen will look after you.
+      </div>
+    </div>
+
+    <div class="menu__cta rv">
+      <!-- CONNECT: booking engine after client approval -->
+      <button class="btn btn--outline-cream" data-booking="connect"><span class="dot"></span>Book for lunch or dinner</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LA STAGIONE ============ -->
+<section class="section section--tint grain" id="stagione">
+  <div class="wrap">
+    <p class="eyebrow rv">Eventi · La Stagione</p>
+    <h2 class="display rv rv-d1" style="font-size:clamp(38px,4.4vw,60px);margin-top:24px;max-width:16ch">This summer at <em style="color:var(--brass)">La Meridiana</em></h2>
+
+    <!-- PLACEHOLDER dates/details — confirm current offers with the client -->
+    <div class="stag">
+      <article class="stagcard rv">
+        <div class="stagcard__media">
+          <span class="stagcard__when">Now open</span>
+          <img src="https://images.squarespace-cdn.com/content/v1/62a8a8e34ccd012c860f9ec2/7390fd54-1be4-4811-bf5f-d0bd011cebb3/Terrace+Opening.jpg" alt="The terrace at La Meridiana">
+        </div>
+        <div class="stagcard__body">
+          <h3>La Terrazza</h3>
+          <p>Lunch and dinner under the open sky — seasonal dishes, cold wine, and the long Surrey evening doing the rest.</p>
+          <a class="tlink" href="#visita">Plan your visit <span class="sun"></span></a>
+        </div>
+      </article>
+      <article class="stagcard rv rv-d1">
+        <div class="stagcard__media">
+          <span class="stagcard__when">Tue – Sun · From 10am</span>
+          <img src="https://images.squarespace-cdn.com/content/v1/62a8a8e34ccd012c860f9ec2/642d044e-3f83-4cff-9d55-c74809ae2784/Terrace+Opening+2.jpg" alt="Sicilian brunch on the terrace">
+        </div>
+        <div class="stagcard__body">
+          <h3>Sicilian Brunch</h3>
+          <p>Fresh flavours and the soul of Sicily, served on the terrace. Walk-ins welcome — arrive hungry.</p>
+          <a class="tlink" href="#menu">See the menu <span class="sun"></span></a>
+        </div>
+      </article>
+      <article class="stagcard rv rv-d2">
+        <div class="stagcard__media">
+          <span class="stagcard__when">Private hire</span>
+          <img src="https://images.squarespace-cdn.com/content/v1/62a8a8e34ccd012c860f9ec2/c430526d-42b4-4b62-8b03-15d1c0cefecc/IMG_4546.jpg" alt="The room set for a private event">
+        </div>
+        <div class="stagcard__body">
+          <h3>Your Occasion</h3>
+          <p>Birthdays, weddings, corporate dinners — take the room, with catering. We'll set the meridian to your day.</p>
+          <a class="tlink" href="mailto:contact@lameridiana.co.uk">Enquire <span class="sun"></span></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="section grain" id="cucina">
+  <div class="wrap">
+    <p class="eyebrow rv">Dalla Cucina</p>
+    <h2 class="display rv rv-d1" style="font-size:clamp(38px,4.4vw,60px);margin-top:24px;max-width:14ch">What left the pass <em style="color:var(--brass)">this week</em></h2>
+
+    <div class="gal">
+      <figure class="gal__item a rv">
+        <img src="https://images.squarespace-cdn.com/content/v1/62a8a8e34ccd012c860f9ec2/97e474f4-81a7-4844-b4d2-22a147e048e3/112726_LaMeridiana_Food_RisottoLangostineGamberoniWithCherryTomato.jpg" alt="Risotto with langoustine and king prawns">
+        <figcaption class="cap">Risotto ai gamberoni</figcaption>
+      </figure>
+      <figure class="gal__item b rv rv-d1">
+        <img src="https://images.squarespace-cdn.com/content/v1/62a8a8e34ccd012c860f9ec2/ec56da65-11ac-4b77-aa0d-24a70e8646a3/112726_LaMeridiana_Food_Arancini.jpg" alt="Arancini">
+        <figcaption class="cap">Arancini di casa</figcaption>
+      </figure>
+      <figure class="gal__item c rv rv-d2">
+        <img src="https://images.squarespace-cdn.com/content/v1/62a8a8e34ccd012c860f9ec2/9d041e06-f258-46a2-b22d-2be05cb05497/112726_LaMeridiana_Food_Bruschetta.jpg" alt="Bruschetta">
+        <figcaption class="cap">Bruschetta</figcaption>
+      </figure>
+      <figure class="gal__item d rv">
+        <img src="https://images.squarespace-cdn.com/content/v1/62a8a8e34ccd012c860f9ec2/867a55e4-2a9d-400b-9e7d-aea249f3e6eb/112726_LaMeridiana_Food_CozzeAllaProvinciale.jpg" alt="Mussels alla provinciale">
+        <figcaption class="cap">Cozze alla provinciale</figcaption>
+      </figure>
+      <figure class="gal__item e rv rv-d1">
+        <img src="https://images.squarespace-cdn.com/content/v1/62a8a8e34ccd012c860f9ec2/3ad86e06-fe86-434e-97d2-dd36ef1d79f8/112726_LaMeridiana_Food_Gamberoni.jpg" alt="Grilled king prawns">
+        <figcaption class="cap">Gamberoni</figcaption>
+      </figure>
+      <figure class="gal__item f rv rv-d2">
+        <img src="https://images.squarespace-cdn.com/content/v1/62a8a8e34ccd012c860f9ec2/e732e844-6b26-4125-ad7a-67a852c839aa/112726_LaMeridiana_Food_Salmone.jpg" alt="Roast salmon">
+        <figcaption class="cap">Salmone</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VISIT ============ -->
+<section class="section section--tint grain" id="visita">
+  <div class="wrap">
+    <div class="visit">
+      <div>
+        <p class="eyebrow rv">Vieni a Trovarci</p>
+        <h2 class="rv rv-d1">Twenty minutes off the A3, <em>a world away</em></h2>
+        <p class="visit__addr rv rv-d2">Ockham Road South, East Horsley,<br>Leatherhead, Surrey KT24 6QU</p>
+        <div class="visit__contacts rv rv-d3">
+          <a href="tel:+441483284343"><span class="k">Phone</span>+44 1483 284 343</a>
+          <a href="mailto:contact@lameridiana.co.uk"><span class="k">Email</span>contact@lameridiana.co.uk</a>
+        </div>
+        <div class="visit__map rv rv-d4">
+          <a class="tlink" href="https://www.google.com/maps/search/?api=1&query=La+Meridiana+East+Horsley" target="_blank" rel="noopener">Get directions <span class="sun"></span></a>
+        </div>
+      </div>
+      <div class="hours rv rv-d2">
+        <h3>Orari</h3>
+        <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
+        <!-- NOTE FOR VELO: the client's own site shows three different
+             versions of these hours (homepage vs contact vs about page).
+             This is the majority version — confirm with the client. -->
+        <div class="row"><span class="day">Monday</span><span class="time">Dinner 5:00 – 9:30pm</span></div>
+        <div class="row"><span class="day">Tuesday – Thursday</span><span class="time">Lunch 12 – 3pm · Dinner 5 – 9:30pm</span></div>
+        <div class="row"><span class="day">Friday</span><span class="time">Lunch 12 – 3pm · Dinner 5 – 10:30pm</span></div>
+        <div class="row"><span class="day">Saturday</span><span class="time">All day · 12:00pm – 10:30pm</span></div>
+        <div class="row"><span class="day">Sunday</span><span class="time">All day · 12:00pm – 9:00pm</span></div>
+        <p class="note">Sunday lunch fills quickly — booking is kind to everyone.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RESERVATION CTA ============ -->
+<section class="section section--deep cta">
+  <div class="wrap">
+    <span class="hand rv">la tavola è pronta</span>
+    <h2 class="rv rv-d1">The table is set.</h2>
+    <p class="rv rv-d2">Midday or evening, two of you or twenty — tell us when, and the kitchen will do the rest.</p>
+    <div class="cta__btns rv rv-d3">
+      <!-- CONNECT: booking engine after client approval -->
+      <button class="btn btn--brass" data-booking="connect"><span class="dot"></span>Reserve a table</button>
+      <a class="btn btn--outline-cream" href="tel:+441483284343"><span class="dot"></span>Call the restaurant</a>
+    </div>
+    <div class="cta__meridian rv rv-d4" aria-hidden="true">
+      <i style="left:0"></i><i style="left:25%"></i><i style="left:50%"></i><i style="left:75%"></i><i style="right:0"></i>
+      <span class="sun"></span>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer grain">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <div class="word">La Meridian<i>a</i></div>
+        <p class="tag">A little slice of Italy, in the heart of Surrey.</p>
+      </div>
+      <div>
+        <h4>Ristorante</h4>
+        <ul>
+          <li><a href="#storia">La Storia</a></li>
+          <li><a href="#menu">Il Menu</a></li>
+          <li><a href="#stagione">Eventi</a></li>
+          <li><a href="#cucina">La Cucina</a></li>
+          <li><a href="#visita">Find us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+441483284343">+44 1483 284 343</a></li>
+          <li><a href="mailto:contact@lameridiana.co.uk">contact@lameridiana.co.uk</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=La+Meridiana+East+Horsley" target="_blank" rel="noopener">Ockham Road South, KT24 6QU</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/lameridianar/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.facebook.com/lameridiana.co.uk/" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="https://www.tripadvisor.co.uk" target="_blank" rel="noopener">Tripadvisor</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__base">
+      <span>© <span id="year"></span> La Meridiana. All rights reserved.</span>
+      <span>Design — FunnelMcQueen</span>
+    </div>
+  </div>
+</footer>
+
+<!-- lightbox for gallery -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button class="x" id="lbClose">Close</button>
+  <img id="lbImg" src="" alt="">
+  <span class="cap" id="lbCap"></span>
+</div>
+
+<script>
+(function(){
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* preloader — lift the curtain when ready (hard cap so it never hangs) */
+  function lift(){ document.body.classList.add('loaded'); }
+  if(reduced){ lift(); }
+  else{
+    window.addEventListener('load', function(){ setTimeout(lift, 500); });
+    setTimeout(lift, 2600);
+  }
+
+  /* year */
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* nav state */
+  var nav = document.getElementById('nav');
+  function onScrollNav(){ nav.classList.toggle('scrolled', window.scrollY > 40); }
+  onScrollNav();
+  window.addEventListener('scroll', onScrollNav, {passive:true});
+
+  /* mobile menu */
+  var burger = document.getElementById('burger');
+  var mob = document.getElementById('mobilemenu');
+  burger.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  mob.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      nav.classList.remove('open');
+      burger.setAttribute('aria-expanded','false');
+      document.body.style.overflow='';
+    });
+  });
+
+  /* reveal on scroll */
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, {threshold:.12, rootMargin:'0px 0px -6% 0px'});
+  document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+
+  /* menu tabs */
+  var tabs = document.querySelectorAll('.tab');
+  tabs.forEach(function(t){
+    t.addEventListener('click', function(){
+      tabs.forEach(function(x){ x.classList.remove('active'); x.setAttribute('aria-selected','false'); });
+      t.classList.add('active'); t.setAttribute('aria-selected','true');
+      document.querySelectorAll('.pane').forEach(function(p){ p.classList.remove('active'); });
+      document.getElementById('pane-' + t.dataset.pane).classList.add('active');
+    });
+  });
+
+  /* meridian sun follows scroll */
+  var sun = document.getElementById('meridianSun');
+  function moveSun(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    var p = h > 0 ? window.scrollY / h : 0;
+    sun.style.top = (p * 100) + '%';
+  }
+  if(sun && !reduced){
+    moveSun();
+    window.addEventListener('scroll', function(){ requestAnimationFrame(moveSun); }, {passive:true});
+  }
+
+  /* gentle hero parallax */
+  var heroImg = document.getElementById('heroImg');
+  if(heroImg && !reduced){
+    window.addEventListener('scroll', function(){
+      requestAnimationFrame(function(){
+        var y = Math.min(window.scrollY, window.innerHeight);
+        heroImg.style.transform = 'scale(1.02) translateY(' + (y * 0.08) + 'px)';
+      });
+    }, {passive:true});
+  }
+
+  /* atmosphere band parallax */
+  var pImgs = document.querySelectorAll('[data-parallax]');
+  if(pImgs.length && !reduced){
+    window.addEventListener('scroll', function(){
+      requestAnimationFrame(function(){
+        pImgs.forEach(function(img){
+          var r = img.parentElement.getBoundingClientRect();
+          if(r.bottom < 0 || r.top > window.innerHeight) return;
+          var p = (r.top + r.height/2 - window.innerHeight/2) / window.innerHeight;
+          img.style.transform = 'translateY(' + (p * -60) + 'px)';
+        });
+      });
+    }, {passive:true});
+  }
+
+  /* gallery lightbox */
+  var lb = document.getElementById('lb');
+  var lbImg = document.getElementById('lbImg');
+  var lbCap = document.getElementById('lbCap');
+  function closeLb(){ lb.classList.remove('open'); document.body.style.overflow=''; }
+  document.querySelectorAll('.gal__item').forEach(function(fig){
+    fig.addEventListener('click', function(){
+      var img = fig.querySelector('img');
+      var cap = fig.querySelector('.cap');
+      if(!img) return;
+      lbImg.src = img.src;
+      lbImg.alt = img.alt || '';
+      lbCap.textContent = cap ? cap.textContent : '';
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+  document.getElementById('lbClose').addEventListener('click', closeLb);
+  lb.addEventListener('click', function(e){ if(e.target === lb) closeLb(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeLb(); });
+
+  /* marquee — duplicate track for seamless loop */
+  var track = document.getElementById('marqueeTrack');
+  if(track){ track.innerHTML += track.innerHTML; }
+
+  /* image fallback if CDN blocked in preview */
+  document.querySelectorAll('img').forEach(function(img){
+    img.addEventListener('error', function(){
+      var ph = document.createElement('div');
+      ph.className = 'imgph';
+      ph.textContent = 'Photo — ' + (img.alt || 'La Meridiana');
+      img.replaceWith(ph);
+    });
+  });
+
+  /* booking buttons — intentionally unwired until client sign-off */
+  document.querySelectorAll('[data-booking]').forEach(function(b){
+    b.addEventListener('click', function(e){ e.preventDefault(); });
+  });
+})();
+</script>
+</body>
+</html>
