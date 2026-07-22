@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-display: 'Fraunces Fallback';
+    --font-sans: 'Inter Fallback';
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-panna text-espresso font-sans antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Headings default to the display serif */
+  h1, h2, h3, h4 {
+    @apply font-display;
+    text-wrap: balance;
+  }
+
+  /* Accessible, brand-tinted focus ring for keyboard users */
+  :focus-visible {
+    outline: 3px solid theme('colors.ochre.DEFAULT');
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* Respect users who prefer reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* Consistent page gutters + max width */
+  .container-page {
+    @apply mx-auto w-full max-w-content px-5 sm:px-8;
+  }
+
+  /* Small uppercase label used above section titles (the "eyebrow") */
+  .eyebrow {
+    @apply font-sans text-xs font-semibold uppercase tracking-widelabel text-terracotta;
+  }
+
+  /* Primary call-to-action button */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-terracotta px-6 py-3
+      text-sm font-semibold text-panna-50 shadow-soft transition
+      hover:bg-terracotta-dark focus-visible:outline-offset-4
+      disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  /* Secondary / ghost button on light backgrounds */
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-espresso/25
+      bg-transparent px-6 py-3 text-sm font-semibold text-espresso transition
+      hover:border-espresso/60 hover:bg-espresso/5;
+  }
+
+  /* Ghost button tuned for dark backgrounds (footer, hero overlays) */
+  .btn-ghost-dark {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-panna/40
+      bg-transparent px-6 py-3 text-sm font-semibold text-panna-50 transition
+      hover:border-panna hover:bg-panna/10;
+  }
+
+  /* The consistent photography frame — enforces uniform crop + subtle warm
+     grade so every food photo reads as one set (see README → Photography). */
+  .photo-frame {
+    @apply relative overflow-hidden rounded-card bg-espresso-700;
+  }
+  .photo-frame img {
+    @apply h-full w-full object-cover;
+    /* Uniform warm colour grade applied to ALL food photography for
+       consistency. Tune once here; it cascades everywhere. */
+    filter: saturate(1.03) contrast(1.02) brightness(1.01);
+  }
+
+  /* Section vertical rhythm */
+  .section {
+    @apply py-16 sm:py-20 lg:py-28;
+  }
+}
