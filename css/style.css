@@ -717,16 +717,22 @@ body.loaded .loader{transform:translateY(-100%);visibility:hidden}
   position:absolute;left:0;top:-15%;width:100%;height:130%;
   object-fit:cover;will-change:transform;
 }
-.band .shade{position:absolute;inset:0;background:rgba(15,42,32,.5)}
+.band .shade{position:absolute;inset:0;background:
+  radial-gradient(72% 66% at 50% 52%,
+    rgba(11,28,21,.82) 0%, rgba(11,28,21,.62) 55%, rgba(11,28,21,.5) 100%);}
 .band__quote{
   position:absolute;inset:0;z-index:2;
   display:flex;flex-direction:column;align-items:center;justify-content:center;
   text-align:center;color:var(--cream);padding:0 8vw;gap:10px;
 }
-.band__quote .hand{font-size:clamp(42px,5vw,66px);color:var(--brass-hi)}
+.band__quote .hand{
+  font-size:clamp(42px,5vw,66px);color:var(--brass-hi);
+  text-shadow:0 2px 16px rgba(8,20,15,.6);
+}
 .band__quote p{
   font-size:clamp(30px,4.2vw,54px);font-weight:500;font-style:italic;
   line-height:1.12;max-width:22ch;
+  text-shadow:0 2px 22px rgba(8,20,15,.7),0 1px 4px rgba(8,20,15,.5);
 }
 
 /* ============ 19. LA STAGIONE ============ */
@@ -798,6 +804,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--tomato);outline-off
   .hero__media img{transform:scale(1.02)}
   .loader{display:none}
   .band img{top:0;height:100%;transform:none !important}
+  /* meridian name-dial: show the completed composition, no motion */
+  .namestory .arc{stroke-dashoffset:0}
+  .namestory .noon{transform:none}
+  .namestory .sun{transform:translate(140px,-140px)}
 }
 
 /* ============================================================
@@ -877,3 +887,56 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--tomato);outline-off
 /* Contact "find us" photo, under the directions link */
 .visit__photo{margin-top:28px}
 .visit__photo img{width:100%;height:auto;border:1px solid var(--brass);padding:10px;background:var(--cream)}
+
+/* ============================================================
+   IL NOME — the "La Meridiana" name story + animated sundial.
+   Reuses the meridian motif (brass arc/ticks, red sun-dot); no new system.
+   ============================================================ */
+.namestory{background:var(--green-deep);color:var(--cream);text-align:center}
+.namestory .eyebrow{color:var(--brass-hi);justify-content:center}
+.namestory .eyebrow::before,.namestory .eyebrow::after{background:var(--brass-hi)}
+.namestory h2{
+  font-size:clamp(34px,4.6vw,60px);font-weight:500;line-height:1.04;margin-top:22px;
+}
+.namestory h2 em{font-style:italic;color:var(--brass-hi)}
+.namestory .dial{max-width:440px;margin:40px auto 34px}
+.namestory .dial svg{width:100%;height:auto;overflow:visible;display:block}
+
+.namestory .horizon{stroke:rgba(169,139,79,.45);stroke-width:1}
+.namestory .arc{
+  fill:none;stroke:var(--brass-hi);stroke-width:1.25;
+  stroke-dasharray:440;stroke-dashoffset:440;
+}
+.namestory .ticks-arc line{stroke:rgba(201,169,106,.6);stroke-width:1}
+.namestory .noon{
+  stroke:var(--brass-hi);stroke-width:1;stroke-dasharray:2 5;
+  transform:scaleY(0);transform-box:fill-box;transform-origin:top;
+}
+.namestory .dial-label{
+  fill:var(--brass-hi);font-family:var(--sans);font-size:8.5px;
+  letter-spacing:.34em;text-anchor:middle;
+}
+.namestory .sun{transform:translate(0,0);filter:drop-shadow(0 0 6px rgba(190,59,38,.75))}
+.namestory .sun circle{fill:var(--tomato)}
+
+/* draw-in when the section scrolls into view */
+.namestory.in .arc{animation:dialDraw 1.7s var(--ease) .15s forwards}
+.namestory.in .noon{animation:noonGrow .9s var(--ease) 1.5s forwards}
+.namestory.in .sun{animation:sunUp 2.1s var(--ease) .3s forwards}
+@keyframes dialDraw{to{stroke-dashoffset:0}}
+@keyframes noonGrow{to{transform:scaleY(1)}}
+@keyframes sunUp{
+  0%{transform:translate(0,0)}
+  25%{transform:translate(10.7px,-53.6px)}
+  50%{transform:translate(41px,-99px)}
+  75%{transform:translate(86.4px,-129.3px)}
+  100%{transform:translate(140px,-140px)}
+}
+
+.namestory__lead{
+  font-size:clamp(20px,2.3vw,27px);line-height:1.35;max-width:30ch;margin:0 auto;
+}
+.namestory__lead em{font-style:italic;color:var(--brass-hi)}
+.namestory__sub{
+  margin:22px auto 0;max-width:48ch;font-size:17px;color:rgba(245,239,226,.72);
+}

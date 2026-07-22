@@ -31,13 +31,15 @@ is guessed on the live site without a matching placeholder marker in the HTML.
 > `python3 scripts/build-menu.py`. Never hand-edit inside the MENU markers in menu.html.
 
 ## Assets — DONE ✅
-- [x] Photos harvested, self-hosted in `assets/img/` (12 placed), originals in
+- [x] Photos harvested, self-hosted in `assets/img/` (17 placed), originals in
       `assets/img/originals/`. `width`/`height` + lazy on all; hero eager. Zero hotlinks.
 - [x] Placement map + unused-photo list → `photo-inventory.md`.
+- [x] Eventi tiles: replaced the two dated promo **flyers** (terrace/brunch) with real
+      professional photos (spaghetti & gamberoni, prosciutto e melone) and upgraded the
+      private-hire tile to a wider room shot (`private-hire-room.jpg`).
 - [ ] Optional: add a real Open Graph share image (a wide 1200×630 crop).
-- [ ] Gaps: no clean text-free **terrace** photo (only promo graphics) and no **pizza** photo.
-      Consider adding the 4 unused food shots (asparagi, crab-avocado, prosciutto-melone,
-      tuna-risotto) to the gallery — see photo-inventory.md.
+- [ ] Gap: no clean text-free **outdoor terrace** photo. A quick sunny-service phone
+      shoot is the one asset worth capturing before launch (see photo-inventory.md).
 
 ## Booking (do not wire until client approves)
 - [ ] Reservation buttons are intentionally dead (`data-booking="connect"`).
