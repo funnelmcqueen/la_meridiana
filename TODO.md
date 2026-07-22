@@ -30,27 +30,14 @@ is guessed on the live site without a matching placeholder marker in the HTML.
 > To update the menu later: edit `content/menu.md`, then run
 > `python3 scripts/build-menu.py`. Never hand-edit inside the MENU markers in menu.html.
 
-## Assets (production pass)
-- [x] `loading="lazy"` on all below-the-fold images; hero eager (`fetchpriority="high"`).
-- [ ] **Self-host the photos** — run locally (the CDN is blocked from the build sandbox):
-      `bash scripts/download-images.sh` then `bash scripts/optimise-images.sh`, then commit
-      `assets/img/*.webp`. Step 1 grabs the full asset library (rooms, terrace, all food,
-      logos, awards, gift card); step 2 makes WebP and rewrites the hotlinks. Until then,
-      images load from the Squarespace CDN (works for real visitors).
-- [ ] Add real pixel `width`/`height` to each `<img>` after WebP export (kills layout shift).
-- [ ] Supply a real Open Graph share image (`assets/img/hero-dining-room.webp` ~1200×630).
-- [ ] Missing per inventory: a "pizza" hero shot and a "people/family" photo.
-
-### Photo placement map (best pictures → slots)
-| Local file | Used on | Slot |
-|---|---|---|
-| hero-dining-room.webp | index | Hero (eager) |
-| dining-room-occasion.webp | index / la-storia | La Storia brass frame |
-| interior-atmosphere.webp | index | Atmosphere band |
-| food-risotto-gamberoni.webp | index | Gallery (lead tile) |
-| food-arancini / -bruschetta / -cozze / -gamberoni / -salmone.webp | index | Gallery |
-| terrace.webp / terrace-brunch.webp | index / eventi | La Stagione cards |
-| private-dining.webp | index / eventi | Private hire card |
+## Assets — DONE ✅
+- [x] Photos harvested, self-hosted in `assets/img/` (12 placed), originals in
+      `assets/img/originals/`. `width`/`height` + lazy on all; hero eager. Zero hotlinks.
+- [x] Placement map + unused-photo list → `photo-inventory.md`.
+- [ ] Optional: add a real Open Graph share image (a wide 1200×630 crop).
+- [ ] Gaps: no clean text-free **terrace** photo (only promo graphics) and no **pizza** photo.
+      Consider adding the 4 unused food shots (asparagi, crab-avocado, prosciutto-melone,
+      tuna-risotto) to the gallery — see photo-inventory.md.
 
 ## Booking (do not wire until client approves)
 - [ ] Reservation buttons are intentionally dead (`data-booking="connect"`).

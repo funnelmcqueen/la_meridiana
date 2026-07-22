@@ -13,40 +13,9 @@
 <meta property="og:description" content="Family-run Italian restaurant in East Horsley, Surrey for over 30 years. Hand-rolled pasta, famous pizzas and an honest Italian cellar.">
 <meta property="og:url" content="https://lameridiana.co.uk/">
 <meta property="og:locale" content="en_GB">
-<meta property="og:image" content="https://lameridiana.co.uk/assets/img/hero-dining-room.webp">
+<meta property="og:image" content="https://lameridiana.co.uk/assets/img/hero-table-spread.jpg">
 <meta name="twitter:card" content="summary_large_image">
 
-<!-- ============================================================
-  LA MERIDIANA — Website redesign
-  Design: FunnelMcQueen
-
-  HANDOFF NOTES (for Claude Code build):
-  1. BRAND COLORS — every color lives in :root below.
-     Eyedrop the exact hexes from the client's logo files and
-     swap them there. Nothing else needs touching.
-  2. FONTS — swap the two font variables in :root if the client
-     insists on the current site fonts.
-  3. MENU / WINE / DOLCI / PIZZE — all dishes below are PLACEHOLDER
-     content shaped like the real thing (dish names taken from
-     the client's own photography; pizzas confirmed via their
-     About page: "our famous pizzas"). Replace with the uploaded
-     menu, wine list and dessert files. Structure is ready:
-     .dish rows, .course blocks, .wine rows with two price cols.
-  4. BOOKING — every element marked data-booking="connect"
-     is a dead button by design. Wire to Dojo/Quandoo/etc.
-     after client approves the design.
-  5. IMAGES — hotlinked from the client's existing Squarespace
-     CDN so the mock shows their real rooms, terrace and food.
-     Full harvested inventory in photo-inventory.md.
-     Re-export and self-host for production.
-  6. HOURS CONFLICT — the client's current site shows THREE
-     different opening-hours versions (homepage vs contact vs
-     about). The card below uses the majority version. Confirm
-     with the client before launch.
-  7. LA STAGIONE — terrace / Sicilian brunch / private hire
-     cards use real offers from their What's On page. Dates and
-     details are placeholders to confirm.
-============================================================ -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -67,7 +36,7 @@
   "priceRange": "££",
   "telephone": "+441483284343",
   "email": "contact@lameridiana.co.uk",
-  "image": "https://lameridiana.co.uk/assets/img/hero-dining-room.webp",
+  "image": "https://lameridiana.co.uk/assets/img/hero-table-spread.jpg",
   "hasMenu": "https://lameridiana.co.uk/menu",
   "acceptsReservations": "True",
   "address": {
@@ -176,7 +145,7 @@
     <div class="hero__media-in">
       <div class="veil" aria-hidden="true"></div>
       <!-- Client's existing hero photography, hotlinked for the mock -->
-      <img fetchpriority="high" id="heroImg" src="assets/img/hero-dining-room.webp" alt="Inside La Meridiana restaurant">
+      <img id="heroImg" src="assets/img/hero-table-spread.jpg" alt="An overhead spread of La Meridiana’s Italian dishes — mussels, bruschetta, arancini and more" width="1600" height="1200" fetchpriority="high">
       <span class="plate">La sala · East Horsley</span>
     </div>
   </div>
@@ -211,7 +180,7 @@
       <div class="storia__media rv rv-d2">
         <span class="tape">La sala · Ready for the occasion</span>
         <div class="frame">
-          <img loading="lazy" src="assets/img/room-occasion.webp" alt="The dining room dressed for a special occasion">
+          <img src="assets/img/the-team.jpg" alt="The La Meridiana team gathered around a table in the dining room" width="1080" height="949" loading="lazy">
         </div>
       </div>
     </div>
@@ -239,7 +208,7 @@
 
 <!-- ============ ATMOSPHERE BAND ============ -->
 <section class="band" aria-label="Inside the restaurant">
-  <img loading="lazy" data-parallax src="assets/img/interior-1.webp" alt="Inside La Meridiana">
+  <img data-parallax src="assets/img/interior-dining-room.jpg" alt="La Meridiana’s dining room, set with white-linen tables" width="1600" height="900" loading="lazy">
   <div class="shade" aria-hidden="true"></div>
   <div class="band__quote">
     <span class="hand rv">a mezzogiorno</span>
@@ -526,7 +495,7 @@
       <article class="stagcard rv">
         <div class="stagcard__media">
           <span class="stagcard__when">Now open</span>
-          <img loading="lazy" src="assets/img/terrace-1.webp" alt="The terrace at La Meridiana">
+          <img src="assets/img/terrace-opening.jpg" alt="La Meridiana’s terrace — outdoor Italian dining in East Horsley" width="1000" height="1500" loading="lazy">
         </div>
         <div class="stagcard__body">
           <h3>La Terrazza</h3>
@@ -537,7 +506,7 @@
       <article class="stagcard rv rv-d1">
         <div class="stagcard__media">
           <span class="stagcard__when">Tue – Sun · From 10am</span>
-          <img loading="lazy" src="assets/img/terrace-2.webp" alt="Sicilian brunch on the terrace">
+          <img src="assets/img/sicilian-brunch.jpg" alt="Sicilian Brunch at La Meridiana, served on the terrace" width="1000" height="1500" loading="lazy">
         </div>
         <div class="stagcard__body">
           <h3>Sicilian Brunch</h3>
@@ -548,7 +517,7 @@
       <article class="stagcard rv rv-d2">
         <div class="stagcard__media">
           <span class="stagcard__when">Private hire</span>
-          <img loading="lazy" src="assets/img/room-private-event.webp" alt="The room set for a private event">
+          <img src="assets/img/private-dining-room.jpg" alt="A La Meridiana dining room laid for a private event" width="1000" height="666" loading="lazy">
         </div>
         <div class="stagcard__body">
           <h3>Your Occasion</h3>
@@ -566,30 +535,42 @@
     <p class="eyebrow rv">Dalla Cucina</p>
     <h2 class="display rv rv-d1" style="font-size:clamp(38px,4.4vw,60px);margin-top:24px;max-width:14ch">What left the pass <em style="color:var(--brass)">this week</em></h2>
 
-    <div class="gal">
+        <div class="gal">
       <figure class="gal__item a rv">
-        <img loading="lazy" src="assets/img/food-risotto-gamberoni.webp" alt="Risotto with langoustine and king prawns">
+        <img src="assets/img/food-risotto-gamberoni.jpg" alt="Risotto with langoustine and king prawns" width="900" height="675" loading="lazy">
         <figcaption class="cap">Risotto ai gamberoni</figcaption>
       </figure>
       <figure class="gal__item b rv rv-d1">
-        <img loading="lazy" src="assets/img/food-arancini.webp" alt="Arancini">
-        <figcaption class="cap">Arancini di casa</figcaption>
+        <img src="assets/img/food-pizza.jpg" alt="A stone-baked pizza with tomato, mozzarella and basil" width="900" height="600" loading="lazy">
+        <figcaption class="cap">Le nostre pizze</figcaption>
       </figure>
       <figure class="gal__item c rv rv-d2">
-        <img loading="lazy" src="assets/img/food-bruschetta.webp" alt="Bruschetta">
+        <img src="assets/img/food-bruschetta.jpg" alt="Bruschetta topped with tomato, basil and mozzarella" width="900" height="675" loading="lazy">
         <figcaption class="cap">Bruschetta</figcaption>
       </figure>
       <figure class="gal__item d rv">
-        <img loading="lazy" src="assets/img/food-cozze.webp" alt="Mussels alla provinciale">
+        <img src="assets/img/food-cozze.jpg" alt="Mussels (cozze alla provinciale) in tomato and white wine" width="900" height="675" loading="lazy">
         <figcaption class="cap">Cozze alla provinciale</figcaption>
       </figure>
       <figure class="gal__item e rv rv-d1">
-        <img loading="lazy" src="assets/img/food-gamberoni.webp" alt="Grilled king prawns">
-        <figcaption class="cap">Gamberoni</figcaption>
+        <img src="assets/img/food-crab-avocado.jpg" alt="Smashed avocado topped with crab meat and microgreens" width="900" height="675" loading="lazy">
+        <figcaption class="cap">Avocado e granchio</figcaption>
       </figure>
       <figure class="gal__item f rv rv-d2">
-        <img loading="lazy" src="assets/img/food-salmone.webp" alt="Roast salmon">
+        <img src="assets/img/food-salmone.jpg" alt="Roasted salmon fillet" width="900" height="675" loading="lazy">
         <figcaption class="cap">Salmone</figcaption>
+      </figure>
+      <figure class="gal__item g rv">
+        <img src="assets/img/food-gamberoni.jpg" alt="Grilled king prawns with garlic and chilli" width="900" height="675" loading="lazy">
+        <figcaption class="cap">Gamberoni</figcaption>
+      </figure>
+      <figure class="gal__item h rv rv-d1">
+        <img src="assets/img/food-arancini.jpg" alt="Golden fried arancini on a bed of tomato sauce" width="900" height="675" loading="lazy">
+        <figcaption class="cap">Arancini di casa</figcaption>
+      </figure>
+      <figure class="gal__item i rv rv-d2">
+        <img src="assets/img/food-cannoli.jpg" alt="Sicilian cannoli filled with sweet ricotta" width="900" height="787" loading="lazy">
+        <figcaption class="cap">Cannoli siciliani</figcaption>
       </figure>
     </div>
   </div>

@@ -860,3 +860,20 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--tomato);outline-off
 .winehead.w3 span:first-child{grid-column:2}
 .wine.w3 .wine__from{grid-column:1}
 @media(max-width:640px){ .winehead.w3, .wine.w3{gap:6px 12px} .winehead.w3 span,.wine.w3 .wine__p{min-width:38px} }
+
+/* Gallery third row (expanded to 9 tiles) */
+.gal__item.g{grid-column:span 4;height:380px}
+.gal__item.h{grid-column:span 4;height:380px}
+.gal__item.i{grid-column:span 4;height:380px}
+
+/* Award-win photo (la-storia) — framed portrait beneath the plaques */
+.award-photo{margin:64px auto 0;max-width:340px;text-align:center}
+.award-photo img{width:100%;height:auto;border:1px solid var(--brass);padding:12px;background:var(--cream)}
+.award-photo figcaption{
+  margin-top:16px;font-family:var(--sans);font-size:11px;font-weight:600;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);
+}
+
+/* Contact "find us" photo, under the directions link */
+.visit__photo{margin-top:28px}
+.visit__photo img{width:100%;height:auto;border:1px solid var(--brass);padding:10px;background:var(--cream)}

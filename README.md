@@ -27,16 +27,11 @@ Italianno. Buttons: `.btn--brass`, `.btn--outline-*`, `.tlink`. The meridian mot
 (brass line + red sun-dot, sundial ticks) is the signature. Page-specific styles are
 at the end of `style.css` under a comment header.
 
-## Photos (self-host — two steps)
-Images currently load from the client's Squarespace CDN. To self-host as WebP
-(per the brief), run locally where the CDN is reachable:
-```bash
-bash scripts/download-images.sh    # 1. grab all raw assets → assets/img/
-bash scripts/optimise-images.sh    # 2. → sized WebP + rewrite hotlinks in *.html
-```
-Step 1 needs `curl`; step 2 needs `cwebp` (or ImageMagick). Then commit
-`assets/img/*.webp` and the updated HTML. (Couldn't run here — the CDN is blocked
-from the build sandbox.)
+## Photos
+All photography is **self-hosted** in `assets/img/` (resized, compressed JPEGs
+with `width`/`height` + lazy-loading; hero is eager). Pristine originals are kept
+untouched in `assets/img/originals/`. See `photo-inventory.md` for the placement
+map and the list of harvested photos not yet used. No external image hotlinks.
 
 ## Content
 - `content/client-info.md` — verified client facts (the only source of truth for facts).

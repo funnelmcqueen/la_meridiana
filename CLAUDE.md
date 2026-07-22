@@ -40,7 +40,7 @@ Refactor the single-page design into a multi-page static site:
 - Anything unknown = clearly marked placeholder + entry in TODO.md.
 
 ## Production requirements
-- Images: download every `photo-inventory.md` asset → WebP (~80), max 1600px full-bleed / 800px cards → `/assets/img/` with clean names (`hero-dining-room.webp`), replace all Squarespace hotlinks. Add `width`/`height` + `loading="lazy"` below the fold (hero eager).
+- Images: download every `photo-inventory.md` asset → WebP (~80), max 1600px full-bleed / 800px cards → `/assets/img/` with clean names (`hero-dining-room.webp`), replace all legacy CDN hotlinks. Add `width`/`height` + `loading="lazy"` below the fold (hero eager).
 - SEO: unique `<title>`/meta description per page; Open Graph; canonical URLs; favicon from logo; one `<h1>` per page with logical heading tree.
 - Schema: JSON-LD `Restaurant` on index.html — name, address, geo, phone, `servesCuisine: Italian`, `openingHoursSpecification`, URL, `hasMenu` → menu.html.
 - Redirects & URLs: `vercel.json` in repo root (cleanUrls + trailingSlash:false + the redirect map). `/delivery` and `/fresh-pasta-1` are temporary redirects on purpose (Phase 2 pages).
@@ -58,7 +58,7 @@ Every reservation button stays a dead button marked `data-booking="connect"`. Do
 
 ## Definition of done
 - Every page uses only `:root` colors and the existing type/button/animation systems.
-- Zero Squarespace hotlinks; all images local WebP with dimensions.
+- Zero legacy CDN hotlinks; all images local WebP with dimensions.
 - Nav readable and non-overlapping 320px→4K; burger below 1200px.
 - Menu content matches uploaded files exactly, with TODOs for anything unconfirmed.
 - Reduced-motion, keyboard focus, and alt text intact everywhere.
