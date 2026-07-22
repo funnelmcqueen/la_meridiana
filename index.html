@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Meridiana — Italian Restaurant in East Horsley, Surrey</title>
+<meta name="description" content="Family-run Italian restaurant in East Horsley, Surrey for over 30 years. Hand-rolled pasta, famous pizzas and an honest Italian cellar. Award-winning — Restaurant of the Year South East 2022, Best Casual Restaurant in Surrey 2025.">
+<link rel="canonical" href="https://lameridiana.co.uk/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="restaurant">
+<meta property="og:site_name" content="La Meridiana">
+<meta property="og:title" content="La Meridiana — Italian Restaurant in East Horsley, Surrey">
+<meta property="og:description" content="Family-run Italian restaurant in East Horsley, Surrey for over 30 years. Hand-rolled pasta, famous pizzas and an honest Italian cellar.">
+<meta property="og:url" content="https://lameridiana.co.uk/">
+<meta property="og:locale" content="en_GB">
+<meta property="og:image" content="https://lameridiana.co.uk/assets/img/hero-dining-room.webp">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- ============================================================
+  LA MERIDIANA — Website redesign
+  Design: FunnelMcQueen
+
+  HANDOFF NOTES (for Claude Code build):
+  1. BRAND COLORS — every color lives in :root below.
+     Eyedrop the exact hexes from the client's logo files and
+     swap them there. Nothing else needs touching.
+  2. FONTS — swap the two font variables in :root if the client
+     insists on the current site fonts.
+  3. MENU / WINE / DOLCI / PIZZE — all dishes below are PLACEHOLDER
+     content shaped like the real thing (dish names taken from
+     the client's own photography; pizzas confirmed via their
+     About page: "our famous pizzas"). Replace with the uploaded
+     menu, wine list and dessert files. Structure is ready:
+     .dish rows, .course blocks, .wine rows with two price cols.
+  4. BOOKING — every element marked data-booking="connect"
+     is a dead button by design. Wire to Dojo/Quandoo/etc.
+     after client approves the design.
+  5. IMAGES — hotlinked from the client's existing Squarespace
+     CDN so the mock shows their real rooms, terrace and food.
+     Full harvested inventory in photo-inventory.md.
+     Re-export and self-host for production.
+  6. HOURS CONFLICT — the client's current site shows THREE
+     different opening-hours versions (homepage vs contact vs
+     about). The card below uses the majority version. Confirm
+     with the client before launch.
+  7. LA STAGIONE — terrace / Sicilian brunch / private hire
+     cards use real offers from their What's On page. Dates and
+     details are placeholders to confirm.
+============================================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Archivo:wght@400;500;600&family=Italianno&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+
+<!-- Restaurant structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "@id": "https://lameridiana.co.uk/#restaurant",
+  "name": "La Meridiana",
+  "description": "Family-run Italian restaurant in East Horsley, Surrey for over 30 years.",
+  "url": "https://lameridiana.co.uk/",
+  "servesCuisine": "Italian",
+  "priceRange": "££",
+  "telephone": "+441483284343",
+  "email": "contact@lameridiana.co.uk",
+  "image": "https://lameridiana.co.uk/assets/img/hero-dining-room.webp",
+  "hasMenu": "https://lameridiana.co.uk/menu",
+  "acceptsReservations": "True",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Ockham Road South",
+    "addressLocality": "East Horsley",
+    "addressRegion": "Surrey",
+    "postalCode": "KT24 6QU",
+    "addressCountry": "GB"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 51.278, "longitude": -0.433 },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Monday", "opens": "17:00", "closes": "21:30" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday"], "opens": "12:00", "closes": "15:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday"], "opens": "17:00", "closes": "21:30" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "12:00", "closes": "22:30" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "12:00", "closes": "22:30" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "12:00", "closes": "21:00" }
+  ],
+  "award": [
+    "Restaurant of the Year, South East — The Food Awards England 2022",
+    "Best Casual Restaurant in Surrey — Muddy Stilettos 2025"
+  ],
+  "sameAs": [
+    "https://www.instagram.com/lameridianar/",
+    "https://www.facebook.com/lameridiana.co.uk/",
+    "https://www.tripadvisor.co.uk"
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- preloader curtain — lifts once the page is ready -->
+<div class="loader" aria-hidden="true">
+  <span class="word">La Meridiana</span>
+  <span class="rule"></span>
+  <span class="sub">Cucina Italiana · Est. East Horsley</span>
+</div>
+
+<!-- meridian instrument (desktop) -->
+<div class="meridian" aria-hidden="true">
+  <span class="label" style="top:120px">MERIDIANA · 51.278° N</span>
+  <i class="tick" style="top:20%"></i>
+  <i class="tick" style="top:40%"></i>
+  <i class="tick" style="top:60%"></i>
+  <i class="tick" style="top:80%"></i>
+  <span class="sun" id="meridianSun"></span>
+</div>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="nav__in">
+    <a href="index.html" class="nav__brand" aria-label="La Meridiana — home">
+      <!-- Replace with client logo SVG if preferred; typographic mark keeps it crisp -->
+      <span class="word">La Meridian<i>a</i></span>
+      <span class="sub">Cucina Italiana · Est. East Horsley</span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="la-storia.html">La Storia</a>
+      <a href="menu.html">Il Menu</a>
+      <a href="eventi.html">Eventi</a>
+      <a href="contact.html">Contatti</a>
+    </nav>
+    <div class="nav__right">
+      <!-- CONNECT: booking engine after client approval -->
+      <button class="nav__book" data-booking="connect">Book a table</button>
+      <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+<div class="mobilemenu" id="mobilemenu">
+  <span class="hand">benvenuti</span>
+  <a href="la-storia.html">La Storia</a>
+  <a href="menu.html">Il Menu</a>
+  <a href="eventi.html">Eventi</a>
+  <a href="contact.html">Contatti</a>
+</div>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero__text">
+    <p class="eyebrow hero__eyebrow">Ristorante Italiano · Trent'anni in Surrey</p>
+    <h1>
+      <span class="line"><span>A little</span></span>
+      <span class="line"><span><em>slice of Italy,</em></span></span>
+      <span class="line"><span>thirty years strong.</span></span>
+    </h1>
+    <div class="hero__rule" aria-hidden="true"></div>
+    <p class="hero__sub">Hand-rolled pasta, our famous pizzas and a cellar of honest Italian wine — served by one family in the Surrey countryside for over thirty years.</p>
+    <div class="hero__cta">
+      <!-- CONNECT: booking engine after client approval -->
+      <button class="btn btn--brass" data-booking="connect"><span class="dot"></span>Reserve a table</button>
+      <a href="#menu" class="btn btn--outline-cream"><span class="dot"></span>See the menu</a>
+    </div>
+    <div class="hero__foot">
+      <span>Family-run · East Horsley, Surrey</span>
+      <span class="scrollcue">Scroll</span>
+    </div>
+  </div>
+  <div class="hero__media">
+    <div class="hero__media-in">
+      <div class="veil" aria-hidden="true"></div>
+      <!-- Client's existing hero photography, hotlinked for the mock -->
+      <img fetchpriority="high" id="heroImg" src="assets/img/hero-dining-room.webp" alt="Inside La Meridiana restaurant">
+      <span class="plate">La sala · East Horsley</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track" id="marqueeTrack">
+    <span>Pasta fresca ogni giorno</span>
+    <span>La terrazza è aperta</span>
+    <span>Restaurant of the Year — South East</span>
+    <span>Sicilian brunch, dal martedì</span>
+    <span>Vini d'Italia</span>
+    <span>Le nostre pizze famose</span>
+  </div>
+</div>
+
+<!-- ============ LA STORIA ============ -->
+<section class="section grain" id="storia">
+  <div class="wrap">
+    <div class="storia">
+      <div class="storia__text">
+        <p class="eyebrow rv">La Storia</p>
+        <h2 class="rv rv-d1">Thirty years, <em>one family</em></h2>
+        <p class="rv rv-d2">For over three decades, one family has kept La Meridiana exactly what it should be: a village trattoria with Surrey manners. The recipes come from home — sauces that simmer all morning, dough rolled by hand, pizzas people drive across the county for — and the welcome comes from here: warm, unhurried, and on first-name terms by your second visit.</p>
+        <p class="rv rv-d3">We named the place after the meridian — the line the sun crosses at midday, when every proper Italian table is already set. Lunch is sacred here. So is dinner. So, frankly, is the bit in between with a glass of something red.</p>
+        <div class="storia__sign rv rv-d4">
+          <span class="hand">la famiglia</span>
+          <span class="who">— La Meridiana, East Horsley</span>
+        </div>
+      </div>
+      <div class="storia__media rv rv-d2">
+        <span class="tape">La sala · Ready for the occasion</span>
+        <div class="frame">
+          <img loading="lazy" src="assets/img/room-occasion.webp" alt="The dining room dressed for a special occasion">
+        </div>
+      </div>
+    </div>
+
+    <!-- Awards & trust — all real, from the client -->
+    <div class="plaques">
+      <article class="plaque rv">
+        <span class="yr">2022</span>
+        <h3>Restaurant of the Year — South East</h3>
+        <p>The Food Awards England</p>
+      </article>
+      <article class="plaque rv rv-d1">
+        <span class="yr">2025</span>
+        <h3>Best Casual Restaurant in Surrey</h3>
+        <p>Muddy Stilettos Awards</p>
+      </article>
+      <article class="plaque rv rv-d2">
+        <span class="yr">5 / 5</span>
+        <h3>Food Hygiene — Very Good</h3>
+        <p>Food Standards Agency, inspected 2024</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ATMOSPHERE BAND ============ -->
+<section class="band" aria-label="Inside the restaurant">
+  <img loading="lazy" data-parallax src="assets/img/interior-1.webp" alt="Inside La Meridiana">
+  <div class="shade" aria-hidden="true"></div>
+  <div class="band__quote">
+    <span class="hand rv">a mezzogiorno</span>
+    <p class="rv rv-d1">When the sun crosses the meridian, the table is already set.</p>
+  </div>
+</section>
+
+<!-- ============ IL MENU ============ -->
+<section class="section section--green" id="menu">
+  <div class="wrap">
+    <div class="menuhead">
+      <p class="eyebrow center rv" style="color:var(--brass-hi)">Il Menu</p>
+      <h2 class="rv rv-d1">Written daily, <em>cooked slowly</em></h2>
+      <p class="rv rv-d2">One card, three chapters — the kitchen, the cellar, and the sweet ending.</p>
+    </div>
+
+    <div class="tabs rv" role="tablist" aria-label="Menu sections">
+      <button class="tab active" role="tab" aria-selected="true" data-pane="alacarte"><span class="sun"></span>À la carte</button>
+      <button class="tab" role="tab" aria-selected="false" data-pane="vini"><span class="sun"></span>La Cantina</button>
+      <button class="tab" role="tab" aria-selected="false" data-pane="dolci"><span class="sun"></span>I Dolci</button>
+    </div>
+
+    <!-- ============================================================
+      PLACEHOLDER MENU CONTENT
+      Dish names below are pulled from the client's own photography
+      so the mock reads true. Replace with the real menu files
+      in Claude Code. Keep the structure: .course > .dish rows.
+    ============================================================ -->
+    <div class="card grain rv rv-d1">
+      <div class="card__brand">
+        <div class="word">La Meridiana</div>
+        <div class="sub">East Horsley · Surrey</div>
+      </div>
+      <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
+
+      <!-- PANE: À LA CARTE -->
+      <div class="pane active" id="pane-alacarte" role="tabpanel">
+        <div class="course">
+          <h3 class="course__title">Antipasti</h3>
+          <p class="course__note">to begin, as it should be</p>
+          <div style="margin-top:18px">
+            <div class="dish">
+              <div class="dish__wrapline">
+                <div style="display:flex;align-items:baseline;gap:14px">
+                  <span class="dish__name">Arancini di casa</span>
+                  <span class="dish__lead"></span>
+                  <span class="dish__price">9.50</span>
+                </div>
+                <p class="dish__desc">Crisp saffron rice, mozzarella heart, slow tomato sugo</p>
+              </div>
+            </div>
+            <div class="dish">
+              <div class="dish__wrapline">
+                <div style="display:flex;align-items:baseline;gap:14px">
+                  <span class="dish__name">Bruschetta classica <span class="v">V</span></span>
+                  <span class="dish__lead"></span>
+                  <span class="dish__price">8.00</span>
+                </div>
+                <p class="dish__desc">Charred bread, datterini tomatoes, basil, new oil</p>
+              </div>
+            </div>
+            <div class="dish">
+              <div class="dish__wrapline">
+                <div style="display:flex;align-items:baseline;gap:14px">
+                  <span class="dish__name">Cozze alla provinciale</span>
+                  <span class="dish__lead"></span>
+                  <span class="dish__price">11.50</span>
+                </div>
+                <p class="dish__desc">Mussels, white wine, garlic, a little chilli, good bread</p>
+              </div>
+            </div>
+            <div class="dish">
+              <div class="dish__wrapline">
+                <div style="display:flex;align-items:baseline;gap:14px">
+                  <span class="dish__name">Prosciutto e melone</span>
+                  <span class="dish__lead"></span>
+                  <span class="dish__price">10.50</span>
+                </div>
+                <p class="dish__desc">Aged Parma ham, ripe cantaloupe, cracked pepper</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
+
+        <div class="course">
+          <h3 class="course__title">Primi &amp; Secondi</h3>
+          <p class="course__note">pasta rolled this morning, fish bought whole</p>
+          <div style="margin-top:18px">
+            <div class="dish">
+              <div class="dish__wrapline">
+                <div style="display:flex;align-items:baseline;gap:14px">
+                  <span class="dish__name">Risotto ai gamberoni</span>
+                  <span class="dish__lead"></span>
+                  <span class="dish__price">19.50</span>
+                </div>
+                <p class="dish__desc">Carnaroli rice, langoustine, king prawns, cherry tomato</p>
+              </div>
+            </div>
+            <div class="dish">
+              <div class="dish__wrapline">
+                <div style="display:flex;align-items:baseline;gap:14px">
+                  <span class="dish__name">Gamberoni alla griglia</span>
+                  <span class="dish__lead"></span>
+                  <span class="dish__price">23.00</span>
+                </div>
+                <p class="dish__desc">Grilled king prawns, lemon, garlic butter, parsley</p>
+              </div>
+            </div>
+            <div class="dish">
+              <div class="dish__wrapline">
+                <div style="display:flex;align-items:baseline;gap:14px">
+                  <span class="dish__name">Salmone al forno</span>
+                  <span class="dish__lead"></span>
+                  <span class="dish__price">21.00</span>
+                </div>
+                <p class="dish__desc">Oven-roasted salmon, asparagi alla parmigiana, salsa verde</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
+
+        <div class="course">
+          <h3 class="course__title">Le Pizze</h3>
+          <p class="course__note">the ones people drive across the county for</p>
+          <div style="margin-top:18px">
+            <div class="dish">
+              <div class="dish__wrapline">
+                <div style="display:flex;align-items:baseline;gap:14px">
+                  <span class="dish__name">Margherita <span class="v">V</span></span>
+                  <span class="dish__lead"></span>
+                  <span class="dish__price">12.00</span>
+                </div>
+                <p class="dish__desc">San Marzano tomato, fior di latte, basil, olio nuovo</p>
+              </div>
+            </div>
+            <div class="dish">
+              <div class="dish__wrapline">
+                <div style="display:flex;align-items:baseline;gap:14px">
+                  <span class="dish__name">Diavola</span>
+                  <span class="dish__lead"></span>
+                  <span class="dish__price">14.50</span>
+                </div>
+                <p class="dish__desc">Spicy salame, chilli honey, mozzarella, tomato</p>
+              </div>
+            </div>
+            <div class="dish">
+              <div class="dish__wrapline">
+                <div style="display:flex;align-items:baseline;gap:14px">
+                  <span class="dish__name">Quattro Formaggi <span class="v">V</span></span>
+                  <span class="dish__lead"></span>
+                  <span class="dish__price">14.00</span>
+                </div>
+                <p class="dish__desc">Gorgonzola, taleggio, parmigiano, fior di latte</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANE: LA CANTINA (wine list template) -->
+      <div class="pane" id="pane-vini" role="tabpanel">
+        <div class="course">
+          <h3 class="course__title">Bianchi</h3>
+          <p class="course__note">from the cooler slopes</p>
+          <div class="winehead"><span>Glass</span><span>Bottle</span></div>
+          <div>
+            <div class="wine">
+              <span class="wine__name">Gavi di Gavi</span>
+              <span class="wine__p">8.5</span><span class="wine__p">34</span>
+              <span class="wine__from">Cortese · Piemonte</span>
+            </div>
+            <div class="wine">
+              <span class="wine__name">Pinot Grigio</span>
+              <span class="wine__p">7</span><span class="wine__p">28</span>
+              <span class="wine__from">Delle Venezie</span>
+            </div>
+            <div class="wine">
+              <span class="wine__name">Falanghina</span>
+              <span class="wine__p">7.5</span><span class="wine__p">30</span>
+              <span class="wine__from">Campania</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
+
+        <div class="course">
+          <h3 class="course__title">Rossi</h3>
+          <p class="course__note">for the table, for the evening</p>
+          <div class="winehead"><span>Glass</span><span>Bottle</span></div>
+          <div>
+            <div class="wine">
+              <span class="wine__name">Chianti Classico</span>
+              <span class="wine__p">9</span><span class="wine__p">36</span>
+              <span class="wine__from">Sangiovese · Toscana</span>
+            </div>
+            <div class="wine">
+              <span class="wine__name">Primitivo di Manduria</span>
+              <span class="wine__p">8.5</span><span class="wine__p">33</span>
+              <span class="wine__from">Puglia</span>
+            </div>
+            <div class="wine">
+              <span class="wine__name">Barolo</span>
+              <span class="wine__p">—</span><span class="wine__p">62</span>
+              <span class="wine__from">Nebbiolo · Piemonte</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANE: I DOLCI (dessert template) -->
+      <div class="pane" id="pane-dolci" role="tabpanel">
+        <div class="course">
+          <h3 class="course__title">I Dolci</h3>
+          <p class="course__note">made here, finished at the table</p>
+          <div style="margin-top:18px">
+            <div class="dish">
+              <div class="dish__wrapline">
+                <div style="display:flex;align-items:baseline;gap:14px">
+                  <span class="dish__name">Tiramisù della casa</span>
+                  <span class="dish__lead"></span>
+                  <span class="dish__price">8.00</span>
+                </div>
+                <p class="dish__desc">Savoiardi, espresso, mascarpone, bitter cocoa</p>
+              </div>
+            </div>
+            <div class="dish">
+              <div class="dish__wrapline">
+                <div style="display:flex;align-items:baseline;gap:14px">
+                  <span class="dish__name">Panna cotta</span>
+                  <span class="dish__lead"></span>
+                  <span class="dish__price">7.50</span>
+                </div>
+                <p class="dish__desc">Vanilla cream, seasonal fruit from the market</p>
+              </div>
+            </div>
+            <div class="dish">
+              <div class="dish__wrapline">
+                <div style="display:flex;align-items:baseline;gap:14px">
+                  <span class="dish__name">Affogato al caffè</span>
+                  <span class="dish__lead"></span>
+                  <span class="dish__price">6.50</span>
+                </div>
+                <p class="dish__desc">Fior di latte gelato, drowned in hot espresso</p>
+              </div>
+            </div>
+            <div class="dish">
+              <div class="dish__wrapline">
+                <div style="display:flex;align-items:baseline;gap:14px">
+                  <span class="dish__name">Formaggi italiani</span>
+                  <span class="dish__lead"></span>
+                  <span class="dish__price">11.00</span>
+                </div>
+                <p class="dish__desc">Three Italian cheeses, honey, walnuts, carta di musica</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card__foot">
+        <span class="hand">buon appetito</span>
+        Please tell us about allergies — the kitchen will look after you.
+      </div>
+    </div>
+
+    <div class="menu__cta rv">
+      <a class="btn btn--outline-cream" href="menu.html"><span class="dot"></span>See the full menu</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LA STAGIONE ============ -->
+<section class="section section--tint grain" id="stagione">
+  <div class="wrap">
+    <p class="eyebrow rv">Eventi · La Stagione</p>
+    <h2 class="display rv rv-d1" style="font-size:clamp(38px,4.4vw,60px);margin-top:24px;max-width:16ch">This summer at <em style="color:var(--brass)">La Meridiana</em></h2>
+
+    <!-- PLACEHOLDER dates/details — confirm current offers with the client -->
+    <div class="stag">
+      <article class="stagcard rv">
+        <div class="stagcard__media">
+          <span class="stagcard__when">Now open</span>
+          <img loading="lazy" src="assets/img/terrace-1.webp" alt="The terrace at La Meridiana">
+        </div>
+        <div class="stagcard__body">
+          <h3>La Terrazza</h3>
+          <p>Lunch and dinner under the open sky — seasonal dishes, cold wine, and the long Surrey evening doing the rest.</p>
+          <a class="tlink" href="#visita">Plan your visit <span class="sun"></span></a>
+        </div>
+      </article>
+      <article class="stagcard rv rv-d1">
+        <div class="stagcard__media">
+          <span class="stagcard__when">Tue – Sun · From 10am</span>
+          <img loading="lazy" src="assets/img/terrace-2.webp" alt="Sicilian brunch on the terrace">
+        </div>
+        <div class="stagcard__body">
+          <h3>Sicilian Brunch</h3>
+          <p>Fresh flavours and the soul of Sicily, served on the terrace. Walk-ins welcome — arrive hungry.</p>
+          <a class="tlink" href="#menu">See the menu <span class="sun"></span></a>
+        </div>
+      </article>
+      <article class="stagcard rv rv-d2">
+        <div class="stagcard__media">
+          <span class="stagcard__when">Private hire</span>
+          <img loading="lazy" src="assets/img/room-private-event.webp" alt="The room set for a private event">
+        </div>
+        <div class="stagcard__body">
+          <h3>Your Occasion</h3>
+          <p>Birthdays, weddings, corporate dinners — take the room, with catering. We'll set the meridian to your day.</p>
+          <a class="tlink" href="mailto:contact@lameridiana.co.uk">Enquire <span class="sun"></span></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="section grain" id="cucina">
+  <div class="wrap">
+    <p class="eyebrow rv">Dalla Cucina</p>
+    <h2 class="display rv rv-d1" style="font-size:clamp(38px,4.4vw,60px);margin-top:24px;max-width:14ch">What left the pass <em style="color:var(--brass)">this week</em></h2>
+
+    <div class="gal">
+      <figure class="gal__item a rv">
+        <img loading="lazy" src="assets/img/food-risotto-gamberoni.webp" alt="Risotto with langoustine and king prawns">
+        <figcaption class="cap">Risotto ai gamberoni</figcaption>
+      </figure>
+      <figure class="gal__item b rv rv-d1">
+        <img loading="lazy" src="assets/img/food-arancini.webp" alt="Arancini">
+        <figcaption class="cap">Arancini di casa</figcaption>
+      </figure>
+      <figure class="gal__item c rv rv-d2">
+        <img loading="lazy" src="assets/img/food-bruschetta.webp" alt="Bruschetta">
+        <figcaption class="cap">Bruschetta</figcaption>
+      </figure>
+      <figure class="gal__item d rv">
+        <img loading="lazy" src="assets/img/food-cozze.webp" alt="Mussels alla provinciale">
+        <figcaption class="cap">Cozze alla provinciale</figcaption>
+      </figure>
+      <figure class="gal__item e rv rv-d1">
+        <img loading="lazy" src="assets/img/food-gamberoni.webp" alt="Grilled king prawns">
+        <figcaption class="cap">Gamberoni</figcaption>
+      </figure>
+      <figure class="gal__item f rv rv-d2">
+        <img loading="lazy" src="assets/img/food-salmone.webp" alt="Roast salmon">
+        <figcaption class="cap">Salmone</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VISIT ============ -->
+<section class="section section--tint grain" id="visita">
+  <div class="wrap">
+    <div class="visit">
+      <div>
+        <p class="eyebrow rv">Vieni a Trovarci</p>
+        <h2 class="rv rv-d1">Twenty minutes off the A3, <em>a world away</em></h2>
+        <p class="visit__addr rv rv-d2">Ockham Road South, East Horsley,<br>Leatherhead, Surrey KT24 6QU</p>
+        <div class="visit__contacts rv rv-d3">
+          <a href="tel:+441483284343"><span class="k">Phone</span>+44 1483 284 343</a>
+          <a href="mailto:contact@lameridiana.co.uk"><span class="k">Email</span>contact@lameridiana.co.uk</a>
+        </div>
+        <div class="visit__map rv rv-d4">
+          <a class="tlink" href="https://www.google.com/maps/search/?api=1&query=La+Meridiana+East+Horsley" target="_blank" rel="noopener">Get directions <span class="sun"></span></a>
+        </div>
+      </div>
+      <div class="hours rv rv-d2">
+        <h3>Orari</h3>
+        <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
+        <!-- NOTE FOR VELO: the client's own site shows three different
+             versions of these hours (homepage vs contact vs about page).
+             This is the majority version — confirm with the client. -->
+        <div class="row"><span class="day">Monday</span><span class="time">Dinner 5:00 – 9:30pm</span></div>
+        <div class="row"><span class="day">Tuesday – Thursday</span><span class="time">Lunch 12 – 3pm · Dinner 5 – 9:30pm</span></div>
+        <div class="row"><span class="day">Friday</span><span class="time">Lunch 12 – 3pm · Dinner 5 – 10:30pm</span></div>
+        <div class="row"><span class="day">Saturday</span><span class="time">All day · 12:00pm – 10:30pm</span></div>
+        <div class="row"><span class="day">Sunday</span><span class="time">All day · 12:00pm – 9:00pm</span></div>
+        <p class="note">Sunday lunch fills quickly — booking is kind to everyone.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RESERVATION CTA ============ -->
+<section class="section section--deep cta">
+  <div class="wrap">
+    <span class="hand rv">la tavola è pronta</span>
+    <h2 class="rv rv-d1">The table is set.</h2>
+    <p class="rv rv-d2">Midday or evening, two of you or twenty — tell us when, and the kitchen will do the rest.</p>
+    <div class="cta__btns rv rv-d3">
+      <!-- CONNECT: booking engine after client approval -->
+      <button class="btn btn--brass" data-booking="connect"><span class="dot"></span>Reserve a table</button>
+      <a class="btn btn--outline-cream" href="tel:+441483284343"><span class="dot"></span>Call the restaurant</a>
+    </div>
+    <div class="cta__meridian rv rv-d4" aria-hidden="true">
+      <i style="left:0"></i><i style="left:25%"></i><i style="left:50%"></i><i style="left:75%"></i><i style="right:0"></i>
+      <span class="sun"></span>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer grain">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <div class="word">La Meridian<i>a</i></div>
+        <p class="tag">A little slice of Italy, in the heart of Surrey.</p>
+      </div>
+      <div>
+        <h4>Ristorante</h4>
+        <ul>
+          <li><a href="la-storia.html">La Storia</a></li>
+          <li><a href="menu.html">Il Menu</a></li>
+          <li><a href="eventi.html">Eventi</a></li>
+          <li><a href="contact.html">Find us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+441483284343">+44 1483 284 343</a></li>
+          <li><a href="mailto:contact@lameridiana.co.uk">contact@lameridiana.co.uk</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=La+Meridiana+East+Horsley" target="_blank" rel="noopener">Ockham Road South, KT24 6QU</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/lameridianar/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.facebook.com/lameridiana.co.uk/" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="https://www.tripadvisor.co.uk" target="_blank" rel="noopener">Tripadvisor</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__base">
+      <span>© <span id="year"></span> La Meridiana. All rights reserved.</span>
+      <span>Design — FunnelMcQueen</span>
+    </div>
+  </div>
+</footer>
+
+<!-- lightbox for gallery -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button class="x" id="lbClose">Close</button>
+  <img loading="lazy" id="lbImg" src="" alt="">
+  <span class="cap" id="lbCap"></span>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Il Menu — À la carte, Wine &amp; Dolci · La Meridiana</title>
+<meta name="description" content="The La Meridiana menu — antipasti, fresh pasta, famous pizzas, an Italian wine cellar and house dolci, in East Horsley, Surrey. Menus change with the season.">
+<link rel="canonical" href="https://lameridiana.co.uk/menu">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="restaurant">
+<meta property="og:site_name" content="La Meridiana">
+<meta property="og:title" content="Il Menu — À la carte, Wine &amp; Dolci · La Meridiana">
+<meta property="og:description" content="Antipasti, fresh pasta, famous pizzas, an Italian cellar and house dolci at La Meridiana, East Horsley.">
+<meta property="og:url" content="https://lameridiana.co.uk/menu">
+<meta property="og:locale" content="en_GB">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Archivo:wght@400;500;600&family=Italianno&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="meridian" aria-hidden="true">
+  <span class="label" style="top:120px">MERIDIANA · 51.278° N</span>
+  <i class="tick" style="top:20%"></i><i class="tick" style="top:40%"></i>
+  <i class="tick" style="top:60%"></i><i class="tick" style="top:80%"></i>
+  <span class="sun" id="meridianSun"></span>
+</div>
+
+<!-- ============ NAV (identical on every page) ============ -->
+<header class="nav" id="nav">
+  <div class="nav__in">
+    <a href="index.html" class="nav__brand" aria-label="La Meridiana — home">
+      <span class="word">La Meridian<i>a</i></span>
+      <span class="sub">Cucina Italiana · Est. East Horsley</span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="la-storia.html">La Storia</a>
+      <a href="menu.html" class="active" aria-current="page">Il Menu</a>
+      <a href="eventi.html">Eventi</a>
+      <a href="contact.html">Contatti</a>
+    </nav>
+    <div class="nav__right">
+      <button class="nav__book" data-booking="connect">Book a table</button>
+      <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+<div class="mobilemenu" id="mobilemenu">
+  <span class="hand">benvenuti</span>
+  <a href="la-storia.html">La Storia</a>
+  <a href="menu.html">Il Menu</a>
+  <a href="eventi.html">Eventi</a>
+  <a href="contact.html">Contatti</a>
+</div>
+
+<main>
+
+<section class="pagehero">
+  <div class="wrap">
+    <p class="eyebrow">Il Menu</p>
+    <h1>Written daily,<br><em>cooked slowly</em></h1>
+    <div class="rule" aria-hidden="true"></div>
+    <p>One card, three chapters — the kitchen, the cellar, and the sweet ending. Menus change with the season.</p>
+  </div>
+</section>
+
+<section class="section section--green">
+  <div class="wrap">
+
+    <!-- ============================================================
+      MENU CARD — generated from content/menu.md by scripts/build-menu.py.
+      Do not hand-edit the region between the MENU:TABS / MENU:PANES markers;
+      edit content/menu.md and re-run:  python3 scripts/build-menu.py
+    ============================================================ -->
+    <p class="notice">Transcribed from the current à la carte, wine &amp; dessert menus. Prices as printed; menus change with the season. Please confirm the few items flagged in <code>TODO.md</code> before launch.</p>
+
+    <div class="tabs rv" role="tablist" aria-label="Menu sections">
+      <!-- MENU:TABS:START -->
+      <button class="tab active" role="tab" aria-selected="true" data-pane="alacarte"><span class="sun"></span>À la carte</button>
+      <button class="tab" role="tab" aria-selected="false" data-pane="cantina"><span class="sun"></span>La Cantina</button>
+      <button class="tab" role="tab" aria-selected="false" data-pane="dolci"><span class="sun"></span>I Dolci</button>
+      <!-- MENU:TABS:END -->
+    </div>
+
+    <div class="card grain rv rv-d1">
+      <div class="card__brand">
+        <div class="word">La Meridiana</div>
+        <div class="sub">East Horsley · Surrey</div>
+      </div>
+      <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
+      <!-- MENU:PANES:START -->
+      <div class="pane active" id="pane-alacarte" role="tabpanel">
+        <div class="course">
+          <h3 class="course__title">Antipasti</h3>
+          <p class="course__note">starters</p>
+          <div style="margin-top:18px">
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Arancini</span><span class="dish__lead"></span><span class="dish__price">9.95</span></div>
+              <p class="dish__desc">Two fried rice balls filled with mozzarella cheese &amp; minced beef on a bed of tomato sauce</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Burrata San Daniele</span><span class="dish__lead"></span><span class="dish__price">14</span></div>
+              <p class="dish__desc">Creamy burrata served with Prosciutto di San Daniele, heirloom tomatoes, rocket &amp; balsamic glaze</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Bruschetta con Bocconcini <span class="v">V</span></span><span class="dish__lead"></span><span class="dish__price">8.50</span></div>
+              <p class="dish__desc">Homemade bread topped with marinated fresh tomato, red onions, basil, garlic, mozzarella bocconcini &amp; extra virgin olive oil</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Avocado e Granchio</span><span class="dish__lead"></span><span class="dish__price">13.95</span></div>
+              <p class="dish__desc">Smashed avocado topped with crab meat, citrus dressing &amp; microgreens</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Melanzana alla Parmigiana <span class="v">V</span></span><span class="dish__lead"></span><span class="dish__price">9.50</span></div>
+              <p class="dish__desc">Baked eggplant with San Marzano tomato sauce, basil &amp; smoked mozzarella</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Calamari Fritti</span><span class="dish__lead"></span><span class="dish__price">12</span></div>
+              <p class="dish__desc">Crispy fried squid served with homemade aioli</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Gamberoni Aglio e Peperoncino</span><span class="dish__lead"></span><span class="dish__price">15</span></div>
+              <p class="dish__desc">Pan-fried shell-off king prawns cooked with garlic, butter, fresh chili, white wine sauce &amp; served with homemade focaccia</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Carpaccio di Manzo</span><span class="dish__lead"></span><span class="dish__price">15</span></div>
+              <p class="dish__desc">Thin slices of raw beef fillet with rocket, Parmesan shavings, drizzled with lemon juice &amp; extra virgin olive oil</p></div></div>
+          </div>
+        </div>
+        <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
+        <div class="course">
+          <h3 class="course__title">Primi</h3>
+          <p class="course__note">pasta &amp; risotto</p>
+          <div style="margin-top:18px">
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Paccheri Gamberoni</span><span class="dish__lead"></span><span class="dish__price">22.95</span></div>
+              <p class="dish__desc">Paccheri pasta with king prawns, garlic, cherry tomatoes, white wine, olive oil &amp; chilli</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Paccheri alla Norma <span class="v">V</span></span><span class="dish__lead"></span><span class="dish__price">18</span></div>
+              <p class="dish__desc">Paccheri pasta with tomato sauce, fried eggplant &amp; salted ricotta</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Spaghetti Frutti di Mare</span><span class="dish__lead"></span><span class="dish__price">25</span></div>
+              <p class="dish__desc">Spaghetti with mixed seafood, garlic, cherry tomatoes, olive oil &amp; chilli</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Spaghetti Vongole</span><span class="dish__lead"></span><span class="dish__price">26.50</span></div>
+              <p class="dish__desc">Spaghetti with fresh clams, garlic, white wine, parsley &amp; olive oil</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Spaghetti alla Bolognese</span><span class="dish__lead"></span><span class="dish__price">16</span></div>
+              <p class="dish__desc">Classic beef ragù with spaghetti</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Spaghetti alla Carbonara</span><span class="dish__lead"></span><span class="dish__price">16</span></div>
+              <p class="dish__desc">Traditional Roman recipe with egg yolks, guanciale &amp; Pecorino Romano cheese</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Penne all&#x27;Amatriciana</span><span class="dish__lead"></span><span class="dish__price">16</span></div>
+              <p class="dish__desc">Penne with tomato sauce, guanciale &amp; Pecorino Romano</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Penne Arrabbiata <span class="v">V</span></span><span class="dish__lead"></span><span class="dish__price">15</span></div>
+              <p class="dish__desc">Penne with spicy tomato sauce, garlic &amp; chilli</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Gnocchi al Filetto</span><span class="dish__lead"></span><span class="dish__price">21.95</span></div>
+              <p class="dish__desc">Homemade gnocchi with fillet steak strips, garlic, cherry tomatoes, mushrooms, parmesan &amp; truffle oil</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Tagliatelle al Salmone</span><span class="dish__lead"></span><span class="dish__price">19</span></div>
+              <p class="dish__desc">Tagliatelle pasta with salmon, tomato sauce &amp; a touch of cream</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Risotto al Tartufo <span class="v">V</span></span><span class="dish__lead"></span><span class="dish__price">17.95</span></div>
+              <p class="dish__desc">Arborio rice with mushrooms &amp; truffle sauce</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Lasagna al Forno</span><span class="dish__lead"></span><span class="dish__price">16</span></div>
+              <p class="dish__desc">Lasagne</p></div></div>
+          </div>
+        </div>
+        <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
+        <div class="course">
+          <h3 class="course__title">Secondi</h3>
+          <p class="course__note">meat &amp; fish</p>
+          <div style="margin-top:18px">
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Saltimbocca alla Romana</span><span class="dish__lead"></span><span class="dish__price">24</span></div>
+              <p class="dish__desc">Veal Scaloppine layered with prosciutto and fresh sage, pan-seared in butter &amp; served with roasted potatoes</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Vitello alla Marsala</span><span class="dish__lead"></span><span class="dish__price">25</span></div>
+              <p class="dish__desc">Veal cooked with mixed mushrooms, Marsala wine &amp; a touch of cream, served with roast potatoes</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Pollo Tricolore</span><span class="dish__lead"></span><span class="dish__price">18</span></div>
+              <p class="dish__desc">Grilled chicken breast topped with mozzarella cheese &amp; tomato sauce, served with green beans &amp; roast potatoes</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Pollo Principessa</span><span class="dish__lead"></span><span class="dish__price">21</span></div>
+              <p class="dish__desc">Chicken breast with mushrooms, asparagus &amp; cream sauce, served with roasted potatoes</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Tagliata di Manzo e Rucola</span><span class="dish__lead"></span><span class="dish__price">29.95</span></div>
+              <p class="dish__desc">Grilled sliced 300g ribeye steak on a bed of rocket, topped with shaved parmesan, served with chips</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Filetto al Dolcelatte</span><span class="dish__lead"></span><span class="dish__price">35</span></div>
+              <p class="dish__desc">Grilled fillet steak topped with melted Gorgonzola cheese, served with chips (recommended with peppercorn or red wine sauce)</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Spigola alla Griglia</span><span class="dish__lead"></span><span class="dish__price">26</span></div>
+              <p class="dish__desc">Grilled fillet of sea bass with prawn &amp; bisque sauce, served with roast potatoes &amp; seasonal vegetables</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Salmone al Mascarpone</span><span class="dish__lead"></span><span class="dish__price">24</span></div>
+              <p class="dish__desc">Grilled salmon with creamy mashed potatoes, green beans &amp; mascarpone-orange sauce</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Fegato alla Veneziana</span><span class="dish__lead"></span><span class="dish__price">24</span></div>
+              <p class="dish__desc">Venetian-style calf liver with onions &amp; red wine sauce, served with mashed potatoes</p></div></div>
+          </div>
+        </div>
+        <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
+        <div class="course">
+          <h3 class="course__title">Bambini</h3>
+          <p class="course__note">kids</p>
+          <div style="margin-top:18px">
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Pasta</span><span class="dish__lead"></span><span class="dish__price">8</span></div>
+              <p class="dish__desc">Spaghetti or penne pasta with a choice of sauce: tomato, carbonara or Bolognese</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Chicken Goujon</span><span class="dish__lead"></span><span class="dish__price">8</span></div>
+              <p class="dish__desc">Crispy breaded chicken breast strips with chips</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">8&quot; Pizza Margherita <span class="v">V</span></span><span class="dish__lead"></span><span class="dish__price">8</span></div>
+              <p class="dish__desc">Classic tomato sauce &amp; mozzarella</p></div></div>
+          </div>
+        </div>
+        <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
+        <div class="course">
+          <h3 class="course__title">Contorni</h3>
+          <p class="course__note">sides</p>
+          <div style="margin-top:18px">
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Rocket &amp; Parmesan Cheese</span><span class="dish__lead"></span><span class="dish__price">5.50</span></div></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Spinach, Garlic &amp; Chilli</span><span class="dish__lead"></span><span class="dish__price">5.50</span></div></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Tomato &amp; Red Onion Salad</span><span class="dish__lead"></span><span class="dish__price">4.50</span></div></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Sautéed Mushrooms</span><span class="dish__lead"></span><span class="dish__price">4.50</span></div></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">French Beans</span><span class="dish__lead"></span><span class="dish__price">5</span></div></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Asparagus</span><span class="dish__lead"></span><span class="dish__price">9</span></div></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Green Salad</span><span class="dish__lead"></span><span class="dish__price">4.50</span></div></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Patatine Fritte (Chips)</span><span class="dish__lead"></span><span class="dish__price">3.50</span></div></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Broccoli</span><span class="dish__lead"></span><span class="dish__price">4.50</span></div></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Bowl of Mixed Olives</span><span class="dish__lead"></span><span class="dish__price">4.50</span></div></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="pane" id="pane-cantina" role="tabpanel">
+        <div class="course">
+          <h3 class="course__title">Vini Bianchi</h3>
+          <p class="course__note">white wines · 175ml / 250ml / bottle</p>
+          <div class="winehead w3"><span>175ml</span><span>250ml</span><span>Bottle</span></div>
+          <div>
+            <div class="wine w3"><span class="wine__name">House Wine – Trebbiano d&#x27;Abruzzo 2023</span><span class="wine__p">6.50</span><span class="wine__p">8</span><span class="wine__p">23</span><span class="wine__from">Italy · dry &amp; fruity with a delicate bouquet</span></div>
+            <div class="wine w3"><span class="wine__name">Collio Pinot Grigio 2023</span><span class="wine__p">8.50</span><span class="wine__p">11</span><span class="wine__p">31</span><span class="wine__from">Italy · refreshing ripe tropical fruit flavours of melon &amp; mango</span></div>
+            <div class="wine w3"><span class="wine__name">Colli Sauvignon Blanc 2023</span><span class="wine__p">9</span><span class="wine__p">12</span><span class="wine__p">34</span><span class="wine__from">Italy · notes of lime &amp; lemon, floral nuances, honey &amp; brioche</span></div>
+            <div class="wine w3"><span class="wine__name">Grillo Bianco Sicilia 2023</span><span class="wine__p">7.50</span><span class="wine__p">9.50</span><span class="wine__p">29</span><span class="wine__from">Italy · herbs, spice, grapefruit, passion fruit, white florals &amp; almonds</span></div>
+            <div class="wine w3"><span class="wine__name">Gavi di Gavi Marchesi di Barolo 2023</span><span class="wine__p">13</span><span class="wine__p">16</span><span class="wine__p">45</span><span class="wine__from">Italy · delicate, fresh &amp; dry on the palate</span></div>
+            <div class="wine w3"><span class="wine__name">Chardonnay Tenuta Rapitala</span><span class="wine__p">7.50</span><span class="wine__p">9.50</span><span class="wine__p">29</span><span class="wine__from">Sicily · mineral nose, yellow apples, ripe exotic fruits, lemony notes &amp; ginger</span></div>
+            <div class="wine w3"><span class="wine__name">Regaleali Bianco Tasca d&#x27;Almerita 2023</span><span class="wine__p">—</span><span class="wine__p">—</span><span class="wine__p">33</span><span class="wine__from">Italy · light, delicate, wild flowers &amp; white fruits</span></div>
+            <div class="wine w3"><span class="wine__name">Sauvignon Blanc Mirror Lake Marlborough 2023</span><span class="wine__p">—</span><span class="wine__p">—</span><span class="wine__p">34</span><span class="wine__from">New Zealand · crisp &amp; aromatic, grapefruit, tropical fruit &amp; cut grass</span></div>
+            <div class="wine w3"><span class="wine__name">Lugana Mandolara Le Morette DOC</span><span class="wine__p">—</span><span class="wine__p">—</span><span class="wine__p">35</span><span class="wine__from">Italy · light, dry, great balance &amp; minerality</span></div>
+            <div class="wine w3"><span class="wine__name">Vermentino Toscana Campo al Mare</span><span class="wine__p">—</span><span class="wine__p">—</span><span class="wine__p">32</span><span class="wine__from">Italy · tropical fruits with hints of sage &amp; tomato leaf</span></div>
+            <div class="wine w3"><span class="wine__name">Chablis UVC 2022</span><span class="wine__p">—</span><span class="wine__p">—</span><span class="wine__p">49</span><span class="wine__from">France · dry, citrus, green fruit &amp; grassy flavours, refreshing acidity</span></div>
+            <div class="wine w3"><span class="wine__name">Soave Colforte Santi 2022</span><span class="wine__p">—</span><span class="wine__p">—</span><span class="wine__p">36</span><span class="wine__from">Italy · fresh floral notes, herbs &amp; aroma of underripe white peach</span></div>
+            <div class="wine w3"><span class="wine__name">Etna Bianco Buonora Tasca 2023</span><span class="wine__p">—</span><span class="wine__p">—</span><span class="wine__p">59</span><span class="wine__from">Italy · lemon zest, citrus, honeydew melon, white-fleshed fruits &amp; flint</span></div>
+          </div>
+        </div>
+        <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
+        <div class="course">
+          <h3 class="course__title">Champagne &amp; Prosecco</h3>
+          <p class="course__note">125ml / bottle</p>
+          <div class="winehead w3"><span>175ml</span><span>250ml</span><span>Bottle</span></div>
+          <div>
+            <div class="wine w3"><span class="wine__name">Prosecco Brut</span><span class="wine__p">7.50</span><span class="wine__p">—</span><span class="wine__p">33</span><span class="wine__from">Italy</span></div>
+            <div class="wine w3"><span class="wine__name">Prosecco Rosé Brut</span><span class="wine__p">—</span><span class="wine__p">—</span><span class="wine__p">33</span><span class="wine__from">Italy</span></div>
+            <div class="wine w3"><span class="wine__name">House Champagne</span><span class="wine__p">12</span><span class="wine__p">—</span><span class="wine__p">59</span></div>
+            <div class="wine w3"><span class="wine__name">House Brut Rosé Francia Corta (12%)</span><span class="wine__p">—</span><span class="wine__p">—</span><span class="wine__p">49</span><span class="wine__from">Italy</span></div>
+            <div class="wine w3"><span class="wine__name">Champagne Piper Heidsieck (12%)</span><span class="wine__p">—</span><span class="wine__p">—</span><span class="wine__p">75</span><span class="wine__from">France · vibrant &amp; inviting, notes of apple &amp; brioche</span></div>
+            <div class="wine w3"><span class="wine__name">Champagne Moët &amp; Chandon Impérial (12%)</span><span class="wine__p">—</span><span class="wine__p">—</span><span class="wine__p">80</span><span class="wine__from">France · generous white fruits — pear, peach, apple</span></div>
+            <div class="wine w3"><span class="wine__name">Laurent Perrier Rosé Champagne</span><span class="wine__p">—</span><span class="wine__p">—</span><span class="wine__p">140</span><span class="wine__from">France · Pinot Noir, delicious raspberry &amp; redcurrant flavours</span></div>
+            <div class="wine w3"><span class="wine__name">Champagne Dom Pérignon Vintage 2012 (12.5%)</span><span class="wine__p">—</span><span class="wine__p">—</span><span class="wine__p">350</span><span class="wine__from">France · full &amp; varied, flowers with fruit &amp; mineral</span></div>
+          </div>
+        </div>
+        <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
+        <div class="course">
+          <h3 class="course__title">Vini Rosato</h3>
+          <p class="course__note">rosé wines · 175ml / 250ml / bottle</p>
+          <div class="winehead w3"><span>175ml</span><span>250ml</span><span>Bottle</span></div>
+          <div>
+            <div class="wine w3"><span class="wine__name">Pinot Griglio Blush 2023</span><span class="wine__p">8.50</span><span class="wine__p">11</span><span class="wine__p">31</span><span class="wine__from">Italy · delicate &amp; fruity, redcurrants, dry &amp; good consistency</span></div>
+            <div class="wine w3"><span class="wine__name">Scaia Rosato Veneto 2023</span><span class="wine__p">—</span><span class="wine__p">—</span><span class="wine__p">33</span><span class="wine__from">Italy · soft rose scent, intense flavour of cedar, grapefruit &amp; raspberry</span></div>
+          </div>
+        </div>
+        <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
+        <div class="course">
+          <h3 class="course__title">Vini Rossi</h3>
+          <p class="course__note">red wines · 175ml / 250ml / bottle</p>
+          <div class="winehead w3"><span>175ml</span><span>250ml</span><span>Bottle</span></div>
+          <div>
+            <div class="wine w3"><span class="wine__name">House Wine Sangiovese 2023</span><span class="wine__p">6.50</span><span class="wine__p">8</span><span class="wine__p">23</span><span class="wine__from">Italy · ruby, musky earthy cherries &amp; hints of wood &amp; spice</span></div>
+            <div class="wine w3"><span class="wine__name">Montepulciano d&#x27;Abruzzo Colle Corviano 2022</span><span class="wine__p">8.50</span><span class="wine__p">11</span><span class="wine__p">31</span><span class="wine__from">Italy (VE) · oregano, pepper, tobacco &amp; black fruits</span></div>
+            <div class="wine w3"><span class="wine__name">Merlot Civa 2022</span><span class="wine__p">8.50</span><span class="wine__p">11</span><span class="wine__p">31</span><span class="wine__from">Italy · bright ruby red, vinous bouquet with fruity notes</span></div>
+            <div class="wine w3"><span class="wine__name">Nero d&#x27;Avola 2022 Organic</span><span class="wine__p">7.50</span><span class="wine__p">9.50</span><span class="wine__p">29</span><span class="wine__from">Italy · lightly oaked, packed with spice &amp; liquorice, dense &amp; chewy</span></div>
+            <div class="wine w3"><span class="wine__name">Negroamaro Appassimento Salento 2021</span><span class="wine__p">9</span><span class="wine__p">12</span><span class="wine__p">35</span><span class="wine__from">Italy · deep ruby, blackberry, berries &amp; chocolate</span></div>
+            <div class="wine w3"><span class="wine__name">Chianti Rufina Reserva Nipozzano DOCG 2020</span><span class="wine__p">—</span><span class="wine__p">—</span><span class="wine__p">59</span><span class="wine__from">Italy · wild berries, cherries &amp; floral notes of violet</span></div>
+            <div class="wine w3"><span class="wine__name">Macula 2013 DOC</span><span class="wine__p">—</span><span class="wine__p">—</span><span class="wine__p">47</span><span class="wine__from">Spain · complex nose, cloves &amp; black pepper</span></div>
+            <div class="wine w3"><span class="wine__name">Malbec 2021</span><span class="wine__p">—</span><span class="wine__p">—</span><span class="wine__p">45</span><span class="wine__from">Argentina · ripe red fruits, black pepper &amp; violets, vanilla &amp; spices</span></div>
+            <div class="wine w3"><span class="wine__name">Montepulciano d&#x27;Abruzzo Podere Umani Ronchi 2023</span><span class="wine__p">—</span><span class="wine__p">—</span><span class="wine__p">35</span><span class="wine__from">Italy (VE) · candied boysenberry, dried herb &amp; wood smoke</span></div>
+            <div class="wine w3"><span class="wine__name">Primitivo di Manduria Lu Rappaio 2021</span><span class="wine__p">—</span><span class="wine__p">—</span><span class="wine__p">39</span><span class="wine__from">Italy · ripe cherries &amp; plums with cocoa &amp; vanilla</span></div>
+            <div class="wine w3"><span class="wine__name">Giaramano Primitivo di Manduria Riserva DOCG 2016</span><span class="wine__p">—</span><span class="wine__p">—</span><span class="wine__p">75</span><span class="wine__from">Italy · smoky &amp; tobacco nose, smooth &amp; complex</span></div>
+            <div class="wine w3"><span class="wine__name">Negresco Camaiol 2019</span><span class="wine__p">—</span><span class="wine__p">—</span><span class="wine__p">55</span><span class="wine__from">Italy · red &amp; black berry fruits, dark spices &amp; woody notes</span></div>
+            <div class="wine w3"><span class="wine__name">Barolo Araldica 2019 DOCG</span><span class="wine__p">—</span><span class="wine__p">—</span><span class="wine__p">75</span><span class="wine__from">Italy · spices &amp; flowers, full bodied, velvety with sweet tannins</span></div>
+            <div class="wine w3"><span class="wine__name">Amarone della Valpolicella Tenuta Sant&#x27;Antonio 2019 DOCG</span><span class="wine__p">—</span><span class="wine__p">—</span><span class="wine__p">89</span><span class="wine__from">Italy · fat tannins, soft, warm, savoury, elegant &amp; fresh</span></div>
+          </div>
+        </div>
+        <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
+        <div class="course">
+          <h3 class="course__title">Vini Pregiati</h3>
+          <p class="course__note">fine wines · bottle only</p>
+          <div class="winehead w3"><span>175ml</span><span>250ml</span><span>Bottle</span></div>
+          <div>
+            <div class="wine w3"><span class="wine__name">Cervaro della Sala 2022</span><span class="wine__p">—</span><span class="wine__p">—</span><span class="wine__p">140</span><span class="wine__from">Italy · Chardonnay, hints of oak, vanilla &amp; citrus minerals</span></div>
+            <div class="wine w3"><span class="wine__name">Tenuta degli Dei Roberto Cavalli 2009</span><span class="wine__p">—</span><span class="wine__p">—</span><span class="wine__p">260</span><span class="wine__from">Italy · berry, chocolate &amp; vanilla, full body with juicy finish</span></div>
+            <div class="wine w3"><span class="wine__name">Beaune 1er Cru Domaine &#x27;Les Toussaints&#x27; Rene Monnier 2011</span><span class="wine__p">—</span><span class="wine__p">—</span><span class="wine__p">150</span><span class="wine__from">France · cherry red, earthy &amp; red fruit aromas, elegant tannins</span></div>
+            <div class="wine w3"><span class="wine__name">Barbaresco Cascina Morassino 2018 DOCG</span><span class="wine__p">—</span><span class="wine__p">—</span><span class="wine__p">85</span><span class="wine__from">Italy · red fruits, floral notes &amp; spices, silky tannins</span></div>
+            <div class="wine w3"><span class="wine__name">Brunello di Montalcino Gianni Brunelli 2015 DOCG</span><span class="wine__p">—</span><span class="wine__p">—</span><span class="wine__p">190</span><span class="wine__from">Italy · herbs, aromatic spices &amp; cherries, full bodied &amp; velvety</span></div>
+            <div class="wine w3"><span class="wine__name">Tignanello IGT Antinori 2015</span><span class="wine__p">—</span><span class="wine__p">—</span><span class="wine__p">350</span><span class="wine__from">Italy · violets, bramble &amp; rosemary, very dense with great depth</span></div>
+            <div class="wine w3"><span class="wine__name">Barolo Cerequio Michele Chiarlo 2006 DOCG</span><span class="wine__p">—</span><span class="wine__p">—</span><span class="wine__p">160</span><span class="wine__from">Italy · ripe fruit, mint, gentian roots &amp; spices, delicate tannins</span></div>
+            <div class="wine w3"><span class="wine__name">Chateau Pichon Baron 2007</span><span class="wine__p">—</span><span class="wine__p">—</span><span class="wine__p">240</span><span class="wine__from">France · fresh red fruit &amp; blackberry, long-lasting, precise tannins</span></div>
+            <div class="wine w3"><span class="wine__name">Chateau Leoville Barton Saint Julien 2014</span><span class="wine__p">—</span><span class="wine__p">—</span><span class="wine__p">180</span><span class="wine__from">France · Cabernet &amp; Merlot, deep ruby, cassis &amp; cedar</span></div>
+            <div class="wine w3"><span class="wine__name">Bolgheri Sassicaia 2017</span><span class="wine__p">—</span><span class="wine__p">—</span><span class="wine__p">500</span><span class="wine__from">Italy · black fruit &amp; spices, silky, medium to high tannins</span></div>
+            <div class="wine w3"><span class="wine__name">Barbaresco Gaja 2017</span><span class="wine__p">—</span><span class="wine__p">—</span><span class="wine__p">360</span><span class="wine__from">Italy · forest fruits, plums, liquorice, mineral &amp; coffee</span></div>
+            <div class="wine w3"><span class="wine__name">Tignanello IGT Antinori 2008</span><span class="wine__p">—</span><span class="wine__p">—</span><span class="wine__p">650</span><span class="wine__from">Italy · chocolate, black cherry &amp; spice, velvety &amp; long</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="pane" id="pane-dolci" role="tabpanel">
+        <div class="course">
+          <h3 class="course__title">Dolci</h3>
+          <p class="course__note">made here, finished at the table</p>
+          <div style="margin-top:18px">
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Panna Cotta <span class="v">GF</span></span><span class="dish__lead"></span><span class="dish__price">7</span></div>
+              <p class="dish__desc">Homemade creamy dessert with sugar, gelatine &amp; vanilla pods, topped with a fruit coulis</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Profiterolo</span><span class="dish__lead"></span><span class="dish__price">7.50</span></div>
+              <p class="dish__desc">Soft choux pastries filled with chantilly cream, covered with chocolate cream</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Cannolo Siciliano</span><span class="dish__lead"></span><span class="dish__price">8.50</span></div>
+              <p class="dish__desc">Crispy tube-shaped shell of fried dough, filled with sweet ricotta with a hint of citrus zest &amp; chopped pistachios</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Affogato</span><span class="dish__lead"></span><span class="dish__price">8.50</span></div>
+              <p class="dish__desc">Double espresso, amaretto liqueur &amp; vanilla ice cream</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Pistachioso</span><span class="dish__lead"></span><span class="dish__price">8.50</span></div>
+              <p class="dish__desc">Homemade signature dessert — ladyfinger, mascarpone cheese, biscuits, liqueur &amp; Italian pistachio cream</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Tiramisù della Casa</span><span class="dish__lead"></span><span class="dish__price">7</span></div>
+              <p class="dish__desc">Homemade classic tiramisu with mascarpone cream, rum, coffee &amp; Disaronno almond liqueur</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Sgroppino</span><span class="dish__lead"></span><span class="dish__price">9</span></div>
+              <p class="dish__desc">Italian cocktail made with Prosecco, vodka, a scoop of lemon sorbet &amp; mint</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Gelato Artigianale</span><span class="dish__lead"></span><span class="dish__price">7 / 9</span></div>
+              <p class="dish__desc">2 or 3 scoops of homemade Italian ice cream — vanilla, chocolate, strawberry, salted caramel, pistachio</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Sorbetto <span class="v">VE</span> <span class="v">GF</span></span><span class="dish__lead"></span><span class="dish__price">7 / 9</span></div>
+              <p class="dish__desc">2 or 3 scoops of sorbet — lemon or mango</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Dessert of the Day</span><span class="dish__lead"></span><span class="dish__price">8.50</span></div>
+              <p class="dish__desc">Ask your waiter for the special dessert of the day</p></div></div>
+          </div>
+        </div>
+        <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
+        <div class="course">
+          <h3 class="course__title">After Dinner</h3>
+          <p class="course__note">cocktails</p>
+          <div style="margin-top:18px">
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Espresso Martini</span><span class="dish__lead"></span><span class="dish__price">10</span></div>
+              <p class="dish__desc">Vodka, Tia Maria, vanilla syrup &amp; espresso</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Il Capitano</span><span class="dish__lead"></span><span class="dish__price">10</span></div>
+              <p class="dish__desc">Kalua, Baileys, Captain Morgan, cream &amp; vanilla ice cream</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Il Siciliano</span><span class="dish__lead"></span><span class="dish__price">10</span></div>
+              <p class="dish__desc">Jack Daniels whiskey, coffee, vanilla ice cream &amp; amaretto liqueur</p></div></div>
+          </div>
+        </div>
+      </div>
+      <!-- MENU:PANES:END -->
+
+
+      <div class="card__foot">
+        <span class="hand">buon appetito</span>
+        Please tell us about allergies — the kitchen will look after you.
+      </div>
+    </div>
+
+    <div class="menu__cta rv">
+      <button class="btn btn--outline-cream" data-booking="connect"><span class="dot"></span>Book for lunch or dinner</button>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer grain">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <div class="word">La Meridian<i>a</i></div>
+        <p class="tag">A little slice of Italy, in the heart of Surrey.</p>
+      </div>
+      <div>
+        <h4>Ristorante</h4>
+        <ul>
+          <li><a href="la-storia.html">La Storia</a></li>
+          <li><a href="menu.html">Il Menu</a></li>
+          <li><a href="eventi.html">Eventi</a></li>
+          <li><a href="contact.html">Find us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+441483284343">+44 1483 284343</a></li>
+          <li><a href="mailto:contact@lameridiana.co.uk">contact@lameridiana.co.uk</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=La+Meridiana+East+Horsley" target="_blank" rel="noopener">Ockham Road South, KT24 6QU</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/lameridianar/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.facebook.com/lameridiana.co.uk/" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="https://www.tripadvisor.co.uk" target="_blank" rel="noopener">Tripadvisor</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__base">
+      <span>© <span id="year"></span> La Meridiana. All rights reserved.</span>
+      <span>Design — FunnelMcQueen</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

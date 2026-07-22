@@ -1,0 +1,12 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/menu-1", "destination": "/menu", "permanent": true },
+    { "source": "/our-story", "destination": "/la-storia", "permanent": true },
+    { "source": "/what-is-going-on", "destination": "/eventi", "permanent": true },
+    { "source": "/book-a-table", "destination": "/contact", "permanent": true },
+    { "source": "/delivery", "destination": "/", "permanent": false },
+    { "source": "/fresh-pasta-1", "destination": "/", "permanent": false }
+  ]
+}
