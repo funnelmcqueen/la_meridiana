@@ -1138,10 +1138,11 @@ body.phase-night{
 .home .meridian{display:none}          /* La Linea replaces the plain rail on home */
 
 .linea{
-  position:fixed;top:0;bottom:0;z-index:55;width:2px;pointer-events:none;
+  position:fixed;top:0;bottom:0;z-index:9987;width:3px;pointer-events:none;   /* above the phase-wash: always full brass */
   left:clamp(16px, calc(50vw - 590px - 22px), 220px);
   background:linear-gradient(to bottom,
-    transparent 0, rgba(169,139,79,.42) 5%, rgba(169,139,79,.42) 95%, transparent 100%);
+    transparent 0, var(--brass) 4%, var(--brass) 96%, transparent 100%);
+  box-shadow:0 0 7px rgba(201,169,106,.55), 0 0 1px rgba(20,15,5,.4);
 }
 .linea__disc{
   position:absolute;left:50%;top:0;width:13px;height:13px;border-radius:50%;
@@ -1150,22 +1151,24 @@ body.phase-night{
   box-shadow:0 0 4px 1px var(--sun-glow), 0 0 16px 5px var(--sun-glow);
   transition:background .8s var(--ease), box-shadow .8s var(--ease);
 }
-.linea__mark{
-  position:absolute;left:1px;transform:translate(-100%,-50%);
-  display:flex;align-items:center;gap:11px;white-space:nowrap;
-}
-.linea__mark span{
-  font-family:var(--serif);font-style:italic;font-variant:small-caps;
-  font-size:13px;letter-spacing:.1em;color:var(--brass);opacity:.62;
-  transition:color .45s var(--ease), opacity .45s var(--ease);
-}
-.linea__mark i{
-  width:7px;height:7px;border-radius:50%;background:var(--brass);flex:none;
-  box-shadow:0 0 0 3px rgba(169,139,79,.12);
+.linea__mark{ position:absolute;left:50%;transform:translate(-50%,-50%); }  /* centred on the line */
+.linea__mark i{                          /* the dot — sits on the middle of the line */
+  position:absolute;left:0;top:0;transform:translate(-50%,-50%);
+  width:9px;height:9px;border-radius:50%;background:var(--brass);
+  box-shadow:0 0 0 2px var(--brass), 0 0 7px 2px rgba(201,169,106,.6);
   transition:background .45s var(--ease), box-shadow .45s var(--ease), transform .45s var(--ease);
 }
-.linea__mark.flare span{color:var(--brass-hi);opacity:1}
-.linea__mark.flare i{background:var(--sun-glow);transform:scale(1.25);box-shadow:0 0 10px 3px var(--sun-glow)}
+.linea__mark span{                       /* the plaque label, in the gutter to the left */
+  position:absolute;right:16px;top:0;transform:translateY(-50%);
+  white-space:nowrap;text-align:right;
+  font-family:var(--serif);font-style:italic;font-variant:small-caps;font-weight:600;
+  font-size:14px;letter-spacing:.11em;color:var(--brass-hi);opacity:1;
+  /* dark halo so the brass reads on both the cream and green sections */
+  text-shadow:0 0 2px rgba(18,12,3,.9), 0 1px 2px rgba(18,12,3,.7), -.5px -.5px 0 rgba(18,12,3,.35);
+  transition:color .45s var(--ease);
+}
+.linea__mark.flare span{color:#f4d99a}
+.linea__mark.flare i{background:var(--sun-glow);transform:translate(-50%,-50%) scale(1.35);box-shadow:0 0 0 2px var(--sun-glow), 0 0 12px 4px var(--sun-glow)}
 
 /* heading light-sweep when the disc passes a section */
 .lightsweep{position:relative}
