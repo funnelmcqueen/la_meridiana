@@ -183,8 +183,9 @@
       window.scrollTo(0, 0);
       var vw = window.innerWidth, vh = window.innerHeight;
       var R0 = fig.getBoundingClientRect();
-      if(!R0.width){                                          // dial hidden — skip intro
+      if(!R0.width){                                          // dial not measurable — skip intro safely
         dialSun.style.transform = xform(live.deg);
+        document.body.classList.add('lit');                   // never leave the hero/nav held hidden
         if(overlay.parentNode) overlay.parentNode.removeChild(overlay);
         startLive(); return;
       }
