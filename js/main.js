@@ -66,6 +66,76 @@
     window.addEventListener('scroll', function(){ requestAnimationFrame(moveSun); }, {passive:true});
   }
 
+  /* ---- Il Nome sundial: sweep to noon, then rest at the real sun position
+         over East Horsley, in London time (BST-aware). ------------------- */
+  (function(){
+    var dialSun = document.querySelector('.namestory .sun');
+    var section = document.getElementById('nome');
+    if(!dialSun || !section) return;
+    var LAT = 51.278, LNG = -0.435, RAD = Math.PI/180;
+
+    /* current sun angle along the arc: 180deg = sunrise (left horizon),
+       90deg = solar noon (apex), 0deg = sunset (right horizon). */
+    function angleNow(){
+      var now = new Date();
+      var p = new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/London',hour:'2-digit',minute:'2-digit',hour12:false})
+        .formatToParts(now).reduce(function(a,x){a[x.type]=x.value;return a;},{});
+      var tLon = (+p.hour) + (+p.minute)/60;
+      var utc  = now.getUTCHours() + now.getUTCMinutes()/60;
+      var off  = tLon - utc; if(off>12) off-=24; if(off<-12) off+=24;   // London UTC offset
+      var yStart = Date.UTC(now.getUTCFullYear(),0,0);
+      var N = Math.floor((Date.UTC(now.getUTCFullYear(),now.getUTCMonth(),now.getUTCDate()) - yStart)/86400000);
+      var decl = -23.44*Math.cos(RAD*(360/365*(N+10)));
+      var B = RAD*(360/365*(N-81));
+      var EoT = 9.87*Math.sin(2*B) - 7.53*Math.cos(B) - 1.5*Math.sin(B);  // minutes
+      var cosH = -Math.tan(RAD*LAT)*Math.tan(RAD*decl);
+      cosH = Math.max(-1, Math.min(1, cosH));
+      var H = Math.acos(cosH)/RAD;                                        // half-day arc, degrees
+      var noon = 12 - LNG/15 - EoT/60 + off;                             // solar noon, London time
+      var sr = noon - H/15, ss = noon + H/15;
+      var deg;
+      if(tLon <= sr) deg = 180;
+      else if(tLon < noon) deg = 180 - 90*(tLon - sr)/(noon - sr);
+      else if(tLon <= ss)  deg = 90 - 90*(tLon - noon)/(ss - noon);
+      else deg = 0;
+      return {deg: deg, night: (tLon < sr || tLon > ss)};
+    }
+    function xform(deg){
+      var r = deg*RAD;
+      return 'translate(' + (140 + 140*Math.cos(r)).toFixed(1) + 'px,' + (-140*Math.sin(r)).toFixed(1) + 'px)';
+    }
+
+    var started = false;
+    function place(){
+      var a = angleNow(), target = xform(a.deg);
+      dialSun.classList.toggle('is-night', a.night);
+      if(reduced){ dialSun.style.transform = target; return; }
+      dialSun.animate([
+        {transform:'translate(0px,0px)'},                 /* sunrise */
+        {transform:'translate(140px,-140px)', offset:.55},/* climb to noon */
+        {transform:'translate(140px,-140px)', offset:.68},/* dwell at the meridian */
+        {transform:target}                                /* settle at the real time */
+      ], {duration:3600, easing:'cubic-bezier(.22,.61,.2,1)', fill:'forwards'});
+      dialSun.style.transform = target;                   /* resting state */
+    }
+
+    var io2 = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting && !started){ started = true; place(); io2.unobserve(e.target); }
+      });
+    }, {threshold:.25});
+    io2.observe(section);
+
+    /* keep it honest over a long visit — glide to the new position each minute */
+    setInterval(function(){
+      if(!started || reduced) return;
+      var a = angleNow();
+      dialSun.style.transition = 'transform 2s var(--ease)';
+      dialSun.style.transform = xform(a.deg);
+      dialSun.classList.toggle('is-night', a.night);
+    }, 60000);
+  })();
+
   /* gentle hero parallax */
   var heroImg = document.getElementById('heroImg');
   if(heroImg && !reduced){

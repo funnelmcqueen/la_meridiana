@@ -916,22 +916,17 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--tomato);outline-off
   fill:var(--brass-hi);font-family:var(--sans);font-size:8.5px;
   letter-spacing:.34em;text-anchor:middle;
 }
+/* the sun starts at sunrise (left horizon); js sweeps it to noon then to the
+   real current-time position over East Horsley. */
 .namestory .sun{transform:translate(0,0);filter:drop-shadow(0 0 6px rgba(190,59,38,.75))}
 .namestory .sun circle{fill:var(--tomato)}
+.namestory .sun.is-night{opacity:.45;filter:drop-shadow(0 0 5px rgba(190,59,38,.4))}
 
-/* draw-in when the section scrolls into view */
+/* draw-in when the section scrolls into view (sun is driven by js) */
 .namestory.in .arc{animation:dialDraw 1.7s var(--ease) .15s forwards}
 .namestory.in .noon{animation:noonGrow .9s var(--ease) 1.5s forwards}
-.namestory.in .sun{animation:sunUp 2.1s var(--ease) .3s forwards}
 @keyframes dialDraw{to{stroke-dashoffset:0}}
 @keyframes noonGrow{to{transform:scaleY(1)}}
-@keyframes sunUp{
-  0%{transform:translate(0,0)}
-  25%{transform:translate(10.7px,-53.6px)}
-  50%{transform:translate(41px,-99px)}
-  75%{transform:translate(86.4px,-129.3px)}
-  100%{transform:translate(140px,-140px)}
-}
 
 .namestory__lead{
   font-size:clamp(20px,2.3vw,27px);line-height:1.35;max-width:30ch;margin:0 auto;
