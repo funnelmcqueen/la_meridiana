@@ -806,6 +806,12 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--tomato);outline-off
   .band img{top:0;height:100%;transform:none !important}
   /* no full-screen intro under reduced-motion */
   .sunintro{display:none !important}
+  body.has-intro .nav{opacity:1;transform:none}
+  body.has-intro .hero h1 .line > span,
+  body.has-intro .hero__rule,
+  body.has-intro .hero__sub,
+  body.has-intro .hero__cta,
+  body.has-intro .hero__foot{animation-play-state:running}
   /* hero sundial: show the completed composition, sun placed by js */
   .herodial{opacity:1}
   .herodial .hd-arc{stroke-dashoffset:0}
@@ -937,19 +943,12 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--tomato);outline-off
 }
 @keyframes hdDraw{to{stroke-dashoffset:0}}
 @keyframes hdNoon{to{transform:scaleY(1)}}
-/* the sun — bold, glowing, gently pulsing so it always reads */
+/* the sun — a full, solid disc with a warm glow (no transparency) */
 .herodial .sun{
   transform:translate(0,0);
-  filter:drop-shadow(0 0 6px rgba(190,59,38,.95)) drop-shadow(0 0 18px rgba(190,59,38,.55));
+  filter:drop-shadow(0 0 6px rgba(190,59,38,1)) drop-shadow(0 0 16px rgba(190,59,38,.7));
 }
-.herodial .sun .core{fill:var(--tomato)}
-.herodial .sun .halo{
-  fill:var(--tomato);opacity:.42;transform-box:fill-box;transform-origin:center;
-  animation:sunPulse 2.8s ease-in-out infinite;
-}
-@keyframes sunPulse{0%,100%{transform:scale(1);opacity:.42}50%{transform:scale(2.3);opacity:.06}}
-.herodial .sun.is-night{opacity:.6}
-.herodial .sun.is-night .halo{animation:none;opacity:.15}
+.herodial .sun circle{fill:var(--tomato)}
 /* once the intro has settled, freeze the draw-ins so nothing replays (no flicker) */
 .herodial.settled,.herodial.settled .hd-arc,.herodial.settled .hd-noon{animation:none}
 .herodial.settled .hd-arc{stroke-dashoffset:0}
@@ -974,3 +973,23 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--tomato);outline-off
 .sunintro__time.show{opacity:1;transform:none;transition:opacity .6s var(--ease),transform .6s var(--ease)}
 /* the hero dial while it is playing the full-screen intro */
 .herodial.is-intro{opacity:1 !important;animation:none;margin:0;will-change:transform}
+
+/* Choreographed reveal (home only): the nav/logo and hero content are held
+   until the intro finishes, then they animate into place. JS adds `.lit`. */
+body.has-intro .nav{opacity:0;transform:translateY(-16px)}
+body.has-intro .hero h1 .line > span,
+body.has-intro .hero__rule,
+body.has-intro .hero__rule::after,
+body.has-intro .hero__sub,
+body.has-intro .hero__cta,
+body.has-intro .hero__foot{animation-play-state:paused}
+body.has-intro.lit .nav{
+  opacity:1;transform:none;
+  transition:opacity .8s var(--ease),transform .8s var(--ease),background .4s var(--ease),box-shadow .4s var(--ease);
+}
+body.has-intro.lit .hero h1 .line > span,
+body.has-intro.lit .hero__rule,
+body.has-intro.lit .hero__rule::after,
+body.has-intro.lit .hero__sub,
+body.has-intro.lit .hero__cta,
+body.has-intro.lit .hero__foot{animation-play-state:running}

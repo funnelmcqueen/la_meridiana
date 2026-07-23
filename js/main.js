@@ -146,6 +146,7 @@
     /* ---------- reduced-motion / no-overlay: place the sun, no intro -------- */
     if(reduced || !overlay){
       dialSun.style.transform = xform(live.deg);
+      document.body.classList.add('lit');                    // release the held nav/hero content
       if(overlay && overlay.parentNode) overlay.parentNode.removeChild(overlay);
       startLive();
       return;
@@ -168,11 +169,19 @@
         if(overlay.parentNode) overlay.parentNode.removeChild(overlay);
         startLive(); return;
       }
-      var origParent = fig.parentNode, origNext = fig.nextSibling;
       var targetW = Math.min(vw*0.82, vh*1.15, 900);
       var scale = targetW / R0.width;
       var cx = R0.left + R0.width/2, cy = R0.top + R0.height/2;
       var tx = vw/2 - cx, ty = vh/2 - cy;
+
+      /* leave a same-size placeholder so the hero doesn't reflow (no jump) while
+         the dial is lifted out to the top layer */
+      var ph = document.createElement('div');
+      ph.style.width = R0.width + 'px';
+      ph.style.height = R0.height + 'px';
+      ph.style.margin = '0 0 30px';
+      ph.style.flex = '0 0 auto';
+      fig.parentNode.insertBefore(ph, fig);
 
       document.body.style.overflow = 'hidden';
       fig.classList.add('is-intro');
@@ -190,13 +199,14 @@
       setTimeout(function(){
         sweep(function(){
           if(timeEl) timeEl.classList.add('show');
-          setTimeout(function(){ shrink(origParent, origNext); }, 420);
+          setTimeout(function(){ shrink(ph); }, 420);
         });
       }, 300);
     }
 
-    function shrink(origParent, origNext){
-      if(overlay) overlay.classList.add('lift');
+    function shrink(ph){
+      if(overlay) overlay.classList.add('lift');             // fade the backdrop away
+      document.body.classList.add('lit');                    // nav/logo + hero content settle into place
       if(timeEl) timeEl.classList.remove('show');
       fig.classList.add('settled');                          // freeze draw-ins so nothing replays
       fig.style.transition = 'transform 1s var(--ease)';
@@ -205,7 +215,8 @@
       function end(){
         if(ended) return; ended = true;
         fig.removeEventListener('transitionend', end);
-        if(origNext) origParent.insertBefore(fig, origNext); else origParent.appendChild(fig);
+        ph.parentNode.insertBefore(fig, ph);                 // drop the dial back into its reserved slot
+        ph.parentNode.removeChild(ph);
         fig.classList.remove('is-intro');
         ['position','left','top','width','margin','zIndex','transformOrigin','transition','transform']
           .forEach(function(k){ fig.style[k] = ''; });
