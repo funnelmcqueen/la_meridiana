@@ -420,7 +420,7 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;color:inhe
 }
 
 /* awards plaques */
-.plaques{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:110px}
+.plaques{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:26px;margin-top:110px}
 .plaque{
   border:1px solid var(--brass);
   padding:34px 36px;position:relative;background:var(--cream);
@@ -1007,3 +1007,38 @@ body.has-intro.lit .hero__rule::after,
 body.has-intro.lit .hero__sub,
 body.has-intro.lit .hero__cta,
 body.has-intro.lit .hero__foot{animation-play-state:running}
+
+/* ============================================================
+   FOOD HYGIENE RATING — polished, on-brand card + row.
+   Real FSA rating (5, Very Good); links to the official source.
+   ============================================================ */
+.hygiene{display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:center}
+.hygiene__body h2{font-size:clamp(30px,3.7vw,52px);font-weight:500;line-height:1.04}
+.hygiene__body h2 em{font-style:italic;color:var(--brass)}
+.hygiene__body > p{margin-top:22px;font-size:18px;line-height:1.65;color:var(--ink-soft);max-width:48ch}
+.hygiene__body strong{color:var(--ink);font-weight:600}
+.hygiene__cta{margin-top:32px}
+
+.fhrs{
+  border:1px solid var(--brass);background:var(--green);color:var(--cream);
+  padding:48px 40px;text-align:center;position:relative;
+}
+.fhrs::before{ /* a thin brass inner frame, echoing the plaques */
+  content:"";position:absolute;inset:9px;border:1px solid rgba(201,169,106,.28);pointer-events:none;
+}
+.fhrs__kicker{
+  font-family:var(--sans);font-size:10px;font-weight:600;
+  letter-spacing:.34em;text-transform:uppercase;color:var(--brass-hi);
+}
+.fhrs__num{font-family:var(--serif);font-weight:600;font-size:clamp(84px,10vw,122px);line-height:1;margin:14px 0 2px}
+.fhrs__num span{color:var(--brass-hi);font-size:.4em;vertical-align:super;letter-spacing:.02em}
+.fhrs__verdict{font-family:var(--serif);font-style:italic;font-size:clamp(26px,3vw,34px);color:var(--brass-hi)}
+.fhrs__scale{display:flex;justify-content:center;gap:14px;margin:28px 0 20px}
+.fhrs__scale i{font-family:var(--sans);font-size:13px;font-weight:600;font-style:normal;color:rgba(245,239,226,.36)}
+.fhrs__scale .on{position:relative;color:var(--cream)}
+.fhrs__scale .on::after{ /* the meridian sun-dot marks the top score */
+  content:"";position:absolute;top:-11px;left:50%;transform:translateX(-50%);
+  width:6px;height:6px;border-radius:50%;background:var(--tomato);
+}
+.fhrs__src{font-family:var(--sans);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(245,239,226,.55)}
+@media(max-width:900px){.hygiene{grid-template-columns:1fr;gap:40px}}
