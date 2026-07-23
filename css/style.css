@@ -964,17 +964,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--tomato);outline-off
   opacity:1;pointer-events:none;
 }
 .sunintro.lift{opacity:0;transition:opacity 1s var(--ease)}
-/* the brand wordmark, sitting above the curve during the intro (js positions it) */
+/* the brand emblem, sitting above the curve during the intro (js positions it) */
 .sunintro__logo{
-  position:absolute;left:0;right:0;top:20%;text-align:center;
-  font-family:var(--serif);font-weight:600;font-size:clamp(26px,3.6vw,46px);
-  letter-spacing:.16em;text-transform:uppercase;color:var(--cream);
+  position:absolute;left:0;right:0;margin:0 auto;top:20%;
+  width:clamp(180px,23vw,300px);height:auto;   /* emblem is tall — keep it clear of the arc */
   opacity:0;
-}
-.sunintro__logo i{font-style:normal;position:relative}
-.sunintro__logo i::after{ /* the red sun over the final A */
-  content:"";position:absolute;top:-.55em;left:50%;transform:translateX(-50%);
-  width:.15em;height:.15em;border-radius:50%;background:var(--tomato);
 }
 .sunintro.show-logo .sunintro__logo{opacity:1;transition:opacity .8s var(--ease)}
 .sunintro.lift .sunintro__logo{transform:translateY(-34px) scale(.94);transition:transform 1s var(--ease)}
@@ -1226,3 +1220,18 @@ body.true-noon .linea__disc{
 }
 body.true-noon .linea__noon{opacity:1;transform:translateY(-50%) translateX(0)}
 @media(prefers-reduced-motion:reduce){ .linea__noon{transition:none} }
+
+/* ============================================================
+   LOGO LOCKUP — the recoloured emblem in the nav & footer.
+   Nav carries a dark-bg (cream+brass) and a light-bg (brass+green) copy and
+   cross-fades them when the header turns cream on scroll.
+   ============================================================ */
+.nav__brand{position:relative;display:flex;align-items:center}
+.nav__logo{display:block;height:52px;width:auto;transition:height .4s var(--ease), opacity .35s var(--ease)}
+.nav.scrolled .nav__logo{height:42px}
+.nav__logo--light{position:absolute;left:0;top:50%;transform:translateY(-50%);opacity:0}
+.nav.scrolled .nav__logo--dark{opacity:0}
+.nav.scrolled .nav__logo--light{opacity:1}
+@media(max-width:600px){ .nav__logo{height:44px} .nav.scrolled .nav__logo{height:38px} }
+
+.footer__logo{display:block;width:210px;max-width:70%;height:auto;margin-bottom:12px}
