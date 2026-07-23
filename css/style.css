@@ -804,6 +804,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--tomato);outline-off
   .hero__media img{transform:scale(1.02)}
   .loader{display:none}
   .band img{top:0;height:100%;transform:none !important}
+  /* no full-screen intro under reduced-motion */
+  .sunintro{display:none !important}
   /* hero sundial: show the completed composition, sun placed by js */
   .herodial{opacity:1}
   .herodial .hd-arc{stroke-dashoffset:0}
@@ -940,3 +942,23 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--tomato);outline-off
 .herodial .sun{transform:translate(0,0);filter:drop-shadow(0 0 5px rgba(190,59,38,.85))}
 .herodial .sun circle{fill:var(--tomato)}
 .herodial .sun.is-night{opacity:.5}
+
+/* ============================================================
+   INTRO — the sundial fills the screen on load, the sun rides to the
+   current time, then the dial shrinks (FLIP) into the hero. The green
+   backdrop covers the page until then; hidden for reduced-motion.
+   ============================================================ */
+.sunintro{
+  position:fixed;inset:0;z-index:9990;background:var(--green);
+  opacity:1;pointer-events:none;
+}
+.sunintro.lift{opacity:0;transition:opacity 1.2s var(--ease)}
+.sunintro__time{
+  position:absolute;top:63%;left:0;right:0;text-align:center;
+  font-family:var(--sans);font-size:11px;font-weight:600;
+  letter-spacing:.34em;text-transform:uppercase;color:var(--brass-hi);
+  opacity:0;transform:translateY(8px);
+}
+.sunintro__time.show{opacity:1;transform:none;transition:opacity .6s var(--ease),transform .6s var(--ease)}
+/* the hero dial while it is playing the full-screen intro */
+.herodial.is-intro{opacity:1 !important;animation:none;margin:0;will-change:transform}

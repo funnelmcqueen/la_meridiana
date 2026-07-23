@@ -70,11 +70,11 @@
 </head>
 <body>
 
-<!-- preloader curtain — lifts once the page is ready -->
-<div class="loader" aria-hidden="true">
-  <span class="word">La Meridiana</span>
-  <span class="rule"></span>
-  <span class="sub">Cucina Italiana · Est. East Horsley</span>
+<!-- intro: the sundial fills the screen, the sun rides the arc to the current
+     time over East Horsley, then it shrinks into the hero. JS-driven;
+     hidden for reduced-motion. -->
+<div class="sunintro" id="sunintro" aria-hidden="true">
+  <span class="sunintro__time"></span>
 </div>
 
 <!-- meridian instrument (desktop) -->

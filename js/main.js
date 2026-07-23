@@ -113,31 +113,117 @@
     var live = angleNow();
     dialSun.classList.toggle('is-night', live.night);
 
-    if(reduced){
-      dialSun.style.transform = xform(live.deg);
-    } else {
-      var climb = 1500, dwell = 450, settle = 1500, t0 = null;
+    /* sweep the sun sunrise -> noon -> current time, ON the arc every frame */
+    function sweep(done){
+      var climb = 1400, dwell = 350, settle = 1400, t0 = null;
       function frame(ts){
         if(t0 === null) t0 = ts;
         var e = ts - t0, deg;
-        if(e < climb)                 deg = 180 - 90*ease(e/climb);                     // sunrise -> noon
-        else if(e < climb + dwell)    deg = 90;                                         // dwell at the meridian
-        else if(e < climb + dwell + settle) deg = 90 + (live.deg - 90)*ease((e - climb - dwell)/settle); // noon -> now
-        else { dialSun.style.transform = xform(live.deg); return; }
+        if(e < climb)                 deg = 180 - 90*ease(e/climb);
+        else if(e < climb + dwell)    deg = 90;
+        else if(e < climb + dwell + settle) deg = 90 + (live.deg - 90)*ease((e - climb - dwell)/settle);
+        else { dialSun.style.transform = xform(live.deg); if(done) done(); return; }
         dialSun.style.transform = xform(deg);
         requestAnimationFrame(frame);
       }
-      setTimeout(function(){ requestAnimationFrame(frame); }, 700);      // let the arc draw first
+      requestAnimationFrame(frame);
     }
 
     /* keep it honest over a long visit — glide to the new position each minute */
-    setInterval(function(){
-      if(reduced) return;
-      var a = angleNow();
-      dialSun.style.transition = 'transform 2s var(--ease)';
-      dialSun.style.transform = xform(a.deg);
-      dialSun.classList.toggle('is-night', a.night);
-    }, 60000);
+    function startLive(){
+      setInterval(function(){
+        if(reduced) return;
+        var a = angleNow();
+        dialSun.style.transition = 'transform 2s var(--ease)';
+        dialSun.style.transform = xform(a.deg);
+        dialSun.classList.toggle('is-night', a.night);
+      }, 60000);
+    }
+
+    var overlay = document.getElementById('sunintro');
+    var timeEl  = overlay && overlay.querySelector('.sunintro__time');
+
+    /* ---------- reduced-motion / no-overlay: place the sun, no intro -------- */
+    if(reduced || !overlay){
+      dialSun.style.transform = xform(live.deg);
+      if(overlay && overlay.parentNode) overlay.parentNode.removeChild(overlay);
+      startLive();
+      return;
+    }
+
+    /* ---------- the full-screen intro ------------------------------------- */
+    if(timeEl){
+      var tp = new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/London',hour:'2-digit',minute:'2-digit',hour12:false})
+        .formatToParts(new Date()).reduce(function(a,x){a[x.type]=x.value;return a;},{});
+      timeEl.textContent = tp.hour + ':' + tp.minute + ' · East Horsley';
+    }
+
+    function playIntro(){
+      if(fig.classList.contains('is-intro')) return;         // guard against double-run
+      window.scrollTo(0, 0);
+      var vw = window.innerWidth, vh = window.innerHeight;
+      var R0 = fig.getBoundingClientRect();
+      if(!R0.width){                                          // dial hidden — skip intro
+        dialSun.style.transform = xform(live.deg);
+        if(overlay.parentNode) overlay.parentNode.removeChild(overlay);
+        startLive(); return;
+      }
+      var origParent = fig.parentNode, origNext = fig.nextSibling;
+      var targetW = Math.min(vw*0.72, vh*1.0, 760);
+      var scale = targetW / R0.width;
+      var cx = R0.left + R0.width/2, cy = R0.top + R0.height/2;
+      var tx = vw/2 - cx, ty = vh/2 - cy;
+
+      document.body.style.overflow = 'hidden';
+      fig.classList.add('is-intro');
+      document.body.appendChild(fig);                        // lift out of the hero stacking context
+      fig.style.position = 'fixed';
+      fig.style.left = R0.left + 'px';
+      fig.style.top = R0.top + 'px';
+      fig.style.width = R0.width + 'px';
+      fig.style.zIndex = '9999';
+      fig.style.transformOrigin = 'center center';
+      fig.style.transition = 'none';
+      fig.style.transform = 'translate(' + tx + 'px,' + ty + 'px) scale(' + scale + ')';
+      void fig.offsetWidth;                                  // commit the big state
+
+      setTimeout(function(){
+        sweep(function(){
+          if(timeEl) timeEl.classList.add('show');
+          setTimeout(function(){ shrink(origParent, origNext); }, 700);
+        });
+      }, 450);
+    }
+
+    function shrink(origParent, origNext){
+      if(overlay) overlay.classList.add('lift');
+      if(timeEl) timeEl.classList.remove('show');
+      fig.style.transition = 'transform 1.2s var(--ease)';
+      fig.style.transform = 'none';                          // back to the hero rect (R0)
+      var ended = false;
+      function end(){
+        if(ended) return; ended = true;
+        fig.removeEventListener('transitionend', end);
+        if(origNext) origParent.insertBefore(fig, origNext); else origParent.appendChild(fig);
+        fig.classList.remove('is-intro');
+        ['position','left','top','width','margin','zIndex','transformOrigin','transition','transform']
+          .forEach(function(k){ fig.style[k] = ''; });
+        dialSun.style.transform = xform(live.deg);           // sun stays at the current time
+        document.body.style.overflow = '';
+        if(overlay && overlay.parentNode) overlay.parentNode.removeChild(overlay);
+        startLive();
+      }
+      fig.addEventListener('transitionend', end);
+      setTimeout(end, 1500);                                 // fallback if transitionend misses
+    }
+
+    /* start once fonts are settled so the measured hero rect is accurate */
+    if(document.fonts && document.fonts.ready){
+      document.fonts.ready.then(function(){ requestAnimationFrame(playIntro); });
+      setTimeout(playIntro, 1200);                           // fallback
+    } else {
+      setTimeout(playIntro, 200);
+    }
   })();
 
   /* gentle hero parallax */
