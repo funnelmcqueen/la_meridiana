@@ -359,7 +359,7 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;color:inhe
 @keyframes slide{to{transform:translateX(-50%)}}
 
 /* ============ 9. SECTIONS SHARED ============ */
-.section{padding:130px 0}
+.section{padding:clamp(62px,11vw,130px) 0}   /* fluid vertical rhythm: shrinks with the viewport */
 .section--green{background:var(--green);color:var(--cream)}
 .section--deep{background:var(--green-deep);color:var(--cream)}
 .section--tint{background:var(--cream-deep)}
@@ -655,34 +655,35 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;color:inhe
 }
 
 /* ============ 15. FOOTER ============ */
-.footer{background:var(--cream);border-top:1px solid var(--paper-line);padding:80px 0 40px}
-.footer__grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:50px}
-.footer .word{
-  font-family:var(--serif);font-weight:600;font-size:22px;letter-spacing:.14em;text-transform:uppercase;
-}
-.footer .word i{font-style:normal;position:relative}
-.footer .word i::after{
-  content:"";position:absolute;top:-6px;left:50%;transform:translateX(-50%);
-  width:5px;height:5px;border-radius:50%;background:var(--tomato);
-}
-.footer .tag{font-style:italic;color:var(--ink-soft);margin-top:12px;font-size:16px}
+.footer{background:var(--cream);border-top:1px solid var(--paper-line);padding:clamp(60px,8vw,84px) 0 40px}
+.footer__grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:clamp(30px,4vw,56px);align-items:start}
+.footer__logo{display:block;width:206px;max-width:76%;height:auto;margin-bottom:14px}
+.footer__tag{font-family:var(--serif);font-style:italic;color:var(--ink-soft);font-size:16px;line-height:1.55;max-width:26ch}
+/* a small meridian tick-motif accent + a directions link lift the brand column */
+.footer__brand .ticks{justify-content:flex-start;margin:20px 0 15px}
+.footer__dir{color:var(--brass);font-size:11px}
 .footer h4{
   font-family:var(--sans);font-size:10px;font-weight:600;
-  letter-spacing:.3em;text-transform:uppercase;color:var(--brass);margin-bottom:20px;
+  letter-spacing:.3em;text-transform:uppercase;color:var(--brass);margin-bottom:18px;
 }
 .footer ul{display:flex;flex-direction:column;gap:12px}
+/* links draw a fine brass underline on hover — quieter, more premium than a colour flip */
 .footer ul a{
-  font-family:var(--sans);font-size:13px;letter-spacing:.04em;color:var(--ink-soft);
-  transition:color .3s var(--ease);
+  font-family:var(--sans);font-size:13px;letter-spacing:.04em;color:var(--ink-soft);width:fit-content;
+  padding-bottom:2px;background:linear-gradient(var(--brass),var(--brass)) left bottom / 0 1px no-repeat;
+  transition:background-size .35s var(--ease), color .3s var(--ease);
 }
-.footer ul a:hover{color:var(--tomato)}
+.footer ul a:hover{color:var(--ink);background-size:100% 1px}
 .footer__base{
-  margin-top:70px;padding-top:26px;border-top:1px solid var(--paper-line);
+  margin-top:clamp(48px,6vw,64px);padding-top:24px;border-top:1px solid var(--paper-line);
   display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
-  font-family:var(--sans);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);
+  font-family:var(--sans);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);
 }
-@media(max-width:900px){.footer__grid{grid-template-columns:1fr 1fr}}
-@media(max-width:560px){.footer__grid{grid-template-columns:1fr}}
+@media(max-width:900px){.footer__grid{grid-template-columns:1fr 1fr;gap:34px}}
+@media(max-width:560px){
+  .footer__grid{grid-template-columns:1fr;gap:30px}
+  .footer__base{flex-direction:column;gap:8px}
+}
 
 /* ============ 17. PRELOADER CURTAIN ============ */
 .loader{
@@ -825,7 +826,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--tomato);outline-off
    ============================================================ */
 
 /* Inner-page header band — the hero look without the media panel */
-.pagehero{background:var(--green);color:var(--cream);padding:160px 0 90px}
+.pagehero{background:var(--green);color:var(--cream);padding:clamp(118px,16vw,160px) 0 clamp(56px,9vw,90px)}
 .pagehero .eyebrow{color:var(--brass-hi)}
 .pagehero .eyebrow::before{background:var(--brass-hi)}
 .pagehero h1{
@@ -1164,20 +1165,10 @@ body.phase-night{
 .linea__mark.flare span{color:#f4d99a}
 .linea__mark.flare i{background:var(--sun-glow);transform:translate(-50%,-50%) scale(1.35);box-shadow:0 0 0 2px var(--sun-glow), 0 0 12px 4px var(--sun-glow)}
 
-/* heading light-sweep when the disc passes a section */
-.lightsweep{position:relative}
-.lightsweep::after{
-  content:"";position:absolute;inset:-2px 0;pointer-events:none;z-index:1;
-  background:linear-gradient(105deg,transparent 42%, rgba(255,244,214,.55) 50%, transparent 58%);
-  transform:translateX(-120%);animation:linSweep .9s var(--ease);
-}
-@keyframes linSweep{to{transform:translateX(120%)}}
-
 @media(max-width:1499px){ .linea__mark span{display:none} }   /* only wide desktops show plaques; else dots */
 @media(max-width:760px){ .linea{left:0} }                     /* hairline at the very edge */
 @media(prefers-reduced-motion:reduce){
   .linea__disc{display:none}                                   /* no travelling disc */
-  .lightsweep::after{display:none}
 }
 
 /* ============================================================
@@ -1234,4 +1225,3 @@ body.true-noon .linea__noon{opacity:1;transform:translateY(-50%) translateX(0)}
 .nav.scrolled .nav__logo--light{opacity:1}
 @media(max-width:600px){ .nav__logo{height:44px} .nav.scrolled .nav__logo{height:38px} }
 
-.footer__logo{display:block;width:210px;max-width:70%;height:auto;margin-bottom:12px}

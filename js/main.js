@@ -103,15 +103,6 @@
         m._flared = false; m.classList.remove('flare');
       });
     }
-    function sweep(id){
-      var sec = document.getElementById(id);
-      var head = sec && sec.querySelector('h1, h2, .display');
-      if(!head) return;
-      head.classList.remove('lightsweep');
-      void head.offsetWidth;                 // restart the animation
-      head.classList.add('lightsweep');
-      setTimeout(function(){ head.classList.remove('lightsweep'); }, 950);
-    }
     var ticking = false;
     function frame(){
       ticking = false;
@@ -119,7 +110,7 @@
       disc.style.top = (Math.max(0, Math.min(1, p)) * 100) + '%';
       marks.forEach(function(m){
         var passed = p >= m._prog - 0.004;
-        if(passed && !m._flared){ m._flared = true; m.classList.add('flare'); sweep(m.dataset.target); }
+        if(passed && !m._flared){ m._flared = true; m.classList.add('flare'); }
         else if(!passed && m._flared){ m._flared = false; m.classList.remove('flare'); }
       });
     }
@@ -267,8 +258,9 @@
       if(logoEl){
         var bigH = R0.height * scale;
         var apexY = (vh/2 - bigH/2) + (18/150)*bigH;         // arc apex, on screen
+        var gap = Math.max(46, vh * 0.07);                   // natural breathing space above the curve
         logoEl.style.top = 'auto';
-        logoEl.style.bottom = (vh - (apexY - 26)) + 'px';    // sit just above the curve
+        logoEl.style.bottom = (vh - (apexY - gap)) + 'px';
       }
       setTimeout(function(){ overlay.classList.add('show-logo'); }, 150);
 
