@@ -264,8 +264,13 @@
         var lh = logoEl.offsetHeight || 130;                 // real rendered emblem height
         var bottomEdge = apexY - gap;                        // emblem's bottom, from the top
         if(bottomEdge - lh < 14) bottomEdge = lh + 14;       // never let it cross the top edge
-        logoEl.style.top = 'auto';
-        logoEl.style.bottom = (vh - bottomEdge) + 'px';
+        /* anchor from the TOP, the same origin the dial centres against. Anchoring
+           from bottom broke on iOS: the overlay (position:fixed;inset:0) is sized to
+           the large viewport while this math uses innerHeight (the small, address-bar
+           viewport you get right after a pull-to-refresh), so `bottom` dropped the
+           emblem onto the arc. Top-anchoring keeps emblem + dial locked together. */
+        logoEl.style.bottom = 'auto';
+        logoEl.style.top = (bottomEdge - lh) + 'px';
       }
       setTimeout(function(){ overlay.classList.add('show-logo'); }, 150);
 

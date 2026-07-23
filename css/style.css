@@ -256,8 +256,11 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;color:inhe
   font-size:clamp(52px, 6.4vw, 104px);
   font-weight:500;line-height:.98;letter-spacing:-.015em;
 }
-.hero h1 .line{display:block;overflow:hidden}
-.hero h1 .line > span{display:inline-block;transform:translateY(110%);animation:rise 1s var(--ease) forwards}
+/* the mask window extends below the baseline so descenders (y, g, comma) are
+   never clipped; the negative margin cancels it so the tight line spacing is
+   unchanged. reveal starts a touch lower so nothing peeks past the taller mask */
+.hero h1 .line{display:block;overflow:hidden;padding-bottom:.16em;margin-bottom:-.16em}
+.hero h1 .line > span{display:inline-block;transform:translateY(130%);animation:rise 1s var(--ease) forwards}
 .hero h1 .line:nth-child(2) > span{animation-delay:.12s}
 .hero h1 .line:nth-child(3) > span{animation-delay:.24s}
 .hero h1 em{font-style:italic;font-weight:500;color:var(--brass-hi)}
