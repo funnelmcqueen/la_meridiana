@@ -45,14 +45,33 @@
 
   /* menu tabs */
   var tabs = document.querySelectorAll('.tab');
-  tabs.forEach(function(t){
-    t.addEventListener('click', function(){
-      tabs.forEach(function(x){ x.classList.remove('active'); x.setAttribute('aria-selected','false'); });
-      t.classList.add('active'); t.setAttribute('aria-selected','true');
-      document.querySelectorAll('.pane').forEach(function(p){ p.classList.remove('active'); });
-      document.getElementById('pane-' + t.dataset.pane).classList.add('active');
+  function activateTab(slug){
+    var target = null;
+    tabs.forEach(function(x){
+      var on = x.dataset.pane === slug;
+      x.classList.toggle('active', on); x.setAttribute('aria-selected', on ? 'true' : 'false');
+      if(on) target = x;
     });
+    document.querySelectorAll('.pane').forEach(function(p){ p.classList.remove('active'); });
+    var pane = document.getElementById('pane-' + slug);
+    if(pane) pane.classList.add('active');
+    return target;
+  }
+  tabs.forEach(function(t){
+    t.addEventListener('click', function(){ activateTab(t.dataset.pane); });
   });
+  /* deep-link support: menu.html#setlunch / #takeaway opens that tab */
+  if(tabs.length){
+    function fromHash(){
+      var slug = (location.hash || '').replace('#','');
+      if(slug && document.getElementById('pane-' + slug)){
+        var t = activateTab(slug);
+        if(t) t.scrollIntoView({block:'nearest'});
+      }
+    }
+    fromHash();
+    window.addEventListener('hashchange', fromHash);
+  }
 
   /* meridian sun follows scroll */
   var sun = document.getElementById('meridianSun');

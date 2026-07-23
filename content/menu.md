@@ -5,8 +5,11 @@
 #   - NewDessertMenuOct2024.pdf    → I Dolci (+ after-dinner)
 # Prices verified against the rendered PDF pages. Items marked [?] need the
 # client to confirm (see TODO.md). Wine uses three columns: g175 / g250 / bottle
-# ("—" = not offered by that measure). Set Lunch + Takeaway menus are NOT on this
-# page yet — see TODO.md.
+# ("—" = not offered by that measure).
+#   - SETLUNCHCORRIGIDO.pdf         → Set Lunch (Primi, Secondi) — 2 courses £16.95, Tue–Fri 12–3pm
+#   - AUGUSTMeridianaTakeawayMenu.pdf → Takeaway (Pizze, Antipasti, Pasta & Risotto,
+#                                       Carne & Pesce, Contorni, Bambini)
+# Two separate files for two separate purposes: each drives its own tab.
 
 # MENU: À la carte
 
@@ -541,3 +544,286 @@ note: cocktails
 # Castelcosa, Port, Vintage Port 2013) and the full coffee & tea list are on the
 # dessert menu but their glass/bottle price mapping is ambiguous in the source —
 # left off pending client confirmation (see TODO.md).
+
+
+# MENU: Set Lunch
+
+## SECTION: Two courses · £16.95
+note: Tuesday to Friday, 12–3pm · excluding Bank Holidays. Choose one starter and one main.
+
+## SECTION: Primi
+note: starters
+
+- name: Bruschetta al Pomodoro
+  tags: V
+  desc: Toasted rustic bread topped with cherry tomatoes, garlic, and fresh basil
+
+- name: Melanzane alla Parmigiana
+  tags: V
+  desc: Baked aubergine with tomato sauce, mozzarella, and basil
+
+- name: Polpette al Sugo
+  desc: Homemade meatballs in a rich tomato sauce
+
+- name: Crostini Caprino e Cipolla
+  tags: V
+  desc: Toasted crostini topped with warmed goat's cheese and caramelised onion
+
+- name: Prosciutto e Melone
+  desc: Thin slices of Parma ham served with sweet melon
+
+- name: Gamberetti all'Aglio Piccante
+  desc: Baby prawns sautéed with garlic, chilli, white wine, and a touch of tomato sauce
+
+- name: Insalata Caprese
+  tags: V
+  desc: Sliced fresh mozzarella, tomatoes, and basil, drizzled with extra virgin olive oil, pesto and balsamic glaze
+
+- name: Funghi Trifolati
+  tags: V
+  desc: Sautéed mushrooms with garlic, parsley, and white wine, served warm with toasted bread
+
+## SECTION: Secondi
+note: main course
+
+- name: Penne all'Arrabbiata
+  tags: V
+  desc: Penne pasta with garlic, chilli and tomato sauce
+
+- name: Penne Amatriciana
+  desc: Penne pasta with guanciale, red onions, and tomato sauce, finished with Pecorino Romano
+
+- name: Spaghetti alla Carbonara
+  desc: Spaghetti with guanciale, egg yolk, and Pecorino Romano — the authentic Roman way (no cream)
+
+- name: Tagliatelle al Ragù
+  desc: Fresh tagliatelle with our traditional slow-cooked beef ragù
+
+- name: Risotto Verde
+  tags: V
+  desc: Arborio rice cooked with asparagus, peas, spinach, and Parmesan
+
+- name: Lasagna al Forno
+  desc: Classic oven-baked beef lasagna with béchamel and parmesan
+
+- name: Spaghetti al Pesto alla Genovese
+  tags: V
+  desc: Spaghetti tossed in a fragrant basil pesto with a touch of cream, finished with parmesan and toasted pine nuts
+
+- name: Pollo alla Valdostana
+  desc: Chicken breast topped with ham, tomato sauce, and melted mozzarella, finished under the salamander grill and served with rosemary potatoes
+
+- name: Salmone alla Mediterranea
+  desc: Pan-seared salmon fillet with cherry tomatoes, black olives, capers, and white wine, served over crushed potatoes
+
+
+# MENU: Takeaway
+
+## SECTION: Pizze
+note: made with the finest Italian ingredients · vegan or gluten-free base +£2 · extra toppings: meat £3, vegetables £2
+
+- name: Focaccia
+  tags: V
+  desc: Homemade Italian yeasted flatbread
+  price: 6.5
+
+- name: Pane all'Aglio
+  tags: V
+  desc: Garlic pizza bread
+  price: 6.5
+
+- name: Margherita
+  tags: V
+  desc: Tomato sauce, mozzarella & basil
+  price: 11
+
+- name: Americana
+  desc: Tomato sauce, mozzarella & spicy pepperoni sausage
+  price: 13
+
+- name: Hawaii
+  desc: Tomato sauce, mozzarella, cooked ham & pineapple
+  price: 15
+
+- name: Diavola Calabrese
+  desc: Tomato sauce, mozzarella, Nduja, red onions & chilli
+  price: 15
+
+- name: Caprino
+  tags: V
+  desc: Tomato sauce, mozzarella, courgettes, goat cheese & caramelised onions
+  price: 14
+
+- name: Ortolana
+  tags: V
+  desc: Tomato, mozzarella & grilled vegetables (courgettes & aubergines)
+  price: 15
+
+- name: Fiorentina
+  tags: V
+  desc: Tomato sauce, mozzarella, spinach, egg & parmesan
+  price: 15
+
+- name: Pollo e Pancetta
+  desc: Tomato sauce, mozzarella, chicken, pancetta & mushrooms
+  price: 15
+
+- name: Popeye
+  desc: Tomato sauce, mozzarella, tuna, chilli & red onions
+  price: 15
+
+- name: Quattro Stagioni
+  desc: Tomato sauce, mozzarella, artichokes, ham, olives, salami & mushrooms
+  price: 15
+
+- name: Bufalina
+  desc: Tomato sauce, buffalo mozzarella, rocket, Parma Ham, cherry tomatoes & parmesan shavings
+  price: 17
+
+- name: Calzone Piccante
+  desc: Folded pizza — tomato sauce, mozzarella, cooked ham, mushrooms, pepperoni, oregano & red chillies
+  price: 16
+
+## SECTION: Antipasti
+note: starters · * subject to availability
+
+- name: Arancini
+  desc: Two fried rice balls filled with mozzarella & minced meat
+  price: 8.95
+
+- name: Bruschetta
+  tags: V, VE
+  desc: Homemade focaccia topped with marinated fresh tomato, red onions, basil, garlic & extra virgin olive oil
+  price: 7.5
+
+- name: Burrata
+  tags: V
+  desc: Italian creamy cheese with cherry tomatoes confit, dried black olives & balsamic glaze
+  price: 12
+
+- name: Calamari *
+  desc: Deep-fried squid rings served with homemade aioli
+  price: 12
+
+- name: Carpaccio di Manzo
+  desc: Thin slices of raw beef fillet with rocket, parmesan shavings, drizzled with lemon juice & extra virgin olive oil
+  price: 15
+
+- name: Gamberoni Aglio e Peperoncino *
+  desc: Pan-fried shell-off king prawns cooked with garlic, butter, fresh chilli & white wine sauce, served with homemade focaccia
+  price: 15
+
+- name: Melanzana Parmigiana
+  tags: V
+  desc: Homemade baked aubergine with tomato sauce, Fior di latte mozzarella cheese & basil
+  price: 8.5
+
+## SECTION: Pasta & Risotto
+note: * subject to availability
+
+- name: Linguine Gamberoni
+  desc: Linguine with king prawns, fresh garlic, cherry tomatoes, white wine & olive oil
+  price: 21.95
+
+- name: Gnocchi al Filetto
+  desc: Traditionally homemade gnocchi with garlic, strips of fillet steak, cherry tomatoes, mushrooms, parmesan cheese & drizzled with truffle oil
+  price: 21.95
+
+- name: Gnocchi di Zucca
+  tags: V
+  desc: Traditionally homemade pumpkin gnocchi with dried apricot, sage & Gorgonzola sauce
+  price: 18.95
+
+- name: Tagliatelle al Salmone
+  desc: Tagliatelle pasta with salmon, tomato sauce & a touch of cream
+  price: 18
+
+- name: Tagliatelle alla Aragosta *
+  desc: Tagliatelle pasta with half a fresh lobster, brandy, cherry tomatoes, garlic & basil
+  price: 35
+
+- name: Italian Classic Dishes
+  desc: All Italian traditional dishes such as Spaghetti Bolognese, Carbonara & Lasagne available on request
+  price: 14.95
+
+- name: Risotto Mare *
+  desc: Italian Arborio rice with mixed seafood, garlic, cherry tomatoes & extra virgin olive oil
+  price: 25
+
+- name: Risotto Tartufo
+  tags: V
+  desc: Italian Arborio rice with mushrooms & truffle sauce
+  price: 16.95
+
+## SECTION: Carne & Pesce
+note: meat & fish · * subject to availability
+
+- name: Scaloppine alla Milanese
+  desc: Veal in breadcrumbs served with spaghetti & tomato sauce
+  price: 23
+
+- name: Pollo Tricolore
+  desc: Grilled chicken breast topped with mozzarella cheese & tomato sauce, served with asparagus & new potatoes
+  price: 18
+
+- name: Tagliata di Manzo e Rucola
+  desc: Grilled sliced 300g ribeye steak served on a bed of fresh rocket, topped with shaved Parmesan & served with chips
+  price: 29
+
+- name: Filetto dello Chef
+  desc: Grilled fillet steak with asparagus, carrots, duchess potatoes & a tomato gratin topped with Parmesan cheese
+  price: 35
+
+- name: Branzino in Guazzetto *
+  desc: Grilled fillet of sea bass with prawn & bisque sauce, served on a bed of roasted potato, asparagus & carrots
+  price: 25
+
+- name: Salmone al Mascarpone
+  desc: Grilled salmon served with creamy mashed potatoes, crispy asparagus & drizzled with a Mascarpone orange sauce
+  price: 23
+
+## SECTION: Contorni
+note: sides
+
+- name: Rocket & Parmesan Cheese
+  price: 5.5
+
+- name: Spinach, Garlic & Chilli
+  price: 5.5
+
+- name: Tomato & Red Onion Salad
+  price: 4.5
+
+- name: Sautéed Mushrooms
+  price: 4.5
+
+- name: Green Salad
+  price: 4.5
+
+- name: Patatine Fritte (Chips)
+  price: 3.5
+
+- name: Mixed Salad
+  price: 5.5
+
+- name: Broccoli
+  price: 4.5
+
+- name: Mixed Olives
+  price: 4.5
+
+- name: Asparagus
+  price: 9
+
+## SECTION: Bambini
+note: for children · £8 each
+
+- name: Spaghetti Pasta
+  desc: A choice of sauce — Tomato, Carbonara or Bolognese
+  price: 8
+
+- name: Chicken Goujon & Chips
+  price: 8
+
+- name: 8" Pizza Margherita
+  price: 8

@@ -22,8 +22,15 @@ is guessed on the live site without a matching placeholder marker in the HTML.
 - [ ] **Dessert sweet wines** (Passito, Vin Santo, Picolit, Port, Vintage Port) — the
       glass/bottle price mapping is ambiguous in the PDF; left OFF pending confirmation.
 - [ ] **Coffees & teas** (dessert menu) — not yet added; confirm whether to list them.
-- [ ] **Set Lunch** (Tue–Fri 12–3pm, 2 courses £16.95) and the **Takeaway** menu were
-      supplied — decide whether they get their own sections/pages (not on the site yet).
+- [x] **Set Lunch** and **Takeaway** transcribed into `content/menu.md` and generated
+      as two new tabs on `menu.html`. Linked from the home menu section and the Eventi
+      page (Set Lunch feature). Deep links work: `menu.html#setlunch`, `menu.html#takeaway`.
+      Two separate client files, two purposes: the **Set Lunch** PDF drives the Set Lunch
+      tab (2 courses £16.95, Tue–Fri 12–3pm); the **Takeaway** PDF drives the Takeaway tab.
+      (The "Lunch Set Menu" panel printed on the takeaway flyer is just cross-promo on that
+      old flyer — ignored; the dedicated Set Lunch file is the source of truth.)
+- [ ] Standard pre-launch price check on both new menus (as printed on the client PDFs).
+- [ ] **Takeaway** — confirm whether it needs online ordering later (Phase 2 / delivery page).
 - [ ] Home-page menu preview still shows the first two à la carte sections — fine, but
       note it's a hand-picked teaser, not generated.
 
