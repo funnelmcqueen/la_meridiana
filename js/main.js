@@ -258,9 +258,14 @@
       if(logoEl){
         var bigH = R0.height * scale;
         var apexY = (vh/2 - bigH/2) + (18/150)*bigH;         // arc apex, on screen
-        var gap = Math.max(46, vh * 0.07);                   // natural breathing space above the curve
+        /* breathing space scales with the dial (which is 2:1, so bigH is short),
+           kept generous on phones and capped so it never shoves the emblem off-screen */
+        var gap = Math.max(48, Math.min(bigH * 0.42, 96));
+        var lh = logoEl.offsetHeight || 130;                 // real rendered emblem height
+        var bottomEdge = apexY - gap;                        // emblem's bottom, from the top
+        if(bottomEdge - lh < 14) bottomEdge = lh + 14;       // never let it cross the top edge
         logoEl.style.top = 'auto';
-        logoEl.style.bottom = (vh - (apexY - gap)) + 'px';
+        logoEl.style.bottom = (vh - bottomEdge) + 'px';
       }
       setTimeout(function(){ overlay.classList.add('show-logo'); }, 150);
 
