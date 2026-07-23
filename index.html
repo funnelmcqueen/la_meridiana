@@ -123,7 +123,6 @@
 <!-- ============ HERO ============ -->
 <section class="hero">
   <div class="hero__text">
-    <p class="eyebrow hero__eyebrow">Ristorante Italiano · Trent'anni in Surrey</p>
     <figure class="herodial" aria-hidden="true" title="La meridiana — the sun over East Horsley, now">
       <svg viewBox="0 0 300 150" role="img">
         <line class="hd-horizon" x1="20" y1="128" x2="280" y2="128"/>
@@ -136,9 +135,13 @@
           <line x1="245.3" y1="73.0" x2="237.5" y2="77.5"/>
         </g>
         <line class="hd-noon" x1="150" y1="18" x2="150" y2="128"/>
-        <g class="sun"><circle cx="40" cy="128" r="5"/></g>
+        <g class="sun">
+          <circle class="halo" cx="40" cy="128" r="7.5"/>
+          <circle class="core" cx="40" cy="128" r="7.5"/>
+        </g>
       </svg>
     </figure>
+    <p class="eyebrow hero__eyebrow">Ristorante Italiano · Trent'anni in Surrey</p>
     <h1>
       <span class="line"><span>A little</span></span>
       <span class="line"><span><em>slice of Italy,</em></span></span>

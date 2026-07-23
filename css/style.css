@@ -920,28 +920,40 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--tomato);outline-off
    over East Horsley (js-driven, computed on the arc every frame).
    ============================================================ */
 .herodial{
-  width:clamp(148px,16vw,200px);margin:0 0 24px;line-height:0;
-  opacity:0;animation:heroDialIn 1s var(--ease) .35s forwards;
+  width:clamp(230px,27vw,360px);margin:0 0 30px;line-height:0;opacity:1;
 }
-@keyframes heroDialIn{to{opacity:1}}
 .herodial svg{width:100%;height:auto;overflow:visible;display:block}
 .herodial .hd-horizon{stroke:rgba(201,169,106,.32);stroke-width:1}
 .herodial .hd-arc{
   fill:none;stroke:var(--brass-hi);stroke-width:1.5;
   stroke-dasharray:346;stroke-dashoffset:346;
-  animation:hdDraw 1.4s var(--ease) .5s forwards;
+  animation:hdDraw 1.2s var(--ease) .3s forwards;
 }
 .herodial .hd-ticks line{stroke:rgba(201,169,106,.5);stroke-width:1}
 .herodial .hd-noon{
   stroke:var(--brass-hi);stroke-width:1;stroke-dasharray:2 4;
   transform:scaleY(0);transform-box:fill-box;transform-origin:top;
-  animation:hdNoon .8s var(--ease) 1.5s forwards;
+  animation:hdNoon .7s var(--ease) 1.1s forwards;
 }
 @keyframes hdDraw{to{stroke-dashoffset:0}}
 @keyframes hdNoon{to{transform:scaleY(1)}}
-.herodial .sun{transform:translate(0,0);filter:drop-shadow(0 0 5px rgba(190,59,38,.85))}
-.herodial .sun circle{fill:var(--tomato)}
-.herodial .sun.is-night{opacity:.5}
+/* the sun — bold, glowing, gently pulsing so it always reads */
+.herodial .sun{
+  transform:translate(0,0);
+  filter:drop-shadow(0 0 6px rgba(190,59,38,.95)) drop-shadow(0 0 18px rgba(190,59,38,.55));
+}
+.herodial .sun .core{fill:var(--tomato)}
+.herodial .sun .halo{
+  fill:var(--tomato);opacity:.42;transform-box:fill-box;transform-origin:center;
+  animation:sunPulse 2.8s ease-in-out infinite;
+}
+@keyframes sunPulse{0%,100%{transform:scale(1);opacity:.42}50%{transform:scale(2.3);opacity:.06}}
+.herodial .sun.is-night{opacity:.6}
+.herodial .sun.is-night .halo{animation:none;opacity:.15}
+/* once the intro has settled, freeze the draw-ins so nothing replays (no flicker) */
+.herodial.settled,.herodial.settled .hd-arc,.herodial.settled .hd-noon{animation:none}
+.herodial.settled .hd-arc{stroke-dashoffset:0}
+.herodial.settled .hd-noon{transform:none}
 
 /* ============================================================
    INTRO — the sundial fills the screen on load, the sun rides to the
@@ -952,7 +964,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--tomato);outline-off
   position:fixed;inset:0;z-index:9990;background:var(--green);
   opacity:1;pointer-events:none;
 }
-.sunintro.lift{opacity:0;transition:opacity 1.2s var(--ease)}
+.sunintro.lift{opacity:0;transition:opacity 1s var(--ease)}
 .sunintro__time{
   position:absolute;top:63%;left:0;right:0;text-align:center;
   font-family:var(--sans);font-size:11px;font-weight:600;

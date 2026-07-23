@@ -115,7 +115,7 @@
 
     /* sweep the sun sunrise -> noon -> current time, ON the arc every frame */
     function sweep(done){
-      var climb = 1400, dwell = 350, settle = 1400, t0 = null;
+      var climb = 1000, dwell = 250, settle = 1000, t0 = null;
       function frame(ts){
         if(t0 === null) t0 = ts;
         var e = ts - t0, deg;
@@ -169,7 +169,7 @@
         startLive(); return;
       }
       var origParent = fig.parentNode, origNext = fig.nextSibling;
-      var targetW = Math.min(vw*0.72, vh*1.0, 760);
+      var targetW = Math.min(vw*0.82, vh*1.15, 900);
       var scale = targetW / R0.width;
       var cx = R0.left + R0.width/2, cy = R0.top + R0.height/2;
       var tx = vw/2 - cx, ty = vh/2 - cy;
@@ -190,16 +190,17 @@
       setTimeout(function(){
         sweep(function(){
           if(timeEl) timeEl.classList.add('show');
-          setTimeout(function(){ shrink(origParent, origNext); }, 700);
+          setTimeout(function(){ shrink(origParent, origNext); }, 420);
         });
-      }, 450);
+      }, 300);
     }
 
     function shrink(origParent, origNext){
       if(overlay) overlay.classList.add('lift');
       if(timeEl) timeEl.classList.remove('show');
-      fig.style.transition = 'transform 1.2s var(--ease)';
-      fig.style.transform = 'none';                          // back to the hero rect (R0)
+      fig.classList.add('settled');                          // freeze draw-ins so nothing replays
+      fig.style.transition = 'transform 1s var(--ease)';
+      fig.style.transform = 'none';                          // glide back to the hero rect (R0)
       var ended = false;
       function end(){
         if(ended) return; ended = true;
@@ -214,7 +215,7 @@
         startLive();
       }
       fig.addEventListener('transitionend', end);
-      setTimeout(end, 1500);                                 // fallback if transitionend misses
+      setTimeout(end, 1300);                                 // fallback if transitionend misses
     }
 
     /* start once fonts are settled so the measured hero rect is accurate */
