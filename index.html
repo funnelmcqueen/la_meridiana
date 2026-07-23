@@ -124,6 +124,21 @@
 <section class="hero">
   <div class="hero__text">
     <p class="eyebrow hero__eyebrow">Ristorante Italiano · Trent'anni in Surrey</p>
+    <figure class="herodial" aria-hidden="true" title="La meridiana — the sun over East Horsley, now">
+      <svg viewBox="0 0 300 150" role="img">
+        <line class="hd-horizon" x1="20" y1="128" x2="280" y2="128"/>
+        <path class="hd-arc" d="M40,128 A110,110 0 0 1 260,128"/>
+        <g class="hd-ticks">
+          <line x1="54.7" y1="73.0" x2="62.5" y2="77.5"/>
+          <line x1="95" y1="32.7" x2="99.5" y2="40.5"/>
+          <line x1="150" y1="18" x2="150" y2="27"/>
+          <line x1="205" y1="32.7" x2="200.5" y2="40.5"/>
+          <line x1="245.3" y1="73.0" x2="237.5" y2="77.5"/>
+        </g>
+        <line class="hd-noon" x1="150" y1="18" x2="150" y2="128"/>
+        <g class="sun"><circle cx="40" cy="128" r="5"/></g>
+      </svg>
+    </figure>
     <h1>
       <span class="line"><span>A little</span></span>
       <span class="line"><span><em>slice of Italy,</em></span></span>
@@ -169,27 +184,7 @@
     <p class="eyebrow center rv">Il Nome</p>
     <h2 class="rv rv-d1">La <em>meridiana</em> — <span style="white-space:nowrap">the noon line</span></h2>
 
-    <figure class="dial rv rv-d2" aria-hidden="true">
-      <svg viewBox="0 0 400 200" role="img">
-        <!-- horizon -->
-        <line class="horizon" x1="34" y1="170" x2="366" y2="170"/>
-        <!-- the sun's daily path -->
-        <path class="arc" d="M60,170 A140,140 0 0 1 340,170"/>
-        <!-- hour ticks along the arc -->
-        <g class="ticks-arc">
-          <line x1="78.8" y1="100" x2="87.4" y2="105"/>
-          <line x1="130" y1="48.8" x2="135" y2="53.1"/>
-          <line x1="200" y1="30" x2="200" y2="40"/>
-          <line x1="270" y1="48.8" x2="265" y2="53.1"/>
-          <line x1="321.2" y1="100" x2="312.6" y2="105"/>
-        </g>
-        <!-- the meridian itself: the vertical noon line -->
-        <line class="noon" x1="200" y1="30" x2="200" y2="170"/>
-        <!-- the sun, travelling up to midday -->
-        <g class="sun"><circle cx="60" cy="170" r="6.5"/></g>
-        <text class="dial-label" x="200" y="18">MEZZOGIORNO</text>
-      </svg>
-    </figure>
+    <div class="ticks rv rv-d2" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
 
     <p class="namestory__lead rv rv-d3">A <em>meridiana</em> is a sundial. The <em>meridian</em> is the line the sun crosses at its
       highest point — <em>mezzogiorno</em>, midday — when, in Italy, the table is already set.</p>

@@ -804,10 +804,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--tomato);outline-off
   .hero__media img{transform:scale(1.02)}
   .loader{display:none}
   .band img{top:0;height:100%;transform:none !important}
-  /* meridian name-dial: show the completed composition, no motion */
-  .namestory .arc{stroke-dashoffset:0}
-  .namestory .noon{transform:none}
-  .namestory .sun{transform:translate(140px,-140px)}
+  /* hero sundial: show the completed composition, sun placed by js */
+  .herodial{opacity:1}
+  .herodial .hd-arc{stroke-dashoffset:0}
+  .herodial .hd-noon{transform:none}
+  .herodial .sun{transform:translate(110px,-110px)}
 }
 
 /* ============================================================
@@ -899,34 +900,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--tomato);outline-off
   font-size:clamp(34px,4.6vw,60px);font-weight:500;line-height:1.04;margin-top:22px;
 }
 .namestory h2 em{font-style:italic;color:var(--brass-hi)}
-.namestory .dial{max-width:440px;margin:40px auto 34px}
-.namestory .dial svg{width:100%;height:auto;overflow:visible;display:block}
-
-.namestory .horizon{stroke:rgba(169,139,79,.45);stroke-width:1}
-.namestory .arc{
-  fill:none;stroke:var(--brass-hi);stroke-width:1.25;
-  stroke-dasharray:440;stroke-dashoffset:440;
-}
-.namestory .ticks-arc line{stroke:rgba(201,169,106,.6);stroke-width:1}
-.namestory .noon{
-  stroke:var(--brass-hi);stroke-width:1;stroke-dasharray:2 5;
-  transform:scaleY(0);transform-box:fill-box;transform-origin:top;
-}
-.namestory .dial-label{
-  fill:var(--brass-hi);font-family:var(--sans);font-size:8.5px;
-  letter-spacing:.34em;text-anchor:middle;
-}
-/* the sun starts at sunrise (left horizon); js sweeps it to noon then to the
-   real current-time position over East Horsley. */
-.namestory .sun{transform:translate(0,0);filter:drop-shadow(0 0 6px rgba(190,59,38,.75))}
-.namestory .sun circle{fill:var(--tomato)}
-.namestory .sun.is-night{opacity:.45;filter:drop-shadow(0 0 5px rgba(190,59,38,.4))}
-
-/* draw-in when the section scrolls into view (sun is driven by js) */
-.namestory.in .arc{animation:dialDraw 1.7s var(--ease) .15s forwards}
-.namestory.in .noon{animation:noonGrow .9s var(--ease) 1.5s forwards}
-@keyframes dialDraw{to{stroke-dashoffset:0}}
-@keyframes noonGrow{to{transform:scaleY(1)}}
+/* Il Nome keeps a slim static meridian accent (the .ticks motif); the live
+   animated sundial now lives in the hero, above the headline. */
+.namestory .ticks{margin:28px auto 30px}
 
 .namestory__lead{
   font-size:clamp(20px,2.3vw,27px);line-height:1.35;max-width:30ch;margin:0 auto;
@@ -935,3 +911,32 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--tomato);outline-off
 .namestory__sub{
   margin:22px auto 0;max-width:48ch;font-size:17px;color:rgba(245,239,226,.72);
 }
+
+/* ============================================================
+   HERO SUNDIAL — a compact live meridian just above the headline.
+   The sun sweeps to noon on load, then rests where the sun actually is
+   over East Horsley (js-driven, computed on the arc every frame).
+   ============================================================ */
+.herodial{
+  width:clamp(148px,16vw,200px);margin:0 0 24px;line-height:0;
+  opacity:0;animation:heroDialIn 1s var(--ease) .35s forwards;
+}
+@keyframes heroDialIn{to{opacity:1}}
+.herodial svg{width:100%;height:auto;overflow:visible;display:block}
+.herodial .hd-horizon{stroke:rgba(201,169,106,.32);stroke-width:1}
+.herodial .hd-arc{
+  fill:none;stroke:var(--brass-hi);stroke-width:1.5;
+  stroke-dasharray:346;stroke-dashoffset:346;
+  animation:hdDraw 1.4s var(--ease) .5s forwards;
+}
+.herodial .hd-ticks line{stroke:rgba(201,169,106,.5);stroke-width:1}
+.herodial .hd-noon{
+  stroke:var(--brass-hi);stroke-width:1;stroke-dasharray:2 4;
+  transform:scaleY(0);transform-box:fill-box;transform-origin:top;
+  animation:hdNoon .8s var(--ease) 1.5s forwards;
+}
+@keyframes hdDraw{to{stroke-dashoffset:0}}
+@keyframes hdNoon{to{transform:scaleY(1)}}
+.herodial .sun{transform:translate(0,0);filter:drop-shadow(0 0 5px rgba(190,59,38,.85))}
+.herodial .sun circle{fill:var(--tomato)}
+.herodial .sun.is-night{opacity:.5}

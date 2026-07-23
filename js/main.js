@@ -66,13 +66,16 @@
     window.addEventListener('scroll', function(){ requestAnimationFrame(moveSun); }, {passive:true});
   }
 
-  /* ---- Il Nome sundial: sweep to noon, then rest at the real sun position
-         over East Horsley, in London time (BST-aware). ------------------- */
+  /* ---- Hero sundial: on load the sun sweeps up to the meridian (noon), then
+         settles where the sun actually is over East Horsley right now. The
+         position is recomputed on the arc EVERY FRAME, so it truly hugs the
+         curve — no straight-line shortcuts. London time, BST-aware. --------- */
   (function(){
-    var dialSun = document.querySelector('.namestory .sun');
-    var section = document.getElementById('nome');
-    if(!dialSun || !section) return;
-    var LAT = 51.278, LNG = -0.435, RAD = Math.PI/180;
+    var fig = document.querySelector('.herodial');
+    if(!fig) return;
+    var dialSun = fig.querySelector('.sun');
+    if(!dialSun) return;
+    var LAT = 51.278, LNG = -0.435, R = 110, RAD = Math.PI/180;
 
     /* current sun angle along the arc: 180deg = sunrise (left horizon),
        90deg = solar noon (apex), 0deg = sunset (right horizon). */
@@ -100,35 +103,36 @@
       else deg = 0;
       return {deg: deg, night: (tLon < sr || tLon > ss)};
     }
+    /* point ON the arc for a given angle (base circle sits at the left horizon) */
     function xform(deg){
       var r = deg*RAD;
-      return 'translate(' + (140 + 140*Math.cos(r)).toFixed(1) + 'px,' + (-140*Math.sin(r)).toFixed(1) + 'px)';
+      return 'translate(' + (R + R*Math.cos(r)).toFixed(2) + 'px,' + (-R*Math.sin(r)).toFixed(2) + 'px)';
     }
+    function ease(t){ return t < .5 ? 2*t*t : 1 - Math.pow(-2*t + 2, 2)/2; } // easeInOut
 
-    var started = false;
-    function place(){
-      var a = angleNow(), target = xform(a.deg);
-      dialSun.classList.toggle('is-night', a.night);
-      if(reduced){ dialSun.style.transform = target; return; }
-      dialSun.animate([
-        {transform:'translate(0px,0px)'},                 /* sunrise */
-        {transform:'translate(140px,-140px)', offset:.55},/* climb to noon */
-        {transform:'translate(140px,-140px)', offset:.68},/* dwell at the meridian */
-        {transform:target}                                /* settle at the real time */
-      ], {duration:3600, easing:'cubic-bezier(.22,.61,.2,1)', fill:'forwards'});
-      dialSun.style.transform = target;                   /* resting state */
+    var live = angleNow();
+    dialSun.classList.toggle('is-night', live.night);
+
+    if(reduced){
+      dialSun.style.transform = xform(live.deg);
+    } else {
+      var climb = 1500, dwell = 450, settle = 1500, t0 = null;
+      function frame(ts){
+        if(t0 === null) t0 = ts;
+        var e = ts - t0, deg;
+        if(e < climb)                 deg = 180 - 90*ease(e/climb);                     // sunrise -> noon
+        else if(e < climb + dwell)    deg = 90;                                         // dwell at the meridian
+        else if(e < climb + dwell + settle) deg = 90 + (live.deg - 90)*ease((e - climb - dwell)/settle); // noon -> now
+        else { dialSun.style.transform = xform(live.deg); return; }
+        dialSun.style.transform = xform(deg);
+        requestAnimationFrame(frame);
+      }
+      setTimeout(function(){ requestAnimationFrame(frame); }, 700);      // let the arc draw first
     }
-
-    var io2 = new IntersectionObserver(function(es){
-      es.forEach(function(e){
-        if(e.isIntersecting && !started){ started = true; place(); io2.unobserve(e.target); }
-      });
-    }, {threshold:.25});
-    io2.observe(section);
 
     /* keep it honest over a long visit — glide to the new position each minute */
     setInterval(function(){
-      if(!started || reduced) return;
+      if(reduced) return;
       var a = angleNow();
       dialSun.style.transition = 'transform 2s var(--ease)';
       dialSun.style.transform = xform(a.deg);
