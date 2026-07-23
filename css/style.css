@@ -964,6 +964,20 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--tomato);outline-off
   opacity:1;pointer-events:none;
 }
 .sunintro.lift{opacity:0;transition:opacity 1s var(--ease)}
+/* the brand wordmark, sitting above the curve during the intro (js positions it) */
+.sunintro__logo{
+  position:absolute;left:0;right:0;top:20%;text-align:center;
+  font-family:var(--serif);font-weight:600;font-size:clamp(26px,3.6vw,46px);
+  letter-spacing:.16em;text-transform:uppercase;color:var(--cream);
+  opacity:0;
+}
+.sunintro__logo i{font-style:normal;position:relative}
+.sunintro__logo i::after{ /* the red sun over the final A */
+  content:"";position:absolute;top:-.55em;left:50%;transform:translateX(-50%);
+  width:.15em;height:.15em;border-radius:50%;background:var(--tomato);
+}
+.sunintro.show-logo .sunintro__logo{opacity:1;transition:opacity .8s var(--ease)}
+.sunintro.lift .sunintro__logo{transform:translateY(-34px) scale(.94);transition:transform 1s var(--ease)}
 .sunintro__time{
   position:absolute;top:63%;left:0;right:0;text-align:center;
   font-family:var(--sans);font-size:11px;font-weight:600;

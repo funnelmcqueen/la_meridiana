@@ -196,6 +196,16 @@
       fig.style.transform = 'translate(' + tx + 'px,' + ty + 'px) scale(' + scale + ')';
       void fig.offsetWidth;                                  // commit the big state
 
+      /* place the wordmark just above the arc's apex, then fade it in */
+      var logoEl = overlay.querySelector('.sunintro__logo');
+      if(logoEl){
+        var bigH = R0.height * scale;
+        var apexY = (vh/2 - bigH/2) + (18/150)*bigH;         // arc apex, on screen
+        logoEl.style.top = 'auto';
+        logoEl.style.bottom = (vh - (apexY - 26)) + 'px';    // sit just above the curve
+      }
+      setTimeout(function(){ overlay.classList.add('show-logo'); }, 150);
+
       setTimeout(function(){
         sweep(function(){
           if(timeEl) timeEl.classList.add('show');
