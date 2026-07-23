@@ -679,6 +679,21 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;color:inhe
   display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
   font-family:var(--sans);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);
 }
+/* Agency credit: the FunnelMcQueen bolt as a currentColor mask, so it inherits the
+   base-bar text colour exactly and follows every solar-phase shift (incl. phase-night).
+   Kept no louder than the © line — no brand red, no fill of its own. */
+.fmq-credit{display:inline-flex;align-items:center;gap:.55em;color:inherit}
+.fmq-credit::before{
+  content:"";flex:0 0 auto;height:1.15em;width:.6em;
+  background-color:currentColor;
+  -webkit-mask:url(../assets/img/fmq-mark.svg) center/contain no-repeat;
+          mask:url(../assets/img/fmq-mark.svg) center/contain no-repeat;
+}
+/* desktop hover: mark + text warm to the golden accent together (phase-aware via --brass) */
+@media(hover:hover){
+  .fmq-credit{transition:color .3s var(--ease)}
+  .fmq-credit:hover{color:var(--brass)}
+}
 @media(max-width:900px){.footer__grid{grid-template-columns:1fr 1fr;gap:34px}}
 @media(max-width:560px){
   .footer__grid{grid-template-columns:1fr;gap:30px}

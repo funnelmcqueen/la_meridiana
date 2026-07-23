@@ -48,6 +48,11 @@ is guessed on the live site without a matching placeholder marker in the HTML.
 - [ ] Gap: no clean text-free **outdoor terrace** photo. A quick sunny-service phone
       shoot is the one asset worth capturing before launch (see photo-inventory.md).
 
+## Agency credit
+- [ ] **FunnelMcQueen URL** — the footer credit (bolt mark + "Design — FunnelMcQueen")
+      is currently a grouped `<span class="fmq-credit">`, not a live link. Provide the
+      agency URL to swap it to an `<a href>` (TODO marker sits inline in every footer).
+
 ## Booking (do not wire until client approves)
 - [ ] Reservation buttons are intentionally dead (`data-booking="connect"`).
       Provide the approved booking link (Dojo/Quandoo/etc.) to wire them.
