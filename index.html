@@ -68,8 +68,9 @@
   ]
 }
 </script>
+<script src="assets/js/sole.js" defer></script>
 </head>
-<body class="has-intro">
+<body class="home has-intro">
 
 <!-- intro: the sundial fills the screen, the sun rides the arc to the current
      time over East Horsley, then it shrinks into the hero. JS-driven;
@@ -118,6 +119,16 @@
   <a href="menu.html">Il Menu</a>
   <a href="eventi.html">Eventi</a>
   <a href="contact.html">Contatti</a>
+</div>
+
+<!-- La Linea — the brass meridian scroll spine (js positions markers + disc) -->
+<div class="linea" id="linea" aria-hidden="true">
+  <span class="linea__disc"><span class="linea__noon">È mezzogiorno vero — the table is set.</span></span>
+  <span class="linea__mark" data-target="nome"><span>Il Nome</span><i></i></span>
+  <span class="linea__mark" data-target="storia"><span>La Storia</span><i></i></span>
+  <span class="linea__mark" data-target="menu"><span>Il Menu</span><i></i></span>
+  <span class="linea__mark" data-target="stagione"><span>Eventi</span><i></i></span>
+  <span class="linea__mark" data-target="visita"><span>Vieni a Trovarci</span><i></i></span>
 </div>
 
 <main id="top">
@@ -171,7 +182,9 @@
 <!-- ============ MARQUEE ============ -->
 <div class="marquee" aria-hidden="true">
   <div class="marquee__track" id="marqueeTrack">
+    <span data-sole="noon">Sole al meridiano oggi</span>
     <span>Pasta fresca ogni giorno</span>
+    <span data-sole="golden">Golden hour</span>
     <span>La terrazza è aperta</span>
     <span>Restaurant of the Year — South East</span>
     <span>Sicilian brunch, dal martedì</span>

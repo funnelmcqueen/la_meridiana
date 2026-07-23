@@ -1061,3 +1061,165 @@ body.has-intro.lit .hero__foot{animation-play-state:running}
   .herodial{width:clamp(180px,19vw,250px);margin-bottom:18px}
   .hero h1{font-size:clamp(46px,5vw,74px)}
 }
+
+/* ============================================================
+   IL SOLE — light system.  Colours flow from these variables; the phase
+   classes (set by assets/js/sole.js) grade the brand palette by time of day.
+   NOON IS THE BASELINE — with white wash + no phase class the site is
+   pixel-identical to before.  All phase colours live here (no component
+   hardcodes a phase colour).
+   ============================================================ */
+:root{
+  --sun-altitude:45;
+  --sun-warmth:1;
+  --shadow-length:5px;
+  --shadow-angle:90deg;
+  --wash:#ffffff;                 /* global multiply tint — white = no change */
+  --sky-color:var(--green);
+  --light-color:#fff6e6;          /* warm daylight (disc / cursor glow) */
+  --sun-glow:var(--tomato);       /* the travelling sun-disc colour */
+}
+
+/* the light itself: one multiply layer graded by --wash. Sits above content
+   but below the intro overlay; pointer-events off. */
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:9985;
+  background:var(--wash);mix-blend-mode:multiply;
+  transition:background 1.2s var(--ease);
+}
+/* dinner-mode star field over the header area (night only) */
+body::before{
+  content:"";position:fixed;top:0;left:0;right:0;height:62vh;pointer-events:none;z-index:9986;
+  opacity:0;transition:opacity 1.6s var(--ease);
+  background-repeat:no-repeat;
+  background-image:
+    radial-gradient(1.4px 1.4px at 12% 22%, #fff 40%, transparent 60%),
+    radial-gradient(1.2px 1.2px at 26% 42%, #ffe9c7 40%, transparent 60%),
+    radial-gradient(1px 1px at 38% 14%, #fff 40%, transparent 60%),
+    radial-gradient(1.5px 1.5px at 52% 30%, #fff 40%, transparent 60%),
+    radial-gradient(1px 1px at 63% 12%, #ffe9c7 40%, transparent 60%),
+    radial-gradient(1.3px 1.3px at 71% 38%, #fff 40%, transparent 60%),
+    radial-gradient(1px 1px at 82% 20%, #fff 40%, transparent 60%),
+    radial-gradient(1.4px 1.4px at 90% 46%, #ffe9c7 40%, transparent 60%),
+    radial-gradient(1px 1px at 46% 52%, #fff 40%, transparent 60%),
+    radial-gradient(1.2px 1.2px at 18% 56%, #fff 40%, transparent 60%);
+}
+body.phase-night::before{opacity:.55}
+
+/* ---- the six phases (grade the brand palette) ---- */
+body.phase-dawn{
+  --wash:#d8e0f3; --sky-color:#243350; --light-color:#e7ddff; --sun-glow:#e9d7ff;
+}
+body.phase-morning{
+  --wash:#eef2ee; --sky-color:#1d4636; --light-color:#fff8ec; --sun-glow:var(--tomato);
+}
+body.phase-noon{
+  --wash:#ffffff; --sky-color:var(--green); --light-color:#fff6e6; --sun-glow:var(--tomato);
+}
+body.phase-golden{
+  --wash:#ffd6a0; --sky-color:#3a2712; --light-color:#ffdca0; --sun-glow:#eaa24a;
+}
+body.phase-dusk{
+  --wash:#ccb4d2; --sky-color:#271933; --light-color:#e9c6d6; --sun-glow:#e6a6c8;
+}
+body.phase-night{
+  --wash:#e2cfa6;                 /* warm candlelight — kept light so text stays AA */
+  --green:#0c1424; --green-deep:#070c18; --green-soft:#17233c;
+  --brass:#c69c54; --brass-hi:#e6c079; --tomato:#d84c30;
+  --sky-color:#060a16; --light-color:#ffcf87; --sun-glow:#cfd6e6;   /* moon-silver disc */
+}
+
+/* ============================================================
+   LA LINEA — the brass meridian line as the homepage scroll spine.
+   A 2px brass line down the left margin; a glowing sun-disc rides it with
+   scroll; section markers flare as the disc passes.  Disc glow = --sun-glow
+   (phase-aware).  Homepage only.
+   ============================================================ */
+.home .meridian{display:none}          /* La Linea replaces the plain rail on home */
+
+.linea{
+  position:fixed;top:0;bottom:0;z-index:55;width:2px;pointer-events:none;
+  left:clamp(16px, calc(50vw - 590px - 22px), 220px);
+  background:linear-gradient(to bottom,
+    transparent 0, rgba(169,139,79,.42) 5%, rgba(169,139,79,.42) 95%, transparent 100%);
+}
+.linea__disc{
+  position:absolute;left:50%;top:0;width:13px;height:13px;border-radius:50%;
+  transform:translate(-50%,-50%);
+  background:var(--sun-glow);
+  box-shadow:0 0 4px 1px var(--sun-glow), 0 0 16px 5px var(--sun-glow);
+  transition:background .8s var(--ease), box-shadow .8s var(--ease);
+}
+.linea__mark{
+  position:absolute;left:1px;transform:translate(-100%,-50%);
+  display:flex;align-items:center;gap:11px;white-space:nowrap;
+}
+.linea__mark span{
+  font-family:var(--serif);font-style:italic;font-variant:small-caps;
+  font-size:13px;letter-spacing:.1em;color:var(--brass);opacity:.62;
+  transition:color .45s var(--ease), opacity .45s var(--ease);
+}
+.linea__mark i{
+  width:7px;height:7px;border-radius:50%;background:var(--brass);flex:none;
+  box-shadow:0 0 0 3px rgba(169,139,79,.12);
+  transition:background .45s var(--ease), box-shadow .45s var(--ease), transform .45s var(--ease);
+}
+.linea__mark.flare span{color:var(--brass-hi);opacity:1}
+.linea__mark.flare i{background:var(--sun-glow);transform:scale(1.25);box-shadow:0 0 10px 3px var(--sun-glow)}
+
+/* heading light-sweep when the disc passes a section */
+.lightsweep{position:relative}
+.lightsweep::after{
+  content:"";position:absolute;inset:-2px 0;pointer-events:none;z-index:1;
+  background:linear-gradient(105deg,transparent 42%, rgba(255,244,214,.55) 50%, transparent 58%);
+  transform:translateX(-120%);animation:linSweep .9s var(--ease);
+}
+@keyframes linSweep{to{transform:translateX(120%)}}
+
+@media(max-width:1499px){ .linea__mark span{display:none} }   /* only wide desktops show plaques; else dots */
+@media(max-width:760px){ .linea{left:0} }                     /* hairline at the very edge */
+@media(prefers-reduced-motion:reduce){
+  .linea__disc{display:none}                                   /* no travelling disc */
+  .lightsweep::after{display:none}
+}
+
+/* ============================================================
+   IL CURSORE — the cursor is the sun (desktop, fine pointer only).
+   A soft warm glow follows the pointer; .sun-lit elements cast a shadow
+   that leans AWAY from it. Values are driven per-element by js; softness
+   inherits --shadow-length from Il Sole. Touch + reduced-motion: nothing.
+   ============================================================ */
+.sun-cursor{
+  position:fixed;top:0;left:0;width:520px;height:520px;border-radius:50%;
+  pointer-events:none;z-index:9970;opacity:.18;mix-blend-mode:soft-light;
+  background:radial-gradient(circle, var(--light-color) 0%, transparent 62%);
+  will-change:transform;
+}
+.sun-lit{
+  box-shadow: var(--sl-x,0px) var(--sl-y,0px) calc(15px + var(--shadow-length,6px)) 0
+              rgba(26,19,9, var(--sl-op,0));
+}
+@media (hover:none),(pointer:coarse){ .sun-cursor{display:none} }
+@media (prefers-reduced-motion:reduce){ .sun-cursor{display:none} }
+
+/* ============================================================
+   IL VERO MEZZOGIORNO — for the minute of true solar noon, La Linea flares
+   brighter and a note appears by the disc. Toggled by body.true-noon (sole.js).
+   ============================================================ */
+body.true-noon .linea{
+  background:linear-gradient(to bottom,
+    transparent 0, rgba(201,169,106,.75) 5%, rgba(201,169,106,.75) 95%, transparent 100%);
+}
+body.true-noon .linea__disc{
+  width:16px;height:16px;
+  box-shadow:0 0 6px 2px var(--sun-glow), 0 0 26px 9px var(--sun-glow);
+}
+.linea__noon{
+  position:absolute;left:24px;top:50%;transform:translateY(-50%) translateX(-6px);
+  white-space:nowrap;pointer-events:none;
+  font-family:var(--serif);font-style:italic;font-size:15px;letter-spacing:.02em;
+  color:var(--brass-hi);background:rgba(12,18,20,.72);padding:6px 14px;border:1px solid var(--brass);
+  opacity:0;transition:opacity .6s var(--ease), transform .6s var(--ease);
+}
+body.true-noon .linea__noon{opacity:1;transform:translateY(-50%) translateX(0)}
+@media(prefers-reduced-motion:reduce){ .linea__noon{transition:none} }

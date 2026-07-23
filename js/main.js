@@ -85,6 +85,52 @@
     window.addEventListener('scroll', function(){ requestAnimationFrame(moveSun); }, {passive:true});
   }
 
+  /* ---- La Linea: the sun-disc rides the brass spine with scroll; section
+         markers flare as it passes and the section heading gets a light-sweep. */
+  (function(){
+    var linea = document.getElementById('linea');
+    if(!linea || reduced) return;
+    var disc = linea.querySelector('.linea__disc');
+    var marks = [].slice.call(linea.querySelectorAll('.linea__mark'));
+
+    function range(){ return Math.max(1, document.documentElement.scrollHeight - window.innerHeight); }
+    function layout(){
+      var R = range();
+      marks.forEach(function(m){
+        var sec = document.getElementById(m.dataset.target);
+        m._prog = sec ? Math.max(0, Math.min(1, sec.offsetTop / R)) : 0;
+        m.style.top = (m._prog * 100) + '%';
+        m._flared = false; m.classList.remove('flare');
+      });
+    }
+    function sweep(id){
+      var sec = document.getElementById(id);
+      var head = sec && sec.querySelector('h1, h2, .display');
+      if(!head) return;
+      head.classList.remove('lightsweep');
+      void head.offsetWidth;                 // restart the animation
+      head.classList.add('lightsweep');
+      setTimeout(function(){ head.classList.remove('lightsweep'); }, 950);
+    }
+    var ticking = false;
+    function frame(){
+      ticking = false;
+      var p = window.scrollY / range();
+      disc.style.top = (Math.max(0, Math.min(1, p)) * 100) + '%';
+      marks.forEach(function(m){
+        var passed = p >= m._prog - 0.004;
+        if(passed && !m._flared){ m._flared = true; m.classList.add('flare'); sweep(m.dataset.target); }
+        else if(!passed && m._flared){ m._flared = false; m.classList.remove('flare'); }
+      });
+    }
+    function onScroll(){ if(!ticking){ ticking = true; requestAnimationFrame(frame); } }
+
+    layout(); frame();
+    window.addEventListener('scroll', onScroll, {passive:true});
+    var rt; window.addEventListener('resize', function(){ clearTimeout(rt); rt = setTimeout(function(){ layout(); frame(); }, 150); }, {passive:true});
+    window.addEventListener('load', function(){ layout(); frame(); });   // positions settle after images
+  })();
+
   /* ---- Hero sundial: on load the sun sweeps up to the meridian (noon), then
          settles where the sun actually is over East Horsley right now. The
          position is recomputed on the arc EVERY FRAME, so it truly hugs the
@@ -315,9 +361,18 @@
   lb.addEventListener('click', function(e){ if(e.target === lb) closeLb(); });
   document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeLb(); });
 
-  /* marquee — duplicate track for seamless loop */
+  /* marquee — duplicate track for seamless loop, then feed it live sun times */
   var track = document.getElementById('marqueeTrack');
-  if(track){ track.innerHTML += track.innerHTML; }
+  if(track){
+    track.innerHTML += track.innerHTML;
+    var updateMarquee = function(){
+      var S = window.Sole; if(!S) return;
+      track.querySelectorAll('[data-sole="noon"]').forEach(function(el){ el.textContent = 'Sole al meridiano oggi · ' + S.noonStr; });
+      track.querySelectorAll('[data-sole="golden"]').forEach(function(el){ el.textContent = 'Golden hour · ' + S.goldenStr; });
+    };
+    updateMarquee();
+    document.addEventListener('sole:phase', updateMarquee);
+  }
 
   /* image fallback if CDN blocked in preview */
   document.querySelectorAll('img').forEach(function(img){
@@ -333,4 +388,57 @@
   document.querySelectorAll('[data-booking]').forEach(function(b){
     b.addEventListener('click', function(e){ e.preventDefault(); });
   });
+
+  /* ---- Il Cursore: the cursor is the sun (desktop, fine pointer only).
+         A warm glow follows the pointer; .sun-lit elements lean their shadow
+         away from it. Element centres are cached in PAGE coords (recomputed on
+         resize/load only), so scrolling never re-measures layout. -------------- */
+  (function(){
+    if(reduced) return;
+    if(!window.matchMedia || !window.matchMedia('(pointer:fine)').matches) return;
+
+    /* tag a capped set of elements (no HTML churn) */
+    var lit = [];
+    ['.stagcard', '.gal__item', '.plaque', '.fhrs', '.award-photo', '.feature__media', '.btn--brass', '.card']
+      .forEach(function(sel){ [].slice.call(document.querySelectorAll(sel)).forEach(function(el){ if(lit.length < 25) { el.classList.add('sun-lit'); lit.push(el); } }); });
+    if(!lit.length) return;
+
+    var glow = document.createElement('div');
+    glow.className = 'sun-cursor'; glow.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(glow);
+
+    var centres = [];
+    function measure(){
+      var sx = window.scrollX, sy = window.scrollY;
+      centres = lit.map(function(el){
+        var r = el.getBoundingClientRect();
+        return { el: el, x: r.left + sx + r.width / 2, y: r.top + sy + r.height / 2 };
+      });
+    }
+    measure();
+
+    var mx = window.innerWidth / 2, my = window.innerHeight / 2, raf = 0;
+    var REACH = 620;
+    function paint(){
+      raf = 0;
+      glow.style.transform = 'translate(' + (mx - 260) + 'px,' + (my - 260) + 'px)';
+      var cx = mx + window.scrollX, cy = my + window.scrollY;   // cursor in page coords
+      for(var i = 0; i < centres.length; i++){
+        var c = centres[i], dx = c.x - cx, dy = c.y - cy;
+        var dist = Math.sqrt(dx * dx + dy * dy);
+        var reach = dist < REACH ? (1 - dist / REACH) : 0;      // 1 near → 0 far
+        var len = 5 + reach * 16;
+        var inv = dist || 1;
+        c.el.style.setProperty('--sl-x', (dx / inv * len).toFixed(1) + 'px');
+        c.el.style.setProperty('--sl-y', (dy / inv * len).toFixed(1) + 'px');
+        c.el.style.setProperty('--sl-op', (0.05 + reach * 0.30).toFixed(3));
+      }
+    }
+    function schedule(){ if(!raf) raf = requestAnimationFrame(paint); }
+    window.addEventListener('mousemove', function(e){ mx = e.clientX; my = e.clientY; schedule(); }, { passive: true });
+    window.addEventListener('scroll', schedule, { passive: true });   // cached centres, no re-measure
+    var rt; window.addEventListener('resize', function(){ clearTimeout(rt); rt = setTimeout(function(){ measure(); schedule(); }, 150); }, { passive: true });
+    window.addEventListener('load', function(){ measure(); schedule(); });
+    schedule();
+  })();
 })();
