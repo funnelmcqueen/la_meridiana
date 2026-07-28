@@ -672,10 +672,18 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;color:inhe
 @keyframes travel{
   0%{left:0}48%{left:calc(100% - 9px)}52%{left:calc(100% - 9px)}100%{left:0}
 }
-/* light takeaway line under the reservation CTA */
-.cta__aside{margin:22px auto 0;font-size:14.5px;color:rgba(245,239,226,.66)}
-.cta__aside a{color:var(--brass-hi);background:linear-gradient(var(--brass-hi),var(--brass-hi)) left bottom / 100% 1px no-repeat;padding-bottom:1px}
-.cta__aside a:hover{color:var(--cream)}
+/* book / order — two columns near the top of the home page (cream band) */
+.booknow{padding:clamp(48px,6vw,84px) 0}
+.booknow__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,72px);align-items:start}
+.booknow__col .eyebrow{color:var(--brass)}
+.booknow__col h2{font-family:var(--serif);font-size:clamp(30px,3.4vw,42px);font-weight:600;line-height:1.05;color:var(--ink);margin:10px 0 12px}
+.booknow__col > p{color:var(--ink-soft);font-size:16px;line-height:1.55;max-width:38ch;margin-bottom:24px}
+.booknow__btns{display:flex;flex-direction:column;gap:15px;align-items:flex-start}
+.booknow__col + .booknow__col{padding-left:clamp(30px,5vw,72px);border-left:1px solid var(--paper-line)}
+@media(max-width:760px){
+  .booknow__grid{grid-template-columns:1fr;gap:34px}
+  .booknow__col + .booknow__col{padding-left:0;border-left:none;padding-top:34px;border-top:1px solid var(--paper-line)}
+}
 
 /* ============ 15. FOOTER ============ */
 .footer{background:var(--cream);border-top:1px solid var(--paper-line);padding:clamp(60px,8vw,84px) 0 40px}
