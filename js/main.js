@@ -60,7 +60,7 @@
   tabs.forEach(function(t){
     t.addEventListener('click', function(){ activateTab(t.dataset.pane); });
   });
-  /* deep-link support: menu.html#setlunch / #takeaway opens that tab */
+  /* deep-link support: menu.html#brunch / #takeaway opens that tab */
   if(tabs.length){
     function fromHash(){
       var slug = (location.hash || '').replace('#','');
@@ -381,7 +381,7 @@
     img.addEventListener('error', function(){
       var ph = document.createElement('div');
       ph.className = 'imgph';
-      ph.textContent = 'Photo — ' + (img.alt || 'La Meridiana');
+      ph.textContent = 'Photo · ' + (img.alt || 'La Meridiana');
       img.replaceWith(ph);
     });
   });

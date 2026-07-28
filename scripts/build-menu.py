@@ -15,13 +15,13 @@ PAGE = ROOT / "menu.html"
 
 # Tab slug + label per "# MENU:" name
 SLUG = {"À la carte": "alacarte", "La Cantina": "cantina", "I Dolci": "dolci",
-        "Set Lunch": "setlunch", "Takeaway": "takeaway"}
+        "Sicilian Brunch": "brunch", "Takeaway": "takeaway"}
 
 def esc(s): return html.escape(s or "", quote=True)
 
 def fmt_price(p):
     p = (p or "").strip()
-    if not p:
+    if not p or p in ("—", "–", "-"):   # a lone dash = not offered by that measure -> blank cell
         return ""
     # handle "7.00 / 9.00" and "[?]" markers, keep as-is otherwise
     def one(x):

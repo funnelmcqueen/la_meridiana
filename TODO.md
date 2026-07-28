@@ -18,18 +18,20 @@ is guessed on the live site without a matching placeholder marker in the HTML.
       (Bianchi, Champagne/Prosecco, Rosato, Rossi, Pregiati) and desserts (I Dolci)
       transcribed from the client PDFs into `content/menu.md` and generated into
       `menu.html` via `scripts/build-menu.py`. Prices verified against the rendered pages.
-- [ ] **Confirm: Contorni "Asparagus £9"** — reads high for a side; verify against the card.
+- [x] **À la carte + wine updated** to the current client PDFs (updated_menu.pdf and
+      La_Meridiana_Menu_V3.pdf). Prices and items transcribed as printed; Asparagus £9
+      is now confirmed on the new card.
+- [x] **Set Lunch removed, Sicilian Brunch added** as its own tab (Sicilian_brunch_Meridiana.pdf).
+      Every day, 10am to 4pm; served as trios (tris). Linked from the home menu section and
+      the Eventi page. Deep links: `menu.html#brunch`, `menu.html#takeaway`.
+- [ ] **Sicilian Brunch platter / panozzi / fresh pasta** show two-price sharing options
+      (e.g. platter "32.95 / 49.95" = for two / for four). Confirm the labels read clearly on the card.
 - [ ] **Dessert sweet wines** (Passito, Vin Santo, Picolit, Port, Vintage Port) — the
       glass/bottle price mapping is ambiguous in the PDF; left OFF pending confirmation.
 - [ ] **Coffees & teas** (dessert menu) — not yet added; confirm whether to list them.
-- [x] **Set Lunch** and **Takeaway** transcribed into `content/menu.md` and generated
-      as two new tabs on `menu.html`. Linked from the home menu section and the Eventi
-      page (Set Lunch feature). Deep links work: `menu.html#setlunch`, `menu.html#takeaway`.
-      Two separate client files, two purposes: the **Set Lunch** PDF drives the Set Lunch
-      tab (2 courses £16.95, Tue–Fri 12–3pm); the **Takeaway** PDF drives the Takeaway tab.
-      (The "Lunch Set Menu" panel printed on the takeaway flyer is just cross-promo on that
-      old flyer — ignored; the dedicated Set Lunch file is the source of truth.)
-- [ ] Standard pre-launch price check on both new menus (as printed on the client PDFs).
+- [ ] **"Wine of the month"** prompt on the wine card — not listed (it's a server prompt on
+      the PDF). Add a line if the client wants it shown.
+- [ ] Standard pre-launch price check on all menus (as printed on the client PDFs).
 - [ ] **Takeaway** — confirm whether it needs online ordering later (Phase 2 / delivery page).
 - [ ] Home-page menu preview still shows the first two à la carte sections — fine, but
       note it's a hand-picked teaser, not generated.

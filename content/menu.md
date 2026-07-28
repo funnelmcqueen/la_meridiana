@@ -1,15 +1,13 @@
-# La Meridiana — content/menu.md
-# Transcribed from the client's real menu files (content/source/):
-#   - MeridianaNewMenu.pdf         → À la carte (Antipasti, Primi, Secondi, Bambini, Contorni)
-#   - WineMenuSept2024.pdf         → La Cantina (Bianchi, Champagne/Prosecco, Rosato, Rossi, Pregiati)
-#   - NewDessertMenuOct2024.pdf    → I Dolci (+ after-dinner)
-# Prices verified against the rendered PDF pages. Items marked [?] need the
-# client to confirm (see TODO.md). Wine uses three columns: g175 / g250 / bottle
-# ("—" = not offered by that measure).
-#   - SETLUNCHCORRIGIDO.pdf         → Set Lunch (Primi, Secondi) — 2 courses £16.95, Tue–Fri 12–3pm
-#   - AUGUSTMeridianaTakeawayMenu.pdf → Takeaway (Pizze, Antipasti, Pasta & Risotto,
-#                                       Carne & Pesce, Contorni, Bambini)
-# Two separate files for two separate purposes: each drives its own tab.
+# La Meridiana - content/menu.md
+# Transcribed from the client's current menu files:
+#   - updated_menu.pdf              -> A la carte (Antipasti, Primi, Secondi, Bambini, Contorni)
+#   - La_Meridiana_Menu_V3.pdf      -> La Cantina (Bianchi, Champagne/Prosecco, Rosato, Rossi, Pregiati)
+#   - Sicilian_brunch_Meridiana.pdf -> Sicilian Brunch (every day, 10am to 4pm)
+#   - NewDessertMenuOct2024.pdf     -> I Dolci (+ after-dinner)
+#   - AUGUSTMeridianaTakeawayMenu.pdf -> Takeaway
+# Wine uses three columns: g175 / g250 / bottle (blank = not offered by that measure).
+# Champagne is served by 125ml (shown in the first glass column) and bottle.
+# Each file drives its own tab, built by scripts/build-menu.py.
 
 # MENU: À la carte
 
@@ -17,23 +15,20 @@
 note: starters
 
 - name: Arancini
-  tags:
   desc: Two fried rice balls filled with mozzarella cheese & minced beef on a bed of tomato sauce
   price: 9.95
 
-- name: Burrata San Daniele
-  tags:
-  desc: Creamy burrata served with Prosciutto di San Daniele, heirloom tomatoes, rocket & balsamic glaze
+- name: Burrata
+  desc: Creamy burrata served with heirloom tomatoes, rocket & balsamic glaze
   price: 14.00
 
 - name: Bruschetta con Bocconcini
   tags: V
-  desc: Homemade bread topped with marinated fresh tomato, red onions, basil, garlic, mozzarella bocconcini & extra virgin olive oil
+  desc: Homemade bread topped with marinated fresh tomato, red onions, basil, garlic and mozzarella
   price: 8.50
 
 - name: Avocado e Granchio
-  tags:
-  desc: Smashed avocado topped with crab meat, citrus dressing & microgreens
+  desc: Smashed avocado topped with crab meat, citrus dressing & micro greens
   price: 13.95
 
 - name: Melanzana alla Parmigiana
@@ -41,142 +36,120 @@ note: starters
   desc: Baked eggplant with San Marzano tomato sauce, basil & smoked mozzarella
   price: 9.50
 
-- name: Calamari Fritti
-  tags:
-  desc: Crispy fried squid served with homemade aioli
-  price: 12.00
+- name: Fritto Misto
+  desc: Fresh crispy fried squid, prawns, little octopus, courgettes and carrots served with aioli
+  price: 16.50
 
 - name: Gamberoni Aglio e Peperoncino
-  tags:
-  desc: Pan-fried shell-off king prawns cooked with garlic, butter, fresh chili, white wine sauce & served with homemade focaccia
-  price: 15.00
+  desc: Pan-fried shell-off king prawns cooked with garlic, butter, fresh chilli, white wine sauce & served with homemade focaccia
+  price: 15.50
 
 - name: Carpaccio di Manzo
-  tags:
-  desc: Thin slices of raw beef fillet with rocket, Parmesan shavings, drizzled with lemon juice & extra virgin olive oil
-  price: 15.00
+  desc: Thin slices of raw beef fillet with rocket, Parmesan shavings, drizzled with lemon juice
+  price: 15.50
+
+- name: San Daniele Parma Ham with Fresh Melon
+  desc: Delicate slices of premium Parma ham served with sweet, juicy fresh melon
+  price: 14.50
+
+- name: Platter di Salumi e Formaggi
+  desc: A generous sharing platter of selected Italian cured meats and four varieties of cheese, with garnishes for picking and sharing, for two or four
+  price: 23.95 / 39.95
 
 ## SECTION: Primi
 note: pasta & risotto
 
-- name: Paccheri Gamberoni
-  tags:
-  desc: Paccheri pasta with king prawns, garlic, cherry tomatoes, white wine, olive oil & chilli
+- name: Gnocchi al Filetto
+  desc: Homemade gnocchi with fillet steak strips, garlic, cherry tomatoes, mushrooms, parmesan & truffle oil
   price: 22.95
 
-- name: Paccheri alla Norma
-  tags: V
-  desc: Paccheri pasta with tomato sauce, fried eggplant & salted ricotta
-  price: 18.00
-
-- name: Spaghetti Frutti di Mare
-  tags:
-  desc: Spaghetti with mixed seafood, garlic, cherry tomatoes, olive oil & chilli
-  price: 25.00
-
-- name: Spaghetti Vongole
-  tags:
-  desc: Spaghetti with fresh clams, garlic, white wine, parsley & olive oil
-  price: 26.50
-
-- name: Spaghetti alla Bolognese
-  tags:
-  desc: Classic beef ragù with spaghetti
-  price: 16.00
-
-- name: Spaghetti alla Carbonara
-  tags:
-  desc: Traditional Roman recipe with egg yolks, guanciale & Pecorino Romano cheese
-  price: 16.00
-
-- name: Penne all'Amatriciana
-  tags:
-  desc: Penne with tomato sauce, guanciale & Pecorino Romano
-  price: 16.00
-
-- name: Penne Arrabbiata
-  tags: V
-  desc: Penne with spicy tomato sauce, garlic & chilli
-  price: 15.00
-
-- name: Gnocchi al Filetto
-  tags:
-  desc: Homemade gnocchi with fillet steak strips, garlic, cherry tomatoes, mushrooms, parmesan & truffle oil
-  price: 21.95
-
-- name: Tagliatelle al Salmone
-  tags:
-  desc: Tagliatelle pasta with salmon, tomato sauce & a touch of cream
-  price: 19.00
+- name: Tagliatelle Aragosta e Polpa di Granchio
+  desc: Tagliatelle pasta with lobster and crab meat, cherry tomatoes, garlic and chilli
+  price: 32.50
 
 - name: Risotto al Tartufo
   tags: V
   desc: Arborio rice with mushrooms & truffle sauce
-  price: 17.95
+  price: 19.50
 
-- name: Lasagna al Forno
-  tags:
-  desc: Lasagne
+- name: Risotto Barbabietola e Burrata
+  tags: V
+  desc: Beetroot creamy risotto with garlic and topped with burrata cheese
+  price: 21.50
+
+- name: Tagliatelle Ragù di Pesce
+  desc: Fresh tagliatelle pasta with sea bass, salmon, prawns and mussels in a rich tomato sauce
+  price: 24.50
+
+- name: Spaghetti Bolognese
+  desc: Classic beef ragù with spaghetti
+  price: 16.00
+
+- name: Spaghetti Carbonara
+  desc: Traditional Roman recipe with egg yolks, guanciale & Pecorino Romano cheese
+  price: 16.00
+
+- name: Lasagna e Cannelloni
+  desc: Lasagne or Cannelloni filled with ricotta, beef, mozzarella and served in a pine nut sauce
+  price: 16.50
+
+- name: Paccheri Gamberoni
+  desc: Paccheri pasta with king prawns, garlic, cherry tomatoes, white wine, olive oil and chilli
+  price: 21.50
+
+- name: Paccheri alla Norma
+  tags: V
+  desc: Paccheri pasta with tomato sauce, fried eggplant & salted ricotta
+  price: 17.50
+
+- name: Penne Arrabbiata
+  tags: V
+  desc: Penne pasta tossed in a rich tomato sauce with garlic and chilli
   price: 16.00
 
 ## SECTION: Secondi
 note: meat & fish
 
 - name: Saltimbocca alla Romana
-  tags:
   desc: Veal Scaloppine layered with prosciutto and fresh sage, pan-seared in butter & served with roasted potatoes
   price: 24.00
 
 - name: Vitello alla Marsala
-  tags:
   desc: Veal cooked with mixed mushrooms, Marsala wine & a touch of cream, served with roast potatoes
   price: 25.00
 
 - name: Pollo Tricolore
-  tags:
   desc: Grilled chicken breast topped with mozzarella cheese & tomato sauce, served with green beans & roast potatoes
   price: 18.00
 
 - name: Pollo Principessa
-  tags:
   desc: Chicken breast with mushrooms, asparagus & cream sauce, served with roasted potatoes
   price: 21.00
 
-- name: Tagliata di Manzo e Rucola
-  tags:
-  desc: Grilled sliced 300g ribeye steak on a bed of rocket, topped with shaved parmesan, served with chips
-  price: 29.95
-
-- name: Filetto al Dolcelatte
-  tags:
-  desc: Grilled fillet steak topped with melted Gorgonzola cheese, served with chips (recommended with peppercorn or red wine sauce)
-  price: 35.00
-
-- name: Spigola alla Griglia
-  tags:
-  desc: Grilled fillet of sea bass with prawn & bisque sauce, served with roast potatoes & seasonal vegetables
-  price: 26.00
+- name: Medaglione al Pepe Nero
+  desc: Grilled fillet medallion with black pepper sauce and roast vegetables
+  price: 29.00
 
 - name: Salmone al Mascarpone
-  tags:
   desc: Grilled salmon with creamy mashed potatoes, green beans & mascarpone-orange sauce
   price: 24.00
 
 - name: Fegato alla Veneziana
-  tags:
   desc: Venetian-style calf liver with onions & red wine sauce, served with mashed potatoes
   price: 24.00
+
+- name: Filetto al Dolcelatte
+  desc: Grilled fillet steak topped with melted Gorgonzola cheese, served with chips (recommended with peppercorn or red wine sauce)
+  price: 35.00
 
 ## SECTION: Bambini
 note: kids
 
 - name: Pasta
-  tags:
   desc: Spaghetti or penne pasta with a choice of sauce: tomato, carbonara or Bolognese
   price: 8.00
 
 - name: Chicken Goujon
-  tags:
   desc: Crispy breaded chicken breast strips with chips
   price: 8.00
 
@@ -199,7 +172,7 @@ note: sides
 - name: French Beans
   price: 5.00
 - name: Asparagus
-  price: 9.00   # [?] confirm — reads high for a side
+  price: 9.00
 - name: Green Salad
   price: 4.50
 - name: Patatine Fritte (Chips)
@@ -209,274 +182,177 @@ note: sides
 - name: Bowl of Mixed Olives
   price: 4.50
 
-
 # MENU: La Cantina
 
 ## SECTION: Vini Bianchi
 note: white wines · 175ml / 250ml / bottle
 
-- name: House Wine – Trebbiano d'Abruzzo 2023
-  from: Italy · dry & fruity with a delicate bouquet
-  g175: 6.50
-  g250: 8.00
-  bottle: 23.00
-- name: Collio Pinot Grigio 2023
+- name: House Wine, Trebbiano
+  from: Sicily · dry & fruity with a delicate bouquet
+  g175: 7.50
+  g250: 9.50
+  bottle: 27.00
+- name: Pinot Grigio Abbazia di Novacella
   from: Italy · refreshing ripe tropical fruit flavours of melon & mango
   g175: 8.50
   g250: 11.00
-  bottle: 31.00
-- name: Colli Sauvignon Blanc 2023
-  from: Italy · notes of lime & lemon, floral nuances, honey & brioche
+  bottle: 33.00
+- name: Sauvignon Blanc Seriade
+  from: Italy · notes of lime & lemon with floral nuances, honey & brioche
   g175: 9.00
   g250: 12.00
   bottle: 34.00
-- name: Grillo Bianco Sicilia 2023
+- name: Bolla Soave Classico
   from: Italy · herbs, spice, grapefruit, passion fruit, white florals & almonds
   g175: 7.50
   g250: 9.50
   bottle: 29.00
-- name: Gavi di Gavi Marchesi di Barolo 2023
+- name: Inzolia Le Rovole
+  from: Italy · soft citrus, white peach and gentle floral notes
+  g175: 8.00
+  g250: 10.00
+  bottle: 30.00
+- name: Grillo Villa Carumè Organic
+  from: Italy · fresh, sun-lit Sicilian white with vibrant citrus, ripe pear & subtle tropical notes
+  bottle: 30.00
+- name: Gavi di Gavi Marchesi di Barolo
   from: Italy · delicate, fresh & dry on the palate
   g175: 13.00
   g250: 16.00
   bottle: 45.00
-- name: Chardonnay Tenuta Rapitala
+- name: Chardonnay Colle Corviano
   from: Sicily · mineral nose, yellow apples, ripe exotic fruits, lemony notes & ginger
   g175: 7.50
   g250: 9.50
-  bottle: 29.00
-- name: Regaleali Bianco Tasca d'Almerita 2023
-  from: Italy · light, delicate, wild flowers & white fruits
-  g175: —
-  g250: —
   bottle: 33.00
-- name: Sauvignon Blanc Mirror Lake Marlborough 2023
-  from: New Zealand · crisp & aromatic, grapefruit, tropical fruit & cut grass
-  g175: —
-  g250: —
-  bottle: 34.00
-- name: Lugana Mandolara Le Morette DOC
-  from: Italy · light, dry, great balance & minerality
-  g175: —
-  g250: —
+- name: Sauvignon Blanc Mirror Lake Marlborough
+  from: New Zealand · very crisp & aromatic, grapefruit, tropical fruit & cut grass
   bottle: 35.00
-- name: Vermentino Toscana Campo al Mare
+- name: Vermentino di Sardegna 'Laragosta'
   from: Italy · tropical fruits with hints of sage & tomato leaf
-  g175: —
-  g250: —
-  bottle: 32.00
-- name: Chablis UVC 2022
-  from: France · dry, citrus, green fruit & grassy flavours, refreshing acidity
-  g175: —
-  g250: —
-  bottle: 49.00
-- name: Soave Colforte Santi 2022
-  from: Italy · fresh floral notes, herbs & aroma of underripe white peach
-  g175: —
-  g250: —
-  bottle: 36.00
-- name: Etna Bianco Buonora Tasca 2023
-  from: Italy · lemon zest, citrus, honeydew melon, white-fleshed fruits & flint
-  g175: —
-  g250: —
-  bottle: 59.00
+  bottle: 35.00
 
 ## SECTION: Champagne & Prosecco
 note: 125ml / bottle
 
-- name: Prosecco Brut
+- name: Villa Sandi Prosecco Rosé
+  from: Italy
+  bottle: 35.00
+- name: House Champagne
+  g175: 12.00
+  bottle: 59.00
+- name: Bollinger Special Cuvée NV (France 12%)
+  from: France · vibrant and inviting, refreshing with notes of apple & brioche
+  bottle: 75.00
+- name: Bollinger Special Cuvée Rosé NV
+  from: France · only Pinot Noir from grand cru villages, delicious raspberry & redcurrant flavours
+  bottle: 140.00
+- name: Champagne Dom Pérignon Vintage 2012 (France 12.5%)
+  from: France · full and varied, flowers mingling with fruit, the vegetal with the mineral
+  bottle: 350.00
+- name: Villa Sandi Prosecco DOC Treviso Brut
   from: Italy
   g175: 7.50
-  g250: —
-  bottle: 33.00
-- name: Prosecco Rosé Brut
-  from: Italy
-  g175: —
-  g250: —
-  bottle: 33.00
-- name: House Champagne
-  from:
-  g175: 12.00
-  g250: —
-  bottle: 59.00
-- name: House Brut Rosé Francia Corta (12%)
-  from: Italy
-  g175: —
-  g250: —
-  bottle: 49.00
-- name: Champagne Piper Heidsieck (12%)
-  from: France · vibrant & inviting, notes of apple & brioche
-  g175: —
-  g250: —
-  bottle: 75.00
-- name: Champagne Moët & Chandon Impérial (12%)
-  from: France · generous white fruits — pear, peach, apple
-  g175: —
-  g250: —
-  bottle: 80.00
-- name: Laurent Perrier Rosé Champagne
-  from: France · Pinot Noir, delicious raspberry & redcurrant flavours
-  g175: —
-  g250: —
-  bottle: 140.00
-- name: Champagne Dom Pérignon Vintage 2012 (12.5%)
-  from: France · full & varied, flowers with fruit & mineral
-  g175: —
-  g250: —
-  bottle: 350.00
+  bottle: 34.00
 
 ## SECTION: Vini Rosato
 note: rosé wines · 175ml / 250ml / bottle
 
-- name: Pinot Griglio Blush 2023
-  from: Italy · delicate & fruity, redcurrants, dry & good consistency
-  g175: 8.50
-  g250: 11.00
-  bottle: 31.00
-- name: Scaia Rosato Veneto 2023
-  from: Italy · soft rose scent, intense flavour of cedar, grapefruit & raspberry
-  g175: —
-  g250: —
+- name: Pinot Grigio Blush Nao Nis
+  from: Italy · delicate & fruity, fresh redcurrants, dry & good consistency
+  g175: 9.50
+  g250: 11.50
   bottle: 33.00
+- name: Scaia Rosato Veneto
+  from: Italy · soft rose scent, intense flavour of cedar, grapefruit & raspberry
+  bottle: 35.00
 
 ## SECTION: Vini Rossi
 note: red wines · 175ml / 250ml / bottle
 
-- name: House Wine Sangiovese 2023
-  from: Italy · ruby, musky earthy cherries & hints of wood & spice
-  g175: 6.50
-  g250: 8.00
-  bottle: 23.00
-- name: Montepulciano d'Abruzzo Colle Corviano 2022
-  from: Italy (VE) · oregano, pepper, tobacco & black fruits
-  g175: 8.50
-  g250: 11.00
-  bottle: 31.00
-- name: Merlot Civa 2022
-  from: Italy · bright ruby red, vinous bouquet with fruity notes
-  g175: 8.50
-  g250: 11.00
-  bottle: 31.00
-- name: Nero d'Avola 2022 Organic
-  from: Italy · lightly oaked, packed with spice & liquorice, dense & chewy
+- name: House Wine, Sangiovese
+  from: Italy · slightly ruby, musky earthy cherries with hints of wood & spice
   g175: 7.50
   g250: 9.50
-  bottle: 29.00
-- name: Negroamaro Appassimento Salento 2021
-  from: Italy · deep ruby, blackberry, berries & chocolate
-  g175: 9.00
-  g250: 12.00
-  bottle: 35.00
-- name: Chianti Rufina Reserva Nipozzano DOCG 2020
-  from: Italy · wild berries, cherries & floral notes of violet
-  g175: —
-  g250: —
-  bottle: 59.00
-- name: Macula 2013 DOC
-  from: Spain · complex nose, cloves & black pepper
-  g175: —
-  g250: —
-  bottle: 47.00
-- name: Malbec 2021
-  from: Argentina · ripe red fruits, black pepper & violets, vanilla & spices
-  g175: —
-  g250: —
-  bottle: 45.00
-- name: Montepulciano d'Abruzzo Podere Umani Ronchi 2023
-  from: Italy (VE) · candied boysenberry, dried herb & wood smoke
-  g175: —
-  g250: —
-  bottle: 35.00
-- name: Primitivo di Manduria Lu Rappaio 2021
-  from: Italy · ripe cherries & plums with cocoa & vanilla
-  g175: —
-  g250: —
+  bottle: 27.00
+- name: Montepulciano d'Abruzzo Colle Corviano (VE)
+  from: Italy · aromas of oregano, pepper, tobacco & black fruits
+  g175: 9.50
+  g250: 11.50
+  bottle: 33.00
+- name: Merlot Seriade
+  from: Italy · bright, lively ruby red, vinous bouquet with fruity notes
+  g175: 8.50
+  g250: 10.00
+  bottle: 34.00
+- name: Nero d'Avola Organic
+  from: Italy · lightly oaked, packed with spice & liquorice, dense & chewy
+  g175: 8.00
+  g250: 10.00
+  bottle: 30.00
+- name: Valpolicella Ripasso Monte Garbi
+  from: Italy · ruby red, red fruit & cherry, soft, fresh & savoury with a spicy finish
+  g175: 9.50
+  g250: 12.50
   bottle: 39.00
-- name: Giaramano Primitivo di Manduria Riserva DOCG 2016
-  from: Italy · smoky & tobacco nose, smooth & complex
-  g175: —
-  g250: —
+- name: Chianti Classico Riserva Fanatico DOCG
+  from: Italy · intense ruby, wild berries & cherries with floral notes of violet
+  bottle: 49.00
+- name: Malbec
+  from: Argentina · ripe red fruits, black pepper & violets, with vanilla & spices
+  bottle: 45.00
+- name: Primitivo di Manduria
+  from: Italy · rich and opulent, ripe cherries & plums with cocoa & vanilla
+  bottle: 39.00
+- name: Negroamaro San Patrime
+  from: Italy · red and black berry fruits, dark spices & woody notes
+  bottle: 35.00
+- name: Marchesi di Barolo DOCG
+  from: Italy · spices & flowers on the nose, full bodied, velvety with sweet tannins
   bottle: 75.00
-- name: Negresco Camaiol 2019
-  from: Italy · red & black berry fruits, dark spices & woody notes
-  g175: —
-  g250: —
-  bottle: 55.00
-- name: Barolo Araldica 2019 DOCG
-  from: Italy · spices & flowers, full bodied, velvety with sweet tannins
-  g175: —
-  g250: —
-  bottle: 75.00
-- name: Amarone della Valpolicella Tenuta Sant'Antonio 2019 DOCG
-  from: Italy · fat tannins, soft, warm, savoury, elegant & fresh
-  g175: —
-  g250: —
+- name: Amarone della Valpolicella Tenuta Sant'Antonio DOCG
+  from: Italy · well balanced, fat tannins, soft, warm, savoury, elegant & fresh
   bottle: 89.00
 
 ## SECTION: Vini Pregiati
 note: fine wines · bottle only
 
 - name: Cervaro della Sala 2022
-  from: Italy · Chardonnay, hints of oak, vanilla & citrus minerals
-  g175: —
-  g250: —
+  from: Italy · Chardonnay with hints of oak, vanilla & citrus minerals
   bottle: 140.00
 - name: Tenuta degli Dei Roberto Cavalli 2009
-  from: Italy · berry, chocolate & vanilla, full body with juicy finish
-  g175: —
-  g250: —
+  from: Italy · rich & balanced, berry, chocolate & vanilla, full body with a juicy finish
   bottle: 260.00
-- name: Beaune 1er Cru Domaine 'Les Toussaints' Rene Monnier 2011
-  from: France · cherry red, earthy & red fruit aromas, elegant tannins
-  g175: —
-  g250: —
+- name: Beaune 1er Cru Domaine 'Les Toussaints' René Monnier 2011
+  from: France · cherry red, earthy & red fruit aromas, round with elegant tannins
   bottle: 150.00
 - name: Barbaresco Cascina Morassino 2018 DOCG
-  from: Italy · red fruits, floral notes & spices, silky tannins
-  g175: —
-  g250: —
+  from: Italy · red fruits, floral notes & spices, medium to full bodied with silky tannins
   bottle: 85.00
 - name: Brunello di Montalcino Gianni Brunelli 2015 DOCG
-  from: Italy · herbs, aromatic spices & cherries, full bodied & velvety
-  g175: —
-  g250: —
+  from: Italy · herbs, aromatic spices & cherries, soft & harmonic, full bodied & velvety
   bottle: 190.00
 - name: Tignanello IGT Antinori 2015
-  from: Italy · violets, bramble & rosemary, very dense with great depth
-  g175: —
-  g250: —
+  from: Italy · violets, bramble & rosemary, very dense with deep tannins & great depth
   bottle: 350.00
 - name: Barolo Cerequio Michele Chiarlo 2006 DOCG
-  from: Italy · ripe fruit, mint, gentian roots & spices, delicate tannins
-  g175: —
-  g250: —
+  from: Italy · ripe fruit, mint, gentian roots & spices, rich body with delicate tannins
   bottle: 160.00
 - name: Chateau Pichon Baron 2007
-  from: France · fresh red fruit & blackberry, long-lasting, precise tannins
-  g175: —
-  g250: —
+  from: France · fresh red fruit & blackberry, long-lasting with dense, precise tannins
   bottle: 240.00
 - name: Chateau Leoville Barton Saint Julien 2014
-  from: France · Cabernet & Merlot, deep ruby, cassis & cedar
-  g175: —
-  g250: —
+  from: France · Cabernet & Merlot, deep ruby with cassis & cedar
   bottle: 180.00
 - name: Bolgheri Sassicaia 2017
   from: Italy · black fruit & spices, silky, medium to high tannins
-  g175: —
-  g250: —
   bottle: 500.00
 - name: Barbaresco Gaja 2017
-  from: Italy · forest fruits, plums, liquorice, mineral & coffee
-  g175: —
-  g250: —
+  from: Italy · forest fruits, plums, liquorice, mineral & coffee, dense & full bodied
   bottle: 360.00
 - name: Tignanello IGT Antinori 2008
-  from: Italy · chocolate, black cherry & spice, velvety & long
-  g175: —
-  g250: —
+  from: Italy · chocolate, black cherry & spice in a lush, soft texture, velvety & very long
   bottle: 650.00
-
 
 # MENU: I Dolci
 
@@ -501,7 +377,7 @@ note: made here, finished at the table
   price: 8.50
 - name: Pistachioso
   tags:
-  desc: Homemade signature dessert — ladyfinger, mascarpone cheese, biscuits, liqueur & Italian pistachio cream
+  desc: Homemade signature dessert: ladyfinger, mascarpone cheese, biscuits, liqueur & Italian pistachio cream
   price: 8.50
 - name: Tiramisù della Casa
   tags:
@@ -513,11 +389,11 @@ note: made here, finished at the table
   price: 9.00
 - name: Gelato Artigianale
   tags:
-  desc: 2 or 3 scoops of homemade Italian ice cream — vanilla, chocolate, strawberry, salted caramel, pistachio
+  desc: 2 or 3 scoops of homemade Italian ice cream: vanilla, chocolate, strawberry, salted caramel, pistachio
   price: 7.00 / 9.00
 - name: Sorbetto
   tags: VE, GF
-  desc: 2 or 3 scoops of sorbet — lemon or mango
+  desc: 2 or 3 scoops of sorbet: lemon or mango
   price: 7.00 / 9.00
 - name: Dessert of the Day
   tags:
@@ -542,80 +418,119 @@ note: cocktails
 
 # NOTE: Sweet wines (Passito di Pantelleria, Vin Santo del Chianti, Picolit Collio
 # Castelcosa, Port, Vintage Port 2013) and the full coffee & tea list are on the
-# dessert menu but their glass/bottle price mapping is ambiguous in the source —
+# dessert menu but their glass/bottle price mapping is ambiguous in the source -
 # left off pending client confirmation (see TODO.md).
 
+# MENU: Sicilian Brunch
 
-# MENU: Set Lunch
+## SECTION: Menu Offer
+note: every day, 10am to 4pm · a Sicilian sharing table, served as trios
 
-## SECTION: Two courses · £16.95
-note: Tuesday to Friday, 12–3pm · excluding Bank Holidays. Choose one starter and one main.
+## SECTION: Cicchetti
+note: small plates
 
-## SECTION: Primi
-note: starters
+- name: Tris Arancini
+  desc: Meat and peas · ham and cheese · spinach and cheese
+  price: 15.95
+- name: Tris Bruschetta
+  desc: Classic · guacamole and mozzarella · mushrooms
+  price: 12.95
+- name: Tricolore Salad
+  desc: Avocado, mozzarella and tomato
+  price: 11.95
+- name: Tris Caponata, Crocchette & Spice Polpette
+  price: 15.95
 
-- name: Bruschetta al Pomodoro
-  tags: V
-  desc: Toasted rustic bread topped with cherry tomatoes, garlic, and fresh basil
+## SECTION: Pizza & Bread
 
-- name: Melanzane alla Parmigiana
-  tags: V
-  desc: Baked aubergine with tomato sauce, mozzarella, and basil
+- name: Tris Pizza 9"
+  desc: Piccante · ham & cheese · vegetarian
+  price: 17.95
+- name: Tris Focaccia
+  desc: Mozzarella · cherry tomatoes · mushrooms
+  price: 11.95
+- name: Tris Bread
+  desc: Crusty bread · pane e olive · grissini
+  price: 4.95
 
-- name: Polpette al Sugo
-  desc: Homemade meatballs in a rich tomato sauce
+## SECTION: Fish & Meat
+note: each trio served with vegetables and potatoes
 
-- name: Crostini Caprino e Cipolla
-  tags: V
-  desc: Toasted crostini topped with warmed goat's cheese and caramelised onion
+- name: Tris di Carne
+  desc: Entrecôte · veal Milanese · fillet steak
+  price: 29.95
+- name: Tris di Pesce
+  desc: Sea bass · salmon · squid
+  price: 31.95
+- name: Tris di Pollo
+  desc: Valdostana · tricolore · Milanese
+  price: 24.95
 
-- name: Prosciutto e Melone
-  desc: Thin slices of Parma ham served with sweet melon
+## SECTION: Pasta & Risotto
 
-- name: Gamberetti all'Aglio Piccante
-  desc: Baby prawns sautéed with garlic, chilli, white wine, and a touch of tomato sauce
+- name: Tris Lasagna
+  desc: Classic · 4 formaggi & veg · Norma
+  price: 25.95
+- name: Tris Gnocchi
+  desc: Sorrentina · 4 formaggi · courgettes and prawns
+  price: 24.95
+- name: Tris Pasta
+  desc: Cacio e pepe · Amatriciana · Norma
+  price: 23.95
+- name: Tris Risotto
+  desc: Parmesan & saffron · vegetarian · crab & prawns
+  price: 25.95
 
-- name: Insalata Caprese
-  tags: V
-  desc: Sliced fresh mozzarella, tomatoes, and basil, drizzled with extra virgin olive oil, pesto and balsamic glaze
+## SECTION: Tris Sides
 
-- name: Funghi Trifolati
-  tags: V
-  desc: Sautéed mushrooms with garlic, parsley, and white wine, served warm with toasted bread
+- name: Tris Vegetable
+  desc: Asparagus · spinach · broccoli
+  price: 6.95
+- name: Tris Salad
+  desc: Rocket · lettuce · riccia
+  price: 5.95
+- name: Tris Tomato & Onion
+  desc: Cherry tomatoes · big tomatoes · concassé
+  price: 4.95
 
-## SECTION: Secondi
-note: main course
+## SECTION: Tris Desserts
 
-- name: Penne all'Arrabbiata
-  tags: V
-  desc: Penne pasta with garlic, chilli and tomato sauce
+- name: Tris Cake
+  desc: Tiramisù · profiteroles · panna cotta
+  price: 13.95
+- name: Tris Gelato
+  desc: Pistachio · chocolate · nocciola
+  price: 5.95
 
-- name: Penne Amatriciana
-  desc: Penne pasta with guanciale, red onions, and tomato sauce, finished with Pecorino Romano
+## SECTION: Tris Drinks
 
-- name: Spaghetti alla Carbonara
-  desc: Spaghetti with guanciale, egg yolk, and Pecorino Romano — the authentic Roman way (no cream)
+- name: Tris Cocktails
+  desc: Your choice of any three cocktails
+  price: 24.95
+- name: Tris Drinks
+  desc: House wine · Aperol Spritz · Limoncello Spritz
+  price: 24.95
 
-- name: Tagliatelle al Ragù
-  desc: Fresh tagliatelle with our traditional slow-cooked beef ragù
+## SECTION: Special Panozzi
+note: make your own, choose your fillings
 
-- name: Risotto Verde
-  tags: V
-  desc: Arborio rice cooked with asparagus, peas, spinach, and Parmesan
+- name: Make Your Own Panozzi
+  desc: Mortadella, Parma ham, coppa, pancetta, speck, Salame Napoli, Salame Milano, Salame Finocchiona, broccoli, salsiccia, avocado, stracciatella, bufala mozzarella, burrata, gorgonzola, taleggio, caprino, zucchini, melanzane, pomodoro, peperoni, carciofi, basil, onion, lettuce, rocket
+  price: 13.95
 
-- name: Lasagna al Forno
-  desc: Classic oven-baked beef lasagna with béchamel and parmesan
+## SECTION: Special Sicilian Platter
+note: to share, for two or four
 
-- name: Spaghetti al Pesto alla Genovese
-  tags: V
-  desc: Spaghetti tossed in a fragrant basil pesto with a touch of cream, finished with parmesan and toasted pine nuts
+- name: Special Sicilian Platter
+  desc: Meat arancini, parmigiana, polpette, caponata melanzane & carciofi, crocchette, mixed focaccia, olives, salumi & formaggi
+  price: 32.95 / 49.95
 
-- name: Pollo alla Valdostana
-  desc: Chicken breast topped with ham, tomato sauce, and melted mozzarella, finished under the salamander grill and served with rosemary potatoes
+## SECTION: Fresh Home-Made Pasta
+note: made fresh every day, for two · please ask your waiter
 
-- name: Salmone alla Mediterranea
-  desc: Pan-seared salmon fillet with cherry tomatoes, black olives, capers, and white wine, served over crushed potatoes
-
+- name: Fresh Home-Made Pasta
+  desc: Girasoli, torteloni, ravioli, triangoli, quadroni, pappardelle, tagliolini
+  price: 28.95
 
 # MENU: Takeaway
 
@@ -681,7 +596,7 @@ note: made with the finest Italian ingredients · vegan or gluten-free base +£2
   price: 17
 
 - name: Calzone Piccante
-  desc: Folded pizza — tomato sauce, mozzarella, cooked ham, mushrooms, pepperoni, oregano & red chillies
+  desc: Folded pizza: tomato sauce, mozzarella, cooked ham, mushrooms, pepperoni, oregano & red chillies
   price: 16
 
 ## SECTION: Antipasti
@@ -819,7 +734,7 @@ note: sides
 note: for children · £8 each
 
 - name: Spaghetti Pasta
-  desc: A choice of sauce — Tomato, Carbonara or Bolognese
+  desc: A choice of sauce: Tomato, Carbonara or Bolognese
   price: 8
 
 - name: Chicken Goujon & Chips
