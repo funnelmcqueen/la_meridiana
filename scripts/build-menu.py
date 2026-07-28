@@ -66,7 +66,7 @@ def parse(md):
         if item is not None and ":" in s and s[0] not in "#":
             k, v = s.split(":", 1)
             k = k.strip(); v = v.split("#", 1)[0].strip()  # drop inline comments
-            if k in ("tags", "desc", "price", "from", "g175", "g250", "bottle"):
+            if k in ("tags", "desc", "price", "from", "g175", "g250", "bottle", "feature"):
                 item[k] = v
             continue
     flush_item()
@@ -83,9 +83,12 @@ def dish_row(it):
     price = fmt_price(it.get("price", ""))
     desc = it.get("desc", "").strip()
     desc_html = f'\n              <p class="dish__desc">{esc(desc)}</p>' if desc else ""
+    offer = str(it.get("feature", "")).strip().lower() in ("yes", "true", "1", "offer")
+    cls = "dish dish--offer" if offer else "dish"
+    badge = '<span class="dish__tag">Offerta</span>' if offer else ""
     return (
-        '            <div class="dish"><div class="dish__wrapline">\n'
-        f'              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">{esc(it["name"])}{tags_html(it.get("tags"))}</span><span class="dish__lead"></span><span class="dish__price">{esc(price)}</span></div>{desc_html}'
+        f'            <div class="{cls}"><div class="dish__wrapline">\n'
+        f'              <div style="display:flex;align-items:baseline;gap:14px">{badge}<span class="dish__name">{esc(it["name"])}{tags_html(it.get("tags"))}</span><span class="dish__lead"></span><span class="dish__price">{esc(price)}</span></div>{desc_html}'
         '</div></div>'
     )
 

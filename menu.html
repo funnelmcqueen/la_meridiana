@@ -45,7 +45,7 @@
       <a href="contact.html">Contatti</a>
     </nav>
     <div class="nav__right">
-      <button class="nav__book" data-booking="connect">Book a table</button>
+      <a class="nav__book" data-book="dojo">Book a table</a>
       <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -512,10 +512,10 @@
         <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
         <div class="course">
           <h3 class="course__title">Special Sicilian Platter</h3>
-          <p class="course__note">to share, for two or four</p>
+          <p class="course__note">to share · for two or four</p>
           <div style="margin-top:18px">
-            <div class="dish"><div class="dish__wrapline">
-              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Special Sicilian Platter</span><span class="dish__lead"></span><span class="dish__price">32.95 / 49.95</span></div>
+            <div class="dish dish--offer"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__tag">Offerta</span><span class="dish__name">Special Sicilian Platter</span><span class="dish__lead"></span><span class="dish__price">32.95 / 49.95</span></div>
               <p class="dish__desc">Meat arancini, parmigiana, polpette, caponata melanzane &amp; carciofi, crocchette, mixed focaccia, olives, salumi &amp; formaggi</p></div></div>
           </div>
         </div>
@@ -524,13 +524,20 @@
           <h3 class="course__title">Fresh Home-Made Pasta</h3>
           <p class="course__note">made fresh every day, for two · please ask your waiter</p>
           <div style="margin-top:18px">
-            <div class="dish"><div class="dish__wrapline">
-              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Fresh Home-Made Pasta</span><span class="dish__lead"></span><span class="dish__price">28.95</span></div>
+            <div class="dish dish--offer"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__tag">Offerta</span><span class="dish__name">Fresh Home-Made Pasta</span><span class="dish__lead"></span><span class="dish__price">28.95</span></div>
               <p class="dish__desc">Girasoli, torteloni, ravioli, triangoli, quadroni, pappardelle, tagliolini</p></div></div>
           </div>
         </div>
       </div>
       <div class="pane" id="pane-takeaway" role="tabpanel">
+        <div class="course">
+          <h3 class="course__title">How to order</h3>
+          <p class="course__note">call +44 1483 284 343 to order direct · also on Deliveroo &amp; Uber Eats</p>
+          <div style="margin-top:18px">
+          </div>
+        </div>
+        <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
         <div class="course">
           <h3 class="course__title">Pizze</h3>
           <p class="course__note">made with the finest Italian ingredients · vegan or gluten-free base +£2 · extra toppings: meat £3, vegetables £2</p>
@@ -715,7 +722,7 @@
     </div>
 
     <div class="menu__cta rv">
-      <button class="btn btn--outline-cream" data-booking="connect"><span class="dot"></span>Book for lunch or dinner</button>
+      <a class="btn btn--outline-cream" data-book="dojo"><span class="dot"></span>Book a table</a>
     </div>
   </div>
 </section>

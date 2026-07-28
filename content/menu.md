@@ -519,9 +519,10 @@ note: make your own, choose your fillings
   price: 13.95
 
 ## SECTION: Special Sicilian Platter
-note: to share, for two or four
+note: to share · for two or four
 
 - name: Special Sicilian Platter
+  feature: yes
   desc: Meat arancini, parmigiana, polpette, caponata melanzane & carciofi, crocchette, mixed focaccia, olives, salumi & formaggi
   price: 32.95 / 49.95
 
@@ -529,10 +530,14 @@ note: to share, for two or four
 note: made fresh every day, for two · please ask your waiter
 
 - name: Fresh Home-Made Pasta
+  feature: yes
   desc: Girasoli, torteloni, ravioli, triangoli, quadroni, pappardelle, tagliolini
   price: 28.95
 
 # MENU: Takeaway
+
+## SECTION: How to order
+note: call +44 1483 284 343 to order direct · also on Deliveroo & Uber Eats
 
 ## SECTION: Pizze
 note: made with the finest Italian ingredients · vegan or gluten-free base +£2 · extra toppings: meat £3, vegetables £2

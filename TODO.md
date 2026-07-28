@@ -50,9 +50,15 @@ is guessed on the live site without a matching placeholder marker in the HTML.
 - [ ] Gap: no clean text-free **outdoor terrace** photo. A quick sunny-service phone
       shoot is the one asset worth capturing before launch (see photo-inventory.md).
 
-## Booking (do not wire until client approves)
-- [ ] Reservation buttons are intentionally dead (`data-booking="connect"`).
-      Provide the approved booking link (Dojo/Quandoo/etc.) to wire them.
+## Booking & ordering — need the three live URLs
+Booking is approved on **Dojo** (phone is the fallback); takeaway is phone-first,
+also on **Deliveroo** and **Uber Eats**. Every button is already wired — just drop
+the URLs into the `LINKS` object at the top of `js/main.js` and they all go live:
+- [ ] **Dojo** table-reservation URL  → `LINKS.dojo`   (buttons: nav "Book a table", hero, home Book/Order card, page CTAs)
+- [ ] **Deliveroo** restaurant page    → `LINKS.deliveroo`  (home "Order in" card, takeaway tab)
+- [ ] **Uber Eats** restaurant page    → `LINKS.uber`
+Until a URL is set, that specific button stays inert (no dead-end click); phone
+links (`tel:+441483284343`) are already live everywhere.
 
 ## Phase 2
 - [ ] Gift cards page (currently `/fresh-pasta-1` → temporary redirect to `/`).

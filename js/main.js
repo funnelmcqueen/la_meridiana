@@ -386,7 +386,34 @@
     });
   });
 
-  /* booking buttons — intentionally unwired until client sign-off */
+  /* ---- Reservations & takeaway links --------------------------------------
+     Table booking is primary via Dojo (phone is the fallback); takeaway is
+     primary by phone, also on Deliveroo & Uber Eats. Drop the three URLs in
+     here ONCE and every matching button across the site goes live. Until a URL
+     is set, that button stays inert (no dead-end clicks). */
+  var LINKS = {
+    dojo:      '',   // Dojo table-reservation link  (data-book="dojo")
+    deliveroo: '',   // Deliveroo restaurant page     (data-order="deliveroo")
+    uber:      ''    // Uber Eats restaurant page      (data-order="uber")
+  };
+  function wire(selector, url){
+    document.querySelectorAll(selector).forEach(function(a){
+      if(url){
+        a.setAttribute('href', url);
+        a.setAttribute('target', '_blank');
+        a.setAttribute('rel', 'noopener');
+        a.removeAttribute('aria-disabled');
+      } else {
+        a.setAttribute('href', '#');
+        a.setAttribute('aria-disabled', 'true');
+        a.addEventListener('click', function(e){ e.preventDefault(); });
+      }
+    });
+  }
+  wire('[data-book="dojo"]',      LINKS.dojo);
+  wire('[data-order="deliveroo"]', LINKS.deliveroo);
+  wire('[data-order="uber"]',      LINKS.uber);
+  /* any legacy connect-buttons stay inert */
   document.querySelectorAll('[data-booking]').forEach(function(b){
     b.addEventListener('click', function(e){ e.preventDefault(); });
   });
