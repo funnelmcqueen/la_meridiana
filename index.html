@@ -298,12 +298,8 @@
       <button class="tab" role="tab" aria-selected="false" data-pane="dolci"><span class="sun"></span>I Dolci</button>
     </div>
 
-    <!-- ============================================================
-      PLACEHOLDER MENU CONTENT
-      Dish names below are pulled from the client's own photography
-      so the mock reads true. Replace with the real menu files
-      in Claude Code. Keep the structure: .course > .dish rows.
-    ============================================================ -->
+    <!-- Curated teaser of the current menu (real dishes + prices).
+         Full menu is generated on menu.html from content/menu.md. -->
     <div class="card grain rv rv-d1">
       <div class="card__brand">
         <div class="word">La Meridiana</div>
@@ -311,7 +307,7 @@
       </div>
       <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
 
-      <!-- PANE: À LA CARTE -->
+      <!-- PANE: À LA CARTE (a few from the current card; full list on menu.html) -->
       <div class="pane active" id="pane-alacarte" role="tabpanel">
         <div class="course">
           <h3 class="course__title">Antipasti</h3>
@@ -320,41 +316,31 @@
             <div class="dish">
               <div class="dish__wrapline">
                 <div style="display:flex;align-items:baseline;gap:14px">
-                  <span class="dish__name">Arancini di casa</span>
+                  <span class="dish__name">Arancini</span>
                   <span class="dish__lead"></span>
-                  <span class="dish__price">9.50</span>
+                  <span class="dish__price">9.95</span>
                 </div>
-                <p class="dish__desc">Crisp saffron rice, mozzarella heart, slow tomato sugo</p>
+                <p class="dish__desc">Two fried rice balls filled with mozzarella &amp; minced beef, on a bed of tomato sauce</p>
               </div>
             </div>
             <div class="dish">
               <div class="dish__wrapline">
                 <div style="display:flex;align-items:baseline;gap:14px">
-                  <span class="dish__name">Bruschetta classica <span class="v">V</span></span>
+                  <span class="dish__name">Burrata</span>
                   <span class="dish__lead"></span>
-                  <span class="dish__price">8.00</span>
+                  <span class="dish__price">14</span>
                 </div>
-                <p class="dish__desc">Charred bread, datterini tomatoes, basil, new oil</p>
+                <p class="dish__desc">Creamy burrata with heirloom tomatoes, rocket &amp; balsamic glaze</p>
               </div>
             </div>
             <div class="dish">
               <div class="dish__wrapline">
                 <div style="display:flex;align-items:baseline;gap:14px">
-                  <span class="dish__name">Cozze alla provinciale</span>
+                  <span class="dish__name">Gamberoni Aglio e Peperoncino</span>
                   <span class="dish__lead"></span>
-                  <span class="dish__price">11.50</span>
+                  <span class="dish__price">15.50</span>
                 </div>
-                <p class="dish__desc">Mussels, white wine, garlic, a little chilli, good bread</p>
-              </div>
-            </div>
-            <div class="dish">
-              <div class="dish__wrapline">
-                <div style="display:flex;align-items:baseline;gap:14px">
-                  <span class="dish__name">Prosciutto e melone</span>
-                  <span class="dish__lead"></span>
-                  <span class="dish__price">10.50</span>
-                </div>
-                <p class="dish__desc">Aged Parma ham, ripe cantaloupe, cracked pepper</p>
+                <p class="dish__desc">Pan-fried king prawns, garlic, butter, fresh chilli &amp; white wine, with homemade focaccia</p>
               </div>
             </div>
           </div>
@@ -363,102 +349,103 @@
         <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
 
         <div class="course">
-          <h3 class="course__title">Primi &amp; Secondi</h3>
-          <p class="course__note">pasta rolled this morning, fish bought whole</p>
+          <h3 class="course__title">Primi</h3>
+          <p class="course__note">pasta rolled this morning</p>
           <div style="margin-top:18px">
             <div class="dish">
               <div class="dish__wrapline">
                 <div style="display:flex;align-items:baseline;gap:14px">
-                  <span class="dish__name">Risotto ai gamberoni</span>
+                  <span class="dish__name">Gnocchi al Filetto</span>
                   <span class="dish__lead"></span>
-                  <span class="dish__price">19.50</span>
+                  <span class="dish__price">22.95</span>
                 </div>
-                <p class="dish__desc">Carnaroli rice, langoustine, king prawns, cherry tomato</p>
+                <p class="dish__desc">Homemade gnocchi, fillet steak strips, cherry tomatoes, mushrooms, parmesan &amp; truffle oil</p>
               </div>
             </div>
             <div class="dish">
               <div class="dish__wrapline">
                 <div style="display:flex;align-items:baseline;gap:14px">
-                  <span class="dish__name">Gamberoni alla griglia</span>
+                  <span class="dish__name">Tagliatelle Ragù di Pesce</span>
                   <span class="dish__lead"></span>
-                  <span class="dish__price">23.00</span>
+                  <span class="dish__price">24.50</span>
                 </div>
-                <p class="dish__desc">Grilled king prawns, lemon, garlic butter, parsley</p>
+                <p class="dish__desc">Fresh tagliatelle with sea bass, salmon, prawns &amp; mussels in a rich tomato sauce</p>
               </div>
             </div>
             <div class="dish">
               <div class="dish__wrapline">
                 <div style="display:flex;align-items:baseline;gap:14px">
-                  <span class="dish__name">Salmone al forno</span>
+                  <span class="dish__name">Spaghetti Carbonara</span>
                   <span class="dish__lead"></span>
-                  <span class="dish__price">21.00</span>
+                  <span class="dish__price">16</span>
                 </div>
-                <p class="dish__desc">Oven-roasted salmon, asparagi alla parmigiana, salsa verde</p>
+                <p class="dish__desc">Egg yolks, guanciale &amp; Pecorino Romano, the traditional Roman way</p>
               </div>
             </div>
           </div>
         </div>
+
         <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
 
         <div class="course">
-          <h3 class="course__title">Le Pizze</h3>
-          <p class="course__note">the ones people drive across the county for</p>
+          <h3 class="course__title">Secondi</h3>
+          <p class="course__note">from the grill and the pass</p>
           <div style="margin-top:18px">
             <div class="dish">
               <div class="dish__wrapline">
                 <div style="display:flex;align-items:baseline;gap:14px">
-                  <span class="dish__name">Margherita <span class="v">V</span></span>
+                  <span class="dish__name">Filetto al Dolcelatte</span>
                   <span class="dish__lead"></span>
-                  <span class="dish__price">12.00</span>
+                  <span class="dish__price">35</span>
                 </div>
-                <p class="dish__desc">San Marzano tomato, fior di latte, basil, olio nuovo</p>
+                <p class="dish__desc">Grilled fillet steak topped with melted Gorgonzola, served with chips</p>
               </div>
             </div>
             <div class="dish">
               <div class="dish__wrapline">
                 <div style="display:flex;align-items:baseline;gap:14px">
-                  <span class="dish__name">Diavola</span>
+                  <span class="dish__name">Medaglione al Pepe Nero</span>
                   <span class="dish__lead"></span>
-                  <span class="dish__price">14.50</span>
+                  <span class="dish__price">29</span>
                 </div>
-                <p class="dish__desc">Spicy salame, chilli honey, mozzarella, tomato</p>
+                <p class="dish__desc">Grilled fillet medallion, black pepper sauce &amp; roast vegetables</p>
               </div>
             </div>
             <div class="dish">
               <div class="dish__wrapline">
                 <div style="display:flex;align-items:baseline;gap:14px">
-                  <span class="dish__name">Quattro Formaggi <span class="v">V</span></span>
+                  <span class="dish__name">Salmone al Mascarpone</span>
                   <span class="dish__lead"></span>
-                  <span class="dish__price">14.00</span>
+                  <span class="dish__price">24</span>
                 </div>
-                <p class="dish__desc">Gorgonzola, taleggio, parmigiano, fior di latte</p>
+                <p class="dish__desc">Grilled salmon, creamy mash, green beans &amp; mascarpone-orange sauce</p>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- PANE: LA CANTINA (wine list template) -->
+      <!-- PANE: LA CANTINA (a taste of the cellar; full list on menu.html) -->
       <div class="pane" id="pane-vini" role="tabpanel">
         <div class="course">
           <h3 class="course__title">Bianchi</h3>
-          <p class="course__note">from the cooler slopes</p>
-          <div class="winehead"><span>Glass</span><span>Bottle</span></div>
+          <p class="course__note">175ml &amp; bottle</p>
+          <div class="winehead"><span>175ml</span><span>Bottle</span></div>
           <div>
             <div class="wine">
-              <span class="wine__name">Gavi di Gavi</span>
-              <span class="wine__p">8.5</span><span class="wine__p">34</span>
-              <span class="wine__from">Cortese · Piemonte</span>
+              <span class="wine__name">House Wine, Trebbiano</span>
+              <span class="wine__p">7.50</span><span class="wine__p">27</span>
+              <span class="wine__from">Sicily · dry &amp; fruity with a delicate bouquet</span>
             </div>
             <div class="wine">
-              <span class="wine__name">Pinot Grigio</span>
-              <span class="wine__p">7</span><span class="wine__p">28</span>
-              <span class="wine__from">Delle Venezie</span>
+              <span class="wine__name">Pinot Grigio Abbazia di Novacella</span>
+              <span class="wine__p">8.50</span><span class="wine__p">33</span>
+              <span class="wine__from">Italy · ripe tropical fruit, melon &amp; mango</span>
             </div>
             <div class="wine">
-              <span class="wine__name">Falanghina</span>
-              <span class="wine__p">7.5</span><span class="wine__p">30</span>
-              <span class="wine__from">Campania</span>
+              <span class="wine__name">Gavi di Gavi Marchesi di Barolo</span>
+              <span class="wine__p">13</span><span class="wine__p">45</span>
+              <span class="wine__from">Italy · delicate, fresh &amp; dry on the palate</span>
             </div>
           </div>
         </div>
@@ -467,29 +454,29 @@
 
         <div class="course">
           <h3 class="course__title">Rossi</h3>
-          <p class="course__note">for the table, for the evening</p>
-          <div class="winehead"><span>Glass</span><span>Bottle</span></div>
+          <p class="course__note">175ml &amp; bottle</p>
+          <div class="winehead"><span>175ml</span><span>Bottle</span></div>
           <div>
             <div class="wine">
-              <span class="wine__name">Chianti Classico</span>
-              <span class="wine__p">9</span><span class="wine__p">36</span>
-              <span class="wine__from">Sangiovese · Toscana</span>
+              <span class="wine__name">House Wine, Sangiovese</span>
+              <span class="wine__p">7.50</span><span class="wine__p">27</span>
+              <span class="wine__from">Italy · earthy cherries with wood &amp; spice</span>
             </div>
             <div class="wine">
-              <span class="wine__name">Primitivo di Manduria</span>
-              <span class="wine__p">8.5</span><span class="wine__p">33</span>
-              <span class="wine__from">Puglia</span>
+              <span class="wine__name">Valpolicella Ripasso Monte Garbi</span>
+              <span class="wine__p">9.50</span><span class="wine__p">39</span>
+              <span class="wine__from">Italy · red fruit &amp; cherry, soft, fresh &amp; savoury</span>
             </div>
             <div class="wine">
-              <span class="wine__name">Barolo</span>
-              <span class="wine__p"></span><span class="wine__p">62</span>
-              <span class="wine__from">Nebbiolo · Piemonte</span>
+              <span class="wine__name">Amarone della Valpolicella Sant'Antonio</span>
+              <span class="wine__p"></span><span class="wine__p">89</span>
+              <span class="wine__from">Italy · fat tannins, warm, elegant &amp; fresh</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- PANE: I DOLCI (dessert template) -->
+      <!-- PANE: I DOLCI (made here; full list on menu.html) -->
       <div class="pane" id="pane-dolci" role="tabpanel">
         <div class="course">
           <h3 class="course__title">I Dolci</h3>
@@ -498,41 +485,41 @@
             <div class="dish">
               <div class="dish__wrapline">
                 <div style="display:flex;align-items:baseline;gap:14px">
-                  <span class="dish__name">Tiramisù della casa</span>
+                  <span class="dish__name">Tiramisù della Casa</span>
                   <span class="dish__lead"></span>
-                  <span class="dish__price">8.00</span>
+                  <span class="dish__price">7</span>
                 </div>
-                <p class="dish__desc">Savoiardi, espresso, mascarpone, bitter cocoa</p>
+                <p class="dish__desc">Homemade classic tiramisu, mascarpone cream, rum, coffee &amp; Disaronno almond liqueur</p>
               </div>
             </div>
             <div class="dish">
               <div class="dish__wrapline">
                 <div style="display:flex;align-items:baseline;gap:14px">
-                  <span class="dish__name">Panna cotta</span>
+                  <span class="dish__name">Cannolo Siciliano</span>
                   <span class="dish__lead"></span>
-                  <span class="dish__price">7.50</span>
+                  <span class="dish__price">8.50</span>
                 </div>
-                <p class="dish__desc">Vanilla cream, seasonal fruit from the market</p>
+                <p class="dish__desc">Crispy fried shell filled with sweet ricotta, citrus zest &amp; chopped pistachios</p>
               </div>
             </div>
             <div class="dish">
               <div class="dish__wrapline">
                 <div style="display:flex;align-items:baseline;gap:14px">
-                  <span class="dish__name">Affogato al caffè</span>
+                  <span class="dish__name">Pistachioso</span>
                   <span class="dish__lead"></span>
-                  <span class="dish__price">6.50</span>
+                  <span class="dish__price">8.50</span>
                 </div>
-                <p class="dish__desc">Fior di latte gelato, drowned in hot espresso</p>
+                <p class="dish__desc">Signature: ladyfinger, mascarpone, biscuits, liqueur &amp; Italian pistachio cream</p>
               </div>
             </div>
             <div class="dish">
               <div class="dish__wrapline">
                 <div style="display:flex;align-items:baseline;gap:14px">
-                  <span class="dish__name">Formaggi italiani</span>
+                  <span class="dish__name">Affogato</span>
                   <span class="dish__lead"></span>
-                  <span class="dish__price">11.00</span>
+                  <span class="dish__price">8.50</span>
                 </div>
-                <p class="dish__desc">Three Italian cheeses, honey, walnuts, carta di musica</p>
+                <p class="dish__desc">Double espresso, amaretto liqueur &amp; vanilla ice cream</p>
               </div>
             </div>
           </div>
