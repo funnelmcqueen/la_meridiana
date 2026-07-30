@@ -383,6 +383,8 @@ button{font-family:inherit;cursor:pointer;background:none;border:none;color:inhe
 
 /* ============ 10. LA STORIA ============ */
 .storia{display:grid;grid-template-columns:1.05fr .95fr;gap:90px;align-items:center}
+/* single-column story (no media) — used while the staff photo is out */
+.storia--solo{grid-template-columns:1fr;max-width:760px}
 .storia__text h2{font-size:clamp(38px,4vw,58px);font-weight:500;line-height:1.06;margin:26px 0 30px}
 .storia__text h2 em{font-style:italic;color:var(--brass)}
 .storia__text p{font-size:19px;line-height:1.72;color:var(--ink-soft);max-width:54ch;margin-bottom:20px}

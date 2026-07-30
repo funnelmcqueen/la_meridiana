@@ -392,7 +392,7 @@
      here ONCE and every matching button across the site goes live. Until a URL
      is set, that button stays inert (no dead-end clicks). */
   var LINKS = {
-    dojo:      '',   // Dojo table-reservation link  (data-book="dojo")
+    dojo:      'https://web.dojo.app/create_booking/vendor/3vIGbxpfVQeb3lfr1rbzVhEwCWSxF8e2DxFZQ9JW0rU_restaurant',   // Dojo table-reservation link  (data-book="dojo")
     deliveroo: '',   // Deliveroo restaurant page     (data-order="deliveroo")
     uber:      ''    // Uber Eats restaurant page      (data-order="uber")
   };
