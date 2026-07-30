@@ -386,15 +386,14 @@
     });
   });
 
-  /* ---- Reservations & takeaway links --------------------------------------
-     Table booking is primary via Dojo (phone is the fallback); takeaway is
-     primary by phone, also on Deliveroo & Uber Eats. Drop the three URLs in
-     here ONCE and every matching button across the site goes live. Until a URL
-     is set, that button stays inert (no dead-end clicks). */
+  /* ---- Takeaway ordering links --------------------------------------------
+     Table booking is a direct Dojo link hardcoded on every "Book a table"
+     button (works with or without JS). Takeaway is primary by phone, also on
+     Deliveroo & Uber Eats — drop those two URLs in here once and every app
+     button goes live; until then it stays inert (no dead-end clicks). */
   var LINKS = {
-    dojo:      'https://web.dojo.app/create_booking/vendor/3vIGbxpfVQeb3lfr1rbzVhEwCWSxF8e2DxFZQ9JW0rU_restaurant',   // Dojo table-reservation link  (data-book="dojo")
-    deliveroo: '',   // Deliveroo restaurant page     (data-order="deliveroo")
-    uber:      ''    // Uber Eats restaurant page      (data-order="uber")
+    deliveroo: '',   // Deliveroo restaurant page  (data-order="deliveroo")
+    uber:      ''    // Uber Eats restaurant page   (data-order="uber")
   };
   function wire(selector, url){
     document.querySelectorAll(selector).forEach(function(a){
@@ -410,7 +409,6 @@
       }
     });
   }
-  wire('[data-book="dojo"]',      LINKS.dojo);
   wire('[data-order="deliveroo"]', LINKS.deliveroo);
   wire('[data-order="uber"]',      LINKS.uber);
   /* any legacy connect-buttons stay inert */
