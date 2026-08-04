@@ -58,7 +58,7 @@ the URLs into the `LINKS` object at the top of `js/main.js` and they all go live
 - [ ] **Deliveroo** restaurant page    → `LINKS.deliveroo`  (home "Order in" card, takeaway tab)
 - [ ] **Uber Eats** restaurant page    → `LINKS.uber`
 Until a URL is set, that specific button stays inert (no dead-end click); phone
-links (`tel:+441483284343`) are already live everywhere.
+links (`tel:+447383905102`) are already live everywhere.
 
 ## Phase 2
 - [ ] Gift cards page (currently `/fresh-pasta-1` → temporary redirect to `/`).
