@@ -9,7 +9,7 @@ Single source of truth for all client information. Every fact below was verified
 
 ## Location & contact
 - Address: Ockham Road South, East Horsley, Leatherhead, Surrey KT24 6QU
-- Phone: 07383 905102
+- Phone: 01483 284343
 - Email: contact@lameridiana.co.uk
 - Domain: lameridiana.co.uk (currently on a legacy CMS)
 

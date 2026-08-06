@@ -537,7 +537,7 @@ note: made fresh every day, for two · please ask your waiter
 # MENU: Takeaway
 
 ## SECTION: How to order
-note: call 07383 905102 to order direct · also on Deliveroo & Uber Eats
+note: call 01483 284343 to order direct · also on Deliveroo & Uber Eats
 
 ## SECTION: Pizze
 note: made with the finest Italian ingredients · vegan or gluten-free base +£2 · extra toppings: meat £3, vegetables £2
