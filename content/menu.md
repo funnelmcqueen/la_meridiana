@@ -1,6 +1,6 @@
 # La Meridiana - content/menu.md
 # Transcribed from the client's current menu files:
-#   - updated_menu.pdf              -> A la carte (Antipasti, Primi, Secondi, Bambini, Contorni)
+#   - La_Meridiana_Menu_Completo.pdf -> A la carte (Antipasti, Primi, Risotti, Secondi, Pizza, Bambini, Contorni) + Chef Specials
 #   - La_Meridiana_Menu_V3.pdf      -> La Cantina (Bianchi, Champagne/Prosecco, Rosato, Rossi, Pregiati)
 #   - Sicilian_brunch_Meridiana.pdf -> Sicilian Brunch (every day, 10am to 4pm)
 #   - NewDessertMenuOct2024.pdf     -> I Dolci (+ after-dinner)
@@ -16,147 +16,204 @@ note: starters
 
 - name: Arancini
   desc: Two fried rice balls filled with mozzarella cheese & minced beef on a bed of tomato sauce
-  price: 9.95
-
+  price: 9.50
 - name: Burrata
   desc: Creamy burrata served with heirloom tomatoes, rocket & balsamic glaze
-  price: 14.00
-
+  price: 14
 - name: Bruschetta con Bocconcini
   tags: V
   desc: Homemade bread topped with marinated fresh tomato, red onions, basil, garlic and mozzarella
-  price: 8.50
-
+  price: 10.95
 - name: Avocado e Granchio
   desc: Smashed avocado topped with crab meat, citrus dressing & micro greens
-  price: 13.95
-
+  price: 16.95
 - name: Melanzana alla Parmigiana
   tags: V
   desc: Baked eggplant with San Marzano tomato sauce, basil & smoked mozzarella
-  price: 9.50
-
+  price: 10.95
 - name: Fritto Misto
   desc: Fresh crispy fried squid, prawns, little octopus, courgettes and carrots served with aioli
-  price: 16.50
-
+  price: 15.50
 - name: Gamberoni Aglio e Peperoncino
   desc: Pan-fried shell-off king prawns cooked with garlic, butter, fresh chilli, white wine sauce & served with homemade focaccia
   price: 15.50
-
 - name: Carpaccio di Manzo
   desc: Thin slices of raw beef fillet with rocket, Parmesan shavings, drizzled with lemon juice
-  price: 15.50
-
+  price: 14.50
 - name: San Daniele Parma Ham with Fresh Melon
   desc: Delicate slices of premium Parma ham served with sweet, juicy fresh melon
-  price: 14.50
-
+  price: 14.99
+- name: Cozze Cacio e Pepe
+  desc: Fresh mussels in a creamy cacio e pepe sauce
+  price: 12.99
 - name: Platter di Salumi e Formaggi
   desc: A generous sharing platter of selected Italian cured meats and four varieties of cheese, with garnishes for picking and sharing, for two or four
-  price: 23.95 / 39.95
+  price: 27.99 / 51.95
 
 ## SECTION: Primi
-note: pasta & risotto
+note: pasta
 
 - name: Gnocchi al Filetto
   desc: Homemade gnocchi with fillet steak strips, garlic, cherry tomatoes, mushrooms, parmesan & truffle oil
-  price: 22.95
-
+  price: 24.95
 - name: Tagliatelle Aragosta e Polpa di Granchio
   desc: Tagliatelle pasta with lobster and crab meat, cherry tomatoes, garlic and chilli
-  price: 32.50
-
-- name: Risotto al Tartufo
-  tags: V
-  desc: Arborio rice with mushrooms & truffle sauce
-  price: 19.50
-
-- name: Risotto Barbabietola e Burrata
-  tags: V
-  desc: Beetroot creamy risotto with garlic and topped with burrata cheese
-  price: 21.50
-
+  price: 34.50
 - name: Tagliatelle Ragù di Pesce
-  desc: Fresh tagliatelle pasta with sea bass, salmon, prawns and mussels in a rich tomato sauce
-  price: 24.50
-
-- name: Spaghetti Bolognese
-  desc: Classic beef ragù with spaghetti
-  price: 16.00
-
-- name: Spaghetti Carbonara
-  desc: Traditional Roman recipe with egg yolks, guanciale & Pecorino Romano cheese
-  price: 16.00
-
-- name: Lasagna e Cannelloni
+  desc: Fresh tagliatelle with sea bass, salmon, prawns and mussels in a rich tomato sauce
+  price: 26.50
+- name: Lasagna · Cannelloni
   desc: Lasagne or Cannelloni filled with ricotta, beef, mozzarella and served in a pine nut sauce
-  price: 16.50
-
+  price: 17.50
 - name: Paccheri Gamberoni
   desc: Paccheri pasta with king prawns, garlic, cherry tomatoes, white wine, olive oil and chilli
-  price: 21.50
-
+  price: 25.95
 - name: Paccheri alla Norma
   tags: V
   desc: Paccheri pasta with tomato sauce, fried eggplant & salted ricotta
   price: 17.50
+- name: Linguine Granchio e Limone
+  desc: Linguine pasta with crab meat, lemon, garlic and cherry tomatoes
+  price: 25.95
+- name: Fettuccine Salmone
+  desc: Fettuccine pasta with salmon in a creamy fonduta sauce with cherry tomatoes
+  price: 24.50
+- name: Pappardelle Salsiccia e Pecorino
+  desc: Pappardelle pasta with sausage and pecorino in a creamy mushroom sauce
+  price: 24.95
+- name: Rigatoni alla Fonduta
+  desc: Rigatoni pasta in a rich cheese fonduta with pistachio
+  price: 19.95
+- name: Gnocchi alla Sorrentina
+  desc: Homemade gnocchi with tomato sauce and melted mozzarella
+  price: 19.95
 
-- name: Penne Arrabbiata
-  tags: V
-  desc: Penne pasta tossed in a rich tomato sauce with garlic and chilli
-  price: 16.00
+## SECTION: Risotti
+note: risotto
+
+- name: Risotto Tartufo e Funghi
+  desc: Truffle & mushroom cream
+  price: 22.95
+- name: Risotto Vegetariano
+  price: 20.95
+- name: Risotto Barbabietola e Burrata
+  price: 23.95
+- name: Risotto Gamberi e Zucchine
+  price: 24.95
+- name: Risotto Pescatora
+  price: 27.90
 
 ## SECTION: Secondi
 note: meat & fish
 
 - name: Saltimbocca alla Romana
-  desc: Veal Scaloppine layered with prosciutto and fresh sage, pan-seared in butter & served with roasted potatoes
-  price: 24.00
-
+  desc: Veal scaloppine layered with prosciutto and fresh sage, pan-seared in butter & served with roasted potatoes
+  price: 25
 - name: Vitello alla Marsala
   desc: Veal cooked with mixed mushrooms, Marsala wine & a touch of cream, served with roast potatoes
-  price: 25.00
-
+  price: 26
 - name: Pollo Tricolore
   desc: Grilled chicken breast topped with mozzarella cheese & tomato sauce, served with green beans & roast potatoes
-  price: 18.00
-
+  price: 19
 - name: Pollo Principessa
   desc: Chicken breast with mushrooms, asparagus & cream sauce, served with roasted potatoes
-  price: 21.00
-
+  price: 22
 - name: Medaglione al Pepe Nero
   desc: Grilled fillet medallion with black pepper sauce and roast vegetables
-  price: 29.00
-
+  price: 30
 - name: Salmone al Mascarpone
   desc: Grilled salmon with creamy mashed potatoes, green beans & mascarpone-orange sauce
-  price: 24.00
-
+  price: 26
 - name: Fegato alla Veneziana
   desc: Venetian-style calf liver with onions & red wine sauce, served with mashed potatoes
-  price: 24.00
-
+  price: 26
 - name: Filetto al Dolcelatte
   desc: Grilled fillet steak topped with melted Gorgonzola cheese, served with chips (recommended with peppercorn or red wine sauce)
-  price: 35.00
+  price: 35
+- name: Ribeye Steak
+  desc: Grilled ribeye steak (300g), served with chips and vegetables
+  price: 31.95
+- name: Spigola alla Griglia con Gamberoni
+  desc: Grilled sea bass with king prawns, served with vegetables
+  price: 28.95
+
+## SECTION: Pizza · forno a legna
+note: wood-fired · gluten-free base +£2 · vegan cheese +£2 · extra toppings: meat £3, vegetables £2
+
+- name: Pane all'Aglio
+  tags: V
+  desc: Garlic pizza bread (make it cheesy for +£1)
+  price: 7.50
+- name: Focaccia
+  desc: Homemade Italian yeasted flatbread
+  price: 7.90
+- name: Margherita
+  tags: V
+  desc: Tomato sauce, Fior di mozzarella & aromatic basil
+  price: 11
+- name: Americana
+  desc: Tomato sauce, Fior di mozzarella & spicy pepperoni sausage
+  price: 15
+- name: Vesuvio
+  desc: Tomato sauce, Fior di mozzarella, Italian sausage, chilli & olives
+  price: 16
+- name: Caprino
+  tags: V
+  desc: Tomato sauce, grilled courgettes, goat cheese & caramelised onions
+  price: 16
+- name: Hawaii
+  desc: Tomato sauce, Fior di mozzarella, cooked ham & pineapple
+  price: 16
+- name: Gamberi e Zucchine
+  desc: Mozzarella, king prawns, courgettes & cherry tomato
+  price: 22.95
+- name: Diavola Calabrese
+  desc: Tomato sauce, Fior di mozzarella, 'nduja, red onions, fresh chilli & basil
+  price: 16
+- name: Pizza Parmigiana
+  tags: V
+  desc: Tomato sauce, mozzarella, aubergine parmigiana & basil
+  price: 17
+- name: Fiorentina
+  tags: V
+  desc: Tomato sauce, Fior di mozzarella, spinach, egg & parmesan cheese
+  price: 16
+- name: Popeye
+  desc: Tomato sauce, Fior di mozzarella, tuna, chilli & red onions
+  price: 16
+- name: Pollo e Pancetta
+  desc: Tomato sauce, Fior di mozzarella, chicken, pancetta & sautéed mushrooms
+  price: 17
+- name: Quattro Stagioni
+  desc: Tomato sauce, Fior di mozzarella, artichokes, ham, olives, salami & mushrooms
+  price: 17
+- name: Bufalina
+  desc: Tomato sauce, buffalo mozzarella, rocket, parma-ham, cherry tomatoes & parmesan shavings
+  price: 18
+- name: Calzone Piccante
+  desc: Folded pizza, tomato sauce, Fior di mozzarella, ham, mushrooms, pepperoni & red chillies
+  price: 18
 
 ## SECTION: Bambini
-note: kids
+note: kids · small / big portion
 
-- name: Pasta
-  desc: Spaghetti or penne pasta with a choice of sauce: tomato, carbonara or Bolognese
-  price: 8.00
-
+- name: Pasta Carbonara
+  price: 11 / 18
+- name: Pasta Amatriciana
+  price: 11 / 18
+- name: Pasta Bolognese
+  price: 11 / 18
+- name: Pasta Arrabbiata
+  price: 10 / 16
+- name: Pasta Tomato or Butter & Cheese
+  price: 8
 - name: Chicken Goujon
   desc: Crispy breaded chicken breast strips with chips
-  price: 8.00
-
+  price: 9.50
 - name: 8" Pizza Margherita
   tags: V
   desc: Classic tomato sauce & mozzarella
-  price: 8.00
+  price: 8
 
 ## SECTION: Contorni
 note: sides
@@ -170,17 +227,91 @@ note: sides
 - name: Sautéed Mushrooms
   price: 4.50
 - name: French Beans
-  price: 5.00
+  price: 4.50
 - name: Asparagus
-  price: 9.00
+  price: 8
 - name: Green Salad
-  price: 4.50
+  price: 5
 - name: Patatine Fritte (Chips)
-  price: 3.50
-- name: Broccoli
   price: 4.50
+- name: Broccoli
+  price: 3.50
 - name: Bowl of Mixed Olives
   price: 4.50
+
+# MENU: Chef Specials
+
+## SECTION: Antipasti
+note: starters
+
+- name: Salmone Tartare
+  desc: Fresh hand-cut salmon tartare with chopped avocado and strawberries, finished with a light orange sauce
+  price: 16.95
+- name: Tricolore Salad
+  desc: Fresh avocado, mozzarella and tomato salad
+  price: 12.50
+- name: Caesar Salad
+  desc: Chicken with cherry tomatoes, mixed salad leaves and croutons
+  price: 14.95
+- name: Capesante in Crosta
+  desc: Fresh scallops in a crisp crust, served with a honey and orange sauce
+  price: 16.95
+- name: Crostini Caprino & Caramelised Onion
+  desc: Toasted crostini topped with creamy goat's cheese and sweet caramelised onions
+  price: 11.95
+
+## SECTION: Fresh Pasta
+note: made fresh
+
+- name: Ravioli Scamorza 'Nduja & Gorgonzola
+  desc: Fresh ravioli filled with scamorza cheese and spicy 'nduja, served in a rich Gorgonzola sauce
+  price: 24.95
+- name: Ravioli Ricotta e Spinaci
+  desc: Fresh ravioli filled with creamy ricotta and spinach, topped with Parmesan cheese
+  price: 23.95
+- name: Spaghetti Vongole e Gamberoni
+  desc: Fresh spaghetti with clams, prawns, cherry tomatoes and garlic in a chilli sauce
+  price: 28.95
+- name: Rigatoni Pesce Spada e Melanzana
+  desc: Fresh rigatoni with swordfish, sautéed aubergine, garlic and cherry tomatoes in a light tomato sauce
+  price: 24.95
+- name: Triangoli Porcini, Crema & Tartufo
+  desc: Fresh pasta triangles filled with porcini mushrooms, served in a creamy truffle sauce
+  price: 26.95
+- name: Girasoli con Melanzane, Mozzarella & Pomodoro Grigliato
+  desc: Fresh sunflower-shaped pasta filled with aubergine and mozzarella, finished with grilled tomato sauce
+  price: 24.95
+
+## SECTION: Secondi
+note: mains
+
+- name: Vitello Milanese
+  desc: Pan-fried veal with breadcrumbs, served with mixed vegetables and spaghetti in a tomato sauce
+  price: 26.90
+- name: Pesce Spada alla Palermitana
+  desc: Grilled swordfish with potatoes, vegetables, capers and olives in a tomato and onion sauce
+  price: 28.95
+- name: Salmone in Agrodolce
+  desc: Grilled salmon in a honey, lemon, lime and orange sauce, topped with fresh vegetables
+  price: 26.95
+- name: Bistecca Fiorentina
+  desc: Grilled Argentinian T-bone steak served with vegetables and potatoes (650g)
+  price: 44.95
+- name: Ali di Razza alla Griglia
+  desc: Grilled skate wing with lemon, capers, potatoes and vegetables, finished in a butter sauce
+  price: 33.95
+
+## SECTION: Pizza Speciali
+note: wood-fired specials
+
+- name: Frutti di Mare
+  price: 22.95
+- name: Mortadella, Burrata e Pistacchio
+  price: 19.95
+- name: Salsiccia, Funghi e Tartufo
+  price: 21.95
+- name: 4 Formaggi e Pesto Basilico
+  price: 18.95
 
 # MENU: La Cantina
 

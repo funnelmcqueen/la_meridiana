@@ -84,6 +84,7 @@
     <div class="tabs rv" role="tablist" aria-label="Menu sections">
       <!-- MENU:TABS:START -->
       <button class="tab active" role="tab" aria-selected="true" data-pane="alacarte"><span class="sun"></span>À la carte</button>
+      <button class="tab" role="tab" aria-selected="false" data-pane="specials"><span class="sun"></span>Chef Specials</button>
       <button class="tab" role="tab" aria-selected="false" data-pane="cantina"><span class="sun"></span>La Cantina</button>
       <button class="tab" role="tab" aria-selected="false" data-pane="dolci"><span class="sun"></span>I Dolci</button>
       <button class="tab" role="tab" aria-selected="false" data-pane="brunch"><span class="sun"></span>Sicilian Brunch</button>
@@ -104,75 +105,96 @@
           <p class="course__note">starters</p>
           <div style="margin-top:18px">
             <div class="dish"><div class="dish__wrapline">
-              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Arancini</span><span class="dish__lead"></span><span class="dish__price">9.95</span></div>
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Arancini</span><span class="dish__lead"></span><span class="dish__price">9.50</span></div>
               <p class="dish__desc">Two fried rice balls filled with mozzarella cheese &amp; minced beef on a bed of tomato sauce</p></div></div>
             <div class="dish"><div class="dish__wrapline">
               <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Burrata</span><span class="dish__lead"></span><span class="dish__price">14</span></div>
               <p class="dish__desc">Creamy burrata served with heirloom tomatoes, rocket &amp; balsamic glaze</p></div></div>
             <div class="dish"><div class="dish__wrapline">
-              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Bruschetta con Bocconcini <span class="v">V</span></span><span class="dish__lead"></span><span class="dish__price">8.50</span></div>
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Bruschetta con Bocconcini <span class="v">V</span></span><span class="dish__lead"></span><span class="dish__price">10.95</span></div>
               <p class="dish__desc">Homemade bread topped with marinated fresh tomato, red onions, basil, garlic and mozzarella</p></div></div>
             <div class="dish"><div class="dish__wrapline">
-              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Avocado e Granchio</span><span class="dish__lead"></span><span class="dish__price">13.95</span></div>
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Avocado e Granchio</span><span class="dish__lead"></span><span class="dish__price">16.95</span></div>
               <p class="dish__desc">Smashed avocado topped with crab meat, citrus dressing &amp; micro greens</p></div></div>
             <div class="dish"><div class="dish__wrapline">
-              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Melanzana alla Parmigiana <span class="v">V</span></span><span class="dish__lead"></span><span class="dish__price">9.50</span></div>
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Melanzana alla Parmigiana <span class="v">V</span></span><span class="dish__lead"></span><span class="dish__price">10.95</span></div>
               <p class="dish__desc">Baked eggplant with San Marzano tomato sauce, basil &amp; smoked mozzarella</p></div></div>
             <div class="dish"><div class="dish__wrapline">
-              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Fritto Misto</span><span class="dish__lead"></span><span class="dish__price">16.50</span></div>
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Fritto Misto</span><span class="dish__lead"></span><span class="dish__price">15.50</span></div>
               <p class="dish__desc">Fresh crispy fried squid, prawns, little octopus, courgettes and carrots served with aioli</p></div></div>
             <div class="dish"><div class="dish__wrapline">
               <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Gamberoni Aglio e Peperoncino</span><span class="dish__lead"></span><span class="dish__price">15.50</span></div>
               <p class="dish__desc">Pan-fried shell-off king prawns cooked with garlic, butter, fresh chilli, white wine sauce &amp; served with homemade focaccia</p></div></div>
             <div class="dish"><div class="dish__wrapline">
-              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Carpaccio di Manzo</span><span class="dish__lead"></span><span class="dish__price">15.50</span></div>
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Carpaccio di Manzo</span><span class="dish__lead"></span><span class="dish__price">14.50</span></div>
               <p class="dish__desc">Thin slices of raw beef fillet with rocket, Parmesan shavings, drizzled with lemon juice</p></div></div>
             <div class="dish"><div class="dish__wrapline">
-              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">San Daniele Parma Ham with Fresh Melon</span><span class="dish__lead"></span><span class="dish__price">14.50</span></div>
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">San Daniele Parma Ham with Fresh Melon</span><span class="dish__lead"></span><span class="dish__price">14.99</span></div>
               <p class="dish__desc">Delicate slices of premium Parma ham served with sweet, juicy fresh melon</p></div></div>
             <div class="dish"><div class="dish__wrapline">
-              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Platter di Salumi e Formaggi</span><span class="dish__lead"></span><span class="dish__price">23.95 / 39.95</span></div>
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Cozze Cacio e Pepe</span><span class="dish__lead"></span><span class="dish__price">12.99</span></div>
+              <p class="dish__desc">Fresh mussels in a creamy cacio e pepe sauce</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Platter di Salumi e Formaggi</span><span class="dish__lead"></span><span class="dish__price">27.99 / 51.95</span></div>
               <p class="dish__desc">A generous sharing platter of selected Italian cured meats and four varieties of cheese, with garnishes for picking and sharing, for two or four</p></div></div>
           </div>
         </div>
         <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
         <div class="course">
           <h3 class="course__title">Primi</h3>
-          <p class="course__note">pasta &amp; risotto</p>
+          <p class="course__note">pasta</p>
           <div style="margin-top:18px">
             <div class="dish"><div class="dish__wrapline">
-              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Gnocchi al Filetto</span><span class="dish__lead"></span><span class="dish__price">22.95</span></div>
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Gnocchi al Filetto</span><span class="dish__lead"></span><span class="dish__price">24.95</span></div>
               <p class="dish__desc">Homemade gnocchi with fillet steak strips, garlic, cherry tomatoes, mushrooms, parmesan &amp; truffle oil</p></div></div>
             <div class="dish"><div class="dish__wrapline">
-              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Tagliatelle Aragosta e Polpa di Granchio</span><span class="dish__lead"></span><span class="dish__price">32.50</span></div>
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Tagliatelle Aragosta e Polpa di Granchio</span><span class="dish__lead"></span><span class="dish__price">34.50</span></div>
               <p class="dish__desc">Tagliatelle pasta with lobster and crab meat, cherry tomatoes, garlic and chilli</p></div></div>
             <div class="dish"><div class="dish__wrapline">
-              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Risotto al Tartufo <span class="v">V</span></span><span class="dish__lead"></span><span class="dish__price">19.50</span></div>
-              <p class="dish__desc">Arborio rice with mushrooms &amp; truffle sauce</p></div></div>
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Tagliatelle Ragù di Pesce</span><span class="dish__lead"></span><span class="dish__price">26.50</span></div>
+              <p class="dish__desc">Fresh tagliatelle with sea bass, salmon, prawns and mussels in a rich tomato sauce</p></div></div>
             <div class="dish"><div class="dish__wrapline">
-              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Risotto Barbabietola e Burrata <span class="v">V</span></span><span class="dish__lead"></span><span class="dish__price">21.50</span></div>
-              <p class="dish__desc">Beetroot creamy risotto with garlic and topped with burrata cheese</p></div></div>
-            <div class="dish"><div class="dish__wrapline">
-              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Tagliatelle Ragù di Pesce</span><span class="dish__lead"></span><span class="dish__price">24.50</span></div>
-              <p class="dish__desc">Fresh tagliatelle pasta with sea bass, salmon, prawns and mussels in a rich tomato sauce</p></div></div>
-            <div class="dish"><div class="dish__wrapline">
-              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Spaghetti Bolognese</span><span class="dish__lead"></span><span class="dish__price">16</span></div>
-              <p class="dish__desc">Classic beef ragù with spaghetti</p></div></div>
-            <div class="dish"><div class="dish__wrapline">
-              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Spaghetti Carbonara</span><span class="dish__lead"></span><span class="dish__price">16</span></div>
-              <p class="dish__desc">Traditional Roman recipe with egg yolks, guanciale &amp; Pecorino Romano cheese</p></div></div>
-            <div class="dish"><div class="dish__wrapline">
-              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Lasagna e Cannelloni</span><span class="dish__lead"></span><span class="dish__price">16.50</span></div>
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Lasagna · Cannelloni</span><span class="dish__lead"></span><span class="dish__price">17.50</span></div>
               <p class="dish__desc">Lasagne or Cannelloni filled with ricotta, beef, mozzarella and served in a pine nut sauce</p></div></div>
             <div class="dish"><div class="dish__wrapline">
-              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Paccheri Gamberoni</span><span class="dish__lead"></span><span class="dish__price">21.50</span></div>
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Paccheri Gamberoni</span><span class="dish__lead"></span><span class="dish__price">25.95</span></div>
               <p class="dish__desc">Paccheri pasta with king prawns, garlic, cherry tomatoes, white wine, olive oil and chilli</p></div></div>
             <div class="dish"><div class="dish__wrapline">
               <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Paccheri alla Norma <span class="v">V</span></span><span class="dish__lead"></span><span class="dish__price">17.50</span></div>
               <p class="dish__desc">Paccheri pasta with tomato sauce, fried eggplant &amp; salted ricotta</p></div></div>
             <div class="dish"><div class="dish__wrapline">
-              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Penne Arrabbiata <span class="v">V</span></span><span class="dish__lead"></span><span class="dish__price">16</span></div>
-              <p class="dish__desc">Penne pasta tossed in a rich tomato sauce with garlic and chilli</p></div></div>
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Linguine Granchio e Limone</span><span class="dish__lead"></span><span class="dish__price">25.95</span></div>
+              <p class="dish__desc">Linguine pasta with crab meat, lemon, garlic and cherry tomatoes</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Fettuccine Salmone</span><span class="dish__lead"></span><span class="dish__price">24.50</span></div>
+              <p class="dish__desc">Fettuccine pasta with salmon in a creamy fonduta sauce with cherry tomatoes</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Pappardelle Salsiccia e Pecorino</span><span class="dish__lead"></span><span class="dish__price">24.95</span></div>
+              <p class="dish__desc">Pappardelle pasta with sausage and pecorino in a creamy mushroom sauce</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Rigatoni alla Fonduta</span><span class="dish__lead"></span><span class="dish__price">19.95</span></div>
+              <p class="dish__desc">Rigatoni pasta in a rich cheese fonduta with pistachio</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Gnocchi alla Sorrentina</span><span class="dish__lead"></span><span class="dish__price">19.95</span></div>
+              <p class="dish__desc">Homemade gnocchi with tomato sauce and melted mozzarella</p></div></div>
+          </div>
+        </div>
+        <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
+        <div class="course">
+          <h3 class="course__title">Risotti</h3>
+          <p class="course__note">risotto</p>
+          <div style="margin-top:18px">
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Risotto Tartufo e Funghi</span><span class="dish__lead"></span><span class="dish__price">22.95</span></div>
+              <p class="dish__desc">Truffle &amp; mushroom cream</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Risotto Vegetariano</span><span class="dish__lead"></span><span class="dish__price">20.95</span></div></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Risotto Barbabietola e Burrata</span><span class="dish__lead"></span><span class="dish__price">23.95</span></div></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Risotto Gamberi e Zucchine</span><span class="dish__lead"></span><span class="dish__price">24.95</span></div></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Risotto Pescatora</span><span class="dish__lead"></span><span class="dish__price">27.90</span></div></div></div>
           </div>
         </div>
         <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
@@ -181,41 +203,109 @@
           <p class="course__note">meat &amp; fish</p>
           <div style="margin-top:18px">
             <div class="dish"><div class="dish__wrapline">
-              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Saltimbocca alla Romana</span><span class="dish__lead"></span><span class="dish__price">24</span></div>
-              <p class="dish__desc">Veal Scaloppine layered with prosciutto and fresh sage, pan-seared in butter &amp; served with roasted potatoes</p></div></div>
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Saltimbocca alla Romana</span><span class="dish__lead"></span><span class="dish__price">25</span></div>
+              <p class="dish__desc">Veal scaloppine layered with prosciutto and fresh sage, pan-seared in butter &amp; served with roasted potatoes</p></div></div>
             <div class="dish"><div class="dish__wrapline">
-              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Vitello alla Marsala</span><span class="dish__lead"></span><span class="dish__price">25</span></div>
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Vitello alla Marsala</span><span class="dish__lead"></span><span class="dish__price">26</span></div>
               <p class="dish__desc">Veal cooked with mixed mushrooms, Marsala wine &amp; a touch of cream, served with roast potatoes</p></div></div>
             <div class="dish"><div class="dish__wrapline">
-              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Pollo Tricolore</span><span class="dish__lead"></span><span class="dish__price">18</span></div>
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Pollo Tricolore</span><span class="dish__lead"></span><span class="dish__price">19</span></div>
               <p class="dish__desc">Grilled chicken breast topped with mozzarella cheese &amp; tomato sauce, served with green beans &amp; roast potatoes</p></div></div>
             <div class="dish"><div class="dish__wrapline">
-              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Pollo Principessa</span><span class="dish__lead"></span><span class="dish__price">21</span></div>
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Pollo Principessa</span><span class="dish__lead"></span><span class="dish__price">22</span></div>
               <p class="dish__desc">Chicken breast with mushrooms, asparagus &amp; cream sauce, served with roasted potatoes</p></div></div>
             <div class="dish"><div class="dish__wrapline">
-              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Medaglione al Pepe Nero</span><span class="dish__lead"></span><span class="dish__price">29</span></div>
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Medaglione al Pepe Nero</span><span class="dish__lead"></span><span class="dish__price">30</span></div>
               <p class="dish__desc">Grilled fillet medallion with black pepper sauce and roast vegetables</p></div></div>
             <div class="dish"><div class="dish__wrapline">
-              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Salmone al Mascarpone</span><span class="dish__lead"></span><span class="dish__price">24</span></div>
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Salmone al Mascarpone</span><span class="dish__lead"></span><span class="dish__price">26</span></div>
               <p class="dish__desc">Grilled salmon with creamy mashed potatoes, green beans &amp; mascarpone-orange sauce</p></div></div>
             <div class="dish"><div class="dish__wrapline">
-              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Fegato alla Veneziana</span><span class="dish__lead"></span><span class="dish__price">24</span></div>
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Fegato alla Veneziana</span><span class="dish__lead"></span><span class="dish__price">26</span></div>
               <p class="dish__desc">Venetian-style calf liver with onions &amp; red wine sauce, served with mashed potatoes</p></div></div>
             <div class="dish"><div class="dish__wrapline">
               <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Filetto al Dolcelatte</span><span class="dish__lead"></span><span class="dish__price">35</span></div>
               <p class="dish__desc">Grilled fillet steak topped with melted Gorgonzola cheese, served with chips (recommended with peppercorn or red wine sauce)</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Ribeye Steak</span><span class="dish__lead"></span><span class="dish__price">31.95</span></div>
+              <p class="dish__desc">Grilled ribeye steak (300g), served with chips and vegetables</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Spigola alla Griglia con Gamberoni</span><span class="dish__lead"></span><span class="dish__price">28.95</span></div>
+              <p class="dish__desc">Grilled sea bass with king prawns, served with vegetables</p></div></div>
+          </div>
+        </div>
+        <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
+        <div class="course">
+          <h3 class="course__title">Pizza · forno a legna</h3>
+          <p class="course__note">wood-fired · gluten-free base +£2 · vegan cheese +£2 · extra toppings: meat £3, vegetables £2</p>
+          <div style="margin-top:18px">
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Pane all&#x27;Aglio <span class="v">V</span></span><span class="dish__lead"></span><span class="dish__price">7.50</span></div>
+              <p class="dish__desc">Garlic pizza bread (make it cheesy for +£1)</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Focaccia</span><span class="dish__lead"></span><span class="dish__price">7.90</span></div>
+              <p class="dish__desc">Homemade Italian yeasted flatbread</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Margherita <span class="v">V</span></span><span class="dish__lead"></span><span class="dish__price">11</span></div>
+              <p class="dish__desc">Tomato sauce, Fior di mozzarella &amp; aromatic basil</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Americana</span><span class="dish__lead"></span><span class="dish__price">15</span></div>
+              <p class="dish__desc">Tomato sauce, Fior di mozzarella &amp; spicy pepperoni sausage</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Vesuvio</span><span class="dish__lead"></span><span class="dish__price">16</span></div>
+              <p class="dish__desc">Tomato sauce, Fior di mozzarella, Italian sausage, chilli &amp; olives</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Caprino <span class="v">V</span></span><span class="dish__lead"></span><span class="dish__price">16</span></div>
+              <p class="dish__desc">Tomato sauce, grilled courgettes, goat cheese &amp; caramelised onions</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Hawaii</span><span class="dish__lead"></span><span class="dish__price">16</span></div>
+              <p class="dish__desc">Tomato sauce, Fior di mozzarella, cooked ham &amp; pineapple</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Gamberi e Zucchine</span><span class="dish__lead"></span><span class="dish__price">22.95</span></div>
+              <p class="dish__desc">Mozzarella, king prawns, courgettes &amp; cherry tomato</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Diavola Calabrese</span><span class="dish__lead"></span><span class="dish__price">16</span></div>
+              <p class="dish__desc">Tomato sauce, Fior di mozzarella, &#x27;nduja, red onions, fresh chilli &amp; basil</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Pizza Parmigiana <span class="v">V</span></span><span class="dish__lead"></span><span class="dish__price">17</span></div>
+              <p class="dish__desc">Tomato sauce, mozzarella, aubergine parmigiana &amp; basil</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Fiorentina <span class="v">V</span></span><span class="dish__lead"></span><span class="dish__price">16</span></div>
+              <p class="dish__desc">Tomato sauce, Fior di mozzarella, spinach, egg &amp; parmesan cheese</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Popeye</span><span class="dish__lead"></span><span class="dish__price">16</span></div>
+              <p class="dish__desc">Tomato sauce, Fior di mozzarella, tuna, chilli &amp; red onions</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Pollo e Pancetta</span><span class="dish__lead"></span><span class="dish__price">17</span></div>
+              <p class="dish__desc">Tomato sauce, Fior di mozzarella, chicken, pancetta &amp; sautéed mushrooms</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Quattro Stagioni</span><span class="dish__lead"></span><span class="dish__price">17</span></div>
+              <p class="dish__desc">Tomato sauce, Fior di mozzarella, artichokes, ham, olives, salami &amp; mushrooms</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Bufalina</span><span class="dish__lead"></span><span class="dish__price">18</span></div>
+              <p class="dish__desc">Tomato sauce, buffalo mozzarella, rocket, parma-ham, cherry tomatoes &amp; parmesan shavings</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Calzone Piccante</span><span class="dish__lead"></span><span class="dish__price">18</span></div>
+              <p class="dish__desc">Folded pizza, tomato sauce, Fior di mozzarella, ham, mushrooms, pepperoni &amp; red chillies</p></div></div>
           </div>
         </div>
         <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
         <div class="course">
           <h3 class="course__title">Bambini</h3>
-          <p class="course__note">kids</p>
+          <p class="course__note">kids · small / big portion</p>
           <div style="margin-top:18px">
             <div class="dish"><div class="dish__wrapline">
-              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Pasta</span><span class="dish__lead"></span><span class="dish__price">8</span></div>
-              <p class="dish__desc">Spaghetti or penne pasta with a choice of sauce: tomato, carbonara or Bolognese</p></div></div>
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Pasta Carbonara</span><span class="dish__lead"></span><span class="dish__price">11 / 18</span></div></div></div>
             <div class="dish"><div class="dish__wrapline">
-              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Chicken Goujon</span><span class="dish__lead"></span><span class="dish__price">8</span></div>
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Pasta Amatriciana</span><span class="dish__lead"></span><span class="dish__price">11 / 18</span></div></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Pasta Bolognese</span><span class="dish__lead"></span><span class="dish__price">11 / 18</span></div></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Pasta Arrabbiata</span><span class="dish__lead"></span><span class="dish__price">10 / 16</span></div></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Pasta Tomato or Butter &amp; Cheese</span><span class="dish__lead"></span><span class="dish__price">8</span></div></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Chicken Goujon</span><span class="dish__lead"></span><span class="dish__price">9.50</span></div>
               <p class="dish__desc">Crispy breaded chicken breast strips with chips</p></div></div>
             <div class="dish"><div class="dish__wrapline">
               <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">8&quot; Pizza Margherita <span class="v">V</span></span><span class="dish__lead"></span><span class="dish__price">8</span></div>
@@ -236,17 +326,102 @@
             <div class="dish"><div class="dish__wrapline">
               <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Sautéed Mushrooms</span><span class="dish__lead"></span><span class="dish__price">4.50</span></div></div></div>
             <div class="dish"><div class="dish__wrapline">
-              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">French Beans</span><span class="dish__lead"></span><span class="dish__price">5</span></div></div></div>
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">French Beans</span><span class="dish__lead"></span><span class="dish__price">4.50</span></div></div></div>
             <div class="dish"><div class="dish__wrapline">
-              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Asparagus</span><span class="dish__lead"></span><span class="dish__price">9</span></div></div></div>
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Asparagus</span><span class="dish__lead"></span><span class="dish__price">8</span></div></div></div>
             <div class="dish"><div class="dish__wrapline">
-              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Green Salad</span><span class="dish__lead"></span><span class="dish__price">4.50</span></div></div></div>
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Green Salad</span><span class="dish__lead"></span><span class="dish__price">5</span></div></div></div>
             <div class="dish"><div class="dish__wrapline">
-              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Patatine Fritte (Chips)</span><span class="dish__lead"></span><span class="dish__price">3.50</span></div></div></div>
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Patatine Fritte (Chips)</span><span class="dish__lead"></span><span class="dish__price">4.50</span></div></div></div>
             <div class="dish"><div class="dish__wrapline">
-              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Broccoli</span><span class="dish__lead"></span><span class="dish__price">4.50</span></div></div></div>
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Broccoli</span><span class="dish__lead"></span><span class="dish__price">3.50</span></div></div></div>
             <div class="dish"><div class="dish__wrapline">
               <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Bowl of Mixed Olives</span><span class="dish__lead"></span><span class="dish__price">4.50</span></div></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="pane" id="pane-specials" role="tabpanel">
+        <div class="course">
+          <h3 class="course__title">Antipasti</h3>
+          <p class="course__note">starters</p>
+          <div style="margin-top:18px">
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Salmone Tartare</span><span class="dish__lead"></span><span class="dish__price">16.95</span></div>
+              <p class="dish__desc">Fresh hand-cut salmon tartare with chopped avocado and strawberries, finished with a light orange sauce</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Tricolore Salad</span><span class="dish__lead"></span><span class="dish__price">12.50</span></div>
+              <p class="dish__desc">Fresh avocado, mozzarella and tomato salad</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Caesar Salad</span><span class="dish__lead"></span><span class="dish__price">14.95</span></div>
+              <p class="dish__desc">Chicken with cherry tomatoes, mixed salad leaves and croutons</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Capesante in Crosta</span><span class="dish__lead"></span><span class="dish__price">16.95</span></div>
+              <p class="dish__desc">Fresh scallops in a crisp crust, served with a honey and orange sauce</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Crostini Caprino &amp; Caramelised Onion</span><span class="dish__lead"></span><span class="dish__price">11.95</span></div>
+              <p class="dish__desc">Toasted crostini topped with creamy goat&#x27;s cheese and sweet caramelised onions</p></div></div>
+          </div>
+        </div>
+        <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
+        <div class="course">
+          <h3 class="course__title">Fresh Pasta</h3>
+          <p class="course__note">made fresh</p>
+          <div style="margin-top:18px">
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Ravioli Scamorza &#x27;Nduja &amp; Gorgonzola</span><span class="dish__lead"></span><span class="dish__price">24.95</span></div>
+              <p class="dish__desc">Fresh ravioli filled with scamorza cheese and spicy &#x27;nduja, served in a rich Gorgonzola sauce</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Ravioli Ricotta e Spinaci</span><span class="dish__lead"></span><span class="dish__price">23.95</span></div>
+              <p class="dish__desc">Fresh ravioli filled with creamy ricotta and spinach, topped with Parmesan cheese</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Spaghetti Vongole e Gamberoni</span><span class="dish__lead"></span><span class="dish__price">28.95</span></div>
+              <p class="dish__desc">Fresh spaghetti with clams, prawns, cherry tomatoes and garlic in a chilli sauce</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Rigatoni Pesce Spada e Melanzana</span><span class="dish__lead"></span><span class="dish__price">24.95</span></div>
+              <p class="dish__desc">Fresh rigatoni with swordfish, sautéed aubergine, garlic and cherry tomatoes in a light tomato sauce</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Triangoli Porcini, Crema &amp; Tartufo</span><span class="dish__lead"></span><span class="dish__price">26.95</span></div>
+              <p class="dish__desc">Fresh pasta triangles filled with porcini mushrooms, served in a creamy truffle sauce</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Girasoli con Melanzane, Mozzarella &amp; Pomodoro Grigliato</span><span class="dish__lead"></span><span class="dish__price">24.95</span></div>
+              <p class="dish__desc">Fresh sunflower-shaped pasta filled with aubergine and mozzarella, finished with grilled tomato sauce</p></div></div>
+          </div>
+        </div>
+        <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
+        <div class="course">
+          <h3 class="course__title">Secondi</h3>
+          <p class="course__note">mains</p>
+          <div style="margin-top:18px">
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Vitello Milanese</span><span class="dish__lead"></span><span class="dish__price">26.90</span></div>
+              <p class="dish__desc">Pan-fried veal with breadcrumbs, served with mixed vegetables and spaghetti in a tomato sauce</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Pesce Spada alla Palermitana</span><span class="dish__lead"></span><span class="dish__price">28.95</span></div>
+              <p class="dish__desc">Grilled swordfish with potatoes, vegetables, capers and olives in a tomato and onion sauce</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Salmone in Agrodolce</span><span class="dish__lead"></span><span class="dish__price">26.95</span></div>
+              <p class="dish__desc">Grilled salmon in a honey, lemon, lime and orange sauce, topped with fresh vegetables</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Bistecca Fiorentina</span><span class="dish__lead"></span><span class="dish__price">44.95</span></div>
+              <p class="dish__desc">Grilled Argentinian T-bone steak served with vegetables and potatoes (650g)</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Ali di Razza alla Griglia</span><span class="dish__lead"></span><span class="dish__price">33.95</span></div>
+              <p class="dish__desc">Grilled skate wing with lemon, capers, potatoes and vegetables, finished in a butter sauce</p></div></div>
+          </div>
+        </div>
+        <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
+        <div class="course">
+          <h3 class="course__title">Pizza Speciali</h3>
+          <p class="course__note">wood-fired specials</p>
+          <div style="margin-top:18px">
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Frutti di Mare</span><span class="dish__lead"></span><span class="dish__price">22.95</span></div></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Mortadella, Burrata e Pistacchio</span><span class="dish__lead"></span><span class="dish__price">19.95</span></div></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Salsiccia, Funghi e Tartufo</span><span class="dish__lead"></span><span class="dish__price">21.95</span></div></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">4 Formaggi e Pesto Basilico</span><span class="dish__lead"></span><span class="dish__price">18.95</span></div></div></div>
           </div>
         </div>
       </div>
