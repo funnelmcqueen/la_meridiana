@@ -226,7 +226,9 @@
         if(overlay.parentNode) overlay.parentNode.removeChild(overlay);
         startLive(); return;
       }
-      var targetW = Math.min(vw*0.82, vh*1.15, 900);
+      /* in landscape/short viewports use a smaller vertical factor so the dial
+         doesn't fill the height and leaves headroom for the wordmark above it */
+      var targetW = Math.min(vw*0.82, vh*(vh>=vw?1.15:0.92), 900);
       var scale = targetW / R0.width;
       var cx = R0.left + R0.width/2, cy = R0.top + R0.height/2;
       var tx = vw/2 - cx, ty = vh/2 - cy;
@@ -258,19 +260,31 @@
       if(logoEl){
         var bigH = R0.height * scale;
         var apexY = (vh/2 - bigH/2) + (18/150)*bigH;         // arc apex, on screen
+        var topMargin = 14;
+        var room = apexY - topMargin;                        // vertical space above the arc for the emblem
         /* breathing space scales with the dial (which is 2:1, so bigH is short),
            kept generous on phones and capped so it never shoves the emblem off-screen */
         var gap = Math.max(48, Math.min(bigH * 0.42, 96));
+        logoEl.style.width = '';                             // reset any prior sizing before measuring
         var lh = logoEl.offsetHeight || 130;                 // real rendered emblem height
-        var bottomEdge = apexY - gap;                        // emblem's bottom, from the top
-        if(bottomEdge - lh < 14) bottomEdge = lh + 14;       // never let it cross the top edge
+        /* short / landscape viewports: not enough headroom above the arc for the
+           full-size emblem. Tighten the gap first, then scale the emblem down, so the
+           wordmark never crosses onto the sundial on any device (incl. landscape phones). */
+        if(gap + lh > room){
+          gap = Math.max(18, room - lh);
+          if(gap + lh > room){
+            var targetLH = Math.max(60, room - gap);
+            logoEl.style.width = (logoEl.offsetWidth * (targetLH / lh)) + 'px';
+            lh = logoEl.offsetHeight || targetLH;
+          }
+        }
         /* anchor from the TOP, the same origin the dial centres against. Anchoring
            from bottom broke on iOS: the overlay (position:fixed;inset:0) is sized to
            the large viewport while this math uses innerHeight (the small, address-bar
            viewport you get right after a pull-to-refresh), so `bottom` dropped the
            emblem onto the arc. Top-anchoring keeps emblem + dial locked together. */
         logoEl.style.bottom = 'auto';
-        logoEl.style.top = (bottomEdge - lh) + 'px';
+        logoEl.style.top = Math.max(topMargin, apexY - gap - lh) + 'px';
       }
       setTimeout(function(){ overlay.classList.add('show-logo'); }, 150);
 
