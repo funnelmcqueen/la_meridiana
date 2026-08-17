@@ -60,6 +60,18 @@ the URLs into the `LINKS` object at the top of `js/main.js` and they all go live
 Until a URL is set, that specific button stays inert (no dead-end click); phone
 links (`tel:+441483284343`) are already live everywhere.
 
+## Live Music Nights — ADDED ✅ (verify dates before launch)
+- [x] Autumn/winter tribute season added to `eventi.html` as a "Live Music Nights"
+      programme (11 nights, chronological, with performer photos cropped from the
+      client flyers into `assets/img/events/`). Design uses the site's own brass/green
+      card system, not the raw flyer images.
+- [ ] **Confirm the year/dates.** The flyer weekday+date combinations all line up with
+      the **2026** calendar (Sat 12 Sep, Fri 2 Oct, Thu 29 Oct ... all correct for 2026),
+      so they are treated as the 2026 season. One source flyer in the zip showed Ray Lowe
+      on **Thu 17 Sep**, but the client-pasted set showed **Thu 29 Oct** — the 29 Oct
+      version was used. Confirm Ray Lowe's date.
+- [ ] Christmas Eve = Thu 24 Dec, New Year's Eve = Thu 31 Dec (2026). Confirm.
+
 ## Phase 2
 - [ ] Gift cards page (currently `/fresh-pasta-1` → temporary redirect to `/`).
 - [ ] Delivery page (currently `/delivery` → temporary redirect to `/`).
