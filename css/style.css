@@ -1438,15 +1438,16 @@ body.true-noon .linea__noon{opacity:1;transform:translateY(-50%) translateX(0)}
    green bubble. :root tokens only.
    ============================================================ */
 .wa-fab{
-  position:fixed;right:clamp(15px,4vw,26px);bottom:clamp(15px,4vw,26px);z-index:85;
-  width:54px;height:54px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
+  position:fixed;right:clamp(16px,4vw,28px);bottom:clamp(16px,4vw,28px);z-index:85;
+  width:56px;height:56px;border-radius:50%;
+  display:grid;place-items:center;
   background:var(--brass);color:var(--cream);
-  box-shadow:0 10px 24px -10px rgba(15,42,32,.65), 0 0 0 1px rgba(201,169,106,.4);
-  transition:transform .35s var(--ease), background .35s var(--ease);
+  box-shadow:0 12px 26px -12px rgba(15,42,32,.7), inset 0 0 0 1px rgba(245,239,226,.22);
+  transition:transform .35s var(--ease), background .35s var(--ease), box-shadow .35s var(--ease);
 }
-.wa-fab svg{width:30px;height:30px;fill:currentColor;display:block}
-.wa-fab:hover{background:var(--brass-hi);transform:translateY(-3px)}
+.wa-fab svg{width:26px;height:26px;fill:currentColor;display:block}
+.wa-fab:hover{background:var(--brass-hi);transform:translateY(-3px);box-shadow:0 16px 30px -12px rgba(15,42,32,.75), inset 0 0 0 1px rgba(245,239,226,.3)}
+.wa-fab:active{transform:translateY(-1px)}
 .wa-fab:focus-visible{outline:2px solid var(--tomato);outline-offset:3px}
-@media(max-width:600px){ .wa-fab{width:50px;height:50px} .wa-fab svg{width:27px;height:27px} }
+@media(max-width:600px){ .wa-fab{width:52px;height:52px} .wa-fab svg{width:24px;height:24px} }
 @media(prefers-reduced-motion:reduce){ .wa-fab{transition:none} }
