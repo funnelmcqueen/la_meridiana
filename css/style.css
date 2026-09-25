@@ -1538,3 +1538,32 @@ body.true-noon .linea__noon{opacity:1;transform:translateY(-50%) translateX(0)}
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23C9A96A' d='M12 0C13 8 16 11 24 12 16 13 13 16 12 24 11 16 8 13 0 12 8 11 11 8 12 0Z'/%3E%3C/svg%3E") center/contain no-repeat;
 }
 #pane-festive .ticks i{background:rgba(201,169,106,.5)}
+
+/* --- Festive Revision 2: prominent set-price plaques, closing footnote, meridian overlap fix --- */
+/* two course-price plaques in the festive header (override the generic price-hide + hidden lead items) */
+#pane-festive > .course:first-child > div{display:flex;justify-content:center;flex-wrap:wrap;gap:clamp(14px,3vw,30px);margin-top:22px}
+#pane-festive > .course:first-child .dish{border:1px solid var(--brass);padding:14px 26px;margin:0}
+#pane-festive > .course:first-child .dish + .dish{border-top:1px solid var(--brass)}
+#pane-festive > .course:first-child .dish__wrapline > div{flex-direction:column;align-items:center;gap:6px}
+#pane-festive > .course:first-child .dish__name{
+  color:var(--brass-hi);font-family:var(--sans);font-weight:600;
+  font-size:clamp(11px,1.8vw,13px);letter-spacing:.24em;text-transform:uppercase;white-space:nowrap;
+}
+#pane-festive > .course:first-child .dish__lead{display:none}
+#pane-festive > .course:first-child .dish__price{
+  display:inline;color:var(--cream);font-family:var(--serif);font-weight:600;
+  font-size:clamp(24px,3.4vw,34px);
+}
+#pane-festive > .course:first-child .dish__price::before{content:"\00A3"}   /* £ */
+
+/* closing "Buon Natale" footnote (supplement + allergen) */
+#pane-festive > .course:last-of-type{text-align:center;max-width:660px;margin-left:auto;margin-right:auto}
+#pane-festive > .course:last-of-type > div{display:none}
+#pane-festive > .course:last-of-type .course__title{color:var(--brass-hi);font-size:clamp(19px,2.4vw,24px)}
+#pane-festive > .course:last-of-type .course__note{
+  font-size:12px;line-height:1.6;color:rgba(245,239,226,.62);letter-spacing:.02em;margin-top:8px;
+}
+
+/* meridian overlap fix: hide the rotated left label where the gutter is tight
+   (keeps the line, ticks and sun dot, which stay clear of the content) */
+@media(max-width:1300px){ .meridian .label{display:none} }

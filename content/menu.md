@@ -15,7 +15,11 @@
 # REMOVE this whole block after 23 Dec and rerun the build (see TODO.md).
 
 ## SECTION: Christmas at La Meridiana
-note: 16 November to 23 December · 2 courses £31.95 · 3 courses £38.95 · choose one dish per course
+note: 16 November to 23 December · choose one dish per course
+- name: Two Courses
+  price: 31.95
+- name: Three Courses
+  price: 38.95
 
 ## SECTION: Antipasti
 - name: Insalata di Pollo
@@ -32,8 +36,8 @@ note: 16 November to 23 December · 2 courses £31.95 · 3 courses £38.95 · ch
 ## SECTION: Principali
 - name: Rigatoni Spada e Melanzana
   desc: Rigatoni with swordfish, sautéed aubergine, garlic and cherry tomatoes in a light tomato sauce
-- name: Triangoli al Tartufo
-  desc: Pasta triangles filled with porcini mushrooms in a creamy truffle sauce (supplement may apply)
+- name: Triangoli al Tartufo *
+  desc: Pasta triangles filled with porcini mushrooms in a creamy truffle sauce
 - name: Pollo alla Siciliana
   desc: Chicken with sun-dried tomatoes, aubergine, basil, pine nuts and red onion, with herb mashed potato
 - name: Salmone di Natale
@@ -48,6 +52,9 @@ note: choose one to finish
 - name: Cheesecake
 - name: Profiterol
 - name: Torta dello Chef
+
+## SECTION: Buon Natale
+note: * Supplement may apply. Please tell us about any allergies: dishes may contain dairy, eggs, wheat, nuts, shellfish and other allergens, and the kitchen will look after you.
 
 # MENU: À la carte
 
