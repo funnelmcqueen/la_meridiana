@@ -1566,4 +1566,4 @@ body.true-noon .linea__noon{opacity:1;transform:translateY(-50%) translateX(0)}
 
 /* meridian overlap fix: hide the rotated left label where the gutter is tight
    (keeps the line, ticks and sun dot, which stay clear of the content) */
-@media(max-width:1300px){ .meridian .label{display:none} }
+@media(max-width:1400px){ .meridian .label{display:none} }
