@@ -3,6 +3,17 @@
 Running list of everything that needs confirmation before launch. Nothing here
 is guessed on the live site without a matching placeholder marker in the HTML.
 
+## ⚠️ SEASONAL — Festive Menu (REMOVE after 23 Dec 2026)
+The Christmas Festive Menu is published early and always-on (client's choice).
+It runs 16 Nov to 23 Dec. **After 23 Dec, take it down:**
+- Delete the `# MENU: Festive Menu` block from `content/menu.md`, then run
+  `python3 scripts/build-menu.py`.
+- Delete the two `.festivo` seasonal `<section>`s from `index.html` and `eventi.html`.
+- Bump the `?v=` cache-bust on all pages.
+- Menu transcribed faithfully from `La_Meridiana_-_Festive_Menu.pdf`; no V/allergen
+  marks were on the source so none were added. Triangoli al Tartufo notes "supplement
+  may apply". Confirm the supplement amount if the client wants it shown.
+
 ## Content / facts to confirm
 - [ ] **Opening hours** — the design uses the "majority" version; the client's
       current site shows three conflicting versions (home vs contact vs about).

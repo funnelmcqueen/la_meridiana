@@ -14,8 +14,9 @@ SRC = ROOT / "content" / "menu.md"
 PAGE = ROOT / "menu.html"
 
 # Tab slug + label per "# MENU:" name
-SLUG = {"À la carte": "alacarte", "Chef Specials": "specials", "La Cantina": "cantina",
-        "I Dolci": "dolci", "Sicilian Brunch": "brunch", "Takeaway": "takeaway"}
+SLUG = {"Festive Menu": "festive", "À la carte": "alacarte", "Chef Specials": "specials",
+        "La Cantina": "cantina", "I Dolci": "dolci", "Sicilian Brunch": "brunch",
+        "Takeaway": "takeaway"}
 
 def esc(s): return html.escape(s or "", quote=True)
 

@@ -5,9 +5,49 @@
 #   - Sicilian_brunch_Meridiana.pdf -> Sicilian Brunch (every day, 10am to 4pm)
 #   - NewDessertMenuOct2024.pdf     -> I Dolci (+ after-dinner)
 #   - AUGUSTMeridianaTakeawayMenu.pdf -> Takeaway
+#   - La_Meridiana_-_Festive_Menu.pdf -> Festive Menu (16 Nov to 23 Dec, set 2/3 course; no per-item prices)
 # Wine uses three columns: g175 / g250 / bottle (blank = not offered by that measure).
 # Champagne is served by 125ml (shown in the first glass column) and bottle.
 # Each file drives its own tab, built by scripts/build-menu.py.
+
+# MENU: Festive Menu
+# Seasonal set menu, live 16 Nov to 23 Dec. Published early and always-on;
+# REMOVE this whole block after 23 Dec and rerun the build (see TODO.md).
+
+## SECTION: Christmas at La Meridiana
+note: 16 November to 23 December · 2 courses £31.95 · 3 courses £38.95 · choose one dish per course
+
+## SECTION: Antipasti
+- name: Insalata di Pollo
+  desc: Chicken Milanese with mixed salad, cherry tomatoes, avocado, mini mozzarella and a lemon and lime oil dressing
+- name: Tartare di Salmone
+  desc: Fresh hand-cut salmon tartare with chopped avocado and strawberries, finished with a light orange sauce
+- name: Christmas Bruschetta
+  desc: Chopped tomato and basil, garlic, buffalo mozzarella, goat's cheese and toasted peppers
+- name: Octopus Carpaccio
+  desc: Octopus carpaccio with potato, lemon, lime, toasted pine nuts and chives
+- name: Parmigiana
+  desc: Baked eggplant with San Marzano tomato sauce, basil and smoked mozzarella
+
+## SECTION: Principali
+- name: Rigatoni Spada e Melanzana
+  desc: Rigatoni with swordfish, sautéed aubergine, garlic and cherry tomatoes in a light tomato sauce
+- name: Triangoli al Tartufo
+  desc: Pasta triangles filled with porcini mushrooms in a creamy truffle sauce (supplement may apply)
+- name: Pollo alla Siciliana
+  desc: Chicken with sun-dried tomatoes, aubergine, basil, pine nuts and red onion, with herb mashed potato
+- name: Salmone di Natale
+  desc: Christmas salmon with vegetables, potato and tomato sauce, chives, capers, olives, garlic and toasted almonds
+- name: Tacchino al Forno
+  desc: Oven-roasted stuffed turkey with carrot, onion, celery, breadcrumbs, almonds and gravy, served with roast potatoes
+
+## SECTION: Dolci
+note: choose one to finish
+- name: Tiramisù al Pistacchio
+- name: Panna Cotta
+- name: Cheesecake
+- name: Profiterol
+- name: Torta dello Chef
 
 # MENU: À la carte
 
