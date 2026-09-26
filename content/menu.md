@@ -723,12 +723,12 @@ note: made with the finest Italian ingredients · vegan or gluten-free base +£2
 - name: Focaccia
   tags: V
   desc: Homemade Italian yeasted flatbread
-  price: 6.5
+  price: 7.90
 
 - name: Pane all'Aglio
   tags: V
   desc: Garlic pizza bread
-  price: 6.5
+  price: 7.50
 
 - name: Margherita
   tags: V
@@ -737,20 +737,20 @@ note: made with the finest Italian ingredients · vegan or gluten-free base +£2
 
 - name: Americana
   desc: Tomato sauce, mozzarella & spicy pepperoni sausage
-  price: 13
+  price: 15
 
 - name: Hawaii
   desc: Tomato sauce, mozzarella, cooked ham & pineapple
-  price: 15
+  price: 16
 
 - name: Diavola Calabrese
   desc: Tomato sauce, mozzarella, Nduja, red onions & chilli
-  price: 15
+  price: 16
 
 - name: Caprino
   tags: V
   desc: Tomato sauce, mozzarella, courgettes, goat cheese & caramelised onions
-  price: 14
+  price: 16
 
 - name: Ortolana
   tags: V
@@ -760,34 +760,34 @@ note: made with the finest Italian ingredients · vegan or gluten-free base +£2
 - name: Fiorentina
   tags: V
   desc: Tomato sauce, mozzarella, spinach, egg & parmesan
-  price: 15
+  price: 16
 
 - name: Pollo e Pancetta
   desc: Tomato sauce, mozzarella, chicken, pancetta & mushrooms
-  price: 15
+  price: 17
 
 - name: Popeye
   desc: Tomato sauce, mozzarella, tuna, chilli & red onions
-  price: 15
+  price: 16
 
 - name: Quattro Stagioni
   desc: Tomato sauce, mozzarella, artichokes, ham, olives, salami & mushrooms
-  price: 15
+  price: 17
 
 - name: Bufalina
   desc: Tomato sauce, buffalo mozzarella, rocket, Parma Ham, cherry tomatoes & parmesan shavings
-  price: 17
+  price: 18
 
 - name: Calzone Piccante
   desc: Folded pizza: tomato sauce, mozzarella, cooked ham, mushrooms, pepperoni, oregano & red chillies
-  price: 16
+  price: 18
 
 ## SECTION: Antipasti
 note: starters · * subject to availability
 
 - name: Arancini
   desc: Two fried rice balls filled with mozzarella & minced meat
-  price: 8.95
+  price: 9.50
 
 - name: Bruschetta
   tags: V, VE
@@ -797,7 +797,7 @@ note: starters · * subject to availability
 - name: Burrata
   tags: V
   desc: Italian creamy cheese with cherry tomatoes confit, dried black olives & balsamic glaze
-  price: 12
+  price: 14
 
 - name: Calamari *
   desc: Deep-fried squid rings served with homemade aioli
@@ -805,16 +805,16 @@ note: starters · * subject to availability
 
 - name: Carpaccio di Manzo
   desc: Thin slices of raw beef fillet with rocket, parmesan shavings, drizzled with lemon juice & extra virgin olive oil
-  price: 15
+  price: 14.50
 
 - name: Gamberoni Aglio e Peperoncino *
   desc: Pan-fried shell-off king prawns cooked with garlic, butter, fresh chilli & white wine sauce, served with homemade focaccia
-  price: 15
+  price: 15.50
 
 - name: Melanzana Parmigiana
   tags: V
   desc: Homemade baked aubergine with tomato sauce, Fior di latte mozzarella cheese & basil
-  price: 8.5
+  price: 10.95
 
 ## SECTION: Pasta & Risotto
 note: * subject to availability
@@ -825,7 +825,7 @@ note: * subject to availability
 
 - name: Gnocchi al Filetto
   desc: Traditionally homemade gnocchi with garlic, strips of fillet steak, cherry tomatoes, mushrooms, parmesan cheese & drizzled with truffle oil
-  price: 21.95
+  price: 24.95
 
 - name: Gnocchi di Zucca
   tags: V
@@ -851,7 +851,7 @@ note: * subject to availability
 - name: Risotto Tartufo
   tags: V
   desc: Italian Arborio rice with mushrooms & truffle sauce
-  price: 16.95
+  price: 22.95
 
 ## SECTION: Carne & Pesce
 note: meat & fish · * subject to availability
@@ -862,7 +862,7 @@ note: meat & fish · * subject to availability
 
 - name: Pollo Tricolore
   desc: Grilled chicken breast topped with mozzarella cheese & tomato sauce, served with asparagus & new potatoes
-  price: 18
+  price: 19
 
 - name: Tagliata di Manzo e Rucola
   desc: Grilled sliced 300g ribeye steak served on a bed of fresh rocket, topped with shaved Parmesan & served with chips
@@ -878,7 +878,7 @@ note: meat & fish · * subject to availability
 
 - name: Salmone al Mascarpone
   desc: Grilled salmon served with creamy mashed potatoes, crispy asparagus & drizzled with a Mascarpone orange sauce
-  price: 23
+  price: 26
 
 ## SECTION: Contorni
 note: sides
@@ -896,22 +896,22 @@ note: sides
   price: 4.5
 
 - name: Green Salad
-  price: 4.5
+  price: 5
 
 - name: Patatine Fritte (Chips)
-  price: 3.5
+  price: 4.50
 
 - name: Mixed Salad
   price: 5.5
 
 - name: Broccoli
-  price: 4.5
+  price: 3.50
 
 - name: Mixed Olives
   price: 4.5
 
 - name: Asparagus
-  price: 9
+  price: 8
 
 ## SECTION: Bambini
 note: for children · £8 each
@@ -921,7 +921,7 @@ note: for children · £8 each
   price: 8
 
 - name: Chicken Goujon & Chips
-  price: 8
+  price: 9.50
 
 - name: 8" Pizza Margherita
   price: 8

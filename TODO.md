@@ -14,6 +14,25 @@ It runs 16 Nov to 23 Dec. **After 23 Dec, take it down:**
   marks were on the source so none were added. Triangoli al Tartufo notes "supplement
   may apply". Confirm the supplement amount if the client wants it shown.
 
+## Takeaway pricing — aligned to À la carte (26 Sep 2026)
+Client asked for takeaway prices to match the à la carte menu. Every takeaway item
+that also appears on à la carte was re-priced to the à la carte value (in
+`content/menu.md`, Takeaway section, then rebuilt). The items below have **no à la
+carte counterpart** (or only a loosely-similar, differently-named dish), so they were
+left at their current takeaway price — no price was guessed. **Confirm these:**
+- [ ] Pizze: **Ortolana** (£15) — not on à la carte.
+- [ ] Antipasti: **Bruschetta** (£7.50), **Calamari** (£12) — no direct à la carte match.
+- [ ] Pasta & Risotto: **Gnocchi di Zucca** (£18.95), **Linguine Gamberoni** (£21.95),
+      **Tagliatelle al Salmone** (£18), **Tagliatelle alla Aragosta** (£35),
+      **Risotto Mare** (£25), **Italian Classic Dishes** (£14.95) — different pasta/name,
+      no exact à la carte equivalent.
+- [ ] Carne & Pesce: **Scaloppine alla Milanese** (£23), **Tagliata di Manzo e Rucola**
+      (£29), **Filetto dello Chef** (£35), **Branzino in Guazzetto** (£25) — not on à la carte.
+- [ ] Contorni: **Mixed Salad** (£5.50) — not on à la carte.
+- [ ] Bambini: **Spaghetti Pasta** (£8) — à la carte kids' pasta is priced by portion.
+Note: a few matched items went **down** to meet à la carte (Carpaccio di Manzo 15→14.50,
+Broccoli 4.50→3.50, Asparagus 9→8) as well as up. Confirm that's intended.
+
 ## Content / facts to confirm
 - [ ] **Opening hours** — the design uses the "majority" version; the client's
       current site shows three conflicting versions (home vs contact vs about).
