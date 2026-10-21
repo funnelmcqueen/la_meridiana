@@ -150,12 +150,12 @@ def inject(page, marker, content):
     return pat.sub(lambda m: m.group(1) + "\n" + content + "\n      " + m.group(2), page)
 
 def main():
-    menus = parse(SRC.read_text())
+    menus = parse(SRC.read_text(encoding="utf-8"))
     tabs_html, panes_html = build(menus)
-    page = PAGE.read_text()
+    page = PAGE.read_text(encoding="utf-8")
     page = inject(page, "MENU:TABS", tabs_html)
     page = inject(page, "MENU:PANES", panes_html)
-    PAGE.write_text(page)
+    PAGE.write_text(page, encoding="utf-8")
     n = sum(len(s["items"]) for m in menus for s in m["sections"])
     print(f"Injected {len(menus)} tabs, {n} items into menu.html")
 
