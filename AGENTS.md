@@ -42,7 +42,7 @@ family-run Italian restaurant in East Horsley, Surrey.
 **Cache-busting**
 - All pages load `css/style.css`, `js/main.js`, `assets/js/sole.js` with a shared
   `?v=YYYYMMDD` query. **Whenever any of those three files changes, bump the `?v=`
-  on every page** (currently `?v=20260925`) or browsers serve the stale cached copy.
+  on every page** (currently `?v=20261021`) or browsers serve the stale cached copy.
 
 **Assets**
 - Images are local WebP with `width`/`height` + `loading="lazy"` (hero eager),
@@ -119,6 +119,14 @@ Decision: published now, always-on (no date-gate); **remove after 23 Dec** (see 
   `?v=` bumped on all pages, add the post-season removal note to `TODO.md`, rebuild
   the delivery zip and hand off for FunnelMcQueen deploy.
 
-**To remove the festive menu after 23 Dec:** delete the `# MENU: Festive Menu` block
-from `content/menu.md`, rerun the build, and delete the two `.festivo` `<section>`s
-from `index.html` and `eventi.html`; bump `?v=`.
+**Seasonal menus (added 21 Oct 2026):** besides the Festive Menu there are now
+`Christmas Day` (`#christmas`), `New Year's Eve` (`#newyear`) and `VIP Fish Menu`
+(`#vipfish`). All four share the festive pane CSS via
+`:is(#pane-festive,#pane-christmas,#pane-newyear,#pane-vipfish)`, and the
+`.festivo` band lists them in `.festivo__list`.
+
+**To remove them:** take each one down after its date (Festive 23 Dec, Christmas
+Day 25 Dec, VIP Fish 30 Dec, NYE 31 Dec). Delete its `# MENU:` block from
+`content/menu.md`, rerun the build, and remove its `<li>` from `.festivo__list` on
+`index.html` and `eventi.html`. After 31 Dec delete both `.festivo` `<section>`s.
+Bump `?v=` each time. Full checklist in `TODO.md`.

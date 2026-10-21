@@ -14,7 +14,8 @@ SRC = ROOT / "content" / "menu.md"
 PAGE = ROOT / "menu.html"
 
 # Tab slug + label per "# MENU:" name
-SLUG = {"Festive Menu": "festive", "À la carte": "alacarte", "Chef Specials": "specials",
+SLUG = {"Festive Menu": "festive", "Christmas Day": "christmas", "New Year's Eve": "newyear",
+        "VIP Fish Menu": "vipfish", "À la carte": "alacarte", "Chef Specials": "specials",
         "La Cantina": "cantina", "I Dolci": "dolci", "Sicilian Brunch": "brunch",
         "Takeaway": "takeaway"}
 
@@ -134,6 +135,9 @@ def build(menus):
                 for it in sec["items"]:
                     body.append(wine_row(it))
                 body.append('          </div>')
+            elif not sec["items"]:
+                # no dishes (e.g. a "Sorbetto" interlude or a footnote): truly empty, so CSS :empty matches
+                body.append('          <div style="margin-top:18px"></div>')
             else:
                 body.append('          <div style="margin-top:18px">')
                 for it in sec["items"]:

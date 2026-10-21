@@ -17,10 +17,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Archivo:wght@400;500;600&family=Italianno&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=20260925e">
+<link rel="stylesheet" href="css/style.css?v=20261021e">
 <meta property="og:image" content="https://lameridiana.co.uk/assets/img/hero-table-spread.jpg">
 <meta property="og:image:alt" content="The La Meridiana table, laid with Italian dishes">
-<script src="assets/js/sole.js?v=20260925e" defer></script>
+<script src="assets/js/sole.js?v=20261021e" defer></script>
 </head>
 <body>
 
@@ -84,6 +84,9 @@
     <div class="tabs rv" role="tablist" aria-label="Menu sections">
       <!-- MENU:TABS:START -->
       <button class="tab active" role="tab" aria-selected="true" data-pane="festive"><span class="sun"></span>Festive Menu</button>
+      <button class="tab" role="tab" aria-selected="false" data-pane="christmas"><span class="sun"></span>Christmas Day</button>
+      <button class="tab" role="tab" aria-selected="false" data-pane="newyear"><span class="sun"></span>New Year&#x27;s Eve</button>
+      <button class="tab" role="tab" aria-selected="false" data-pane="vipfish"><span class="sun"></span>VIP Fish Menu</button>
       <button class="tab" role="tab" aria-selected="false" data-pane="alacarte"><span class="sun"></span>À la carte</button>
       <button class="tab" role="tab" aria-selected="false" data-pane="specials"><span class="sun"></span>Chef Specials</button>
       <button class="tab" role="tab" aria-selected="false" data-pane="cantina"><span class="sun"></span>La Cantina</button>
@@ -174,8 +177,211 @@
         <div class="course">
           <h3 class="course__title">Buon Natale</h3>
           <p class="course__note">* Supplement may apply. Please tell us about any allergies: dishes may contain dairy, eggs, wheat, nuts, shellfish and other allergens, and the kitchen will look after you.</p>
+          <div style="margin-top:18px"></div>
+        </div>
+      </div>
+      <div class="pane" id="pane-christmas" role="tabpanel">
+        <div class="course">
+          <h3 class="course__title">Christmas Day</h3>
+          <p class="course__note">25 December · includes a glass of Champagne on arrival</p>
           <div style="margin-top:18px">
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Per Person</span><span class="dish__lead"></span><span class="dish__price">94.95</span></div></div></div>
           </div>
+        </div>
+        <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
+        <div class="course">
+          <h3 class="course__title">Antipasti</h3>
+          <div style="margin-top:18px">
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Tartare di Tonno Rosso</span><span class="dish__lead"></span><span class="dish__price"></span></div>
+              <p class="dish__desc">Fresh hand cut red tuna tartare with avocado, soy and lime</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Capesante con Crema di Asparagi</span><span class="dish__lead"></span><span class="dish__price"></span></div>
+              <p class="dish__desc">Pan-seared scallops with asparagus and taleggio cream, toasted almonds</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Carpaccio di Manzo</span><span class="dish__lead"></span><span class="dish__price"></span></div>
+              <p class="dish__desc">Thinly sliced beef carpaccio with walnut and pistachio cream</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Burrata al Tartufo</span><span class="dish__lead"></span><span class="dish__price"></span></div>
+              <p class="dish__desc">Burrata with black truffle, served with a Mediterranean salad</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Octopus Salad</span><span class="dish__lead"></span><span class="dish__price"></span></div>
+              <p class="dish__desc">Octopus salad with citrus, red potatoes, capers, olives and mini salad</p></div></div>
+          </div>
+        </div>
+        <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
+        <div class="course">
+          <h3 class="course__title">Sorbetto</h3>
+          <div style="margin-top:18px"></div>
+        </div>
+        <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
+        <div class="course">
+          <h3 class="course__title">Principali</h3>
+          <div style="margin-top:18px">
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Tacchino di Natale</span><span class="dish__lead"></span><span class="dish__price"></span></div>
+              <p class="dish__desc">Traditional roast Christmas turkey with all the trimmings</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Tortelloni all&#x27;Aragosta e Granchio</span><span class="dish__lead"></span><span class="dish__price"></span></div>
+              <p class="dish__desc">Fresh tortelloni filled with lobster and crab</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Petto d&#x27;Anatra alla Siciliana</span><span class="dish__lead"></span><span class="dish__price"></span></div>
+              <p class="dish__desc">Sicilian-style duck breast</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Risottino ai Porcini</span><span class="dish__lead"></span><span class="dish__price"></span></div>
+              <p class="dish__desc">Risotto with porcini mushroom cream and cheese fondue</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Bistecca ai Ferri al Pepe</span><span class="dish__lead"></span><span class="dish__price"></span></div>
+              <p class="dish__desc">Grilled peppered steak with a potato tortino</p></div></div>
+          </div>
+        </div>
+        <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
+        <div class="course">
+          <h3 class="course__title">Dolci</h3>
+          <div style="margin-top:18px">
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Fresh Profiteroles</span><span class="dish__lead"></span><span class="dish__price"></span></div></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Torta Caprese</span><span class="dish__lead"></span><span class="dish__price"></span></div></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Cassata di Ricotta</span><span class="dish__lead"></span><span class="dish__price"></span></div></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Panna Cotta ai Frutti di Bosco</span><span class="dish__lead"></span><span class="dish__price"></span></div></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Tiramisù al Pistacchio</span><span class="dish__lead"></span><span class="dish__price"></span></div></div></div>
+          </div>
+        </div>
+        <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
+        <div class="course">
+          <h3 class="course__title">Buon Natale</h3>
+          <p class="course__note">Your food prepared in our restaurant may contain allergens like dairy products, eggs, wheat, nuts, shell seafood and other allergens. If you have a food allergy, please notify your server.</p>
+          <div style="margin-top:18px"></div>
+        </div>
+      </div>
+      <div class="pane" id="pane-newyear" role="tabpanel">
+        <div class="course">
+          <h3 class="course__title">New Year&#x27;s Eve</h3>
+          <p class="course__note">31 December · includes a glass of Champagne on arrival</p>
+          <div style="margin-top:18px">
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Per Person</span><span class="dish__lead"></span><span class="dish__price">99.95</span></div></div></div>
+          </div>
+        </div>
+        <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
+        <div class="course">
+          <h3 class="course__title">Antipasti</h3>
+          <div style="margin-top:18px">
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Calamari Ripieni</span><span class="dish__lead"></span><span class="dish__price"></span></div>
+              <p class="dish__desc">Stuffed calamari</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Tartare di Manzo Fassona</span><span class="dish__lead"></span><span class="dish__price"></span></div>
+              <p class="dish__desc">Fassona beef tartare with capers, citrus, frisée, reduction and grissini</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Grilled Octopus</span><span class="dish__lead"></span><span class="dish__price"></span></div>
+              <p class="dish__desc">Grilled octopus with chickpea cream and truffle</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Gamberoni allo Champagne</span><span class="dish__lead"></span><span class="dish__price"></span></div>
+              <p class="dish__desc">King prawns in champagne sauce with potato cream, avocado and saffron</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Carpaccio di Branzino</span><span class="dish__lead"></span><span class="dish__price"></span></div>
+              <p class="dish__desc">Sea bass carpaccio with stracciatella di burrata and dill dressing</p></div></div>
+          </div>
+        </div>
+        <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
+        <div class="course">
+          <h3 class="course__title">Sorbetto</h3>
+          <div style="margin-top:18px"></div>
+        </div>
+        <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
+        <div class="course">
+          <h3 class="course__title">Principali</h3>
+          <div style="margin-top:18px">
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Tagliolini Fresh Tartufo e Fondue&#x27;s</span><span class="dish__lead"></span><span class="dish__price"></span></div>
+              <p class="dish__desc">Fresh tagliolini with truffle and taleggio fondue</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Filetto di Manzo alla Montecarlo</span><span class="dish__lead"></span><span class="dish__price"></span></div>
+              <p class="dish__desc">Montecarlo-style beef fillet</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Risottino allo Zafferano Lime e Pear</span><span class="dish__lead"></span><span class="dish__price"></span></div>
+              <p class="dish__desc">Saffron risotto with citrus, lime, pear and toasted walnuts</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Grilled Dover Sole</span><span class="dish__lead"></span><span class="dish__price"></span></div>
+              <p class="dish__desc">Grilled Dover sole with Sicilian aromas and vegetables</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Involtini di Pesce Spada alla Palermitana</span><span class="dish__lead"></span><span class="dish__price"></span></div>
+              <p class="dish__desc">Swordfish involtini Palermo style with Mediterranean sauce</p></div></div>
+          </div>
+        </div>
+        <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
+        <div class="course">
+          <h3 class="course__title">Dolci</h3>
+          <div style="margin-top:18px">
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Fresh Profiteroles</span><span class="dish__lead"></span><span class="dish__price"></span></div></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Torta Caprese</span><span class="dish__lead"></span><span class="dish__price"></span></div></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Cassata di Ricotta</span><span class="dish__lead"></span><span class="dish__price"></span></div></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Panna Cotta ai Frutti di Bosco</span><span class="dish__lead"></span><span class="dish__price"></span></div></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Tiramisù al Pistacchio</span><span class="dish__lead"></span><span class="dish__price"></span></div></div></div>
+          </div>
+        </div>
+        <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
+        <div class="course">
+          <h3 class="course__title">Buon Anno</h3>
+          <p class="course__note">Your food prepared in our restaurant may contain allergens like dairy products, eggs, wheat, nuts, shell seafood and other allergens. If you have a food allergy, please notify your server.</p>
+          <div style="margin-top:18px"></div>
+        </div>
+      </div>
+      <div class="pane" id="pane-vipfish" role="tabpanel">
+        <div class="course">
+          <h3 class="course__title">VIP Fish Menu</h3>
+          <p class="course__note">By exclusive pre-order · five courses, a celebration of the sea, designed to share</p>
+          <div style="margin-top:18px">
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">For Two Guests</span><span class="dish__lead"></span><span class="dish__price">169</span></div></div></div>
+          </div>
+        </div>
+        <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
+        <div class="course">
+          <h3 class="course__title">I · To Begin</h3>
+          <p class="course__note">Oysters, tuna and salmon tartare cocktail, king prawns and octopus salad with a lime, lemon, orange and ginger dressing, saffron mayonnaise</p>
+          <div style="margin-top:18px"></div>
+        </div>
+        <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
+        <div class="course">
+          <h3 class="course__title">II · Seafood Selection</h3>
+          <p class="course__note">Insalata di mare, gratinated mussels, octopus carpaccio, sea bass and salmon</p>
+          <div style="margin-top:18px"></div>
+        </div>
+        <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
+        <div class="course">
+          <h3 class="course__title">III · Tris of Fresh Pasta</h3>
+          <p class="course__note">Lobster and crab · King prawns with tomato pesto · Clams and mussels in a spicy sauce</p>
+          <div style="margin-top:18px"></div>
+        </div>
+        <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
+        <div class="course">
+          <h3 class="course__title">IV · From the Grill</h3>
+          <p class="course__note">Swordfish, tuna and salmon with a Sicilian salsa and sweet and sour vegetables</p>
+          <div style="margin-top:18px"></div>
+        </div>
+        <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
+        <div class="course">
+          <h3 class="course__title">V · To Finish</h3>
+          <p class="course__note">The Chef&#x27;s selection of desserts</p>
+          <div style="margin-top:18px"></div>
+        </div>
+        <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
+        <div class="course">
+          <h3 class="course__title">Available by Pre-order Only</h3>
+          <p class="course__note">16 November to 30 December. Your food prepared in our restaurant may contain allergens like dairy products, eggs, wheat, nuts, shell seafood and other allergens. If you have a food allergy, please notify your server.</p>
+          <div style="margin-top:18px"></div>
         </div>
       </div>
       <div class="pane" id="pane-alacarte" role="tabpanel">
@@ -644,8 +850,7 @@
         <div class="course">
           <h3 class="course__title">Menu Offer</h3>
           <p class="course__note">every day, 10am to 4pm · a Sicilian sharing table, served as trios</p>
-          <div style="margin-top:18px">
-          </div>
+          <div style="margin-top:18px"></div>
         </div>
         <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
         <div class="course">
@@ -788,8 +993,7 @@
         <div class="course">
           <h3 class="course__title">How to order</h3>
           <p class="course__note">call 01483 284343 to order direct · also on Deliveroo &amp; Uber Eats</p>
-          <div style="margin-top:18px">
-          </div>
+          <div style="margin-top:18px"></div>
         </div>
         <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
         <div class="course">
@@ -1026,7 +1230,7 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=20260925e"></script>
+<script src="js/main.js?v=20261021e"></script>
 <!-- WhatsApp floating contact button -->
 <a class="wa-fab" href="https://wa.me/447597058199?text=Hi%20La%20Meridiana%2C%20I%27d%20like%20to%20make%20an%20enquiry" target="_blank" rel="noopener" aria-label="Message La Meridiana on WhatsApp">
   <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>

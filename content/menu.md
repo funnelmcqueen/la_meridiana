@@ -6,6 +6,9 @@
 #   - NewDessertMenuOct2024.pdf     -> I Dolci (+ after-dinner)
 #   - AUGUSTMeridianaTakeawayMenu.pdf -> Takeaway
 #   - La_Meridiana_-_Festive_Menu.pdf -> Festive Menu (16 Nov to 23 Dec, set 2/3 course; no per-item prices)
+#   - La Meridiana - Christmas Day Menu.pdf -> Christmas Day (25 Dec, £94.95 pp)
+#   - La Meridiana - New Year Menu.pdf -> New Year's Eve (31 Dec, £99.95 pp)
+#   - La Meridiana - VIP Fish Menu.pdf -> VIP Fish Menu (pre-order, 16 Nov to 30 Dec, £169 for two)
 # Wine uses three columns: g175 / g250 / bottle (blank = not offered by that measure).
 # Champagne is served by 125ml (shown in the first glass column) and bottle.
 # Each file drives its own tab, built by scripts/build-menu.py.
@@ -55,6 +58,123 @@ note: choose one to finish
 
 ## SECTION: Buon Natale
 note: * Supplement may apply. Please tell us about any allergies: dishes may contain dairy, eggs, wheat, nuts, shellfish and other allergens, and the kitchen will look after you.
+
+# MENU: Christmas Day
+# Christmas Day set menu, 25 Dec only (La Meridiana - Christmas Day Menu.pdf).
+# REMOVE this whole block after 25 Dec and rerun the build (see TODO.md).
+
+## SECTION: Christmas Day
+note: 25 December · includes a glass of Champagne on arrival
+- name: Per Person
+  price: 94.95
+
+## SECTION: Antipasti
+- name: Tartare di Tonno Rosso
+  desc: Fresh hand cut red tuna tartare with avocado, soy and lime
+- name: Capesante con Crema di Asparagi
+  desc: Pan-seared scallops with asparagus and taleggio cream, toasted almonds
+- name: Carpaccio di Manzo
+  desc: Thinly sliced beef carpaccio with walnut and pistachio cream
+- name: Burrata al Tartufo
+  desc: Burrata with black truffle, served with a Mediterranean salad
+- name: Octopus Salad
+  desc: Octopus salad with citrus, red potatoes, capers, olives and mini salad
+
+## SECTION: Sorbetto
+
+## SECTION: Principali
+- name: Tacchino di Natale
+  desc: Traditional roast Christmas turkey with all the trimmings
+- name: Tortelloni all'Aragosta e Granchio
+  desc: Fresh tortelloni filled with lobster and crab
+- name: Petto d'Anatra alla Siciliana
+  desc: Sicilian-style duck breast
+- name: Risottino ai Porcini
+  desc: Risotto with porcini mushroom cream and cheese fondue
+- name: Bistecca ai Ferri al Pepe
+  desc: Grilled peppered steak with a potato tortino
+
+## SECTION: Dolci
+- name: Fresh Profiteroles
+- name: Torta Caprese
+- name: Cassata di Ricotta
+- name: Panna Cotta ai Frutti di Bosco
+- name: Tiramisù al Pistacchio
+
+## SECTION: Buon Natale
+note: Your food prepared in our restaurant may contain allergens like dairy products, eggs, wheat, nuts, shell seafood and other allergens. If you have a food allergy, please notify your server.
+
+# MENU: New Year's Eve
+# New Year's Eve set menu, 31 Dec only (La Meridiana - New Year Menu.pdf).
+# REMOVE this whole block after 31 Dec and rerun the build (see TODO.md).
+
+## SECTION: New Year's Eve
+note: 31 December · includes a glass of Champagne on arrival
+- name: Per Person
+  price: 99.95
+
+## SECTION: Antipasti
+- name: Calamari Ripieni
+  desc: Stuffed calamari
+- name: Tartare di Manzo Fassona
+  desc: Fassona beef tartare with capers, citrus, frisée, reduction and grissini
+- name: Grilled Octopus
+  desc: Grilled octopus with chickpea cream and truffle
+- name: Gamberoni allo Champagne
+  desc: King prawns in champagne sauce with potato cream, avocado and saffron
+- name: Carpaccio di Branzino
+  desc: Sea bass carpaccio with stracciatella di burrata and dill dressing
+
+## SECTION: Sorbetto
+
+## SECTION: Principali
+- name: Tagliolini Fresh Tartufo e Fondue's
+  desc: Fresh tagliolini with truffle and taleggio fondue
+- name: Filetto di Manzo alla Montecarlo
+  desc: Montecarlo-style beef fillet
+- name: Risottino allo Zafferano Lime e Pear
+  desc: Saffron risotto with citrus, lime, pear and toasted walnuts
+- name: Grilled Dover Sole
+  desc: Grilled Dover sole with Sicilian aromas and vegetables
+- name: Involtini di Pesce Spada alla Palermitana
+  desc: Swordfish involtini Palermo style with Mediterranean sauce
+
+## SECTION: Dolci
+- name: Fresh Profiteroles
+- name: Torta Caprese
+- name: Cassata di Ricotta
+- name: Panna Cotta ai Frutti di Bosco
+- name: Tiramisù al Pistacchio
+
+## SECTION: Buon Anno
+note: Your food prepared in our restaurant may contain allergens like dairy products, eggs, wheat, nuts, shell seafood and other allergens. If you have a food allergy, please notify your server.
+
+# MENU: VIP Fish Menu
+# Sharing seafood menu for two, by pre-order, 16 Nov to 30 Dec (La Meridiana - VIP Fish Menu.pdf).
+# REMOVE this whole block after 30 Dec and rerun the build (see TODO.md).
+
+## SECTION: VIP Fish Menu
+note: By exclusive pre-order · five courses, a celebration of the sea, designed to share
+- name: For Two Guests
+  price: 169
+
+## SECTION: I · To Begin
+note: Oysters, tuna and salmon tartare cocktail, king prawns and octopus salad with a lime, lemon, orange and ginger dressing, saffron mayonnaise
+
+## SECTION: II · Seafood Selection
+note: Insalata di mare, gratinated mussels, octopus carpaccio, sea bass and salmon
+
+## SECTION: III · Tris of Fresh Pasta
+note: Lobster and crab · King prawns with tomato pesto · Clams and mussels in a spicy sauce
+
+## SECTION: IV · From the Grill
+note: Swordfish, tuna and salmon with a Sicilian salsa and sweet and sour vegetables
+
+## SECTION: V · To Finish
+note: The Chef's selection of desserts
+
+## SECTION: Available by Pre-order Only
+note: 16 November to 30 December. Your food prepared in our restaurant may contain allergens like dairy products, eggs, wheat, nuts, shell seafood and other allergens. If you have a food allergy, please notify your server.
 
 # MENU: À la carte
 

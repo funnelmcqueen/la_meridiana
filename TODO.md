@@ -14,6 +14,37 @@ It runs 16 Nov to 23 Dec. **After 23 Dec, take it down:**
   marks were on the source so none were added. Triangoli al Tartufo notes "supplement
   may apply". Confirm the supplement amount if the client wants it shown.
 
+## ⚠️ SEASONAL — Christmas Day, New Year's Eve, VIP Fish (added 21 Oct 2026)
+Three more seasonal menus from the client (WhatsApp PDFs: *Christmas Day Menu*,
+*New Year Menu*, *VIP Fish Menu*) are live as tabs right after the Festive Menu,
+in the same dark-green festive style. Deep links: `menu.html#christmas`,
+`#newyear`, `#vipfish`. The `.festivo` band on `index.html` and `eventi.html` now
+lists all four seasonal menus.
+
+**Take down on these dates** (delete the `# MENU:` block in `content/menu.md`, run
+`python3 scripts/build-menu.py`, remove that menu's `<li>` from the `.festivo__list`
+on both pages, bump `?v=`):
+- [ ] After **23 Dec**: Festive Menu (see section above).
+- [ ] After **25 Dec**: Christmas Day.
+- [ ] After **30 Dec**: VIP Fish Menu.
+- [ ] After **31 Dec**: New Year's Eve, then delete both `.festivo` `<section>`s entirely.
+
+**Confirm with the client:**
+- [ ] NYE dish names transcribed exactly as printed, including **"Tagliolini Fresh
+      Tartufo e Fondue's"** and **"Risottino allo Zafferano Lime e Pear"**. Confirm
+      the spelling (the apostrophe and the English words look like typos).
+- [ ] Christmas Day / NYE: the PDFs don't say "choose one dish per course", so the
+      site doesn't either. Confirm whether to add it.
+- [ ] Christmas Day / NYE: no sitting times or deposit terms on the PDFs. Add if wanted.
+- [ ] VIP Fish Menu: "by pre-order only". How do guests pre-order (phone only?)
+      and how much notice is needed? The band currently points to "Call to book".
+- [ ] "Sorbetto" (between antipasti and principali) is shown as a small interlude
+      line, as on the PDFs.
+- [ ] The existing Festive Menu (16 Nov to 23 Dec) is unchanged. Confirm the client
+      wants it kept alongside the new ones.
+- [ ] Optional: link the NYE menu from the 31 Dec "NYE DJ Ronnie O" night on the
+      Eventi Live Music programme.
+
 ## Takeaway pricing — aligned to À la carte (26 Sep 2026)
 Client asked for takeaway prices to match the à la carte menu. Every takeaway item
 that also appears on à la carte was re-priced to the à la carte value (in
