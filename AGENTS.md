@@ -15,9 +15,14 @@ family-run Italian restaurant in East Horsley, Surrey.
 **Stack & deploy**
 - Vanilla HTML + CSS + JS only. No frameworks, no build tools, no npm, no bundler.
 - The one build step is the menu generator (see §2). It is run by hand, not by a host.
-- **The live site (`lameridiana.co.uk`) deploys from the client's FunnelMcQueen
-  repo, NOT from this repo.** Pushing here does not update the live site — changes
-  must be redeployed there. Say this in any hand-off.
+- **Pushing to `main` deploys the live site.** This repo
+  (`funnelmcqueen/la_meridiana`) is connected to Vercel: every push to `main` goes
+  straight to production at `lameridiana.co.uk` within a minute or two. Other
+  branches get a Vercel preview URL only. So: do work on a branch, check it
+  (responsive 320 to 1280, no dashes, `?v=` bumped, no console errors), and only
+  then fast-forward / merge into `main`. Never push unchecked work to `main`.
+- Confirm a deploy: GitHub shows a "Vercel" status on the commit, and the live page
+  source carries the new `?v=` value.
 
 **Design law (do not violate)**
 - Colours: only the `:root` CSS custom properties in `css/style.css`. Never hardcode
@@ -86,7 +91,7 @@ One agent owns a file (or a clearly-scoped region) at a time.
 | **Content** | `content/menu.md`, `scripts/build-menu.py` | The ONLY agent that edits menu source and runs `build-menu.py`. Commits the regenerated `menu.html`. |
 | **Design/CSS** | appended sections of `css/style.css` | Adds new rules under clear comment headers at the end of the file. Does not touch generated `menu.html`. |
 | **Surfacing** | body sections of `index.html`, `eventi.html` (and other pages) | Adds/edits callouts, links, cards. Does not edit `menu.html` between markers. |
-| **QA/Deploy** | cache-bust `?v=`, `TODO.md`, screenshots, zip/hand-off | Runs LAST: bumps `?v=` across all pages after others finish, verifies responsive + no dashes + no overflow, prepares the deploy hand-off. |
+| **QA/Deploy** | cache-bust `?v=`, `TODO.md`, screenshots, merge to `main` | Runs LAST: bumps `?v=` across all pages after others finish, verifies responsive + no dashes + no overflow, then merges to `main` (which deploys live via Vercel). |
 
 **Coordination rules**
 - Only Content edits `content/menu.md` and runs the build; others never hand-edit
@@ -115,9 +120,9 @@ Decision: published now, always-on (no date-gate); **remove after 23 Dec** (see 
 - [x] **T3 · Surfacing** — `.festivo` callout band on `index.html` and `eventi.html`
   linking to `menu.html#festive` (+ phone booking). **Done when** the links open the
   festive tab.
-- [ ] **T4 · QA/Deploy** — responsive check 320→1280, confirm zero em/en dashes and
-  `?v=` bumped on all pages, add the post-season removal note to `TODO.md`, rebuild
-  the delivery zip and hand off for FunnelMcQueen deploy.
+- [x] **T4 · QA/Deploy** — responsive check 320→2560, zero em/en dashes, `?v=` bumped
+  on all pages, post-season removal note in `TODO.md`. Merged to `main` and live via
+  Vercel on 21 Oct 2026.
 
 **Tabs vs menus (21 Oct 2026):** the menu page has **5 tabs**: Festive · À la carte ·
 La Cantina · I Dolci · Brunch & Takeaway. A tab can hold several `# MENU:` blocks;

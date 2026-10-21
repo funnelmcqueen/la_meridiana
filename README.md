@@ -14,11 +14,16 @@ python3 -m http.server 8000   # → http://localhost:8000
 ```
 Relative `.html` links work locally; Vercel `cleanUrls` serves them as `/menu` etc.
 
-## Deploy to Vercel (no build)
-1. Put these files at the **root** of the repo you deploy.
-2. Vercel → New Project → import the repo → **Framework Preset: Other**, **no build command**, output = root.
-3. Deploy. `vercel.json` provides `cleanUrls`, `trailingSlash:false`, and the old-URL redirect map.
-   `npx vercel` from this folder also works.
+## Deploy (Vercel, automatic)
+**Pushing to `main` deploys the live site.** This repo is connected to Vercel
+(project `funnelmcqueen/la-meridiana`, preset "Other", no build command, served from
+the repo root). Every push to `main` goes to production at **lameridiana.co.uk**;
+pushes to other branches only get a preview URL.
+
+- Work on a branch, check it, then merge into `main`.
+- When `css/style.css`, `js/main.js` or `assets/js/sole.js` change, bump the `?v=`
+  cache-bust on every page (see `AGENTS.md`).
+- `vercel.json` provides `cleanUrls`, `trailingSlash:false`, and the old-URL redirect map.
 
 ## Design law (see CLAUDE.md)
 All colours live in `:root` in `css/style.css` — swap the placeholder greens/brass
