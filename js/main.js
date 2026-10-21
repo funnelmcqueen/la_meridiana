@@ -40,7 +40,10 @@
     entries.forEach(function(e){
       if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
     });
-  }, {threshold:.12, rootMargin:'0px 0px -6% 0px'});
+  // threshold 0 + bottom margin: reveal once the element's top is 12% up the screen.
+  // (A ratio threshold like .12 never fires for elements taller than ~8 screens,
+  //  e.g. the menu card, which then stayed invisible.)
+  }, {threshold:0, rootMargin:'0px 0px -12% 0px'});
   document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
 
   /* menu tabs */
