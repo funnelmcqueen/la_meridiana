@@ -69,8 +69,27 @@ note: (optional line under the section title, e.g. "to begin")
 
 ---
 
+## Format — set menus (Festive, Christmas Day, VIP...)
+
+Lines between `# MENU:` and the first `## SECTION:` are the menu's header: a `note:`
+line (dates, what's included) and price plaques (`- name:` + `price:`). Dishes inside
+a set menu have no price.
+
+```
+# MENU: Christmas Day
+note: 25 December · includes a glass of Champagne on arrival
+- name: Per Person
+  price: 94.95
+
+## SECTION: Antipasti
+- name: Tartare di Tonno Rosso
+  desc: Fresh hand cut red tuna tartare with avocado, soy and lime
+```
+
 ## Mapping to the site (for Claude Code)
-- `# MENU:` → a tab on the menu card (À la carte / La Cantina / I Dolci)
+- `# MENU:` → a menu. Menus are grouped into a short row of tabs by `TABS` in
+  `scripts/build-menu.py` (Festive / À la carte / La Cantina / I Dolci / Brunch & Takeaway).
+  In a tab with several menus, each menu gets a header with its name.
 - `## SECTION:` → a `.course` block with the sundial tick divider
 - Food items → `.dish` rows: name (+ tag superscript) · dotted leader · price, italic description below
 - Wine items → `.wine` rows: name + region line, glass/bottle price columns; `—` renders as an em dash

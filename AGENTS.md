@@ -68,9 +68,9 @@ Menus are generated, not hand-written into the page:
 - Each `# MENU: <Name>` block is a tab; `## SECTION: <Name>` is a course;
   `- name:` starts a dish (fields: `tags`, `desc`, `price`, `from`, `g175`,
   `g250`, `bottle`, `feature`). A `note:` line adds a section note.
-- Tab slugs come from the `SLUG` dict in `scripts/build-menu.py`; add an entry for
-  a clean deep-link (e.g. `"Festive Menu": "festive"` → `menu.html#festive`).
-- The first `# MENU:` block is the default-active tab.
+- Menu anchors come from the `SLUG` dict in `scripts/build-menu.py`; tabs come from
+  `TABS` in the same file (see "Tabs vs menus" below).
+- The first tab in `TABS` is the default-active tab.
 - Deep-links (`menu.html#festive`) work automatically via `fromHash()` in
   `js/main.js` — no JS change needed for a new tab.
 
@@ -119,14 +119,17 @@ Decision: published now, always-on (no date-gate); **remove after 23 Dec** (see 
   `?v=` bumped on all pages, add the post-season removal note to `TODO.md`, rebuild
   the delivery zip and hand off for FunnelMcQueen deploy.
 
-**Seasonal menus (added 21 Oct 2026):** besides the Festive Menu there are now
-`Christmas Day` (`#christmas`), `New Year's Eve` (`#newyear`) and `VIP Fish Menu`
-(`#vipfish`). All four share the festive pane CSS via
-`:is(#pane-festive,#pane-christmas,#pane-newyear,#pane-vipfish)`, and the
-`.festivo` band lists them in `.festivo__list`.
+**Tabs vs menus (21 Oct 2026):** the menu page has **5 tabs**: Festive · À la carte ·
+La Cantina · I Dolci · Brunch & Takeaway. A tab can hold several `# MENU:` blocks;
+the grouping is the `TABS` list in `scripts/build-menu.py`. Keep the tab row short:
+add a new menu to an existing tab rather than a new tab. In a shared tab each menu
+gets a header (`.menuhead`, `id="sec-<slug>"`), built from the menu-level `note:` and
+`- name/price` lines placed before its first `## SECTION:`. `menu.html#<slug>` opens
+the tab holding that menu and scrolls to it (`fromHash()` in `js/main.js`).
 
-**To remove them:** take each one down after its date (Festive 23 Dec, Christmas
-Day 25 Dec, VIP Fish 30 Dec, NYE 31 Dec). Delete its `# MENU:` block from
-`content/menu.md`, rerun the build, and remove its `<li>` from `.festivo__list` on
-`index.html` and `eventi.html`. After 31 Dec delete both `.festivo` `<section>`s.
-Bump `?v=` each time. Full checklist in `TODO.md`.
+**Seasonal menus:** the Festive tab holds Festive Menu, Christmas Day (`#christmas`),
+New Year's Eve (`#newyear`) and VIP Fish Menu (`#vipfish`). Take each down after its
+date (Festive 23 Dec, Christmas Day 25 Dec, VIP Fish 30 Dec, NYE 31 Dec): delete its
+`# MENU:` block, rerun the build, remove its `<li>` from `.festivo__list` on
+`index.html` and `eventi.html`. After 31 Dec delete both `.festivo` `<section>`s and the
+Festive entry in `TABS`. Bump `?v=` each time. Full checklist in `TODO.md`.

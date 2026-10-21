@@ -83,16 +83,11 @@
 
     <div class="tabs rv" role="tablist" aria-label="Menu sections">
       <!-- MENU:TABS:START -->
-      <button class="tab active" role="tab" aria-selected="true" data-pane="festive"><span class="sun"></span>Festive Menu</button>
-      <button class="tab" role="tab" aria-selected="false" data-pane="christmas"><span class="sun"></span>Christmas Day</button>
-      <button class="tab" role="tab" aria-selected="false" data-pane="newyear"><span class="sun"></span>New Year&#x27;s Eve</button>
-      <button class="tab" role="tab" aria-selected="false" data-pane="vipfish"><span class="sun"></span>VIP Fish Menu</button>
+      <button class="tab active" role="tab" aria-selected="true" data-pane="festive"><span class="sun"></span>Festive</button>
       <button class="tab" role="tab" aria-selected="false" data-pane="alacarte"><span class="sun"></span>À la carte</button>
-      <button class="tab" role="tab" aria-selected="false" data-pane="specials"><span class="sun"></span>Chef Specials</button>
       <button class="tab" role="tab" aria-selected="false" data-pane="cantina"><span class="sun"></span>La Cantina</button>
       <button class="tab" role="tab" aria-selected="false" data-pane="dolci"><span class="sun"></span>I Dolci</button>
-      <button class="tab" role="tab" aria-selected="false" data-pane="brunch"><span class="sun"></span>Sicilian Brunch</button>
-      <button class="tab" role="tab" aria-selected="false" data-pane="takeaway"><span class="sun"></span>Takeaway</button>
+      <button class="tab" role="tab" aria-selected="false" data-pane="brunchtakeaway"><span class="sun"></span>Brunch &amp; Takeaway</button>
       <!-- MENU:TABS:END -->
     </div>
 
@@ -104,14 +99,12 @@
       <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
       <!-- MENU:PANES:START -->
       <div class="pane active" id="pane-festive" role="tabpanel">
-        <div class="course">
-          <h3 class="course__title">Christmas at La Meridiana</h3>
-          <p class="course__note">16 November to 23 December · choose one dish per course</p>
-          <div style="margin-top:18px">
-            <div class="dish"><div class="dish__wrapline">
-              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Two Courses</span><span class="dish__lead"></span><span class="dish__price">31.95</span></div></div></div>
-            <div class="dish"><div class="dish__wrapline">
-              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Three Courses</span><span class="dish__lead"></span><span class="dish__price">38.95</span></div></div></div>
+        <div class="course menuhead" id="sec-festivemenu">
+          <h3 class="menuhead__title">Festive Menu</h3>
+          <p class="menuhead__note">16 November to 23 December · choose one dish per course</p>
+          <div class="menuhead__prices">
+            <div class="priceplaque"><span class="priceplaque__label">Two Courses</span><span class="priceplaque__price">£31.95</span></div>
+            <div class="priceplaque"><span class="priceplaque__label">Three Courses</span><span class="priceplaque__price">£38.95</span></div>
           </div>
         </div>
         <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
@@ -174,19 +167,11 @@
           </div>
         </div>
         <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
-        <div class="course">
-          <h3 class="course__title">Buon Natale</h3>
-          <p class="course__note">* Supplement may apply. Please tell us about any allergies: dishes may contain dairy, eggs, wheat, nuts, shellfish and other allergens, and the kitchen will look after you.</p>
-          <div style="margin-top:18px"></div>
-        </div>
-      </div>
-      <div class="pane" id="pane-christmas" role="tabpanel">
-        <div class="course">
-          <h3 class="course__title">Christmas Day</h3>
-          <p class="course__note">25 December · includes a glass of Champagne on arrival</p>
-          <div style="margin-top:18px">
-            <div class="dish"><div class="dish__wrapline">
-              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Per Person</span><span class="dish__lead"></span><span class="dish__price">94.95</span></div></div></div>
+        <div class="course menuhead" id="sec-christmas">
+          <h3 class="menuhead__title">Christmas Day</h3>
+          <p class="menuhead__note">25 December · includes a glass of Champagne on arrival</p>
+          <div class="menuhead__prices">
+            <div class="priceplaque"><span class="priceplaque__label">Per Person</span><span class="priceplaque__price">£94.95</span></div>
           </div>
         </div>
         <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
@@ -212,12 +197,8 @@
         </div>
         <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
         <div class="course">
-          <h3 class="course__title">Sorbetto</h3>
-          <div style="margin-top:18px"></div>
-        </div>
-        <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
-        <div class="course">
           <h3 class="course__title">Principali</h3>
+          <p class="course__note">after a sorbetto</p>
           <div style="margin-top:18px">
             <div class="dish"><div class="dish__wrapline">
               <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Tacchino di Natale</span><span class="dish__lead"></span><span class="dish__price"></span></div>
@@ -253,19 +234,11 @@
           </div>
         </div>
         <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
-        <div class="course">
-          <h3 class="course__title">Buon Natale</h3>
-          <p class="course__note">Your food prepared in our restaurant may contain allergens like dairy products, eggs, wheat, nuts, shell seafood and other allergens. If you have a food allergy, please notify your server.</p>
-          <div style="margin-top:18px"></div>
-        </div>
-      </div>
-      <div class="pane" id="pane-newyear" role="tabpanel">
-        <div class="course">
-          <h3 class="course__title">New Year&#x27;s Eve</h3>
-          <p class="course__note">31 December · includes a glass of Champagne on arrival</p>
-          <div style="margin-top:18px">
-            <div class="dish"><div class="dish__wrapline">
-              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Per Person</span><span class="dish__lead"></span><span class="dish__price">99.95</span></div></div></div>
+        <div class="course menuhead" id="sec-newyear">
+          <h3 class="menuhead__title">New Year&#x27;s Eve</h3>
+          <p class="menuhead__note">31 December · includes a glass of Champagne on arrival</p>
+          <div class="menuhead__prices">
+            <div class="priceplaque"><span class="priceplaque__label">Per Person</span><span class="priceplaque__price">£99.95</span></div>
           </div>
         </div>
         <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
@@ -291,12 +264,8 @@
         </div>
         <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
         <div class="course">
-          <h3 class="course__title">Sorbetto</h3>
-          <div style="margin-top:18px"></div>
-        </div>
-        <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
-        <div class="course">
           <h3 class="course__title">Principali</h3>
+          <p class="course__note">after a sorbetto</p>
           <div style="margin-top:18px">
             <div class="dish"><div class="dish__wrapline">
               <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Tagliolini Fresh Tartufo e Fondue&#x27;s</span><span class="dish__lead"></span><span class="dish__price"></span></div>
@@ -332,59 +301,46 @@
           </div>
         </div>
         <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
-        <div class="course">
-          <h3 class="course__title">Buon Anno</h3>
-          <p class="course__note">Your food prepared in our restaurant may contain allergens like dairy products, eggs, wheat, nuts, shell seafood and other allergens. If you have a food allergy, please notify your server.</p>
-          <div style="margin-top:18px"></div>
-        </div>
-      </div>
-      <div class="pane" id="pane-vipfish" role="tabpanel">
-        <div class="course">
-          <h3 class="course__title">VIP Fish Menu</h3>
-          <p class="course__note">By exclusive pre-order · five courses, a celebration of the sea, designed to share</p>
-          <div style="margin-top:18px">
-            <div class="dish"><div class="dish__wrapline">
-              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">For Two Guests</span><span class="dish__lead"></span><span class="dish__price">169</span></div></div></div>
+        <div class="course menuhead" id="sec-vipfish">
+          <h3 class="menuhead__title">VIP Fish Menu</h3>
+          <p class="menuhead__note">By exclusive pre-order, 16 November to 30 December · five courses, a celebration of the sea, designed to share</p>
+          <div class="menuhead__prices">
+            <div class="priceplaque"><span class="priceplaque__label">For Two Guests</span><span class="priceplaque__price">£169</span></div>
           </div>
         </div>
         <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
         <div class="course">
-          <h3 class="course__title">I · To Begin</h3>
-          <p class="course__note">Oysters, tuna and salmon tartare cocktail, king prawns and octopus salad with a lime, lemon, orange and ginger dressing, saffron mayonnaise</p>
-          <div style="margin-top:18px"></div>
+          <h3 class="course__title">Five Courses</h3>
+          <div style="margin-top:18px">
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">To Begin</span><span class="dish__lead"></span><span class="dish__price"></span></div>
+              <p class="dish__desc">Oysters, tuna and salmon tartare cocktail, king prawns and octopus salad with a lime, lemon, orange and ginger dressing, saffron mayonnaise</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Seafood Selection</span><span class="dish__lead"></span><span class="dish__price"></span></div>
+              <p class="dish__desc">Insalata di mare, gratinated mussels, octopus carpaccio, sea bass and salmon</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Tris of Fresh Pasta</span><span class="dish__lead"></span><span class="dish__price"></span></div>
+              <p class="dish__desc">Lobster and crab · King prawns with tomato pesto · Clams and mussels in a spicy sauce</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">From the Grill</span><span class="dish__lead"></span><span class="dish__price"></span></div>
+              <p class="dish__desc">Swordfish, tuna and salmon with a Sicilian salsa and sweet and sour vegetables</p></div></div>
+            <div class="dish"><div class="dish__wrapline">
+              <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">To Finish</span><span class="dish__lead"></span><span class="dish__price"></span></div>
+              <p class="dish__desc">The Chef&#x27;s selection of desserts</p></div></div>
+          </div>
         </div>
         <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
         <div class="course">
-          <h3 class="course__title">II · Seafood Selection</h3>
-          <p class="course__note">Insalata di mare, gratinated mussels, octopus carpaccio, sea bass and salmon</p>
-          <div style="margin-top:18px"></div>
-        </div>
-        <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
-        <div class="course">
-          <h3 class="course__title">III · Tris of Fresh Pasta</h3>
-          <p class="course__note">Lobster and crab · King prawns with tomato pesto · Clams and mussels in a spicy sauce</p>
-          <div style="margin-top:18px"></div>
-        </div>
-        <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
-        <div class="course">
-          <h3 class="course__title">IV · From the Grill</h3>
-          <p class="course__note">Swordfish, tuna and salmon with a Sicilian salsa and sweet and sour vegetables</p>
-          <div style="margin-top:18px"></div>
-        </div>
-        <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
-        <div class="course">
-          <h3 class="course__title">V · To Finish</h3>
-          <p class="course__note">The Chef&#x27;s selection of desserts</p>
-          <div style="margin-top:18px"></div>
-        </div>
-        <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
-        <div class="course">
-          <h3 class="course__title">Available by Pre-order Only</h3>
-          <p class="course__note">16 November to 30 December. Your food prepared in our restaurant may contain allergens like dairy products, eggs, wheat, nuts, shell seafood and other allergens. If you have a food allergy, please notify your server.</p>
+          <h3 class="course__title">Buon Natale</h3>
+          <p class="course__note">* Supplement may apply. Please tell us about any allergies: dishes may contain dairy, eggs, wheat, nuts, shellfish and other allergens, and the kitchen will look after you.</p>
           <div style="margin-top:18px"></div>
         </div>
       </div>
       <div class="pane" id="pane-alacarte" role="tabpanel">
+        <div class="course menuhead" id="sec-alacarte">
+          <h3 class="menuhead__title">À la carte</h3>
+        </div>
+        <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
         <div class="course">
           <h3 class="course__title">Antipasti</h3>
           <p class="course__note">starters</p>
@@ -624,8 +580,11 @@
               <div style="display:flex;align-items:baseline;gap:14px"><span class="dish__name">Bowl of Mixed Olives</span><span class="dish__lead"></span><span class="dish__price">4.50</span></div></div></div>
           </div>
         </div>
-      </div>
-      <div class="pane" id="pane-specials" role="tabpanel">
+        <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
+        <div class="course menuhead" id="sec-specials">
+          <h3 class="menuhead__title">Chef Specials</h3>
+        </div>
+        <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
         <div class="course">
           <h3 class="course__title">Antipasti</h3>
           <p class="course__note">starters</p>
@@ -846,7 +805,11 @@
           </div>
         </div>
       </div>
-      <div class="pane" id="pane-brunch" role="tabpanel">
+      <div class="pane" id="pane-brunchtakeaway" role="tabpanel">
+        <div class="course menuhead" id="sec-brunch">
+          <h3 class="menuhead__title">Sicilian Brunch</h3>
+        </div>
+        <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
         <div class="course">
           <h3 class="course__title">Menu Offer</h3>
           <p class="course__note">every day, 10am to 4pm · a Sicilian sharing table, served as trios</p>
@@ -988,8 +951,11 @@
               <p class="dish__desc">Girasoli, torteloni, ravioli, triangoli, quadroni, pappardelle, tagliolini</p></div></div>
           </div>
         </div>
-      </div>
-      <div class="pane" id="pane-takeaway" role="tabpanel">
+        <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
+        <div class="course menuhead" id="sec-takeaway">
+          <h3 class="menuhead__title">Takeaway</h3>
+        </div>
+        <div class="ticks" aria-hidden="true"><i></i><i></i><span class="sun"></span><i></i><i></i></div>
         <div class="course">
           <h3 class="course__title">How to order</h3>
           <p class="course__note">call 01483 284343 to order direct · also on Deliveroo &amp; Uber Eats</p>

@@ -60,14 +60,21 @@
   tabs.forEach(function(t){
     t.addEventListener('click', function(){ activateTab(t.dataset.pane); });
   });
-  /* deep-link support: menu.html#brunch / #takeaway opens that tab */
+  /* deep-link support: menu.html#festive opens that tab; menu.html#takeaway / #christmas
+     opens the tab holding that menu (its header has id="sec-<slug>") and scrolls to it */
   if(tabs.length){
     function fromHash(){
       var slug = (location.hash || '').replace('#','');
-      if(slug && document.getElementById('pane-' + slug)){
-        var t = activateTab(slug);
-        if(t) t.scrollIntoView({block:'nearest'});
+      if(!slug) return;
+      var pane = document.getElementById('pane-' + slug), sec = null;
+      if(!pane){
+        sec = document.getElementById('sec-' + slug);
+        pane = sec && sec.closest('.pane');
       }
+      if(!pane) return;
+      var t = activateTab(pane.id.replace('pane-', ''));
+      if(sec && pane.firstElementChild !== sec) sec.scrollIntoView({block:'start'});
+      else if(t) t.scrollIntoView({block:'nearest'});
     }
     fromHash();
     window.addEventListener('hashchange', fromHash);

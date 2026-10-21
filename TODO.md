@@ -16,32 +16,38 @@ It runs 16 Nov to 23 Dec. **After 23 Dec, take it down:**
 
 ## ⚠️ SEASONAL — Christmas Day, New Year's Eve, VIP Fish (added 21 Oct 2026)
 Three more seasonal menus from the client (WhatsApp PDFs: *Christmas Day Menu*,
-*New Year Menu*, *VIP Fish Menu*) are live as tabs right after the Festive Menu,
-in the same dark-green festive style. Deep links: `menu.html#christmas`,
-`#newyear`, `#vipfish`. The `.festivo` band on `index.html` and `eventi.html` now
-lists all four seasonal menus.
+*New Year Menu*, *VIP Fish Menu*) sit inside the **Festive** tab, after the Festive
+Menu, each with its own header (date + price). Deep links: `menu.html#christmas`,
+`#newyear`, `#vipfish`. The `.festivo` band on `index.html` and `eventi.html` lists
+all four.
 
-**Take down on these dates** (delete the `# MENU:` block in `content/menu.md`, run
-`python3 scripts/build-menu.py`, remove that menu's `<li>` from the `.festivo__list`
-on both pages, bump `?v=`):
+**Menu page tabs cut from 7 to 5** (21 Oct 2026, per FunnelMcQueen): Festive ·
+À la carte (now includes Chef Specials) · La Cantina · I Dolci · Brunch & Takeaway.
+Old links `#specials`, `#brunch`, `#takeaway` still work (they open the right tab and
+scroll to that menu). Tab grouping lives in `TABS` in `scripts/build-menu.py`.
+
+**Take down on these dates** (delete that `# MENU:` block in `content/menu.md`, run
+`python3 scripts/build-menu.py`, remove its `<li>` from `.festivo__list` on both
+pages, bump `?v=`):
 - [ ] After **23 Dec**: Festive Menu (see section above).
 - [ ] After **25 Dec**: Christmas Day.
 - [ ] After **30 Dec**: VIP Fish Menu.
-- [ ] After **31 Dec**: New Year's Eve, then delete both `.festivo` `<section>`s entirely.
+- [ ] After **31 Dec**: New Year's Eve, then delete both `.festivo` `<section>`s and
+      the `Festive` line in `TABS`.
 
 **Confirm with the client:**
 - [ ] NYE dish names transcribed exactly as printed, including **"Tagliolini Fresh
       Tartufo e Fondue's"** and **"Risottino allo Zafferano Lime e Pear"**. Confirm
       the spelling (the apostrophe and the English words look like typos).
+- [ ] The PDFs show a sorbetto between antipasti and principali; the site says
+      "after a sorbetto" under Principali. Confirm wording.
 - [ ] Christmas Day / NYE: the PDFs don't say "choose one dish per course", so the
       site doesn't either. Confirm whether to add it.
 - [ ] Christmas Day / NYE: no sitting times or deposit terms on the PDFs. Add if wanted.
 - [ ] VIP Fish Menu: "by pre-order only". How do guests pre-order (phone only?)
       and how much notice is needed? The band currently points to "Call to book".
-- [ ] "Sorbetto" (between antipasti and principali) is shown as a small interlude
-      line, as on the PDFs.
-- [ ] The existing Festive Menu (16 Nov to 23 Dec) is unchanged. Confirm the client
-      wants it kept alongside the new ones.
+- [ ] One shared allergy footnote now closes the Festive tab (the PDFs each carry the
+      same allergen line).
 - [ ] Optional: link the NYE menu from the 31 Dec "NYE DJ Ronnie O" night on the
       Eventi Live Music programme.
 

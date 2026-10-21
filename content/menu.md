@@ -14,10 +14,11 @@
 # Each file drives its own tab, built by scripts/build-menu.py.
 
 # MENU: Festive Menu
-# Seasonal set menu, live 16 Nov to 23 Dec. Published early and always-on;
-# REMOVE this whole block after 23 Dec and rerun the build (see TODO.md).
-
-## SECTION: Christmas at La Meridiana
+# ---- FESTIVE tab: four seasonal set menus, one after another (see TABS in scripts/build-menu.py).
+# Menu-level "note:" and "- name/price" lines (before the first SECTION) render as the
+# menu's header: title, note line and price plaques.
+# REMOVE each menu after its date and rerun the build (see TODO.md):
+#   Festive Menu after 23 Dec · Christmas Day after 25 Dec · VIP Fish after 30 Dec · New Year's Eve after 31 Dec
 note: 16 November to 23 December · choose one dish per course
 - name: Two Courses
   price: 31.95
@@ -56,14 +57,8 @@ note: choose one to finish
 - name: Profiterol
 - name: Torta dello Chef
 
-## SECTION: Buon Natale
-note: * Supplement may apply. Please tell us about any allergies: dishes may contain dairy, eggs, wheat, nuts, shellfish and other allergens, and the kitchen will look after you.
-
 # MENU: Christmas Day
-# Christmas Day set menu, 25 Dec only (La Meridiana - Christmas Day Menu.pdf).
-# REMOVE this whole block after 25 Dec and rerun the build (see TODO.md).
-
-## SECTION: Christmas Day
+# La Meridiana - Christmas Day Menu.pdf
 note: 25 December · includes a glass of Champagne on arrival
 - name: Per Person
   price: 94.95
@@ -80,9 +75,8 @@ note: 25 December · includes a glass of Champagne on arrival
 - name: Octopus Salad
   desc: Octopus salad with citrus, red potatoes, capers, olives and mini salad
 
-## SECTION: Sorbetto
-
 ## SECTION: Principali
+note: after a sorbetto
 - name: Tacchino di Natale
   desc: Traditional roast Christmas turkey with all the trimmings
 - name: Tortelloni all'Aragosta e Granchio
@@ -101,14 +95,8 @@ note: 25 December · includes a glass of Champagne on arrival
 - name: Panna Cotta ai Frutti di Bosco
 - name: Tiramisù al Pistacchio
 
-## SECTION: Buon Natale
-note: Your food prepared in our restaurant may contain allergens like dairy products, eggs, wheat, nuts, shell seafood and other allergens. If you have a food allergy, please notify your server.
-
 # MENU: New Year's Eve
-# New Year's Eve set menu, 31 Dec only (La Meridiana - New Year Menu.pdf).
-# REMOVE this whole block after 31 Dec and rerun the build (see TODO.md).
-
-## SECTION: New Year's Eve
+# La Meridiana - New Year Menu.pdf
 note: 31 December · includes a glass of Champagne on arrival
 - name: Per Person
   price: 99.95
@@ -125,9 +113,8 @@ note: 31 December · includes a glass of Champagne on arrival
 - name: Carpaccio di Branzino
   desc: Sea bass carpaccio with stracciatella di burrata and dill dressing
 
-## SECTION: Sorbetto
-
 ## SECTION: Principali
+note: after a sorbetto
 - name: Tagliolini Fresh Tartufo e Fondue's
   desc: Fresh tagliolini with truffle and taleggio fondue
 - name: Filetto di Manzo alla Montecarlo
@@ -146,35 +133,26 @@ note: 31 December · includes a glass of Champagne on arrival
 - name: Panna Cotta ai Frutti di Bosco
 - name: Tiramisù al Pistacchio
 
-## SECTION: Buon Anno
-note: Your food prepared in our restaurant may contain allergens like dairy products, eggs, wheat, nuts, shell seafood and other allergens. If you have a food allergy, please notify your server.
-
 # MENU: VIP Fish Menu
-# Sharing seafood menu for two, by pre-order, 16 Nov to 30 Dec (La Meridiana - VIP Fish Menu.pdf).
-# REMOVE this whole block after 30 Dec and rerun the build (see TODO.md).
-
-## SECTION: VIP Fish Menu
-note: By exclusive pre-order · five courses, a celebration of the sea, designed to share
+# La Meridiana - VIP Fish Menu.pdf
+note: By exclusive pre-order, 16 November to 30 December · five courses, a celebration of the sea, designed to share
 - name: For Two Guests
   price: 169
 
-## SECTION: I · To Begin
-note: Oysters, tuna and salmon tartare cocktail, king prawns and octopus salad with a lime, lemon, orange and ginger dressing, saffron mayonnaise
+## SECTION: Five Courses
+- name: To Begin
+  desc: Oysters, tuna and salmon tartare cocktail, king prawns and octopus salad with a lime, lemon, orange and ginger dressing, saffron mayonnaise
+- name: Seafood Selection
+  desc: Insalata di mare, gratinated mussels, octopus carpaccio, sea bass and salmon
+- name: Tris of Fresh Pasta
+  desc: Lobster and crab · King prawns with tomato pesto · Clams and mussels in a spicy sauce
+- name: From the Grill
+  desc: Swordfish, tuna and salmon with a Sicilian salsa and sweet and sour vegetables
+- name: To Finish
+  desc: The Chef's selection of desserts
 
-## SECTION: II · Seafood Selection
-note: Insalata di mare, gratinated mussels, octopus carpaccio, sea bass and salmon
-
-## SECTION: III · Tris of Fresh Pasta
-note: Lobster and crab · King prawns with tomato pesto · Clams and mussels in a spicy sauce
-
-## SECTION: IV · From the Grill
-note: Swordfish, tuna and salmon with a Sicilian salsa and sweet and sour vegetables
-
-## SECTION: V · To Finish
-note: The Chef's selection of desserts
-
-## SECTION: Available by Pre-order Only
-note: 16 November to 30 December. Your food prepared in our restaurant may contain allergens like dairy products, eggs, wheat, nuts, shell seafood and other allergens. If you have a food allergy, please notify your server.
+## SECTION: Buon Natale
+note: * Supplement may apply. Please tell us about any allergies: dishes may contain dairy, eggs, wheat, nuts, shellfish and other allergens, and the kitchen will look after you.
 
 # MENU: À la carte
 

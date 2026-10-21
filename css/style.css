@@ -1478,35 +1478,27 @@ body.true-noon .linea__noon{opacity:1;transform:translateY(-50%) translateX(0)}
    ============================================================ */
 /* special Christmas panel on menu.html: a dark green + brass set-menu,
    visually distinct from the cream à la carte panes */
-:is(#pane-festive,#pane-christmas,#pane-newyear,#pane-vipfish).active{
+#pane-festive.active{
   background:var(--green-deep);color:var(--cream);
   border:1px solid var(--brass);
   padding:clamp(30px,5vw,58px) clamp(18px,4vw,46px) clamp(34px,5vw,60px);
   margin-top:10px;position:relative;
 }
-:is(#pane-festive,#pane-christmas,#pane-newyear,#pane-vipfish).active::before,:is(#pane-festive,#pane-christmas,#pane-newyear,#pane-vipfish).active::after{
+#pane-festive.active::before,#pane-festive.active::after{
   content:"";position:absolute;left:18px;right:18px;height:1px;background:rgba(201,169,106,.4);
 }
-:is(#pane-festive,#pane-christmas,#pane-newyear,#pane-vipfish).active::before{top:16px}
-:is(#pane-festive,#pane-christmas,#pane-newyear,#pane-vipfish).active::after{bottom:16px}
-/* header (lead course = "Christmas at La Meridiana") */
-:is(#pane-festive,#pane-christmas,#pane-newyear,#pane-vipfish) .dish__lead,:is(#pane-festive,#pane-christmas,#pane-newyear,#pane-vipfish) .dish__price{display:none}
-:is(#pane-festive,#pane-christmas,#pane-newyear,#pane-vipfish) > .course:first-child{margin-top:8px;text-align:center;max-width:680px;margin-left:auto;margin-right:auto}
-:is(#pane-festive,#pane-christmas,#pane-newyear,#pane-vipfish) > .course:first-child > div{display:none}   /* empty items container of the lead */
-:is(#pane-festive,#pane-christmas,#pane-newyear,#pane-vipfish) > .course:first-child .course__title{color:var(--cream);font-size:clamp(30px,4.6vw,46px);letter-spacing:.03em}
-:is(#pane-festive,#pane-christmas,#pane-newyear,#pane-vipfish) > .course:first-child .course__note{
-  font-family:var(--serif);font-style:italic;line-height:1.5;color:var(--brass-hi);
-  font-size:clamp(17px,2.4vw,22px);margin-top:12px;
-}
+#pane-festive.active::before{top:16px}
+#pane-festive.active::after{bottom:16px}
+#pane-festive .dish__lead,#pane-festive .dish__price{display:none}
 /* courses + dishes on the dark ground */
-:is(#pane-festive,#pane-christmas,#pane-newyear,#pane-vipfish) .course__title{color:var(--brass-hi)}
-:is(#pane-festive,#pane-christmas,#pane-newyear,#pane-vipfish) .course__note{color:rgba(245,239,226,.7)}
-:is(#pane-festive,#pane-christmas,#pane-newyear,#pane-vipfish) .dish__name{color:var(--cream)}
-:is(#pane-festive,#pane-christmas,#pane-newyear,#pane-vipfish) .dish__desc{color:rgba(245,239,226,.72)}
-:is(#pane-festive,#pane-christmas,#pane-newyear,#pane-vipfish) .dish + .dish{border-top:1px dashed rgba(201,169,106,.22)}
+#pane-festive .course__title{color:var(--brass-hi)}
+#pane-festive .course__note{color:rgba(245,239,226,.7)}
+#pane-festive .dish__name{color:var(--cream)}
+#pane-festive .dish__desc{color:rgba(245,239,226,.72)}
+#pane-festive .dish + .dish{border-top:1px dashed rgba(201,169,106,.22)}
 /* make the Festive tab stand out in the tab row */
-.tab:is([data-pane="festive"],[data-pane="christmas"],[data-pane="newyear"],[data-pane="vipfish"]){color:var(--tomato)}
-.tab:is([data-pane="festive"],[data-pane="christmas"],[data-pane="newyear"],[data-pane="vipfish"]).active{color:var(--brass)}
+.tab[data-pane="festive"]{color:var(--tomato)}
+.tab[data-pane="festive"].active{color:var(--brass)}
 
 /* seasonal callout band (index.html + eventi.html) */
 .festivo__in{text-align:center;max-width:720px;margin:0 auto}
@@ -1527,40 +1519,25 @@ body.true-noon .linea__noon{opacity:1;transform:translateY(-50%) translateX(0)}
 .festivo__btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:26px}
 
 /* --- Christmas spirit: brass star ornaments (elegant, no emoji/kitsch) --- */
-:is(#pane-festive,#pane-christmas,#pane-newyear,#pane-vipfish) > .course:first-child::before,
+#pane-festive .menuhead::before,
 .festivo__in::before{
   content:"";display:block;width:36px;height:36px;margin:0 auto 16px;
   background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23C9A96A' d='M12 0C13 8 16 11 24 12 16 13 13 16 12 24 11 16 8 13 0 12 8 11 11 8 12 0Z'/%3E%3C/svg%3E") center/contain no-repeat;
 }
 /* festive dividers: a small brass star in place of the red sun-dot */
-:is(#pane-festive,#pane-christmas,#pane-newyear,#pane-vipfish) .ticks .sun{
+#pane-festive .ticks .sun{
   width:13px;height:13px;border-radius:0;background:
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23C9A96A' d='M12 0C13 8 16 11 24 12 16 13 13 16 12 24 11 16 8 13 0 12 8 11 11 8 12 0Z'/%3E%3C/svg%3E") center/contain no-repeat;
 }
-:is(#pane-festive,#pane-christmas,#pane-newyear,#pane-vipfish) .ticks i{background:rgba(201,169,106,.5)}
+#pane-festive .ticks i{background:rgba(201,169,106,.5)}
 
 /* --- Festive Revision 2: prominent set-price plaques, closing footnote, meridian overlap fix --- */
-/* two course-price plaques in the festive header (override the generic price-hide + hidden lead items) */
-:is(#pane-festive,#pane-christmas,#pane-newyear,#pane-vipfish) > .course:first-child > div{display:flex;justify-content:center;flex-wrap:wrap;gap:clamp(14px,3vw,30px);margin-top:22px}
-:is(#pane-festive,#pane-christmas,#pane-newyear,#pane-vipfish) > .course:first-child .dish{border:1px solid var(--brass);padding:14px 26px;margin:0}
-:is(#pane-festive,#pane-christmas,#pane-newyear,#pane-vipfish) > .course:first-child .dish + .dish{border-top:1px solid var(--brass)}
-:is(#pane-festive,#pane-christmas,#pane-newyear,#pane-vipfish) > .course:first-child .dish__wrapline > div{flex-direction:column;align-items:center;gap:6px}
-:is(#pane-festive,#pane-christmas,#pane-newyear,#pane-vipfish) > .course:first-child .dish__name{
-  color:var(--brass-hi);font-family:var(--sans);font-weight:600;
-  font-size:clamp(11px,1.8vw,13px);letter-spacing:.24em;text-transform:uppercase;white-space:nowrap;
-}
-:is(#pane-festive,#pane-christmas,#pane-newyear,#pane-vipfish) > .course:first-child .dish__lead{display:none}
-:is(#pane-festive,#pane-christmas,#pane-newyear,#pane-vipfish) > .course:first-child .dish__price{
-  display:inline;color:var(--cream);font-family:var(--serif);font-weight:600;
-  font-size:clamp(24px,3.4vw,34px);
-}
-:is(#pane-festive,#pane-christmas,#pane-newyear,#pane-vipfish) > .course:first-child .dish__price::before{content:"\00A3"}   /* £ */
 
 /* closing "Buon Natale" footnote (supplement + allergen) */
-:is(#pane-festive,#pane-christmas,#pane-newyear,#pane-vipfish) > .course:last-of-type{text-align:center;max-width:660px;margin-left:auto;margin-right:auto}
-:is(#pane-festive,#pane-christmas,#pane-newyear,#pane-vipfish) > .course:last-of-type > div{display:none}
-:is(#pane-festive,#pane-christmas,#pane-newyear,#pane-vipfish) > .course:last-of-type .course__title{color:var(--brass-hi);font-size:clamp(19px,2.4vw,24px)}
-:is(#pane-festive,#pane-christmas,#pane-newyear,#pane-vipfish) > .course:last-of-type .course__note{
+#pane-festive > .course:last-of-type{text-align:center;max-width:660px;margin-left:auto;margin-right:auto}
+#pane-festive > .course:last-of-type > div{display:none}
+#pane-festive > .course:last-of-type .course__title{color:var(--brass-hi);font-size:clamp(19px,2.4vw,24px)}
+#pane-festive > .course:last-of-type .course__note{
   font-size:12px;line-height:1.6;color:rgba(245,239,226,.62);letter-spacing:.02em;margin-top:8px;
 }
 
@@ -1569,25 +1546,33 @@ body.true-noon .linea__noon{opacity:1;transform:translateY(-50%) translateX(0)}
 @media(max-width:1400px){ .meridian .label{display:none} }
 
 /* ============================================================
-   SEASONAL SET MENUS 2026 (Christmas Day, New Year's Eve, VIP Fish)
-   Share the festive pane styling above via :is(). These rules add:
-   the Sorbetto interlude, the VIP course layout, and the
-   multi-menu list in the .festivo band.
+   MENU HEADERS (menu.html) — one per menu when a tab holds
+   several menus (Festive · À la carte + Chef Specials ·
+   Brunch & Takeaway). Built from the menu-level note: and
+   price lines in content/menu.md. :root tokens only.
    ============================================================ */
-/* "Sorbetto" palate-cleanser: a section with no dishes, shown as a quiet centred interlude */
-:is(#pane-christmas,#pane-newyear) .course:has(> div:empty){text-align:center}
-:is(#pane-christmas,#pane-newyear) .course:has(> div:empty) .course__title{
-  font-style:italic;font-size:clamp(20px,2.6vw,26px);color:var(--cream);
+.menuhead{text-align:center;max-width:680px;margin-left:auto;margin-right:auto}
+.menuhead__title{
+  font-family:var(--serif);font-weight:600;line-height:1.05;letter-spacing:.02em;
+  font-size:clamp(34px,5vw,52px);color:var(--green-deep);
 }
-/* VIP Fish: five shared courses, each a centred title + serif description */
-#pane-vipfish > .course:not(:first-child):not(:last-of-type){text-align:center;max-width:640px;margin-left:auto;margin-right:auto}
-#pane-vipfish > .course:not(:first-child):not(:last-of-type) > div{display:none}
-#pane-vipfish > .course:not(:first-child):not(:last-of-type) .course__note{
-  font-family:var(--serif);font-size:clamp(17px,2.2vw,21px);line-height:1.55;
-  color:var(--cream);letter-spacing:0;text-transform:none;margin-top:10px;
+.menuhead__note{
+  font-family:var(--serif);font-style:italic;line-height:1.5;color:var(--brass);
+  font-size:clamp(16px,2.2vw,20px);margin-top:10px;
 }
+.menuhead__prices{display:flex;justify-content:center;flex-wrap:wrap;gap:clamp(12px,3vw,26px);margin-top:20px}
+.priceplaque{display:flex;flex-direction:column;align-items:center;gap:6px;border:1px solid var(--brass);padding:14px 26px}
+.priceplaque__label{
+  font-family:var(--sans);font-weight:600;font-size:clamp(11px,1.8vw,13px);
+  letter-spacing:.24em;text-transform:uppercase;white-space:nowrap;color:var(--brass);
+}
+.priceplaque__price{font-family:var(--serif);font-weight:600;font-size:clamp(24px,3.4vw,34px);color:var(--green-deep)}
+/* on the dark festive pane */
+#pane-festive .menuhead__title{color:var(--cream)}
+#pane-festive .menuhead__note,#pane-festive .priceplaque__label{color:var(--brass-hi)}
+#pane-festive .priceplaque__price{color:var(--cream)}
 
-/* .festivo band: list of the season's menus */
+/* .festivo band: list of the season's menus (index.html + eventi.html) */
 .festivo__list{list-style:none;margin:26px auto 0;padding:0;max-width:560px;text-align:left}
 .festivo__list li{border-top:1px solid rgba(201,169,106,.3)}
 .festivo__list li:last-child{border-bottom:1px solid rgba(201,169,106,.3)}
