@@ -1588,3 +1588,18 @@ body.true-noon .linea__noon{opacity:1;transform:translateY(-50%) translateX(0)}
   .festivo__list a{flex-wrap:wrap;row-gap:2px}
   .festivo__list .d{order:3;flex-basis:100%}
 }
+
+/* very small phones (320 to 380px): logo + Book + burger must fit in one row */
+@media(max-width:380px){
+  .nav__in{gap:12px}
+  .nav__right{gap:8px}
+  .nav__book{padding:10px 13px;letter-spacing:.12em}
+}
+
+/* short screens (phones held sideways): burger-menu links must all fit, or scroll */
+@media(max-height:520px){
+  .mobilemenu{justify-content:flex-start;padding:92px 0 24px;overflow-y:auto;gap:2px}
+  .mobilemenu a{font-size:26px;padding:6px 10px}
+  .mobilemenu .hand{font-size:32px;margin-bottom:2px}
+}
+@media(max-height:360px){ .mobilemenu .hand{display:none} }

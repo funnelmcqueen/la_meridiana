@@ -42,7 +42,7 @@ family-run Italian restaurant in East Horsley, Surrey.
 **Cache-busting**
 - All pages load `css/style.css`, `js/main.js`, `assets/js/sole.js` with a shared
   `?v=YYYYMMDD` query. **Whenever any of those three files changes, bump the `?v=`
-  on every page** (currently `?v=20261021`) or browsers serve the stale cached copy.
+  on every page** (currently `?v=20261021f`) or browsers serve the stale cached copy.
 
 **Assets**
 - Images are local WebP with `width`/`height` + `loading="lazy"` (hero eager),

@@ -363,10 +363,11 @@
     }, {passive:true});
   }
 
-  /* gallery lightbox */
+  /* gallery lightbox (home page only; skip on pages without it so the rest of this file still runs) */
   var lb = document.getElementById('lb');
   var lbImg = document.getElementById('lbImg');
   var lbCap = document.getElementById('lbCap');
+  if(lb && lbImg){
   function closeLb(){ lb.classList.remove('open'); document.body.style.overflow=''; }
   document.querySelectorAll('.gal__item').forEach(function(fig){
     fig.addEventListener('click', function(){
@@ -380,9 +381,11 @@
       document.body.style.overflow = 'hidden';
     });
   });
-  document.getElementById('lbClose').addEventListener('click', closeLb);
+  var lbClose = document.getElementById('lbClose');
+  if(lbClose) lbClose.addEventListener('click', closeLb);
   lb.addEventListener('click', function(e){ if(e.target === lb) closeLb(); });
   document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeLb(); });
+  }
 
   /* marquee — duplicate track for seamless loop, then feed it live sun times */
   var track = document.getElementById('marqueeTrack');
